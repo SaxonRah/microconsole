@@ -45,6 +45,19 @@ rather than downloading the identical nested Raylib checkout twice.
 .\mc.bat run pico max98357a swd
 ```
 
+For an apples-to-apples DOS renderer/audio comparison, run the same 1024-sprite
+workload with and without MicroWave enabled:
+
+```bat
+.\mc.bat run dos /sprites 1024 /frames 2100 /noaudio
+.\mc.bat run dos /sprites 1024 /frames 2100
+```
+
+The DOS combined build intentionally mirrors MicroRender's optimized stress
+codegen (`-2 -ox -s`, RGB565/no-int64 flags) and uses the cheap BIOS tick counter
+for in-loop FPS updates. The PIT microsecond timer is only sampled at benchmark
+boundaries. `/noaudio` skips Sound Blaster initialization and servicing entirely.
+
 Other Pico I2S sinks:
 
 ```bat

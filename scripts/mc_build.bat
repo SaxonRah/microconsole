@@ -51,7 +51,8 @@ set "PATH=%WATCOM%\binnt64;%WATCOM%\binnt;%WATCOM%\binw;%PATH%"
 set "INCLUDE=%WATCOM%\h;%WATCOM%\h\nt"
 where wcl >nul 2>nul || (echo ERROR: wcl.exe not found under %WATCOM%.& exit /b 1)
 echo === 16-bit DOS combined demo ===
-wcl -ml -0 -ox -bt=dos -fe=build-dos\MCDEMO.EXE ^
+wcl -q -bt=dos -ml -2 -ox -s -w4 -fe=build-dos\MCDEMO.EXE ^
+  -dGFX_FIXED_NO_INT64 -dGFX_COLOR_INDEX8=0 -dGFX_ENABLE_TRIANGLES=1 ^
   -dMR_STRESS_MAX_SPRITES=1024 -dMR_STRESS_DEFAULT_SPRITES=1024 ^
   -dMR_STRESS_FAST_METRICS=1 -dMR_STRESS_ENABLE_TRIANGLES=1 ^
   -i=third_party\microrender\shared\src ^

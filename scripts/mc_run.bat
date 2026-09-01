@@ -41,16 +41,51 @@ if not defined DOSBOX for %%E in (dosbox-x.exe dosbox.exe DOSBox.exe) do if not 
 if not defined DOSBOX if exist "%ProgramFiles%\DOSBox-0.74-3\DOSBox.exe" set "DOSBOX=%ProgramFiles%\DOSBox-0.74-3\DOSBox.exe"
 if not defined DOSBOX if exist "%ProgramFiles(x86)%\DOSBox-0.74-3\DOSBox.exe" set "DOSBOX=%ProgramFiles(x86)%\DOSBox-0.74-3\DOSBox.exe"
 if not defined DOSBOX (echo ERROR: DOSBox not found.& exit /b 1)
+
+rem Keep the emulator environment identical to MicroRender's standalone DOS
+rem benchmark. Mode X is materially slower through some SVGA compatibility
+rem paths, and DOSBox's dynamic core is much faster than the normal core for
+rem this renderer workload.
 if "%MC_DOSBOX_CYCLES%"=="" set "MC_DOSBOX_CYCLES=max"
 set "MC_DOS_ARGS="
 :dos_run_args
 if "%~1"=="" goto dos_launch
+rem DOS arguments used by this demo contain no spaces; do not add literal
+rem quote characters to the DOS command tail.
 set "MC_DOS_ARGS=!MC_DOS_ARGS! %~1"
 shift /1
 goto dos_run_args
+
 :dos_launch
-start "" /wait "!DOSBOX!" -c "config -set cpu cycles=%MC_DOSBOX_CYCLES%" -c "mount c build-dos" -c "c:" -c "set BLASTER=A220 I7 D1" -c "MCDEMO.EXE !MC_DOS_ARGS!" -c "exit"
-exit /b !ERRORLEVEL!
+set "CONF=%TEMP%\microconsole_%RANDOM%.conf"
+> "%CONF%" echo [dosbox]
+>>"%CONF%" echo machine=vgaonly
+>>"%CONF%" echo [sdl]
+>>"%CONF%" echo autolock=false
+>>"%CONF%" echo [cpu]
+>>"%CONF%" echo core=dynamic
+>>"%CONF%" echo cycles=%MC_DOSBOX_CYCLES%
+>>"%CONF%" echo [render]
+>>"%CONF%" echo frameskip=0
+>>"%CONF%" echo aspect=false
+>>"%CONF%" echo [autoexec]
+>>"%CONF%" echo mount c "%MC_ROOT%\build-dos"
+>>"%CONF%" echo c:
+>>"%CONF%" echo set BLASTER=A220 I7 D1
+>>"%CONF%" echo echo MicroConsole: MCDEMO.EXE !MC_DOS_ARGS!  [cycles=%MC_DOSBOX_CYCLES%]
+>>"%CONF%" echo MCDEMO.EXE !MC_DOS_ARGS!
+>>"%CONF%" echo echo.
+if not "%MC_DOSBOX_NOPAUSE%"=="1" (
+  >>"%CONF%" echo echo Finished. Press any key to close DOSBox.
+  >>"%CONF%" echo pause
+)
+>>"%CONF%" echo exit
+
+echo Launching MCDEMO.EXE !MC_DOS_ARGS! ^(cycles=%MC_DOSBOX_CYCLES%, machine=vgaonly, core=dynamic^)
+start "" /wait "%DOSBOX%" -conf "%CONF%"
+set "RC=%ERRORLEVEL%"
+del "%CONF%" >nul 2>nul
+exit /b %RC%
 
 :pico
 set "DEVICE=%~1"
