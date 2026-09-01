@@ -1,3 +1,9 @@
+/*
+ * Desktop reference frontend for the combined MicroRender + MicroWave load.
+ *
+ * MicroRender produces RGB565 into a full 320x240 buffer; alternating 8-row
+ * groups are uploaded to a Raylib texture while MicroWave feeds AudioStream.
+ */
 #include "raylib.h"
 #include "gfx.h"
 #include "mr_stress_test.h"

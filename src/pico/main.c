@@ -1,3 +1,11 @@
+/*
+ * Pico 2 combined frontend.
+ *
+ * Core 0 renders MicroRender and refills MicroWave audio. Core 1 presents
+ * alternating ILI9341 row groups. LCD and I2S each claim an unused DMA channel;
+ * I2S runs on PIO1 SM0. The validated baseline is 300 MHz clk_sys, 75 MHz LCD
+ * SPI, 8-row lace, stable ILI9341 RTNA 0x1B, and 32 kHz I2S audio.
+ */
 #include "gfx.h"
 #include "mr_pico_ili9341.h"
 #include "mr_stress_test.h"

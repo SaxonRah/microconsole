@@ -105,15 +105,26 @@ echo clean.
 exit /b 0
 
 :help
-echo MicroConsole Demo - MicroRender + MicroWave together
+echo MicroConsole - MicroRender + MicroWave integration
 echo.
+echo Setup:
 echo   .\mc.bat deps
+echo.
+echo Build/run:
 echo   .\mc.bat build raylib
 echo   .\mc.bat run raylib
 echo   .\mc.bat build dos
-echo   .\mc.bat run dos
+echo   .\mc.bat run dos [/sprites N] [/frames N] [/noaudio]
 echo   .\mc.bat build pico max98357a ^| pcm5102a ^| ns4168
 echo   .\mc.bat run pico [device] [swd^|picotool^|manual]
+echo.
+echo DOS parity diagnostics:
+echo   .\mc.bat run dosref /sprites 1024 /frames 2100
+echo   .\mc.bat run dosgfx /sprites 1024 /frames 2100
+echo.
+echo Maintenance:
 echo   .\mc.bat clean
+echo.
+echo See README.md and docs\BUILDING.md for full documentation.
 echo.
 exit /b 0

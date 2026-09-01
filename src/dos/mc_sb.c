@@ -1,3 +1,11 @@
+/*
+ * Minimal Sound Blaster transport for the DOS integration demo.
+ *
+ * MicroWave owns mixing/music. This file only adapts its 512-sample blocks to
+ * an 11.025 kHz unsigned-8-bit Sound Blaster auto-init DMA double buffer. The
+ * current service model polls DMA position once per graphics frame; see
+ * docs/ARCHITECTURE.md before turning this into a general DOS audio backend.
+ */
 #include "mc_sb.h"
 #include "mw_music_demo.h"
 #include "snd.h"

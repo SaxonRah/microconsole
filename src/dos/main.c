@@ -1,3 +1,11 @@
+/*
+ * MicroConsole DOS frontend.
+ *
+ * MC_DOS_AUDIO=0 builds the graphics-only MCGFX parity executable;
+ * MC_DOS_AUDIO=1 builds the combined MCDEMO executable. Both use the same
+ * separately compiled MicroRender objects as MCREF so performance comparisons
+ * are meaningful under Open Watcom's 16-bit large memory model.
+ */
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -114,7 +122,7 @@ int main(int argc, char **argv) {
             if (n > 32767ul) n = 32767ul;
             cfg.stats_sample_rate = (int)n;
         } else if (argv[i][0] >= '0' && argv[i][0] <= '9') {
-            /* Keep the r1-r6 positional frame-count form working. */
+            /* Keep the original positional frame-count form working. */
             frame_limit = strtoul(argv[i], NULL, 10);
         }
     }
