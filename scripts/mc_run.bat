@@ -7,8 +7,10 @@ shift /1
 
 if /i "%WHAT%"=="raylib" goto raylib
 if /i "%WHAT%"=="dos" goto dos
+if /i "%WHAT%"=="dosgfx" goto dosgfx
+if /i "%WHAT%"=="dosref" goto dosref
 if /i "%WHAT%"=="pico" goto pico
-echo ERROR: run target must be raylib, dos, or pico.
+echo ERROR: run target must be raylib, dos, dosgfx, dosref, or pico.
 exit /b 1
 
 :raylib
@@ -34,7 +36,19 @@ goto raylib_run_args
 exit /b !ERRORLEVEL!
 
 :dos
-if not exist build-dos\MCDEMO.EXE call "%MC_ROOT%\scripts\mc_build.bat" dos || exit /b 1
+set "MC_DOS_EXE=MCDEMO.EXE"
+goto dos_common
+
+:dosgfx
+set "MC_DOS_EXE=MCGFX.EXE"
+goto dos_common
+
+:dosref
+set "MC_DOS_EXE=MCREF.EXE"
+goto dos_common
+
+:dos_common
+if not exist build-dos\!MC_DOS_EXE! call "%MC_ROOT%\scripts\mc_build.bat" dos || exit /b 1
 set "DOSBOX="
 if not "%DOSBOX_EXE%"=="" if exist "%DOSBOX_EXE%" set "DOSBOX=%DOSBOX_EXE%"
 if not defined DOSBOX for %%E in (dosbox-x.exe dosbox.exe DOSBox.exe) do if not defined DOSBOX for /f "delims=" %%P in ('where %%E 2^>nul') do if not defined DOSBOX set "DOSBOX=%%P"
@@ -72,8 +86,8 @@ set "CONF=%TEMP%\microconsole_%RANDOM%.conf"
 >>"%CONF%" echo mount c "%MC_ROOT%\build-dos"
 >>"%CONF%" echo c:
 >>"%CONF%" echo set BLASTER=A220 I7 D1
->>"%CONF%" echo echo MicroConsole: MCDEMO.EXE !MC_DOS_ARGS!  [cycles=%MC_DOSBOX_CYCLES%]
->>"%CONF%" echo MCDEMO.EXE !MC_DOS_ARGS!
+>>"%CONF%" echo echo MicroConsole: !MC_DOS_EXE! !MC_DOS_ARGS!  [cycles=%MC_DOSBOX_CYCLES%]
+>>"%CONF%" echo !MC_DOS_EXE! !MC_DOS_ARGS!
 >>"%CONF%" echo echo.
 if not "%MC_DOSBOX_NOPAUSE%"=="1" (
   >>"%CONF%" echo echo Finished. Press any key to close DOSBox.
@@ -81,7 +95,7 @@ if not "%MC_DOSBOX_NOPAUSE%"=="1" (
 )
 >>"%CONF%" echo exit
 
-echo Launching MCDEMO.EXE !MC_DOS_ARGS! ^(cycles=%MC_DOSBOX_CYCLES%, machine=vgaonly, core=dynamic^)
+echo Launching !MC_DOS_EXE! !MC_DOS_ARGS! ^(cycles=%MC_DOSBOX_CYCLES%, machine=vgaonly, core=dynamic^)
 start "" /wait "%DOSBOX%" -conf "%CONF%"
 set "RC=%ERRORLEVEL%"
 del "%CONF%" >nul 2>nul

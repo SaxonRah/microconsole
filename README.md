@@ -107,6 +107,35 @@ This is not a new renderer or mixer. It is the first combined "console" load:
 
 On Pico the preset is intentionally modeled on the fast stress-lace setup:
 1024 sprites, 300 MHz system clock, 75 MHz LCD SPI, 8-row alternating lace
-blocks, and the ILI9341 0x10 frame-rate setting. The previous standalone result
-was about 110 FPS; the combined demo reports the actual rate so the cost of
-continuous audio is measurable rather than assumed.
+blocks, and the stable ILI9341 0x1B (~70 Hz) panel scan setting. The combined
+Pico demo has now been measured at about 110 FPS while MicroWave audio runs
+continuously.
+
+## DOS parity diagnostics
+
+The DOS build emits three executables from one shared set of MicroRender object
+files. This keeps the comparison honest on Open Watcom's 16-bit large model:
+
+- `MCREF.EXE` — exact upstream MicroRender `dos_stress_app.c`; no MicroWave.
+- `MCGFX.EXE` — MicroConsole's DOS loop with audio compiled out and not linked.
+- `MCDEMO.EXE` — the real combined MicroRender + MicroWave program.
+
+Build once:
+
+```powershell
+.\mc.bat build dos
+```
+
+Then compare the same 1024-sprite workload:
+
+```powershell
+.\mc.bat run dosref /sprites 1024 /frames 2100
+.\mc.bat run dosgfx /sprites 1024 /frames 2100
+.\mc.bat run dos /sprites 1024 /frames 2100 /noaudio
+.\mc.bat run dos /sprites 1024 /frames 2100
+```
+
+`dosref` and `dosgfx` should be close. If `dosref` is fast and `dosgfx` is not,
+the remaining cost is in the MicroConsole frontend loop. If both are fast but
+`MCDEMO /noaudio` is slow, simply linking the audio subsystem changes the
+16-bit program enough to matter and the map/segment layout is the next target.

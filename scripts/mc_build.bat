@@ -44,32 +44,58 @@ if "%WATCOM%"=="" (
     exit /b 1
 )
 if not exist build-dos mkdir build-dos
-rem Follow MicroWave's known-good Open Watcom 1.9 setup: put the toolchain on
-rem PATH and invoke the driver by name. Invoking an absolute quoted wcl.exe
-rem path makes some OW 1.9 installs pass argv[0] through as a source filename.
+if not exist build-dos\obj mkdir build-dos\obj
 set "PATH=%WATCOM%\binnt64;%WATCOM%\binnt;%WATCOM%\binw;%PATH%"
 set "INCLUDE=%WATCOM%\h;%WATCOM%\h\nt"
+where wcc >nul 2>nul || (echo ERROR: wcc.exe not found under %WATCOM%.& exit /b 1)
 where wcl >nul 2>nul || (echo ERROR: wcl.exe not found under %WATCOM%.& exit /b 1)
+
 echo === 16-bit DOS combined demo ===
-wcl -q -bt=dos -ml -2 -ox -s -w4 -fe=build-dos\MCDEMO.EXE ^
-  -dGFX_FIXED_NO_INT64 -dGFX_COLOR_INDEX8=0 -dGFX_ENABLE_TRIANGLES=1 ^
-  -dMR_STRESS_MAX_SPRITES=1024 -dMR_STRESS_DEFAULT_SPRITES=1024 ^
-  -dMR_STRESS_FAST_METRICS=1 -dMR_STRESS_ENABLE_TRIANGLES=1 ^
-  -i=third_party\microrender\shared\src ^
-  -i=third_party\microrender\microrender_dos\dos ^
-  -i=third_party\microwave\shared\src ^
-  src\dos\main.c src\dos\mc_sb.c ^
-  third_party\microrender\microrender_dos\dos\dos_vga.c ^
-  third_party\microrender\shared\src\gfx.c ^
-  third_party\microrender\shared\src\gfx_font5x7.c ^
-  third_party\microrender\shared\src\gfx_triangle.c ^
-  third_party\microrender\shared\src\gfx_rgb444.c ^
-  third_party\microrender\shared\src\mr_stress_test.c ^
-  third_party\microrender\shared\src\mr_strbuf.c ^
-  third_party\microwave\shared\src\snd.c ^
-  third_party\microwave\shared\src\snd_synth.c ^
-  third_party\microwave\shared\src\snd_seq.c ^
-  third_party\microwave\shared\src\mw_music_demo.c || exit /b 1
+rem Keep the renderer objects byte-for-byte comparable with MicroRender's
+rem standalone build_watcom_stress.bat. Do not add MicroConsole-only renderer
+rem defines here: all three DOS binaries below share these exact objects.
+set "MC_CFLAGS=-q -bt=dos -ml -2 -ox -s -w4 -dGFX_FIXED_NO_INT64 -dGFX_COLOR_INDEX8=0 -dGFX_ENABLE_TRIANGLES=1 -dMR_STRESS_MAX_SPRITES=1024 -dMR_DOS_TILE_H=16 -dMR_DOS_VSYNC=0 -dMR_DOS_PRESENT_MODE=1"
+set "MC_INCLUDES=-i=third_party\microrender\shared\src -i=third_party\microrender\microrender_dos\dos -i=third_party\microwave\shared\src"
+set "MC_OBJ=build-dos\obj"
+
+echo [dos] compiling shared MicroRender objects...
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\gfx.obj third_party\microrender\shared\src\gfx.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\gfx_font5x7.obj third_party\microrender\shared\src\gfx_font5x7.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\gfx_triangle.obj third_party\microrender\shared\src\gfx_triangle.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\mr_stress_test.obj third_party\microrender\shared\src\mr_stress_test.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\mr_strbuf.obj third_party\microrender\shared\src\mr_strbuf.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\dos_vga.obj third_party\microrender\microrender_dos\dos\dos_vga.c || exit /b 1
+
+echo [dos] compiling three frontends for A/B isolation...
+rem Exact upstream frontend, but linked from the same renderer objects as the
+rem combined program. This should reproduce mstress.exe performance.
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\mcref_main.obj third_party\microrender\microrender_dos\dos\dos_stress_app.c || exit /b 1
+rem MicroConsole loop with every audio reference removed at preprocessing time.
+wcc %MC_CFLAGS% %MC_INCLUDES% -dMC_DOS_AUDIO=0 -fo=%MC_OBJ%\mcgfx_main.obj src\dos\main.c || exit /b 1
+rem Real combined frontend.
+wcc %MC_CFLAGS% %MC_INCLUDES% -dMC_DOS_AUDIO=1 -fo=%MC_OBJ%\mcdemo_main.obj src\dos\main.c || exit /b 1
+
+echo [dos] compiling MicroWave/Sound Blaster objects...
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\mc_sb.obj src\dos\mc_sb.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\snd.obj third_party\microwave\shared\src\snd.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\snd_synth.obj third_party\microwave\shared\src\snd_synth.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\snd_seq.obj third_party\microwave\shared\src\snd_seq.c || exit /b 1
+wcc %MC_CFLAGS% %MC_INCLUDES% -fo=%MC_OBJ%\mw_music_demo.obj third_party\microwave\shared\src\mw_music_demo.c || exit /b 1
+
+set "MC_RENDER_OBJS=%MC_OBJ%\gfx.obj %MC_OBJ%\gfx_font5x7.obj %MC_OBJ%\gfx_triangle.obj %MC_OBJ%\mr_strbuf.obj %MC_OBJ%\dos_vga.obj %MC_OBJ%\mr_stress_test.obj"
+set "MC_AUDIO_OBJS=%MC_OBJ%\mc_sb.obj %MC_OBJ%\snd.obj %MC_OBJ%\snd_synth.obj %MC_OBJ%\snd_seq.obj %MC_OBJ%\mw_music_demo.obj"
+
+echo [dos] linking MCREF.EXE ^(exact upstream frontend^) ...
+wcl -q -bt=dos -ml -fe=build-dos\MCREF.EXE %MC_OBJ%\mcref_main.obj %MC_RENDER_OBJS% || exit /b 1
+
+echo [dos] linking MCGFX.EXE ^(MicroConsole loop, no audio code^) ...
+wcl -q -bt=dos -ml -fe=build-dos\MCGFX.EXE %MC_OBJ%\mcgfx_main.obj %MC_RENDER_OBJS% || exit /b 1
+
+echo [dos] linking MCDEMO.EXE ^(MicroRender + MicroWave^) ...
+wcl -q -bt=dos -ml -fe=build-dos\MCDEMO.EXE %MC_OBJ%\mcdemo_main.obj %MC_RENDER_OBJS% %MC_AUDIO_OBJS% || exit /b 1
+
+echo built build-dos\MCREF.EXE
+echo built build-dos\MCGFX.EXE
 echo built build-dos\MCDEMO.EXE
 exit /b 0
 

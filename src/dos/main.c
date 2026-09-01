@@ -6,7 +6,14 @@
 #include "gfx.h"
 #include "mr_stress_test.h"
 #include "dos_vga.h"
+
+#ifndef MC_DOS_AUDIO
+#define MC_DOS_AUDIO 1
+#endif
+
+#if MC_DOS_AUDIO
 #include "mc_sb.h"
+#endif
 
 #define MC_W 320
 #define MC_H 240
@@ -62,7 +69,7 @@ int main(int argc, char **argv) {
     int i;
 
     frame_limit = MC_DEFAULT_FRAMES;
-    audio_enabled = 1;
+    audio_enabled = MC_DOS_AUDIO ? 1 : 0;
 
     mr_stress_config_defaults(&cfg, MC_W, MC_H);
     cfg.sprite_count = MC_DEFAULT_SPRITES;
@@ -123,12 +130,16 @@ int main(int argc, char **argv) {
     printf("Press ESC during the run to stop early.\n");
 
     audio_ok = 0;
+#if MC_DOS_AUDIO
     if (audio_enabled) {
         audio_ok = mc_sb_init();
         if (!audio_ok) {
             printf("WARNING: Sound Blaster init failed; graphics will still run.\n");
         }
     }
+#else
+    (void)audio_enabled;
+#endif
 
     dos_vga_enter();
 
@@ -157,7 +168,9 @@ int main(int argc, char **argv) {
         /* One DMA-position poll per graphics frame.  At the expected renderer
            rate this checks the 46 ms Sound Blaster half-buffer several times
            before it changes, without doing redundant ISA I/O twice per frame. */
+#if MC_DOS_AUDIO
         if (audio_ok) mc_sb_service();
+#endif
 
         mr_stress_tick(&g_stress);
         gfx_render_tiled_no_clear(&g_renderer, draw_stress, &g_stress);
@@ -181,10 +194,16 @@ int main(int argc, char **argv) {
 
     end_us = dos_vga_micros();
     elapsed_us = end_us - start_us;
+#if MC_DOS_AUDIO
     audio_frames = audio_ok ? mc_sb_frames() : 0ul;
+#else
+    audio_frames = 0ul;
+#endif
 
     dos_vga_leave();
+#if MC_DOS_AUDIO
     if (audio_ok) mc_sb_shutdown();
+#endif
 
     printf("done: frames=%lu elapsed=%.3f s avg=%.2f fps audio_frames=%lu\n",
            frames,
