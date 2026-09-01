@@ -1,0 +1,16 @@
+build-*/
+pico/build*/
+*.obj
+*.o
+*.exe
+*.elf
+*.uf2
+*.map
+*.bin
+*.hex
+*.dis
+*.wav
+.vscode/
+
+__pycache__/
+*.pyc

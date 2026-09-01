@@ -1,0 +1,6 @@
+[submodule "third_party/microrender"]
+    path = third_party/microrender
+    url = https://github.com/SaxonRah/microrender.git
+[submodule "third_party/microwave"]
+    path = third_party/microwave
+    url = https://github.com/SaxonRah/microwave.git

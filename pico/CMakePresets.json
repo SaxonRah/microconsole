@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "max98357a",
+      "displayName": "Pico 2 combined demo - MAX98357A",
+      "binaryDir": "${sourceDir}/build-max98357a",
+      "generator": "Ninja",
+      "cacheVariables": { "MC_AUDIO_DEVICE": "MAX98357A" }
+    },
+    {
+      "name": "pcm5102a",
+      "inherits": "max98357a",
+      "displayName": "Pico 2 combined demo - PCM5102A",
+      "binaryDir": "${sourceDir}/build-pcm5102a",
+      "cacheVariables": { "MC_AUDIO_DEVICE": "PCM5102A" }
+    },
+    {
+      "name": "ns4168",
+      "inherits": "max98357a",
+      "displayName": "Pico 2 combined demo - NS4168",
+      "binaryDir": "${sourceDir}/build-ns4168",
+      "cacheVariables": { "MC_AUDIO_DEVICE": "NS4168" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "max98357a", "configurePreset": "max98357a" },
+    { "name": "pcm5102a", "configurePreset": "pcm5102a" },
+    { "name": "ns4168", "configurePreset": "ns4168" }
+  ]
+}
