@@ -21,6 +21,7 @@
 #define MC_SCALE 3
 #define MC_AUDIO_RATE 32000
 #define MC_AUDIO_BLOCK 512
+#define MC_VOLUME_STEP 5
 
 static gfx_renderer_t g_renderer;
 static mr_stress_test_t g_stress;
@@ -75,7 +76,27 @@ static void present_lace(Texture2D texture, unsigned long frame) {
     }
 }
 
-int main(void) {
+static int parse_volume(int argc, char **argv) {
+    int i;
+    int volume = 100;
+    for (i = 1; i < argc; ++i) {
+        if (strcmp(argv[i], "--volume") == 0 && i + 1 < argc) {
+            volume = atoi(argv[++i]);
+            if (volume < 0) volume = 0;
+            if (volume > 100) volume = 100;
+        } else if (strcmp(argv[i], "--help") == 0) {
+            printf("usage: %s [--volume 0..100]\n", argv[0]);
+            return -1;
+        } else {
+            printf("unknown argument: %s\n", argv[i]);
+            printf("usage: %s [--volume 0..100]\n", argv[0]);
+            return -2;
+        }
+    }
+    return volume;
+}
+
+int main(int argc, char **argv) {
     mr_stress_config_t cfg;
     Image image;
     Texture2D texture;
@@ -85,6 +106,12 @@ int main(void) {
     double start;
     double last_stats;
     unsigned long last_frame = 0;
+    int volume_pct;
+    int muted = 0;
+
+    volume_pct = parse_volume(argc, argv);
+    if (volume_pct == -1) return 0;
+    if (volume_pct < 0) return 1;
 
     memset(g_present, 0, sizeof(g_present));
     gfx_init(&g_renderer, MC_W, MC_H, g_render, MC_H, noop_flush, NULL);
@@ -108,14 +135,16 @@ int main(void) {
     g_stream = LoadAudioStream(MC_AUDIO_RATE, 32, 1);
     snd_init(&g_mixer, MC_AUDIO_RATE, 1, g_audio, MC_AUDIO_BLOCK,
              audio_drain, NULL);
-    snd_set_master_gain(&g_mixer, SND_GAIN_UNITY);
+    snd_set_master_volume_now(&g_mixer, snd_vol_from_percent(volume_pct));
+    snd_set_volume_ramp(&g_mixer, MC_AUDIO_RATE / 50); /* 20 ms */
     mw_demo_init(&g_demo, &g_mixer, 0, 1);
     PlayAudioStream(g_stream);
 
     start = GetTime();
     last_stats = start;
-    printf("MicroConsole Raylib: 320x240, 1024 sprites, lace=%d, audio=%d Hz\n",
-           MC_LACE_H, MC_AUDIO_RATE);
+    printf("MicroConsole Raylib: 320x240, 1024 sprites, lace=%d, audio=%d Hz, volume=%d%%\n",
+           MC_LACE_H, MC_AUDIO_RATE, volume_pct);
+    printf("Controls: -/+ volume in 5%% steps, M mute, SPACE SFX\n");
 
     while (!WindowShouldClose()) {
         double now;
@@ -140,13 +169,37 @@ int main(void) {
                     : 0ul;
         mr_stress_set_fps10(&g_stress, fps10, avg10);
         if (now - last_stats >= 1.0) {
-            printf("stress frame=%lu fps=%lu.%lu avg=%lu.%lu audio=%ld\n",
+            printf("stress frame=%lu fps=%lu.%lu avg=%lu.%lu audio=%ld volume=%d%s\n",
                    frame, fps10 / 10ul, fps10 % 10ul,
-                   avg10 / 10ul, avg10 % 10ul, g_audio_frame);
+                   avg10 / 10ul, avg10 % 10ul, g_audio_frame,
+                   volume_pct, muted ? " muted" : "");
             last_stats = now;
             last_frame = frame;
         }
 
+        /*
+         * This demo intentionally runs uncapped for renderer stress testing.
+         * IsKeyDown() therefore changes volume hundreds/thousands of times per
+         * second and makes one tap look binary. Use one 5% step per key press.
+         */
+        if (IsKeyPressed(KEY_MINUS) || IsKeyPressed(KEY_KP_SUBTRACT)) {
+            volume_pct -= MC_VOLUME_STEP;
+            if (volume_pct < 0) volume_pct = 0;
+            muted = 0;
+            snd_set_master_volume(&g_mixer, snd_vol_from_percent(volume_pct));
+        }
+        if (IsKeyPressed(KEY_EQUAL) || IsKeyPressed(KEY_KP_ADD)) {
+            volume_pct += MC_VOLUME_STEP;
+            if (volume_pct > 100) volume_pct = 100;
+            muted = 0;
+            snd_set_master_volume(&g_mixer, snd_vol_from_percent(volume_pct));
+        }
+        if (IsKeyPressed(KEY_M)) {
+            muted = !muted;
+            snd_set_master_volume(
+                &g_mixer,
+                muted ? SND_VOL_SILENT : snd_vol_from_percent(volume_pct));
+        }
         if (IsKeyPressed(KEY_SPACE))
             mw_demo_trigger_sfx(&g_demo, &g_mixer, NULL,
                                 g_audio_frame + MC_AUDIO_BLOCK);
@@ -155,7 +208,9 @@ int main(void) {
         ClearBackground(BLACK);
         DrawTexturePro(texture, src, dst, (Vector2){0, 0}, 0.0f, WHITE);
         DrawText("MicroRender stress + MicroWave audio", 8, 8, 10, RAYWHITE);
-        DrawText("SPACE: synth SFX", 8, 22, 10, RAYWHITE);
+        DrawText("SPACE: SFX   -/+: 5% volume   M: mute", 8, 22, 10, RAYWHITE);
+        DrawText(TextFormat(muted ? "VOL %d%% MUTE" : "VOL %d%%", volume_pct),
+                 8, 36, 10, RAYWHITE);
         EndDrawing();
     }
 

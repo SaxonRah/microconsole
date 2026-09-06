@@ -37,6 +37,84 @@ def find_openocd():
                 return tool, scripts
     return None, None
 
+def pico_ping(port, baud=115200, timeout=1.5):
+    try:
+        import serial
+    except ImportError:
+        return False
+    try:
+        with serial.Serial(port, baud, timeout=timeout) as ser:
+            time.sleep(0.15)
+            ser.reset_input_buffer()
+            ser.write(b"PING\n")
+            ser.flush()
+            deadline = time.time() + timeout
+            while time.time() < deadline:
+                line = ser.readline()
+                if b"MWPICO1" in line:
+                    return True
+    except (OSError, ValueError):
+        return False
+    return False
+
+def find_pico_port():
+    try:
+        from serial.tools import list_ports
+    except ImportError:
+        return None
+    ports = list(list_ports.comports())
+    ordered = ([p.device for p in ports if p.vid == 0x2E8A] +
+               [p.device for p in ports if p.vid != 0x2E8A])
+    for dev in ordered:
+        if pico_ping(dev):
+            return dev
+    return None
+
+def wait_for_pico(timeout=20.0):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        port = find_pico_port()
+        if port:
+            return port
+        time.sleep(0.5)
+    return None
+
+def set_volume(volume):
+    try:
+        import serial
+    except ImportError:
+        print("pyserial is required: python -m pip install pyserial")
+        return 1
+    try:
+        volume = max(0, min(100, int(volume)))
+    except ValueError:
+        print("volume must be 0..100")
+        return 2
+
+    port = find_pico_port()
+    if not port:
+        print("no MWPICO1 Pico found")
+        return 1
+
+    try:
+        with serial.Serial(port, 115200, timeout=2.0) as ser:
+            time.sleep(0.15)
+            ser.reset_input_buffer()
+            ser.write(("VOL %d\n" % volume).encode("ascii"))
+            ser.flush()
+            deadline = time.time() + 2.0
+            while time.time() < deadline:
+                line = ser.readline()
+                if b"MWPICO1 vol=" in line:
+                    print("%s: %s" % (port, line.decode("ascii", "replace").strip()))
+                    return 0
+    except (OSError, ValueError) as exc:
+        print("serial error:", exc)
+        return 1
+
+    print("Pico did not acknowledge VOL")
+    return 1
+
 def outputs(device):
     b = os.path.join(ROOT, "pico", "build-" + device.lower())
     return os.path.join(b, "microconsole_demo.elf"), os.path.join(b, "microconsole_demo.uf2")
@@ -68,23 +146,47 @@ def manual(uf2):
     return 0
 
 def main(argv):
-    if len(argv) < 2 or argv[1] != "flash":
+    if len(argv) >= 2 and argv[1].lower() == "volume":
+        if len(argv) < 3:
+            print("usage: mc_pico.py volume 0..100")
+            return 2
+        return set_volume(argv[2])
+
+    if len(argv) < 2 or argv[1].lower() != "flash":
         print("usage: mc_pico.py flash [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
+        print("       mc_pico.py volume 0..100")
         return 2
+
     device = argv[2].lower() if len(argv) > 2 else "max98357a"
     method = argv[3].lower() if len(argv) > 3 else "swd"
     elf, uf2 = outputs(device)
+
     if not os.path.exists(uf2):
         print("missing build output:", uf2)
         return 1
-    if method == "manual": return manual(uf2)
-    if method == "picotool": return picotool(uf2)
-    if method == "swd":
+
+    if method == "manual":
+        return manual(uf2)
+    if method == "picotool":
+        rc = picotool(uf2)
+    elif method == "swd":
         if not os.path.exists(elf):
-            print("missing ELF:", elf); return 1
-        return swd(elf)
-    print("unknown flash method:", method)
-    return 2
+            print("missing ELF:", elf)
+            return 1
+        rc = swd(elf)
+    else:
+        print("unknown flash method:", method)
+        return 2
+
+    if rc != 0:
+        return rc
+
+    port = wait_for_pico(20.0)
+    if port:
+        print("MicroConsole/MicroWave is answering on " + port)
+    else:
+        print("flash verified, but no MWPICO1 USB serial response was found")
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

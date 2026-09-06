@@ -3,8 +3,7 @@
  *
  * Core 0 renders MicroRender and refills MicroWave audio. Core 1 presents
  * alternating ILI9341 row groups. LCD and I2S each claim an unused DMA channel;
- * I2S runs on PIO1 SM0. The validated baseline is 300 MHz clk_sys, 75 MHz LCD
- * SPI, 8-row lace, stable ILI9341 RTNA 0x1B, and 32 kHz I2S audio.
+ * I2S runs on PIO1 SM0.
  */
 #include "gfx.h"
 #include "mr_pico_ili9341.h"
@@ -30,6 +29,9 @@
 #endif
 #ifndef MC_AUDIO_BLOCK
 #define MC_AUDIO_BLOCK 1024
+#endif
+#ifndef MC_AUDIO_VOLUME
+#define MC_AUDIO_VOLUME 100
 #endif
 #ifndef MC_STRESS_SPRITES
 #define MC_STRESS_SPRITES 1024
@@ -77,6 +79,7 @@ static mr_pico_ili9341_t g_lcd = {
     .dma_active = 0u,
     .spi_format_bits = 0u,
     .dma_cfg16 = {0}};
+
 static gfx_renderer_t g_renderer;
 static mr_stress_test_t g_stress;
 static gfx_color_t g_frame_a[MC_W * MC_H];
@@ -97,6 +100,9 @@ static volatile int g_audio_refill = -1;
 static volatile unsigned long g_audio_underruns;
 static long g_audio_frame;
 
+static char g_cmd[32];
+static unsigned g_cmd_n;
+
 static const char *device_name(void) {
 #if MC_AUDIO_DEVICE == 1
     return "MAX98357A";
@@ -107,6 +113,56 @@ static const char *device_name(void) {
 #else
     return "I2S";
 #endif
+}
+
+static int parse_volume_command(const char *cmd) {
+    int v = 0;
+    const char *p = cmd;
+    if (strncmp(p, "VOL", 3) != 0) return -1;
+    p += 3;
+    while (*p == ' ') ++p;
+    if (*p < '0' || *p > '9') return -1;
+    while (*p >= '0' && *p <= '9') {
+        v = v * 10 + (*p - '0');
+        if (v > 100) return 100;
+        ++p;
+    }
+    return v;
+}
+
+static void serial_service(void) {
+    int ch;
+    while ((ch = getchar_timeout_us(0)) != PICO_ERROR_TIMEOUT) {
+        if (ch == '\r' || ch == '\n') {
+            if (g_cmd_n != 0u) {
+                int v;
+                g_cmd[g_cmd_n] = '\0';
+                if (strcmp(g_cmd, "PING") == 0) {
+                    printf("MWPICO1 device=%s rate=%d vol=%d cur=%d underrun=%lu\n",
+                           device_name(), MC_AUDIO_RATE,
+                           snd_vol_to_percent(snd_master_volume(&g_mixer)),
+                           snd_vol_to_percent(
+                               snd_master_volume_current(&g_mixer)),
+                           g_audio_underruns);
+                } else {
+                    v = parse_volume_command(g_cmd);
+                    if (v >= 0) {
+                        snd_set_master_volume(&g_mixer,
+                                              snd_vol_from_percent(v));
+                        printf("MWPICO1 vol=%d cur=%d\n", v,
+                               snd_vol_to_percent(
+                                   snd_master_volume_current(&g_mixer)));
+                    }
+                }
+                fflush(stdout);
+                g_cmd_n = 0u;
+            }
+        } else if (g_cmd_n + 1u < sizeof(g_cmd)) {
+            g_cmd[g_cmd_n++] = (char)ch;
+        } else {
+            g_cmd_n = 0u;
+        }
+    }
 }
 
 static void noop_flush(gfx_renderer_t *r, int x, int y, int w, int h,
@@ -120,7 +176,7 @@ static void lace_send(const gfx_color_t *buffer, int phase) {
         int h = MC_LACE_BLOCK_H;
         if (y + h > MC_H) h = MC_H - y;
         mr_pico_ili9341_flush(0, 0, y, MC_W, h,
-                              buffer + y * MC_W, &g_lcd);
+                             buffer + y * MC_W, &g_lcd);
     }
 }
 
@@ -188,8 +244,6 @@ static void audio_dma_irq(void) {
         audio_start_dma(next);
         g_audio_refill = done;
     } else {
-        /* Keep clocks continuous and make the failure audible rather than
-           stopping I2S. Repeating one block is preferable to losing PLL lock. */
         ++g_audio_underruns;
         audio_start_dma(done);
     }
@@ -235,8 +289,11 @@ static void audio_init(void) {
 
     snd_init(&g_mixer, MC_AUDIO_RATE, 1, g_audio_mix[0], MC_AUDIO_BLOCK,
              NULL, NULL);
-    snd_set_master_gain(&g_mixer, SND_GAIN_UNITY);
+    snd_set_master_volume_now(&g_mixer,
+                              snd_vol_from_percent(MC_AUDIO_VOLUME));
+    snd_set_volume_ramp(&g_mixer, MC_AUDIO_RATE / 50); /* 20 ms */
     mw_demo_init(&g_demo, &g_mixer, 0, 1);
+
     g_audio_frame = 0;
     g_audio_ready[0] = g_audio_ready[1] = 0;
     audio_fill(0);
@@ -255,9 +312,6 @@ static void audio_init(void) {
 static void recover_warm_boot(void) {
     multicore_reset_core1();
 
-    /* SWD/picotool resets do not power-cycle the peripherals. Stop every old
-       DMA request and clear IRQ routing/status before either backend claims a
-       channel. This makes a warm flash behave like a cold BOOTSEL boot. */
     dma_hw->inte0 = 0u;
     dma_hw->inte1 = 0u;
     dma_hw->abort = (uint32_t)~0u;
@@ -269,10 +323,6 @@ static void recover_warm_boot(void) {
 static void configure_peripheral_clock(void) {
     uint32_t sys_hz = clock_get_hz(clk_sys);
     if (sys_hz != 0u) {
-        /* SPI is clocked from clk_peri. After set_sys_clock_khz() clk_peri may
-           still be 48 MHz, which caps SPI at about 24 MHz. MicroRender's
-           working Pico stress frontend explicitly re-sources clk_peri from
-           clk_sys; preserve that behavior in the combined firmware. */
         clock_configure(clk_peri, 0,
                         CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS,
                         sys_hz, sys_hz);
@@ -303,16 +353,17 @@ int main(void) {
     cfg.features = MR_STRESS_FEATURE_DEFAULT;
     mr_stress_init(&g_stress, &cfg);
 
-    /* LCD claims its DMA channel first. Audio then claims another unused
-       channel, so the two submodule backends cannot accidentally collide. */
     audio_init();
     multicore_launch_core1(core1_present);
 
-    printf("MicroConsole Pico: stress=%d sprites lace=%d sys=%lu spi=%u; audio=%s %dHz block=%d BCLK=%d LRCLK=%d DATA=%d\n",
+    printf("MicroConsole Pico: stress=%d sprites lace=%d sys=%lu spi=%u; audio=%s %dHz block=%d volume=%d%% BCLK=%d LRCLK=%d DATA=%d\n",
            MC_STRESS_SPRITES, MC_LACE_BLOCK_H,
            (unsigned long)clock_get_hz(clk_sys), (unsigned)g_lcd.spi_baud_hz,
            device_name(), MC_AUDIO_RATE, MC_AUDIO_BLOCK,
+           snd_vol_to_percent(snd_master_volume(&g_mixer)),
            MC_I2S_BCLK, MC_I2S_LRCLK, MC_I2S_DATA);
+    printf("MWPICO1 ready; commands: PING, VOL 0..100\n");
+    fflush(stdout);
 
     start_us = time_us_64();
     last_us = start_us;
@@ -320,15 +371,21 @@ int main(void) {
         gfx_color_t *buffer = (frame & 1ul) ? g_frame_b : g_frame_a;
         uint64_t now;
 
+        serial_service();
         audio_service();
+
         mr_stress_tick(&g_stress);
         g_renderer.tile = buffer;
         gfx_begin_tile(&g_renderer, 0, MC_H);
         mr_stress_render(&g_renderer, &g_stress);
+
+        serial_service();
         audio_service();
 
         present_async(buffer, (int)(frame & 1ul));
         ++frame;
+
+        serial_service();
         audio_service();
 
         now = time_us_64();
@@ -336,13 +393,21 @@ int main(void) {
             uint64_t dt = now - last_us;
             uint64_t total = now - start_us;
             unsigned long df = frame - last_frame;
-            unsigned long fps10 = dt ? (unsigned long)((uint64_t)df * 10000000ull / dt) : 0ul;
-            unsigned long avg10 = total ? (unsigned long)((uint64_t)frame * 10000000ull / total) : 0ul;
+            unsigned long fps10 =
+                dt ? (unsigned long)((uint64_t)df * 10000000ull / dt) : 0ul;
+            unsigned long avg10 =
+                total ? (unsigned long)((uint64_t)frame * 10000000ull / total)
+                      : 0ul;
+
             mr_stress_set_fps10(&g_stress, fps10, avg10);
-            printf("stress frame=%lu fps=%lu.%lu avg=%lu.%lu audio=%ld underrun=%lu\n",
+            printf("stress frame=%lu fps=%lu.%lu avg=%lu.%lu audio=%ld vol=%d cur=%d underrun=%lu\n",
                    frame, fps10 / 10ul, fps10 % 10ul,
                    avg10 / 10ul, avg10 % 10ul,
-                   g_audio_frame, g_audio_underruns);
+                   g_audio_frame,
+                   snd_vol_to_percent(snd_master_volume(&g_mixer)),
+                   snd_vol_to_percent(snd_master_volume_current(&g_mixer)),
+                   g_audio_underruns);
+            fflush(stdout);
             last_us = now;
             last_frame = frame;
         }

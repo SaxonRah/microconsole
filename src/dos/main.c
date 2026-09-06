@@ -27,7 +27,8 @@
 #define MC_H 240
 #define MC_TILE_H 16
 #define MC_DEFAULT_SPRITES 1024
-#define MC_DEFAULT_FRAMES 2100ul
+/* Interactive demo by default. Use /frames N for benchmark runs. */
+#define MC_DEFAULT_FRAMES 0ul
 
 static gfx_renderer_t g_renderer;
 static gfx_color_t g_tile[MC_W * MC_TILE_H];
@@ -51,9 +52,10 @@ static unsigned long parse_ulong_arg(int argc, char **argv, int *i,
 
 static void print_usage(void) {
     printf("MicroConsole DOS: MicroRender stress + MicroWave Sound Blaster\n");
-    printf("Usage: MCDEMO [/sprites N] [/frames N] [/noaudio]\n");
+    printf("Usage: MCDEMO [/sprites N] [/frames N] [/volume N] [/noaudio]\n");
     printf("               [/nohud] [/notri] [/nostats] [/statsrate N]\n");
     printf("\n");
+    printf("Interactive controls: -/+ volume, ESC exit\n");
     printf("Benchmark pairs:\n");
     printf("  MCDEMO /sprites 1024 /frames 2100 /noaudio\n");
     printf("  MCDEMO /sprites 1024 /frames 2100\n");
@@ -74,10 +76,12 @@ int main(int argc, char **argv) {
     unsigned long audio_frames;
     int audio_enabled;
     int audio_ok;
+    int volume;
     int i;
 
     frame_limit = MC_DEFAULT_FRAMES;
     audio_enabled = MC_DOS_AUDIO ? 1 : 0;
+    volume = 100;
 
     mr_stress_config_defaults(&cfg, MC_W, MC_H);
     cfg.sprite_count = MC_DEFAULT_SPRITES;
@@ -101,6 +105,12 @@ int main(int argc, char **argv) {
         } else if (strcmp(argv[i], "/frames") == 0 ||
                    strcmp(argv[i], "-frames") == 0) {
             frame_limit = parse_ulong_arg(argc, argv, &i, frame_limit);
+        } else if (strcmp(argv[i], "/volume") == 0 ||
+                   strcmp(argv[i], "-volume") == 0) {
+            unsigned long n;
+            n = parse_ulong_arg(argc, argv, &i, (unsigned long)volume);
+            if (n > 100ul) n = 100ul;
+            volume = (int)n;
         } else if (strcmp(argv[i], "/noaudio") == 0 ||
                    strcmp(argv[i], "-noaudio") == 0) {
             audio_enabled = 0;
@@ -122,7 +132,6 @@ int main(int argc, char **argv) {
             if (n > 32767ul) n = 32767ul;
             cfg.stats_sample_rate = (int)n;
         } else if (argv[i][0] >= '0' && argv[i][0] <= '9') {
-            /* Keep the original positional frame-count form working. */
             frame_limit = strtoul(argv[i], NULL, 10);
         }
     }
@@ -132,28 +141,26 @@ int main(int argc, char **argv) {
     mr_stress_init(&g_stress, &cfg);
 
     printf("MicroConsole DOS: MicroRender stress + MicroWave Sound Blaster\n");
-    printf("sprites=%d tile=%d frames=%lu audio=%s\n",
+    printf("sprites=%d tile=%d frames=%lu audio=%s volume=%d%%\n",
            cfg.sprite_count, MC_TILE_H, frame_limit,
-           audio_enabled ? "on" : "off");
-    printf("Press ESC during the run to stop early.\n");
+           audio_enabled ? "on" : "off", volume);
+    printf("Controls: -/+ volume, ESC exits. /frames N enables a timed run.\n");
 
     audio_ok = 0;
 #if MC_DOS_AUDIO
     if (audio_enabled) {
-        audio_ok = mc_sb_init();
+        audio_ok = mc_sb_init(volume);
         if (!audio_ok) {
             printf("WARNING: Sound Blaster init failed; graphics will still run.\n");
         }
     }
 #else
     (void)audio_enabled;
+    (void)volume;
 #endif
 
     dos_vga_enter();
 
-    /* Match MicroRender's standalone DOS benchmark timing policy.  The PIT
-       microsecond timer is accurate but requires port I/O, so keep it out of
-       the hot frame loop.  BIOS ticks are cheap enough for HUD FPS updates. */
     start_us = dos_vga_micros();
     start_tick = dos_vga_ticks();
     fps_tick = start_tick;
@@ -171,11 +178,17 @@ int main(int argc, char **argv) {
             int ch;
             ch = getch();
             if (ch == 27) break;
+#if MC_DOS_AUDIO
+            if (audio_ok && (ch == '+' || ch == '=')) {
+                volume = (volume + 5 > 100) ? 100 : volume + 5;
+                mc_sb_set_volume(volume);
+            } else if (audio_ok && (ch == '-' || ch == '_')) {
+                volume = (volume < 5) ? 0 : volume - 5;
+                mc_sb_set_volume(volume);
+            }
+#endif
         }
 
-        /* One DMA-position poll per graphics frame.  At the expected renderer
-           rate this checks the 46 ms Sound Blaster half-buffer several times
-           before it changes, without doing redundant ISA I/O twice per frame. */
 #if MC_DOS_AUDIO
         if (audio_ok) mc_sb_service();
 #endif
@@ -213,10 +226,10 @@ int main(int argc, char **argv) {
     if (audio_ok) mc_sb_shutdown();
 #endif
 
-    printf("done: frames=%lu elapsed=%.3f s avg=%.2f fps audio_frames=%lu\n",
+    printf("done: frames=%lu elapsed=%.3f s avg=%.2f fps audio_frames=%lu volume=%d%%\n",
            frames,
            (double)elapsed_us / 1000000.0,
            elapsed_us ? ((double)frames * 1000000.0) / (double)elapsed_us : 0.0,
-           audio_frames);
+           audio_frames, volume);
     return 0;
 }

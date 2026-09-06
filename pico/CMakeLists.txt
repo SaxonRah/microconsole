@@ -41,6 +41,20 @@ endif()
 
 set(MC_AUDIO_RATE 32000 CACHE STRING "I2S sample rate")
 set(MC_AUDIO_BLOCK 1024 CACHE STRING "I2S DMA/mix block frames")
+
+# mc_run.bat passes the startup volume through the environment rather than
+# through a nested -DNAME=VALUE batch argument. FORCE is intentional: it also
+# replaces a stale value in an existing Pico CMake cache.
+set(_MC_AUDIO_VOLUME 100)
+if(DEFINED ENV{MC_AUDIO_VOLUME_OVERRIDE})
+    set(_MC_AUDIO_VOLUME "$ENV{MC_AUDIO_VOLUME_OVERRIDE}")
+endif()
+set(MC_AUDIO_VOLUME "${_MC_AUDIO_VOLUME}" CACHE STRING
+    "Initial master volume, 0..100" FORCE)
+if(MC_AUDIO_VOLUME LESS 0 OR MC_AUDIO_VOLUME GREATER 100)
+    message(FATAL_ERROR "MC_AUDIO_VOLUME must be 0..100")
+endif()
+
 set(MC_STRESS_SPRITES 1024 CACHE STRING "MicroRender stress sprites")
 set(MC_SYS_KHZ 300000 CACHE STRING "RP2350 system clock")
 set(MC_LCD_SPI_BAUD 75000000 CACHE STRING "ILI9341 SPI clock")
@@ -74,6 +88,7 @@ target_compile_definitions(microconsole_demo PRIVATE
     MC_AUDIO_DEVICE=${MC_AUDIO_DEVICE_ID}
     MC_AUDIO_RATE=${MC_AUDIO_RATE}
     MC_AUDIO_BLOCK=${MC_AUDIO_BLOCK}
+    MC_AUDIO_VOLUME=${MC_AUDIO_VOLUME}
     MC_STRESS_SPRITES=${MC_STRESS_SPRITES}
     MC_SYS_KHZ=${MC_SYS_KHZ}
     MC_LACE_BLOCK_H=${MC_LACE_BLOCK_H}
@@ -104,4 +119,4 @@ pico_enable_stdio_usb(microconsole_demo 1)
 pico_enable_stdio_uart(microconsole_demo 0)
 pico_add_extra_outputs(microconsole_demo)
 
-message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RATE}Hz block=${MC_AUDIO_BLOCK}; stress=${MC_STRESS_SPRITES}; sys=${MC_SYS_KHZ}kHz; SPI=${MC_LCD_SPI_BAUD}; lace=${MC_LACE_BLOCK_H}")
+message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RATE}Hz block=${MC_AUDIO_BLOCK} volume=${MC_AUDIO_VOLUME}%; stress=${MC_STRESS_SPRITES}; sys=${MC_SYS_KHZ}kHz; SPI=${MC_LCD_SPI_BAUD}; lace=${MC_LACE_BLOCK_H}")

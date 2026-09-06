@@ -98,31 +98,59 @@ if "%DEVICE%"=="" set "DEVICE=max98357a"
 set "METHOD=%~2"
 if "%METHOD%"=="" set "METHOD=swd"
 
-rem Deliberately use a plain positional number for the startup volume.
-rem This avoids nested batch/CMake parsing of -DNAME=VALUE.
-set "PICO_VOLUME=%~3"
-if "%PICO_VOLUME%"=="" set "PICO_VOLUME=100"
+rem Accept all of these:
+rem   .\mc.bat run pico max98357a swd 25
+rem   .\mc.bat run pico max98357a swd volume=25
+rem   .\mc.bat run pico max98357a swd MC_AUDIO_VOLUME=25
+rem   .\mc.bat run pico max98357a swd -DMC_AUDIO_VOLUME=25
+set "PICO_ARG=%~3"
+if "!PICO_ARG!"=="" set "PICO_ARG=100"
 
-for /f "delims=0123456789" %%A in ("%PICO_VOLUME%") do (
+set "PICO_VOLUME=!PICO_ARG!"
+for /f "tokens=1,* delims==" %%A in ("!PICO_ARG!") do (
+  set "PICO_KEY=%%A"
+  set "PICO_VALUE=%%B"
+)
+
+if /i "!PICO_KEY!"=="volume" set "PICO_VOLUME=!PICO_VALUE!"
+if /i "!PICO_KEY!"=="MC_AUDIO_VOLUME" set "PICO_VOLUME=!PICO_VALUE!"
+if /i "!PICO_KEY!"=="-DMC_AUDIO_VOLUME" set "PICO_VOLUME=!PICO_VALUE!"
+
+if "!PICO_VOLUME!"=="" (
+  echo ERROR: Pico startup volume is missing.
+  exit /b 1
+)
+
+rem Reject anything containing a non-digit.
+for /f "delims=0123456789" %%A in ("!PICO_VOLUME!") do (
   if not "%%A"=="" (
     echo ERROR: Pico startup volume must be an integer from 0 to 100.
     exit /b 1
   )
 )
-if %PICO_VOLUME% LSS 0 (
-  echo ERROR: Pico startup volume must be 0..100.
-  exit /b 1
-)
-if %PICO_VOLUME% GTR 100 (
+
+rem At most three digits are valid for a 0..100 percentage.
+if not "!PICO_VOLUME:~3,1!"=="" (
   echo ERROR: Pico startup volume must be 0..100.
   exit /b 1
 )
 
-echo Pico startup volume: %PICO_VOLUME%%%
-set "MC_AUDIO_VOLUME_OVERRIDE=%PICO_VOLUME%"
+rem Normalize leading zeroes without cmd.exe's octal interpretation of 08/09.
+set /a PICO_VOLUME_N=1000000!PICO_VOLUME! %% 1000000
+
+if !PICO_VOLUME_N! GTR 100 (
+  echo ERROR: Pico startup volume must be 0..100.
+  exit /b 1
+)
+
+echo Pico startup volume: !PICO_VOLUME_N!%%
+set "MC_AUDIO_VOLUME_OVERRIDE=!PICO_VOLUME_N!"
+
 call "%MC_ROOT%\scripts\mc_build.bat" pico "%DEVICE%"
+set "RC=!ERRORLEVEL!"
+
 set "MC_AUDIO_VOLUME_OVERRIDE="
-if errorlevel 1 exit /b 1
+if not "!RC!"=="0" exit /b !RC!
 
 python "%MC_ROOT%\scripts\mc_pico.py" flash "%DEVICE%" "%METHOD%"
-exit /b %ERRORLEVEL%
+exit /b !ERRORLEVEL!

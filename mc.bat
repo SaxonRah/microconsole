@@ -3,9 +3,9 @@ setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0"
 set "MC_ROOT=%CD%"
 
-rem Pinned engine revisions. These are also the repository's gitlink revisions.
+rem Pinned engine revisions.
 set "MC_MR_SHA=61d8d875cbdf605edaa2b6ca2f2e5739b80ee61d"
-set "MC_MW_SHA=2492cc4026a5e3cdebbac6dea91dbc9eabe88d91"
+set "MC_MW_SHA=432fe71ce2686923f351161543d4fed4f8e67e11"
 
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=help"
@@ -29,14 +29,8 @@ where git >nul 2>nul || (
     exit /b 1
 )
 
-rem A normal clone already has these two mode-160000 entries.  A source tree
-rem copied into another Git repository can retain .gitmodules while losing the
-rem gitlinks, which makes `git submodule update path` fail with "pathspec did
-rem not match any file(s) known to git".  Repair that exact condition here.
 git rev-parse --is-inside-work-tree >nul 2>nul || (
     echo ERROR: MicroConsole is not inside a Git working tree.
-    echo Re-extract the repository archive including its .git directory, or run
-    echo `git init` here before `mc.bat deps` if this is intentionally a new repo.
     exit /b 1
 )
 
@@ -53,18 +47,19 @@ if errorlevel 1 exit /b 1
 git submodule sync --recursive || exit /b 1
 git submodule update --init third_party/microrender third_party/microwave || exit /b 1
 
-rem Force the working trees to the versions the integration was written and
-rem tested against.  Normally submodule update already did this; these checks
-rem also make a manually-populated dependency directory deterministic.
+rem Fetch current remote history so the newer MicroWave volume commit is
+rem available even if the repository's gitlink still points at the old pin.
+git -C third_party/microrender fetch origin || exit /b 1
+git -C third_party/microwave fetch origin || exit /b 1
+
 git -C third_party/microrender checkout --detach "%MC_MR_SHA%" || exit /b 1
 git -C third_party/microwave checkout --detach "%MC_MW_SHA%" || exit /b 1
 
-rem Only MicroRender's Raylib checkout is needed by this repo. Both projects
-rem pin the same Raylib revision, so recursively initializing both would waste
-rem hundreds of MB on a duplicate checkout.
 git -C third_party/microrender submodule update --init third_party/raylib || exit /b 1
 
 echo dependencies ready.
+echo MicroWave:
+git -C third_party/microwave log -1 --oneline
 exit /b 0
 
 :ensure_gitlink
@@ -75,14 +70,10 @@ for /f "tokens=1" %%M in ('git ls-files --stage -- "%GL_PATH%" 2^>nul') do set "
 if "!GL_MODE!"=="160000" exit /b 0
 
 echo repairing missing gitlink: %GL_PATH%
-
-rem If this is merely an empty placeholder directory from an archive, remove
-rem it so Git can clone the submodule there. Never delete a populated checkout.
 if exist "%GL_PATH%\" (
     dir /a /b "%GL_PATH%" 2>nul | findstr . >nul
     if errorlevel 1 rmdir "%GL_PATH%" >nul 2>nul
 )
-
 git update-index --add --cacheinfo 160000,%GL_SHA%,%GL_PATH%
 if errorlevel 1 (
     echo ERROR: could not restore gitlink for %GL_PATH%.
@@ -111,20 +102,14 @@ echo Setup:
 echo   .\mc.bat deps
 echo.
 echo Build/run:
-echo   .\mc.bat build raylib
-echo   .\mc.bat run raylib
-echo   .\mc.bat build dos
-echo   .\mc.bat run dos [/sprites N] [/frames N] [/noaudio]
-echo   .\mc.bat build pico max98357a ^| pcm5102a ^| ns4168
-echo   .\mc.bat run pico [device] [swd^|picotool^|manual]
+echo   .\mc.bat run raylib [--volume N]
+echo   .\mc.bat run dos [/sprites N] [/frames N] [/volume N] [/noaudio]
+echo   .\mc.bat run pico [device] [swd^|picotool^|manual] [-DMC_AUDIO_VOLUME=N]
 echo.
-echo DOS parity diagnostics:
-echo   .\mc.bat run dosref /sprites 1024 /frames 2100
-echo   .\mc.bat run dosgfx /sprites 1024 /frames 2100
+echo Pico live volume:
+echo   python scripts\mc_pico.py volume 50
 echo.
 echo Maintenance:
 echo   .\mc.bat clean
-echo.
-echo See README.md and docs\BUILDING.md for full documentation.
 echo.
 exit /b 0

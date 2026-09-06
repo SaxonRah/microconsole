@@ -2,9 +2,7 @@
  * Minimal Sound Blaster transport for the DOS integration demo.
  *
  * MicroWave owns mixing/music. This file only adapts its 512-sample blocks to
- * an 11.025 kHz unsigned-8-bit Sound Blaster auto-init DMA double buffer. The
- * current service model polls DMA position once per graphics frame; see
- * docs/ARCHITECTURE.md before turning this into a general DOS audio backend.
+ * an 11.025 kHz unsigned-8-bit Sound Blaster auto-init DMA double buffer.
  */
 #include "mc_sb.h"
 #include "mw_music_demo.h"
@@ -130,12 +128,17 @@ static void render_next(void) {
     g_frame += MC_SB_BLOCK;
 }
 
-int mc_sb_init(void) {
+int mc_sb_init(int initial_volume) {
     parse_blaster();
     if (!dma_alloc()) return 0;
     if (!dsp_reset()) { free(g_dma_raw); g_dma_raw = 0; return 0; }
+
     snd_init(&g_mixer, MC_SB_RATE, 1, g_block, MC_SB_BLOCK, drain, NULL);
-    snd_set_master_gain(&g_mixer, SND_GAIN_UNITY);
+    if (initial_volume < 0) initial_volume = 0;
+    if (initial_volume > 100) initial_volume = 100;
+    snd_set_master_volume_now(&g_mixer, snd_vol_from_percent(initial_volume));
+    snd_set_volume_ramp(&g_mixer, MC_SB_RATE / 100); /* ~10 ms */
+
     mw_demo_init(&g_demo, &g_mixer, 0, 1);
     g_half_playing = 0; g_frame = 0;
     render_next();
@@ -144,6 +147,12 @@ int mc_sb_init(void) {
     dma_program();
     dsp_start();
     return 1;
+}
+
+void mc_sb_set_volume(int volume) {
+    if (volume < 0) volume = 0;
+    if (volume > 100) volume = 100;
+    snd_set_master_volume(&g_mixer, snd_vol_from_percent(volume));
 }
 
 void mc_sb_service(void) {
