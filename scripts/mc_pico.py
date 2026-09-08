@@ -79,45 +79,134 @@ def wait_for_pico(timeout=20.0):
         time.sleep(0.5)
     return None
 
-def set_volume(volume):
+def open_serial():
     try:
         import serial
     except ImportError:
         print("pyserial is required: python -m pip install pyserial")
-        return 1
+        return None, None
+
+    port = find_pico_port()
+    if not port:
+        print("no MWPICO1 Pico found")
+        return None, None
+
+    try:
+        ser = serial.Serial(port, 115200, timeout=2.0)
+        time.sleep(0.15)
+        ser.reset_input_buffer()
+        return port, ser
+    except (OSError, ValueError) as exc:
+        print("serial error:", exc)
+        return None, None
+
+def set_volume(volume):
     try:
         volume = max(0, min(100, int(volume)))
     except ValueError:
         print("volume must be 0..100")
         return 2
 
-    port = find_pico_port()
-    if not port:
-        print("no MWPICO1 Pico found")
+    port, ser = open_serial()
+    if not ser:
         return 1
-
     try:
-        with serial.Serial(port, 115200, timeout=2.0) as ser:
-            time.sleep(0.15)
-            ser.reset_input_buffer()
-            ser.write(("VOL %d\n" % volume).encode("ascii"))
-            ser.flush()
-            deadline = time.time() + 2.0
-            while time.time() < deadline:
-                line = ser.readline()
-                if b"MWPICO1 vol=" in line:
-                    print("%s: %s" % (port, line.decode("ascii", "replace").strip()))
-                    return 0
-    except (OSError, ValueError) as exc:
-        print("serial error:", exc)
-        return 1
+        ser.write(("VOL %d\n" % volume).encode("ascii"))
+        ser.flush()
+        deadline = time.time() + 2.0
+        while time.time() < deadline:
+            line = ser.readline()
+            if b"MWPICO1 vol=" in line:
+                print("%s: %s" % (port, line.decode("ascii", "replace").strip()))
+                return 0
+    finally:
+        ser.close()
 
     print("Pico did not acknowledge VOL")
     return 1
 
-def outputs(device):
+def set_example(example_id):
+    port, ser = open_serial()
+    if not ser:
+        return 1
+    try:
+        ser.write(("EXAMPLE %s\n" % example_id).encode("ascii"))
+        ser.flush()
+        deadline = time.time() + 2.0
+        while time.time() < deadline:
+            line = ser.readline()
+            if not line:
+                continue
+            text = line.decode("ascii", "replace").strip()
+            if "MWPICO1 selected=" in text:
+                print("%s: %s" % (port, text))
+                return 0
+            if "MWPICO1 error=unknown-example" in text:
+                print("%s: %s" % (port, text))
+                return 2
+    finally:
+        ser.close()
+
+    print("Pico did not acknowledge EXAMPLE")
+    return 1
+
+def list_examples():
+    port, ser = open_serial()
+    if not ser:
+        return 1
+    seen_begin = False
+    try:
+        ser.write(b"LIST\n")
+        ser.flush()
+        deadline = time.time() + 3.0
+        while time.time() < deadline:
+            line = ser.readline()
+            if not line:
+                continue
+            text = line.decode("ascii", "replace").strip()
+            if "MWPICO1 list-begin" in text:
+                seen_begin = True
+                print(text)
+            elif seen_begin and "MWPICO1 example=" in text:
+                print(text)
+            elif seen_begin and "MWPICO1 list-end" in text:
+                print(text)
+                return 0
+    finally:
+        ser.close()
+
+    print("Pico did not return an example list")
+    return 1
+
+def send_command(command):
+    port, ser = open_serial()
+    if not ser:
+        return 1
+    try:
+        ser.write((command + "\n").encode("ascii"))
+        ser.flush()
+        deadline = time.time() + 2.0
+        printed = False
+        while time.time() < deadline:
+            line = ser.readline()
+            if not line:
+                if printed:
+                    break
+                continue
+            text = line.decode("ascii", "replace").strip()
+            if text:
+                print("%s: %s" % (port, text))
+                printed = True
+                if text.startswith("MWPICO1"):
+                    break
+        return 0 if printed else 1
+    finally:
+        ser.close()
+
+def outputs(device, image="demo"):
     b = os.path.join(ROOT, "pico", "build-" + device.lower())
-    return os.path.join(b, "microconsole_demo.elf"), os.path.join(b, "microconsole_demo.uf2")
+    stem = "microconsole_examples" if image == "examples" else "microconsole_demo"
+    return os.path.join(b, stem + ".elf"), os.path.join(b, stem + ".uf2")
 
 def swd(elf):
     tool, scripts = find_openocd()
@@ -145,21 +234,8 @@ def manual(uf2):
     print("     " + uf2)
     return 0
 
-def main(argv):
-    if len(argv) >= 2 and argv[1].lower() == "volume":
-        if len(argv) < 3:
-            print("usage: mc_pico.py volume 0..100")
-            return 2
-        return set_volume(argv[2])
-
-    if len(argv) < 2 or argv[1].lower() != "flash":
-        print("usage: mc_pico.py flash [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
-        print("       mc_pico.py volume 0..100")
-        return 2
-
-    device = argv[2].lower() if len(argv) > 2 else "max98357a"
-    method = argv[3].lower() if len(argv) > 3 else "swd"
-    elf, uf2 = outputs(device)
+def flash(device, method, image):
+    elf, uf2 = outputs(device, image)
 
     if not os.path.exists(uf2):
         print("missing build output:", uf2)
@@ -187,6 +263,51 @@ def main(argv):
     else:
         print("flash verified, but no MWPICO1 USB serial response was found")
     return 0
+
+def usage():
+    print("usage: mc_pico.py flash [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
+    print("       mc_pico.py flash-examples [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
+    print("       mc_pico.py volume 0..100")
+    print("       mc_pico.py example ID")
+    print("       mc_pico.py list-examples")
+    print('       mc_pico.py command "NEXT|PREV|SFX|ACTION|DEBUG|KEY LEFT DOWN|..."')
+
+def main(argv):
+    if len(argv) < 2:
+        usage()
+        return 2
+
+    cmd = argv[1].lower()
+
+    if cmd == "volume":
+        if len(argv) < 3:
+            usage()
+            return 2
+        return set_volume(argv[2])
+
+    if cmd == "example":
+        if len(argv) < 3:
+            usage()
+            return 2
+        return set_example(argv[2])
+
+    if cmd == "list-examples":
+        return list_examples()
+
+    if cmd == "command":
+        if len(argv) < 3:
+            usage()
+            return 2
+        return send_command(" ".join(argv[2:]))
+
+    if cmd not in ("flash", "flash-examples"):
+        usage()
+        return 2
+
+    device = argv[2].lower() if len(argv) > 2 else "max98357a"
+    method = argv[3].lower() if len(argv) > 3 else "swd"
+    image = "examples" if cmd == "flash-examples" else "demo"
+    return flash(device, method, image)
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

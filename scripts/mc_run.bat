@@ -9,8 +9,9 @@ if /i "%WHAT%"=="raylib" goto raylib
 if /i "%WHAT%"=="dos" goto dos
 if /i "%WHAT%"=="dosgfx" goto dosgfx
 if /i "%WHAT%"=="dosref" goto dosref
+if /i "%WHAT%"=="dos-examples" goto dos_examples
 if /i "%WHAT%"=="pico" goto pico
-echo ERROR: run target must be raylib, dos, dosgfx, dosref, or pico.
+echo ERROR: run target must be raylib, dos, dosgfx, dosref, dos-examples, or pico.
 exit /b 1
 
 :raylib
@@ -33,18 +34,40 @@ exit /b !ERRORLEVEL!
 
 :dos
 set "MC_DOS_EXE=MCDEMO.EXE"
+set "MC_DOS_DIR=build-dos"
+set "MC_DOS_BUILD=dos"
 goto dos_common
 
 :dosgfx
 set "MC_DOS_EXE=MCGFX.EXE"
+set "MC_DOS_DIR=build-dos"
+set "MC_DOS_BUILD=dos"
 goto dos_common
 
 :dosref
 set "MC_DOS_EXE=MCREF.EXE"
+set "MC_DOS_DIR=build-dos"
+set "MC_DOS_BUILD=dos"
+goto dos_common
+
+:dos_examples
+set "MC_DOS_EXE=MCEXDEMO.EXE"
+set "MC_DOS_DIR=build-dos-examples"
+set "MC_DOS_BUILD=dos-examples"
 goto dos_common
 
 :dos_common
-call "%MC_ROOT%\scripts\mc_build.bat" dos || exit /b 1
+if /i "!MC_DOS_BUILD!"=="dos-examples" (
+  call "%MC_ROOT%\scripts\mc_examples_dos.bat"
+) else (
+  call "%MC_ROOT%\scripts\mc_build.bat" dos
+)
+if errorlevel 1 exit /b 1
+
+if not exist "%MC_ROOT%\!MC_DOS_DIR!\!MC_DOS_EXE!" (
+  echo ERROR: DOS build completed but !MC_DOS_EXE! was not found in !MC_DOS_DIR!.
+  exit /b 1
+)
 set "DOSBOX="
 if not "%DOSBOX_EXE%"=="" if exist "%DOSBOX_EXE%" set "DOSBOX=%DOSBOX_EXE%"
 if not defined DOSBOX for %%E in (dosbox-x.exe dosbox.exe DOSBox.exe) do if not defined DOSBOX for /f "delims=" %%P in ('where %%E 2^>nul') do if not defined DOSBOX set "DOSBOX=%%P"
@@ -73,7 +96,7 @@ set "CONF=%TEMP%\microconsole_%RANDOM%.conf"
 >>"%CONF%" echo frameskip=0
 >>"%CONF%" echo aspect=false
 >>"%CONF%" echo [autoexec]
->>"%CONF%" echo mount c "%MC_ROOT%\build-dos"
+>>"%CONF%" echo mount c "%MC_ROOT%\!MC_DOS_DIR!"
 >>"%CONF%" echo c:
 >>"%CONF%" echo set BLASTER=A220 I7 D1
 >>"%CONF%" echo echo MicroConsole: !MC_DOS_EXE! !MC_DOS_ARGS!  [cycles=%MC_DOSBOX_CYCLES%]

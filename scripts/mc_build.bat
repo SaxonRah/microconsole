@@ -12,6 +12,7 @@ if not exist "third_party\microwave\shared\src\snd.c" goto no_deps
 
 if /i "%WHAT%"=="raylib" goto raylib
 if /i "%WHAT%"=="dos"    goto dos
+if /i "%WHAT%"=="dos-examples" goto dos_examples
 if /i "%WHAT%"=="pico"   goto pico
 if /i "%WHAT%"=="all"    goto all
 
@@ -98,6 +99,10 @@ echo built build-dos\MCREF.EXE
 echo built build-dos\MCGFX.EXE
 echo built build-dos\MCDEMO.EXE
 exit /b 0
+
+:dos_examples
+call "%MC_ROOT%\scripts\mc_examples_dos.bat"
+exit /b %ERRORLEVEL%
 
 :pico
 set "DEVICE=%~1"

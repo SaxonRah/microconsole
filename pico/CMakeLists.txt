@@ -1,4 +1,4 @@
-# Pico 2 combined MicroRender + MicroWave demo.
+# Pico 2 combined MicroRender + MicroWave demo and console-era examples.
 if(WIN32)
     set(USERHOME $ENV{USERPROFILE})
 else()
@@ -69,54 +69,88 @@ set(MW_BUILD_PACK OFF CACHE BOOL "" FORCE)
 add_subdirectory("${MC_MR}/shared" "${CMAKE_BINARY_DIR}/microrender-shared")
 add_subdirectory("${MC_MW}/shared" "${CMAKE_BINARY_DIR}/microwave-shared")
 
+function(mc_configure_pico_target target)
+    pico_generate_pio_header(${target}
+        "${MC_MW}/microwave/mw_i2s.pio")
+
+    target_include_directories(${target} PRIVATE
+        "${MC_ROOT}/examples"
+        "${MC_MR}/shared/src"
+        "${MC_MR}/shared/rp2350"
+        "${MC_MW}/shared/src")
+
+    target_compile_definitions(${target} PRIVATE
+        MC_AUDIO_DEVICE=${MC_AUDIO_DEVICE_ID}
+        MC_AUDIO_RATE=${MC_AUDIO_RATE}
+        MC_AUDIO_BLOCK=${MC_AUDIO_BLOCK}
+        MC_AUDIO_VOLUME=${MC_AUDIO_VOLUME}
+        MC_STRESS_SPRITES=${MC_STRESS_SPRITES}
+        MC_SYS_KHZ=${MC_SYS_KHZ}
+        MC_LACE_BLOCK_H=${MC_LACE_BLOCK_H}
+        MC_I2S_BCLK=${MC_I2S_BCLK}
+        MC_I2S_LRCLK=${MC_I2S_LRCLK}
+        MC_I2S_DATA=${MC_I2S_DATA}
+        MR_STRESS_MAX_SPRITES=1024
+        MR_STRESS_DEFAULT_SPRITES=1024
+        MR_STRESS_FAST_METRICS=1
+        MR_STRESS_ENABLE_TRIANGLES=1
+        MR_LCD_PIN_MISO=4
+        MR_LCD_PIN_CS=5
+        MR_LCD_PIN_SCK=6
+        MR_LCD_PIN_MOSI=7
+        MR_LCD_PIN_RST=8
+        MR_LCD_PIN_DC=9
+        MR_LCD_SPI_BAUD=${MC_LCD_SPI_BAUD}
+        MR_ILI9341_MADCTL=0xE8
+        MR_ILI9341_FRMCTR1_DIVA=0x00
+        MR_ILI9341_FRMCTR1_RTNA=0x1B)
+
+    target_link_libraries(${target} PRIVATE
+        microrender::gfx microwave::snd microwave::seq
+        pico_stdlib
+        hardware_clocks hardware_dma hardware_irq hardware_pio hardware_spi)
+
+    pico_enable_stdio_usb(${target} 1)
+    pico_enable_stdio_uart(${target} 0)
+    pico_add_extra_outputs(${target})
+endfunction()
+
+# Existing stress / combined demo.
 add_executable(microconsole_demo
     "${MC_ROOT}/src/pico/main.c"
     "${MC_MR}/shared/src/mr_stress_test.c"
     "${MC_MR}/shared/src/mr_strbuf.c"
     "${MC_MR}/shared/rp2350/mr_pico_ili9341.c"
     "${MC_MW}/shared/src/mw_music_demo.c")
+mc_configure_pico_target(microconsole_demo)
+target_link_libraries(microconsole_demo PRIVATE pico_multicore)
 
-pico_generate_pio_header(microconsole_demo
-    "${MC_MW}/microwave/mw_i2s.pio")
+# Console-era example registry shared with Raylib and DOS.
+set(MC_EXAMPLE_SOURCES
+    "${MC_ROOT}/examples/mc_example.c"
+    "${MC_ROOT}/examples/mc_ex_gfx.c"
+    "${MC_ROOT}/examples/mc_ex_chip.c"
+    "${MC_ROOT}/examples/ex_a2600_beam.c"
+    "${MC_ROOT}/examples/ex_nes_split.c"
+    "${MC_ROOT}/examples/ex_sms_lock.c"
+    "${MC_ROOT}/examples/ex_gb_window.c"
+    "${MC_ROOT}/examples/ex_pce_wavetable.c"
+    "${MC_ROOT}/examples/ex_md_linescroll.c"
+    "${MC_ROOT}/examples/ex_snes_mode7.c"
+    "${MC_ROOT}/examples/ex_snes_colormath.c"
+    "${MC_ROOT}/examples/ex_neogeo_zoom.c")
 
-target_include_directories(microconsole_demo PRIVATE
-    "${MC_MR}/shared/src"
-    "${MC_MR}/shared/rp2350"
-    "${MC_MW}/shared/src")
+add_executable(microconsole_examples
+    "${MC_ROOT}/src/pico/mc_examples_main.c"
+    ${MC_EXAMPLE_SOURCES}
+    "${MC_MR}/shared/src/mr_strbuf.c"
+    "${MC_MR}/shared/rp2350/mr_pico_ili9341.c")
+mc_configure_pico_target(microconsole_examples)
+target_link_libraries(microconsole_examples PRIVATE pico_multicore)
 
-target_compile_definitions(microconsole_demo PRIVATE
-    MC_AUDIO_DEVICE=${MC_AUDIO_DEVICE_ID}
-    MC_AUDIO_RATE=${MC_AUDIO_RATE}
-    MC_AUDIO_BLOCK=${MC_AUDIO_BLOCK}
-    MC_AUDIO_VOLUME=${MC_AUDIO_VOLUME}
-    MC_STRESS_SPRITES=${MC_STRESS_SPRITES}
-    MC_SYS_KHZ=${MC_SYS_KHZ}
-    MC_LACE_BLOCK_H=${MC_LACE_BLOCK_H}
-    MC_I2S_BCLK=${MC_I2S_BCLK}
-    MC_I2S_LRCLK=${MC_I2S_LRCLK}
-    MC_I2S_DATA=${MC_I2S_DATA}
-    MR_STRESS_MAX_SPRITES=1024
-    MR_STRESS_DEFAULT_SPRITES=1024
-    MR_STRESS_FAST_METRICS=1
-    MR_STRESS_ENABLE_TRIANGLES=1
-    MR_LCD_PIN_MISO=4
-    MR_LCD_PIN_CS=5
-    MR_LCD_PIN_SCK=6
-    MR_LCD_PIN_MOSI=7
-    MR_LCD_PIN_RST=8
-    MR_LCD_PIN_DC=9
-    MR_LCD_SPI_BAUD=${MC_LCD_SPI_BAUD}
-    MR_ILI9341_MADCTL=0xE8
-    MR_ILI9341_FRMCTR1_DIVA=0x00
-    MR_ILI9341_FRMCTR1_RTNA=0x1B)
-
-target_link_libraries(microconsole_demo PRIVATE
-    microrender::gfx microwave::snd microwave::seq
-    pico_stdlib pico_multicore
-    hardware_clocks hardware_dma hardware_irq hardware_pio hardware_spi)
-
-pico_enable_stdio_usb(microconsole_demo 1)
-pico_enable_stdio_uart(microconsole_demo 0)
-pico_add_extra_outputs(microconsole_demo)
+# Make the real RP2350 FLASH/SRAM footprint visible in every build log.
+target_link_options(microconsole_examples PRIVATE
+    "-Wl,--print-memory-usage")
 
 message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RATE}Hz block=${MC_AUDIO_BLOCK} volume=${MC_AUDIO_VOLUME}%; stress=${MC_STRESS_SPRITES}; sys=${MC_SYS_KHZ}kHz; SPI=${MC_LCD_SPI_BAUD}; lace=${MC_LACE_BLOCK_H}")
+message(STATUS "MicroConsole Pico examples: target=microconsole_examples (tiled SRAM frontend, no PSRAM)")
