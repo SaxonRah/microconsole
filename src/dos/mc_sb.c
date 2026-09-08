@@ -29,6 +29,9 @@ static long g_frame;
 static snd_sample_t g_block[MC_SB_BLOCK];
 static snd_mixer_t g_mixer;
 static mw_demo_t g_demo;
+static void (*g_scene)(snd_mixer_t SND_PTR *m, void SND_PTR *user);
+static void SND_PTR *g_scene_user;
+static int g_ready;
 
 static unsigned long far_to_phys(void __far *p) {
     return ((unsigned long)FP_SEG(p) << 4) + (unsigned long)FP_OFF(p);
@@ -124,7 +127,9 @@ static void drain(snd_mixer_t *m, long frame, int frames,
 
 static void render_next(void) {
     snd_render_one_block(&g_mixer, g_frame, MC_SB_BLOCK,
-                         mw_demo_mix, &g_demo, SND_RENDER_SKIP_SILENT);
+                         g_scene ? g_scene : mw_demo_mix,
+                         g_scene ? g_scene_user : (void SND_PTR *)&g_demo,
+                         SND_RENDER_SKIP_SILENT);
     g_frame += MC_SB_BLOCK;
 }
 
@@ -140,6 +145,9 @@ int mc_sb_init(int initial_volume) {
     snd_set_volume_ramp(&g_mixer, MC_SB_RATE / 100); /* ~10 ms */
 
     mw_demo_init(&g_demo, &g_mixer, 0, 1);
+    g_scene = 0;
+    g_scene_user = 0;
+    g_ready = 1;
     g_half_playing = 0; g_frame = 0;
     render_next();
     g_half_playing = 1;
@@ -179,3 +187,13 @@ void mc_sb_shutdown(void) {
 }
 
 unsigned long mc_sb_frames(void) { return (unsigned long)g_frame; }
+
+void mc_sb_set_scene(void (*mix)(snd_mixer_t SND_PTR *m, void SND_PTR *user),
+                     void SND_PTR *user) {
+    g_scene = mix;
+    g_scene_user = user;
+}
+
+const snd_mixer_t SND_PTR *mc_sb_mixer(void) {
+    return g_ready ? &g_mixer : 0;
+}

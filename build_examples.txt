@@ -1,0 +1,5 @@
+.\mc.bat build raylib
+
+.\build-raylib\examples\Release\microconsole_examples.exe
+.\build-raylib\examples\Release\microconsole_examples.exe --example snes-mode7
+.\build-raylib\examples\Release\microconsole_examples.exe --list

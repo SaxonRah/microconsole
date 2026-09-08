@@ -25,7 +25,7 @@ endif()
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 add_subdirectory("${MC_RAYLIB}" "${CMAKE_BINARY_DIR}/raylib" EXCLUDE_FROM_ALL)
-
+add_subdirectory(examples)
 add_executable(microconsole_demo
     src/raylib/main.c
     "${MC_MR}/shared/src/mr_stress_test.c"
