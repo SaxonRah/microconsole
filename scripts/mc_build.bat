@@ -13,6 +13,7 @@ if not exist "third_party\microwave\shared\src\snd.c" goto no_deps
 if /i "%WHAT%"=="raylib" goto raylib
 if /i "%WHAT%"=="dos"    goto dos
 if /i "%WHAT%"=="dos-examples" goto dos_examples
+if /i "%WHAT%"=="fastdoom-raylib" goto fastdoom_raylib
 if /i "%WHAT%"=="pico"   goto pico
 if /i "%WHAT%"=="all"    goto all
 
@@ -103,6 +104,53 @@ exit /b 0
 :dos_examples
 call "%MC_ROOT%\scripts\mc_examples_dos.bat"
 exit /b %ERRORLEVEL%
+
+:fastdoom_raylib
+where cmake >nul 2>nul || (echo ERROR: cmake not found on PATH.& exit /b 1)
+where python >nul 2>nul || (echo ERROR: python not found on PATH.& exit /b 1)
+
+if not exist "third_party\microrender\third_party\raylib\CMakeLists.txt" (
+    echo ERROR: MicroRender's Raylib submodule is not initialized.
+    echo Run: .\mc.bat deps
+    exit /b 1
+)
+
+call "%MC_ROOT%\scripts\mc_fastdoom_deps.bat"
+if errorlevel 1 exit /b 1
+
+python "%MC_ROOT%\scripts\mc_fastdoom_prepare.py" ^
+    --fastdoom "%MC_ROOT%\third_party\fastdoom" ^
+    --out "%MC_ROOT%\build-fastdoom-src"
+if errorlevel 1 exit /b 1
+
+echo === FastDoom standalone Raylib ^(Win32 portable C renderer^) ===
+set "MC_FD_CMAKE_ARGS="
+:fastdoom_args
+if "%~1"=="" goto fastdoom_args_done
+set "MC_FD_CMAKE_ARGS=!MC_FD_CMAKE_ARGS! "%~1""
+shift /1
+goto fastdoom_args
+:fastdoom_args_done
+
+cmake -S "%MC_ROOT%\games\fastdoom" ^
+      -B "%MC_ROOT%\build-fastdoom-raylib" ^
+      -G "Visual Studio 17 2022" ^
+      -A Win32 ^
+      -DFASTDOOM_ROOT:PATH="%MC_ROOT%\third_party\fastdoom" ^
+      -DFASTDOOM_PATCHED_DIR:PATH="%MC_ROOT%\build-fastdoom-src" ^
+      !MC_FD_CMAKE_ARGS!
+if errorlevel 1 exit /b 1
+
+cmake --build "%MC_ROOT%\build-fastdoom-raylib" --config Release --parallel
+if errorlevel 1 exit /b 1
+
+if not exist "%MC_ROOT%\build-fastdoom-raylib\Release\microconsole_fastdoom.exe" (
+    echo ERROR: FastDoom build finished but microconsole_fastdoom.exe was not found.
+    exit /b 1
+)
+
+echo built build-fastdoom-raylib\Release\microconsole_fastdoom.exe
+exit /b 0
 
 :pico
 set "DEVICE=%~1"

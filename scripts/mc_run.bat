@@ -10,8 +10,9 @@ if /i "%WHAT%"=="dos" goto dos
 if /i "%WHAT%"=="dosgfx" goto dosgfx
 if /i "%WHAT%"=="dosref" goto dosref
 if /i "%WHAT%"=="dos-examples" goto dos_examples
+if /i "%WHAT%"=="fastdoom-raylib" goto fastdoom_raylib
 if /i "%WHAT%"=="pico" goto pico
-echo ERROR: run target must be raylib, dos, dosgfx, dosref, dos-examples, or pico.
+echo ERROR: run target must be raylib, dos, dosgfx, dosref, dos-examples, fastdoom-raylib, or pico.
 exit /b 1
 
 :raylib
@@ -31,6 +32,33 @@ goto raylib_run_args
 :raylib_launch
 "!EXE!" !MC_FORWARD_ARGS!
 exit /b !ERRORLEVEL!
+
+:fastdoom_raylib
+set "FD_EXE=%MC_ROOT%\build-fastdoom-raylib\Release\microconsole_fastdoom.exe"
+if not exist "!FD_EXE!" (
+  echo FastDoom executable is missing; building it once...
+  call "%MC_ROOT%\scripts\mc_build.bat" fastdoom-raylib || exit /b 1
+)
+if not exist "!FD_EXE!" (
+  echo ERROR: FastDoom build completed but microconsole_fastdoom.exe was not found.
+  exit /b 1
+)
+
+set "FD_ARGS="
+:fastdoom_run_args
+if "%~1"=="" goto fastdoom_launch
+set "FD_ARGS=!FD_ARGS! "%~1""
+shift /1
+goto fastdoom_run_args
+
+:fastdoom_launch
+echo Launching MicroConsole FastDoom !FD_ARGS!
+pushd "%MC_ROOT%\build-fastdoom-raylib\Release"
+"!FD_EXE!" !FD_ARGS!
+set "RC=!ERRORLEVEL!"
+echo MicroConsole FastDoom process exit code: !RC!
+popd
+exit /b !RC!
 
 :dos
 set "MC_DOS_EXE=MCDEMO.EXE"

@@ -1,5 +1,7 @@
 build-*/
 pico/build*/
+third_party/fastdoom/
+wads/
 *.obj
 *.o
 *.exe

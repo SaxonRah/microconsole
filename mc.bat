@@ -60,6 +60,12 @@ git -C third_party/microrender submodule update --init third_party/raylib || exi
 echo dependencies ready.
 echo MicroWave:
 git -C third_party/microwave log -1 --oneline
+
+if /i "%~1"=="fastdoom" (
+    call "%MC_ROOT%\scripts\mc_fastdoom_deps.bat"
+    if errorlevel 1 exit /b 1
+)
+
 exit /b 0
 
 :ensure_gitlink
@@ -90,7 +96,7 @@ call "%MC_ROOT%\scripts\mc_run.bat" %1 %2 %3 %4 %5 %6 %7 %8 %9
 exit /b %ERRORLEVEL%
 
 :clean
-for %%D in (build-raylib build-dos build-dos-examples) do if exist "%%D" rmdir /s /q "%%D"
+for %%D in (build-raylib build-dos build-dos-examples build-fastdoom-raylib build-fastdoom-src) do if exist "%%D" rmdir /s /q "%%D"
 for /d %%D in (pico\build-*) do if exist "%%D" rmdir /s /q "%%D"
 echo clean.
 exit /b 0
@@ -100,6 +106,7 @@ echo MicroConsole - MicroRender + MicroWave integration
 echo.
 echo Setup:
 echo   .\mc.bat deps
+echo   .\mc.bat deps fastdoom
 echo.
 echo Build/run:
 echo   .\mc.bat run raylib [--volume N]
@@ -107,6 +114,10 @@ echo   .\mc.bat build dos-examples
 echo   .\mc.bat run dos [/sprites N] [/frames N] [/volume N] [/noaudio]
 echo   .\mc.bat run dos-examples [/example ID] [/frames N] [/volume N] [/noaudio] [/list]
 echo   .\mc.bat run pico [device] [swd^|picotool^|manual] [-DMC_AUDIO_VOLUME=N]
+echo.
+echo FastDoom Raylib:
+echo   .\mc.bat build fastdoom-raylib
+echo   .\mc.bat run fastdoom-raylib -iwad "C:\path\DOOM1.WAD"
 echo.
 echo Pico live volume:
 echo   python scripts\mc_pico.py volume 50
