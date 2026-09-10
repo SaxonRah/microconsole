@@ -17,3 +17,4 @@ wads/
 __pycache__/
 *.pyc
 *.err
+/third_party/pico-fatfs-sd
