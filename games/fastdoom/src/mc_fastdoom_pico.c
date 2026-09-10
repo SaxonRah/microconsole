@@ -21,6 +21,8 @@
 #include "hardware/dma.h"
 #include "hardware/irq.h"
 #include "hardware/psram.h"
+#include "hardware/spi.h"
+#include "hardware/watchdog.h"
 #include "hardware/regs/clocks.h"
 #include "hardware/regs/qmi.h"
 #include "hardware/structs/qmi.h"
@@ -58,6 +60,7 @@
 
 #include "mc_fastdoom_audio.h"
 #include "mc_fastdoom_audio_pico.h"
+#include "mc_fastdoom_pico_wad.h"
 
 /* Implemented by mc_fastdoom_pico_fs.c. */
 int mc_fd_pico_fs_ready(void);
@@ -74,6 +77,10 @@ int mc_fd_pico_fs_raw_miso(void);
 
 #ifndef MC_SYS_KHZ
 #define MC_SYS_KHZ 300000
+#endif
+
+#ifndef MC_FD_PERI_KHZ
+#define MC_FD_PERI_KHZ 300000
 #endif
 
 #define MC_FD_SAFE_SYS_KHZ 300000u
@@ -231,14 +238,29 @@ static void mc_fd_prepare_fast_clock(void)
 static void mc_fd_configure_peripheral_clock(void)
 {
     uint32_t sys_hz = clock_get_hz(clk_sys);
+    uint32_t peri_hz = (uint32_t)MC_FD_PERI_KHZ * 1000u;
 
-    if (sys_hz != 0u)
+    if (sys_hz == 0u)
+        return;
+
+    if (peri_hz == 0u || peri_hz > sys_hz)
+        peri_hz = sys_hz;
+
+    /*
+     * Keep peripherals at the proven 300 MHz clock while the M33 cores run at
+     * 378 MHz. RP2350 clk_peri has a fractional divider, so this restores the
+     * exact 75 MHz SPI0 baud that we had at the old 300 MHz system clock.
+     */
+    if (!clock_configure(clk_peri, 0,
+                         CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS,
+                         sys_hz, peri_hz))
     {
-        clock_configure(clk_peri, 0,
-                        CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS,
-                        sys_hz, sys_hz);
-        sleep_ms(2);
+        (void)clock_configure(clk_peri, 0,
+                              CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS,
+                              sys_hz, sys_hz);
     }
+
+    sleep_ms(2);
 }
 
 static void mc_fd_recover_warm_boot(void)
@@ -486,6 +508,61 @@ static void mc_fd_handle_command(const char *cmd)
         return;
     }
 
+    if (mc_fd_cmd_equal_ci(cmd, "WAD"))
+    {
+        mc_fd_wad_boot_t wad;
+
+        (void)mc_fd_pico_wad_current(&wad);
+
+        printf("MCFDOOM1 wad_current=%s type=%s base=%s state=%c\n",
+               wad.selected,
+               wad.mode == MC_FD_WAD_MODE_PWAD ? "PWAD" : "IWAD",
+               wad.base,
+               wad.state);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_equal_ci(cmd, "WADS"))
+    {
+        int count = mc_fd_pico_wad_list();
+
+        printf("MCFDOOM1 wads_done=%d\n", count);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_prefix_ci(cmd, "WAD "))
+    {
+        mc_fd_wad_boot_t wad;
+        int selected = mc_fd_pico_wad_select(cmd + 4, &wad);
+
+        if (selected <= 0)
+        {
+            printf("MCFDOOM1 wad_select=%s ok=0 reason=%s\n",
+                   cmd + 4,
+                   selected < 0 ? "config-write" : "not-found-or-not-wad");
+            fflush(stdout);
+            return;
+        }
+
+        printf("MCFDOOM1 wad_select=%s ok=1 type=%s base=%s reboot=1\n",
+               wad.selected,
+               wad.mode == MC_FD_WAD_MODE_PWAD ? "PWAD" : "IWAD",
+               wad.base);
+        fflush(stdout);
+
+        /*
+         * Give USB CDC enough time to move the acknowledgement before the
+         * watchdog performs a clean application reboot.
+         */
+        sleep_ms(150);
+        watchdog_reboot(0, 0, 10);
+
+        for (;;)
+            tight_loop_contents();
+    }
+
     if (mc_fd_cmd_equal_ci(cmd, "MUSIC"))
     {
         mc_fd_audio_music_diag_t m;
@@ -565,7 +642,7 @@ static void mc_fd_handle_command(const char *cmd)
     if (mc_fd_cmd_equal_ci(cmd, "STAT"))
     {
         printf("MCFDOOM1 stat state=%s fatal_line=%d "
-               "sys=%lu clock_fallback=%d psram=%lu zone=%u "
+               "sys=%lu peri=%lu spi=%lu clock_fallback=%d psram=%lu zone=%u "
                "audio=%d core1=%d stack=%u ctrl_to=%lu ctrl_pause=%d "
                "block=%u deadline_us=%u ring=%u/%u ring_target=%u "
                "ring_low=%u ring_high=%u "
@@ -581,6 +658,8 @@ static void mc_fd_handle_command(const char *cmd)
                mc_fd_fatal ? "fatal" : "running",
                mc_fd_fatal_line,
                (unsigned long)clock_get_hz(clk_sys),
+               (unsigned long)clock_get_hz(clk_peri),
+               (unsigned long)spi_get_baudrate(MR_LCD_SPI),
                mc_fd_clock_fallback,
                (unsigned long)psram_get_size(),
                (unsigned int)MC_FD_PSRAM_ZONE_BYTES,
@@ -847,6 +926,14 @@ void I_ShutdownGraphics(void)
 
 void I_StartTic(void)
 {
+    static int wad_boot_confirmed;
+
+    if (!wad_boot_confirmed)
+    {
+        if (mc_fd_pico_wad_confirm_boot())
+            wad_boot_confirmed = 1;
+    }
+
     mc_fd_serial_service();
     mc_fd_audio_transport_service();
 }

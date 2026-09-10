@@ -74,7 +74,8 @@ set(MC_SYS_KHZ 300000 CACHE STRING "RP2350 system clock")
 set(MC_FASTDOOM_SYS_KHZ 378000 CACHE STRING "FastDoom RP2350 performance clock")
 set(MC_FASTDOOM_AUDIO_BLOCK 512 CACHE STRING "FastDoom I2S DMA period frames")
 set(MC_FASTDOOM_AUDIO_RING 4 CACHE STRING "FastDoom queued audio slots")
-set(MC_FASTDOOM_AUDIO_AHEAD 2 CACHE STRING "FastDoom target ready audio slots")
+set(MC_FASTDOOM_AUDIO_AHEAD 3 CACHE STRING "FastDoom target ready audio slots")
+set(MC_FASTDOOM_PERI_KHZ 300000 CACHE STRING "FastDoom peripheral clock")
 set(MC_LCD_SPI_BAUD 75000000 CACHE STRING "ILI9341 SPI clock")
 set(MC_LACE_BLOCK_H 8 CACHE STRING "Alternating lace block height")
 set(MC_I2S_BCLK 10 CACHE STRING "I2S BCLK GPIO")
@@ -368,6 +369,7 @@ if(EXISTS "${MC_FD}/d_main.c")
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_sound_mw.c"
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico.c"
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_fs.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_wad.c"
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_main.c")
 
     add_executable(microconsole_fastdoom_pico
@@ -409,6 +411,7 @@ if(EXISTS "${MC_FD}/d_main.c")
         MC_FD_PSRAM_ZONE_BYTES=6291456u
         MC_I2S_DATA=${MC_I2S_DATA}
         MC_SYS_KHZ=${MC_FASTDOOM_SYS_KHZ}
+        MC_FD_PERI_KHZ=${MC_FASTDOOM_PERI_KHZ}
         MC_FD_OPL_POST_GAIN_SHIFT=3
         MC_FD_RENDER_VALIDATE=0
         MC_SD_MISO=${MC_SD_MISO}
@@ -447,7 +450,8 @@ if(EXISTS "${MC_FD}/d_main.c")
         hardware_pio
         hardware_psram
         hardware_spi
-        hardware_vreg)
+        hardware_vreg
+        hardware_watchdog)
 
     pico_enable_stdio_usb(microconsole_fastdoom_pico 1)
     pico_enable_stdio_uart(microconsole_fastdoom_pico 0)

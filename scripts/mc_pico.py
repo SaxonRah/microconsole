@@ -239,6 +239,12 @@ def command_response_matches(command, text):
         return text.startswith("MCFDOOM1 state=") or text.startswith("MWPICO1")
     if upper == "STAT":
         return text.startswith("MCFDOOM1 stat ")
+    if upper == "WAD":
+        return text.startswith("MCFDOOM1 wad_current=")
+    if upper == "WADS":
+        return text.startswith("MCFDOOM1 wads_done=")
+    if upper.startswith("WAD "):
+        return text.startswith("MCFDOOM1 wad_select=")
     if upper == "MUSIC":
         return text.startswith("MCFDOOM1 music ")
     if upper.startswith("TRACK "):
@@ -284,7 +290,7 @@ def command_shell():
         return 1
 
     print("MicroConsole command shell on %s" % port)
-    print("Commands: PING, STAT, MUSIC, TRACK INTROA|E1M1|E1M5, STACK, FS, SDRAW, VOL n, KEY ...")
+    print("Commands: PING, STAT, WAD, WADS, WAD doom2, MUSIC, TRACK INTROA|E1M1|E1M5, STACK, FS, SDRAW, VOL n, KEY ...")
     print("Type quit or exit to close the port.")
 
     try:
@@ -308,8 +314,14 @@ def command_shell():
                 print("serial error:", exc)
                 return 1
 
-            if read_command_response(ser, port, command, timeout=3.0) != 0:
+            timeout = 10.0 if command.strip().upper() == "WADS" else 3.0
+            rc = read_command_response(ser, port, command, timeout=timeout)
+            if rc != 0:
                 print("%s: no matching response for %s" % (port, command))
+
+            if rc == 0 and command.strip().upper().startswith("WAD "):
+                print("Target is rebooting into the selected WAD; reopen the shell after USB returns.")
+                break
     finally:
         ser.close()
 
@@ -419,7 +431,7 @@ def usage():
     print("       mc_pico.py volume 0..100")
     print("       mc_pico.py example ID")
     print("       mc_pico.py list-examples")
-    print('       mc_pico.py command "PING|STAT|MUSIC|TRACK E1M1|STACK|FS|SDRAW|KEY LEFT DOWN|..."')
+    print('       mc_pico.py command "PING|STAT|WAD|WADS|WAD doom2|MUSIC|TRACK E1M1|STACK|FS|SDRAW|KEY LEFT DOWN|..."')
     print("       mc_pico.py shell")
 
 
