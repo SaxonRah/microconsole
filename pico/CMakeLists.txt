@@ -71,6 +71,10 @@ endif()
 
 set(MC_STRESS_SPRITES 1024 CACHE STRING "MicroRender stress sprites")
 set(MC_SYS_KHZ 300000 CACHE STRING "RP2350 system clock")
+set(MC_FASTDOOM_SYS_KHZ 378000 CACHE STRING "FastDoom RP2350 performance clock")
+set(MC_FASTDOOM_AUDIO_BLOCK 512 CACHE STRING "FastDoom I2S DMA period frames")
+set(MC_FASTDOOM_AUDIO_RING 4 CACHE STRING "FastDoom queued audio slots")
+set(MC_FASTDOOM_AUDIO_AHEAD 2 CACHE STRING "FastDoom target ready audio slots")
 set(MC_LCD_SPI_BAUD 75000000 CACHE STRING "ILI9341 SPI clock")
 set(MC_LACE_BLOCK_H 8 CACHE STRING "Alternating lace block height")
 set(MC_I2S_BCLK 10 CACHE STRING "I2S BCLK GPIO")
@@ -99,6 +103,22 @@ set(MW_BUILD_PACK OFF CACHE BOOL "" FORCE)
 
 add_subdirectory("${MC_MR}/shared" "${CMAKE_BINARY_DIR}/microrender-shared")
 add_subdirectory("${MC_MW}/shared" "${CMAKE_BINARY_DIR}/microwave-shared")
+
+# FastDoom's Pico path is compute-bound in MUS/GENMIDI/Nuked.  The MicroWave
+# project intentionally does not force a global optimization level, so make
+# the RP2350 code-generation policy explicit here without changing MicroWave's
+# desktop/DOS builds.
+foreach(_mc_mw_perf_target
+        microwave_snd
+        microwave_midi
+        microwave_mus
+        microwave_nuked_opl3
+        microwave_genmidi_opl)
+    if(TARGET ${_mc_mw_perf_target})
+        target_compile_options(${_mc_mw_perf_target} PRIVATE -O3)
+    endif()
+endforeach()
+
 
 set(MC_PICO_FATFS_SD "${MC_ROOT}/third_party/pico-fatfs-sd")
 if(EXISTS "${MC_PICO_FATFS_SD}/src/CMakeLists.txt")
@@ -138,7 +158,11 @@ target_compile_definitions(microconsole_fastdoom_audio_pico PRIVATE
     MC_I2S_LRCLK=${MC_I2S_LRCLK}
     MC_I2S_DATA=${MC_I2S_DATA}
     MC_FD_AUDIO_RATE=${MC_AUDIO_RATE}
-    MC_FD_PICO_DMA_BLOCK=${MC_AUDIO_BLOCK})
+    MC_FD_PICO_DMA_BLOCK=${MC_FASTDOOM_AUDIO_BLOCK}
+    MC_FD_PICO_RING_COUNT=${MC_FASTDOOM_AUDIO_RING}
+    MC_FD_PICO_RING_TARGET=${MC_FASTDOOM_AUDIO_AHEAD})
+
+target_compile_options(microconsole_fastdoom_audio_pico PRIVATE -O3)
 
 target_link_libraries(microconsole_fastdoom_audio_pico PRIVATE
     microwave::snd
@@ -370,7 +394,8 @@ if(EXISTS "${MC_FD}/d_main.c")
         COMPILE_OPTIONS
             -include
             "${MC_ROOT}/games/fastdoom/compat/mc_fastdoom_force_compat.h"
-            -O2
+            -O3
+            -fno-strict-aliasing
             -fsigned-char
             -Wall
             -Wextra
@@ -383,7 +408,9 @@ if(EXISTS "${MC_FD}/d_main.c")
         MC_FD_AUDIO_BLOCK=256
         MC_FD_PSRAM_ZONE_BYTES=6291456u
         MC_I2S_DATA=${MC_I2S_DATA}
-        MC_SYS_KHZ=${MC_SYS_KHZ}
+        MC_SYS_KHZ=${MC_FASTDOOM_SYS_KHZ}
+        MC_FD_OPL_POST_GAIN_SHIFT=3
+        MC_FD_RENDER_VALIDATE=0
         MC_SD_MISO=${MC_SD_MISO}
         MC_SD_CS=${MC_SD_CS}
         MC_SD_SCK=${MC_SD_SCK}
@@ -419,7 +446,8 @@ if(EXISTS "${MC_FD}/d_main.c")
         hardware_irq
         hardware_pio
         hardware_psram
-        hardware_spi)
+        hardware_spi
+        hardware_vreg)
 
     pico_enable_stdio_usb(microconsole_fastdoom_pico 1)
     pico_enable_stdio_uart(microconsole_fastdoom_pico 0)
@@ -437,5 +465,9 @@ else()
 endif()
 
 message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RATE}Hz block=${MC_AUDIO_BLOCK} volume=${MC_AUDIO_VOLUME}%; stress=${MC_STRESS_SPRITES}; sys=${MC_SYS_KHZ}kHz; SPI=${MC_LCD_SPI_BAUD}; lace=${MC_LACE_BLOCK_H}")
+message(STATUS
+    "MicroConsole FastDoom perf: sys=${MC_FASTDOOM_SYS_KHZ}kHz "
+    "audio=${MC_FASTDOOM_AUDIO_BLOCK}f ring=${MC_FASTDOOM_AUDIO_RING} "
+    "ahead=${MC_FASTDOOM_AUDIO_AHEAD} OPL-postgain=x8 checks=off O3")
 message(STATUS "MicroConsole Pico examples: target=microconsole_examples (tiled SRAM frontend, no PSRAM)")
 message(STATUS "MicroConsole FastDoom Pico audio: target=microconsole_fastdoom_audio_pico (PIO/DMA transport compile check)")

@@ -18,6 +18,22 @@
 #include "r_state.h"
 #include "v_video.h"
 
+#ifndef MC_FD_RENDER_VALIDATE
+#if defined(MC_FASTDOOM_PICO)
+#define MC_FD_RENDER_VALIDATE 0
+#else
+#define MC_FD_RENDER_VALIDATE 1
+#endif
+#endif
+
+#if defined(MC_FASTDOOM_PICO) && defined(__GNUC__)
+#define MC_FD_RENDER_HOT(name) \
+    __attribute__((noinline, section(".time_critical." #name))) name
+#else
+#define MC_FD_RENDER_HOT(name) name
+#endif
+
+#if MC_FD_RENDER_VALIDATE
 static void mc_renderer_abort(const char *what, int a, int b, int c, int d)
 {
     fprintf(stderr,
@@ -109,6 +125,8 @@ static void mc_validate_span(int pixel_width)
                           ds_colormap != NULL);
 }
 
+#endif
+
 static void mc_draw_column_scaled(int pixel_width)
 {
     int count;
@@ -119,7 +137,9 @@ static void mc_draw_column_scaled(int pixel_width)
     if (dc_yh < dc_yl)
         return;
 
+#if MC_FD_RENDER_VALIDATE
     mc_validate_textured_column(pixel_width);
+#endif
     count = dc_yh - dc_yl + 1;
     dest = ylookup[dc_yl] + columnofs[dc_x];
 
@@ -154,7 +174,9 @@ static void mc_draw_column_flat(int pixel_width)
      * Flat renderers intentionally do not consume dc_source or dc_colormap.
      * They render the caller-provided flat dc_color.
      */
+#if MC_FD_RENDER_VALIDATE
     mc_validate_column_geometry(pixel_width);
+#endif
     count = dc_yh - dc_yl + 1;
     dest = ylookup[dc_yl] + columnofs[dc_x];
     color = dc_color;
@@ -191,7 +213,9 @@ static void mc_draw_span(int pixel_width)
     if (ds_x2 < ds_x1)
         return;
 
+#if MC_FD_RENDER_VALIDATE
     mc_validate_span(pixel_width);
+#endif
     dest = ylookup[ds_y] + columnofs[ds_x1];
     position = (uint32_t)ds_frac;
     step = (uint32_t)ds_step;
@@ -228,11 +252,13 @@ static void mc_draw_fuzz(int pixel_width, int flat)
      * Fuzz rendering is framebuffer based.  Like Doom's original fuzz path,
      * it does not read dc_source or dc_colormap.
      */
+#if MC_FD_RENDER_VALIDATE
     mc_validate_column_geometry(pixel_width);
 
     if (colormaps == NULL)
         mc_renderer_abort("fuzz colormaps",
                           dc_x, dc_yl, dc_yh, pixel_width);
+#endif
 
     for (y = dc_yl; y <= dc_yh; ++y)
     {
@@ -242,7 +268,9 @@ static void mc_draw_fuzz(int pixel_width, int flat)
         byte color;
         int k;
 
-        fuzz_pos = (fuzz_pos + 1u) % 50u;
+        ++fuzz_pos;
+        if (fuzz_pos == 50u)
+            fuzz_pos = 0u;
 
         if (sample_y < 0)
             sample_y = 0;
@@ -269,26 +297,165 @@ static void mc_draw_fuzz(int pixel_width, int flat)
     }
 }
 
+/*
+ * Full-detail Pico hot paths.
+ *
+ * These are intentionally separate from the generic width-2/4 helpers so the
+ * common 320x200 renderer has no pixel-width loop/branch in its inner loops.
+ * The higher-level FastDoom renderer and all texture/lighting semantics remain
+ * unchanged.
+ */
+static void MC_FD_RENDER_HOT(mc_draw_column_scaled_1)(void)
+{
+    int count;
+    byte *dest;
+    const byte *source;
+    const byte *map;
+    uint32_t frac;
+    uint32_t fracstep;
+
+    if (dc_yh < dc_yl)
+        return;
+
+#if MC_FD_RENDER_VALIDATE
+    mc_validate_textured_column(1);
+#endif
+
+    count = dc_yh - dc_yl;
+    dest = ylookup[dc_yl] + columnofs[dc_x];
+    source = dc_source;
+    map = dc_colormap;
+    frac = (uint32_t)(
+        (int64_t)dc_texturemid +
+        (int64_t)(dc_yl - centery) * (int64_t)dc_iscale);
+    fracstep = (uint32_t)dc_iscale;
+
+    do
+    {
+        *dest = map[source[(frac >> FRACBITS) & 127u]];
+        dest += SCREENWIDTH;
+        frac += fracstep;
+    } while (count--);
+}
+
+static void MC_FD_RENDER_HOT(mc_draw_column_flat_1)(void)
+{
+    int count;
+    byte *dest;
+    byte color;
+
+    if (dc_yh < dc_yl)
+        return;
+
+#if MC_FD_RENDER_VALIDATE
+    mc_validate_column_geometry(1);
+#endif
+
+    count = dc_yh - dc_yl;
+    dest = ylookup[dc_yl] + columnofs[dc_x];
+    color = dc_color;
+
+    do
+    {
+        *dest = color;
+        dest += SCREENWIDTH;
+    } while (count--);
+}
+
+static void MC_FD_RENDER_HOT(mc_draw_span_1)(void)
+{
+    int count;
+    byte *dest;
+    const byte *source;
+    const byte *map;
+    uint32_t position;
+    uint32_t step;
+
+    if (ds_x2 < ds_x1)
+        return;
+
+#if MC_FD_RENDER_VALIDATE
+    mc_validate_span(1);
+#endif
+
+    count = ds_x2 - ds_x1;
+    dest = ylookup[ds_y] + columnofs[ds_x1];
+    source = ds_source;
+    map = ds_colormap;
+    position = (uint32_t)ds_frac;
+    step = (uint32_t)ds_step;
+
+    do
+    {
+        unsigned spot =
+            (position >> 26) | ((position >> 4) & 0x0fc0u);
+        *dest++ = map[source[spot]];
+        position += step;
+    } while (count--);
+}
+
+static void MC_FD_RENDER_HOT(mc_draw_fuzz_1)(void)
+{
+    static const signed char fuzz_dir[50] = {
+         1,-1, 1,-1, 1, 1,-1, 1, 1,-1,
+         1, 1, 1,-1, 1, 1, 1,-1,-1,-1,
+        -1, 1,-1,-1, 1,-1,-1, 1, 1, 1,
+         1,-1, 1, 1,-1,-1,-1,-1,-1, 1,
+        -1,-1, 1, 1,-1, 1, 1,-1, 1, 1
+    };
+    static unsigned fuzz_pos;
+    int y;
+    int xoff;
+
+    if (dc_yh < dc_yl)
+        return;
+
+#if MC_FD_RENDER_VALIDATE
+    mc_validate_column_geometry(1);
+    if (colormaps == NULL)
+        mc_renderer_abort("fuzz colormaps", dc_x, dc_yl, dc_yh, 1);
+#endif
+
+    xoff = columnofs[dc_x];
+
+    for (y = dc_yl; y <= dc_yh; ++y)
+    {
+        byte *dest = ylookup[y] + xoff;
+        int sample_y = y + fuzz_dir[fuzz_pos];
+
+        ++fuzz_pos;
+        if (fuzz_pos == 50u)
+            fuzz_pos = 0u;
+
+        if (sample_y < 0)
+            sample_y = 0;
+        else if (sample_y >= SCREENHEIGHT)
+            sample_y = SCREENHEIGHT - 1;
+
+        *dest = colormaps[(6 * 256) + ylookup[sample_y][xoff]];
+    }
+}
+
 /* Normal wall/sprite columns. */
-void R_DrawColumnBackbuffer(void)              { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbuffer(void)              { mc_draw_column_scaled_1(); }
 void R_DrawColumnLowBackbuffer(void)           { mc_draw_column_scaled(2); }
 void R_DrawColumnPotatoBackbuffer(void)        { mc_draw_column_scaled(4); }
 
-void R_DrawColumnBackbufferFastLEA(void)       { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbufferFastLEA(void)       { mc_draw_column_scaled_1(); }
 void R_DrawColumnLowBackbufferFastLEA(void)    { mc_draw_column_scaled(2); }
 void R_DrawColumnPotatoBackbufferFastLEA(void) { mc_draw_column_scaled(4); }
 
-void R_DrawColumnBackbufferRoll(void)          { mc_draw_column_scaled(1); }
-void R_DrawColumnBackbufferMMX(void)           { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbufferRoll(void)          { mc_draw_column_scaled_1(); }
+void R_DrawColumnBackbufferMMX(void)           { mc_draw_column_scaled_1(); }
 
 /* FastDoom's full-screen/direct specializations are semantic aliases here. */
-void R_DrawColumnBackbufferDirect(void)        { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbufferDirect(void)        { mc_draw_column_scaled_1(); }
 void R_DrawColumnLowBackbufferDirect(void)     { mc_draw_column_scaled(2); }
 void R_DrawColumnPotatoBackbufferDirect(void)  { mc_draw_column_scaled(4); }
 
 void R_DrawColumnBackbufferSkyFullDirect(void)
 {
-    mc_draw_column_scaled(1);
+    mc_draw_column_scaled_1();
 }
 
 void R_DrawColumnLowBackbufferSkyFullDirect(void)
@@ -302,27 +469,27 @@ void R_DrawColumnPotatoBackbufferSkyFullDirect(void)
 }
 
 /* Flat wall/sprite columns. */
-void R_DrawColumnBackbufferFlat(void)          { mc_draw_column_flat(1); }
+void R_DrawColumnBackbufferFlat(void)          { mc_draw_column_flat_1(); }
 void R_DrawColumnLowBackbufferFlat(void)       { mc_draw_column_flat(2); }
 void R_DrawColumnPotatoBackbufferFlat(void)    { mc_draw_column_flat(4); }
 
 /* Floor/ceiling spans. */
-void R_DrawSpanBackbuffer(void)                { mc_draw_span(1); }
+void R_DrawSpanBackbuffer(void)                { mc_draw_span_1(); }
 void R_DrawSpanLowBackbuffer(void)             { mc_draw_span(2); }
 void R_DrawSpanPotatoBackbuffer(void)          { mc_draw_span(4); }
 
-void R_DrawSpanBackbufferRoll(void)            { mc_draw_span(1); }
-void R_DrawSpanBackbufferMMX(void)             { mc_draw_span(1); }
-void R_DrawSpanBackbufferPentium(void)         { mc_draw_span(1); }
+void R_DrawSpanBackbufferRoll(void)            { mc_draw_span_1(); }
+void R_DrawSpanBackbufferMMX(void)             { mc_draw_span_1(); }
+void R_DrawSpanBackbufferPentium(void)         { mc_draw_span_1(); }
 void R_DrawSpanLowBackbufferPentium(void)      { mc_draw_span(2); }
 void R_DrawSpanPotatoBackbufferPentium(void)   { mc_draw_span(4); }
 
 /* Spectre/fuzz paths that are NASM in the original linear renderer. */
-void R_DrawFuzzColumnBackbuffer(void)           { mc_draw_fuzz(1, 0); }
+void R_DrawFuzzColumnBackbuffer(void)           { mc_draw_fuzz_1(); }
 void R_DrawFuzzColumnLowBackbuffer(void)        { mc_draw_fuzz(2, 0); }
 void R_DrawFuzzColumnPotatoBackbuffer(void)     { mc_draw_fuzz(4, 0); }
 
-void R_DrawFuzzColumnFlatBackbuffer(void)       { mc_draw_fuzz(1, 1); }
+void R_DrawFuzzColumnFlatBackbuffer(void)       { mc_draw_fuzz_1(); }
 void R_DrawFuzzColumnFlatLowBackbuffer(void)    { mc_draw_fuzz(2, 1); }
 void R_DrawFuzzColumnFlatPotatoBackbuffer(void) { mc_draw_fuzz(4, 1); }
 

@@ -36,6 +36,57 @@ int mc_fd_audio_core_ready(void);
 void mc_fd_audio_set_master_volume(int32_t volume_16_16);
 int32_t mc_fd_audio_master_volume(void);
 
+
+typedef struct mc_fd_audio_music_diag
+{
+    int core_ready;
+    int genmidi_ready;
+    int backend_active;
+    int backend_paused;
+    int doom_paused;
+    int music_handle;
+    int music_volume;
+
+    long audio_frame;
+    long music_frame;
+    long player_start_frame;
+    long player_next_frame;
+
+    unsigned long messages_emitted;
+    unsigned long loops_completed;
+    unsigned long midi_notes_started;
+    unsigned long opl_voices_started;
+    unsigned long opl_voices_released;
+    unsigned long voices_stolen;
+    unsigned long secondary_voices_dropped;
+    unsigned long dropped_events;
+    unsigned long register_writes;
+
+    unsigned int player_cursor;
+    unsigned int player_score_end;
+    unsigned int ticks_in_loop;
+
+    int player_finished;
+    int player_error;
+    int active_voices;
+    int pending_events;
+    int output_gain;
+
+    int opl_peak;
+    int opl_peak_max;
+    int filtered_peak;
+    int filtered_peak_max;
+    int opl_post_gain_shift;
+    unsigned long opl_post_gain_clips;
+
+    char name[9];
+} mc_fd_audio_music_diag_t;
+
+void mc_fd_audio_get_music_diag(mc_fd_audio_music_diag_t *diag);
+
+/* Debug-only explicit Doom track selection: INTROA, E1M1, or E1M5. */
+int mc_fd_audio_debug_change_music(const char *name);
+
 /*
  * A transport sink receives one finished interleaved stereo MicroWave block:
  *

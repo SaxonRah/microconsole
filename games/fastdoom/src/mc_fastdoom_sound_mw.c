@@ -64,6 +64,22 @@
 
 #include "mc_fastdoom_audio.h"
 
+#if defined(MC_FASTDOOM_PICO) && defined(__GNUC__)
+#define MC_FD_AUDIO_HOT(name) \
+    __attribute__((noinline, section(".time_critical." #name))) name
+#else
+#define MC_FD_AUDIO_HOT(name) name
+#endif
+
+#ifndef MC_FD_OPL_POST_GAIN_SHIFT
+#define MC_FD_OPL_POST_GAIN_SHIFT 0
+#endif
+
+
+#if defined(MC_FASTDOOM_PICO)
+#include "mc_fastdoom_audio_pico.h"
+#endif
+
 #ifndef MC_FD_AUDIO_RATE
 #define MC_FD_AUDIO_RATE 32000
 #endif
@@ -156,6 +172,12 @@ static int mc_genmidi_ready = 0;
 static int mc_atexit_registered = 0;
 static int mc_music_active = 0;
 static int mc_music_backend_paused = 0;
+static unsigned long mc_music_messages_emitted = 0ul;
+static int mc_music_opl_peak = 0;
+static int mc_music_opl_peak_max = 0;
+static int mc_music_filtered_peak = 0;
+static int mc_music_filtered_peak_max = 0;
+static unsigned long mc_music_post_gain_clips = 0ul;
 static int mc_next_sfx_handle = MC_FD_FIRST_SFX_HANDLE;
 static int mc_audio_error = 0;
 static int mc_audio_error_reported = 0;
@@ -280,7 +302,7 @@ static void mc_filter_reset(void)
     mc_lp_y1 = 0;
 }
 
-static long mc_filter_opl(long sample)
+static long MC_FD_AUDIO_HOT(mc_filter_opl)(long sample)
 {
     int32_t x = (int32_t)sample;
     int32_t hp;
@@ -295,6 +317,9 @@ static long mc_filter_opl(long sample)
          (int32_t)(((int64_t)MC_FD_LP_A_Q16 *
                     (int64_t)(hp - mc_lp_y1)) >> 16);
     mc_lp_y1 = lp;
+
+    if (lp > SND_MIX_MAX || lp < SND_MIX_MIN)
+        ++mc_music_post_gain_clips;
 
     return (long)snd_clip_sample((long)lp);
 }
@@ -461,41 +486,88 @@ static void mc_stop_music_backend_locked(void)
         snd_mus_player_stop(&mc_player);
         snd_genmidi_opl_all_sound_off(&mc_opl);
     }
+
     mc_music_active = 0;
     mc_music_backend_paused = 0;
     mc_filter_reset();
 }
 
-static void mc_stop_music_backend(void)
+typedef enum mc_music_control_op
 {
-    if (!mc_core_ready)
-        return;
+    MC_MUSIC_CONTROL_NONE = 0,
+    MC_MUSIC_CONTROL_STOP,
+    MC_MUSIC_CONTROL_START
+} mc_music_control_op_t;
 
-    mc_lock();
-    mc_stop_music_backend_locked();
-    mc_unlock();
-}
-
-static int mc_start_music_backend(void *data, int bytes, int looping)
+typedef struct mc_music_control_request
 {
+    mc_music_control_op_t op;
+    void *data;
+    int bytes;
+    int looping;
+    int result;
+    int error;
+} mc_music_control_request_t;
+
+/*
+ * Persistent storage is intentional.  If a pathological Core-1 failure causes
+ * the synchronous mailbox wait to time out, a late Core-1 completion still
+ * sees valid request memory rather than a dead Core-0 stack frame.
+ */
+static mc_music_control_request_t mc_music_control_request;
+
+static void mc_music_control_execute(void *user)
+{
+    mc_music_control_request_t *request =
+        (mc_music_control_request_t *)user;
     int error;
 
-    if (!mc_core_ready || !mc_genmidi_ready || !data || bytes <= 0)
-        return 0;
+    if (!request)
+        return;
+
+    request->result = 0;
+    request->error = 0;
 
     mc_lock();
 
+    if (request->op == MC_MUSIC_CONTROL_STOP)
+    {
+        mc_stop_music_backend_locked();
+        request->result = 1;
+        mc_unlock();
+        return;
+    }
+
+    if (request->op != MC_MUSIC_CONTROL_START ||
+        !request->data ||
+        request->bytes <= 0)
+    {
+        mc_unlock();
+        return;
+    }
+
+    /*
+     * Core 1 owns the complete synth transition:
+     *
+     *   old MUS stop -> all voices off -> parse new MUS
+     *   -> reset MIDI -> reset/reinitialize Nuked/GENMIDI
+     *   -> bind bank/channel state -> start player
+     *
+     * This is the same full OPL reset sequence used by the earlier
+     * single-core/desktop implementation where INTROA and E1M5 were known to
+     * work.  The difference is that it now executes on the same core that calls
+     * OPL3_GenerateResampled(), never concurrently from Core 0.
+     */
     mc_stop_music_backend_locked();
 
     error = snd_mus_open(&mc_song,
-                         data,
-                         (uint32_t)(unsigned int)bytes);
+                         request->data,
+                         (uint32_t)(unsigned int)request->bytes);
     if (error != SND_MUS_OK)
     {
+        request->error = error;
         mc_unlock();
-        fprintf(stderr, "MicroWave: MUS open failed: %s\n",
-                snd_mus_error_string(error));
-        return 0;
+        return;
     }
 
     snd_midi_reset(&mc_midi);
@@ -507,16 +579,30 @@ static int mc_start_music_backend(void *data, int bytes, int looping)
     snd_genmidi_opl_set_output_gain(&mc_opl,
                                     mc_music_gain_8_8(snd_MusicVolume));
 
+    /*
+     * One authoritative transport clock.  A new song begins at the current
+     * audio frame rather than inheriting a music-only clock that stopped while
+     * no music was active.
+     */
+    mc_music_frame = mc_audio_frame;
+
+    mc_music_messages_emitted = 0ul;
+    mc_music_opl_peak = 0;
+    mc_music_opl_peak_max = 0;
+    mc_music_filtered_peak = 0;
+    mc_music_filtered_peak_max = 0;
+    mc_music_post_gain_clips = 0ul;
+
     if (!snd_mus_player_init(&mc_player,
                              &mc_song,
                              MC_FD_AUDIO_RATE,
                              SND_MUS_DOOM_TICK_HZ,
                              mc_music_frame,
-                             looping ? 1 : 0))
+                             request->looping ? 1 : 0))
     {
+        request->error = SND_MUS_ERR_ARGUMENT;
         mc_unlock();
-        fprintf(stderr, "MicroWave: MUS player initialization failed\n");
-        return 0;
+        return;
     }
 
     mc_music_active = 1;
@@ -525,8 +611,72 @@ static int mc_start_music_backend(void *data, int bytes, int looping)
     mc_audio_error_reported = 0;
     mc_filter_reset();
 
+    request->result = 1;
     mc_unlock();
-    return 1;
+}
+
+static int mc_run_music_control(mc_music_control_op_t op,
+                                void *data,
+                                int bytes,
+                                int looping)
+{
+    int dispatched;
+
+    if (!mc_core_ready)
+        return op == MC_MUSIC_CONTROL_STOP ? 1 : 0;
+
+    if (op == MC_MUSIC_CONTROL_START &&
+        (!mc_genmidi_ready || !data || bytes <= 0))
+        return 0;
+
+    mc_music_control_request.op = op;
+    mc_music_control_request.data = data;
+    mc_music_control_request.bytes = bytes;
+    mc_music_control_request.looping = looping;
+    mc_music_control_request.result = 0;
+    mc_music_control_request.error = 0;
+
+#if defined(MC_FASTDOOM_PICO)
+    dispatched = mc_fd_audio_pico_run_control(
+        mc_music_control_execute,
+        &mc_music_control_request,
+        500000u);
+#else
+    mc_music_control_execute(&mc_music_control_request);
+    dispatched = 1;
+#endif
+
+    if (!dispatched)
+    {
+        fprintf(stderr,
+                "MicroWave: Core 1 music-control transaction timed out\n");
+        fflush(stderr);
+        return 0;
+    }
+
+    if (!mc_music_control_request.result &&
+        mc_music_control_request.error != 0)
+    {
+        fprintf(stderr,
+                "MicroWave: music backend failed: %s\n",
+                snd_mus_error_string(mc_music_control_request.error));
+        fflush(stderr);
+    }
+
+    return mc_music_control_request.result;
+}
+
+static int mc_stop_music_backend(void)
+{
+    return mc_run_music_control(MC_MUSIC_CONTROL_STOP, NULL, 0, 0);
+}
+
+static int mc_start_music_backend(void *data, int bytes, int looping)
+{
+    return mc_run_music_control(MC_MUSIC_CONTROL_START,
+                                data,
+                                bytes,
+                                looping);
 }
 
 static void mc_pause_music_backend(void)
@@ -713,10 +863,12 @@ static void mc_report_audio_error(void)
 /* Transport-driven mixer                                                      */
 /* ------------------------------------------------------------------------- */
 
-static void mc_render_chunk(int frames)
+static void MC_FD_AUDIO_HOT(mc_render_chunk)(int frames)
 {
     int i;
     int emitted;
+    int opl_peak = 0;
+    int filtered_peak = 0;
 
     snd_begin_block(&mc_opl_mix, mc_music_frame, frames);
 
@@ -725,6 +877,9 @@ static void mc_render_chunk(int frames)
         emitted = snd_mus_process_until(&mc_player,
                                         &mc_midi,
                                         mc_music_frame + (long)frames);
+        if (emitted > 0)
+            mc_music_messages_emitted += (unsigned long)emitted;
+
         if (emitted < 0)
         {
             mc_audio_error = snd_mus_player_error(&mc_player);
@@ -733,12 +888,7 @@ static void mc_render_chunk(int frames)
         }
 
         if (mc_opl.dropped_events != 0uL && mc_audio_error == 0)
-        {
-            /* There is no MUS error code for a backend queue overflow. Use the
-             * generic time error as a visible failure marker rather than
-             * silently producing a corrupted song. */
             mc_audio_error = SND_MUS_ERR_TIME;
-        }
 
         snd_genmidi_opl_mix_block(&mc_opl, &mc_opl_mix);
         snd_flush_block(&mc_opl_mix);
@@ -753,15 +903,60 @@ static void mc_render_chunk(int frames)
     if (mc_music_active && !mc_music_backend_paused)
     {
         snd_touch_block(&mc_mix);
-        for (i = 0; i < frames; ++i)
+
+#if SND_WIDE_ACCUM
+        if (mc_mix.accum != NULL)
         {
-            long mono = SND_SAMPLE_TO_MIX(mc_opl_block[i]);
-            long filtered = mc_filter_opl(mono);
-            snd_block_add(&mc_mix, (long)i * 2L, filtered);
-            snd_block_add(&mc_mix, (long)i * 2L + 1L, filtered);
+            int32_t *dst = mc_mix.accum;
+
+            for (i = 0; i < frames; ++i)
+            {
+                long raw = SND_SAMPLE_TO_MIX(mc_opl_block[i]);
+                long raw_mag = raw < 0 ? -raw : raw;
+                long boosted = raw * (1L << MC_FD_OPL_POST_GAIN_SHIFT);
+                long filtered = mc_filter_opl(boosted);
+                long filtered_mag = filtered < 0 ? -filtered : filtered;
+                unsigned int j = (unsigned int)i * 2u;
+
+                if (raw_mag > opl_peak)
+                    opl_peak = (int)raw_mag;
+                if (filtered_mag > filtered_peak)
+                    filtered_peak = (int)filtered_mag;
+
+                dst[j] += (int32_t)filtered;
+                dst[j + 1u] += (int32_t)filtered;
+            }
         }
+        else
+#endif
+        {
+            for (i = 0; i < frames; ++i)
+            {
+                long raw = SND_SAMPLE_TO_MIX(mc_opl_block[i]);
+                long raw_mag = raw < 0 ? -raw : raw;
+                long boosted = raw * (1L << MC_FD_OPL_POST_GAIN_SHIFT);
+                long filtered = mc_filter_opl(boosted);
+                long filtered_mag = filtered < 0 ? -filtered : filtered;
+
+                if (raw_mag > opl_peak)
+                    opl_peak = (int)raw_mag;
+                if (filtered_mag > filtered_peak)
+                    filtered_peak = (int)filtered_mag;
+
+                snd_block_add(&mc_mix, (long)i * 2L, filtered);
+                snd_block_add(&mc_mix, (long)i * 2L + 1L, filtered);
+            }
+        }
+
         mc_music_frame += (long)frames;
     }
+
+    mc_music_opl_peak = opl_peak;
+    mc_music_filtered_peak = filtered_peak;
+    if (opl_peak > mc_music_opl_peak_max)
+        mc_music_opl_peak_max = opl_peak;
+    if (filtered_peak > mc_music_filtered_peak_max)
+        mc_music_filtered_peak_max = filtered_peak;
 
     snd_bank_mix(&mc_mix, &mc_sfx_bank, NULL);
     snd_flush_block(&mc_mix);
@@ -794,6 +989,117 @@ void mc_fd_audio_set_master_volume(int32_t volume_16_16)
 int32_t mc_fd_audio_master_volume(void)
 {
     return mc_master_volume;
+}
+
+static int mc_music_ascii_equal_ci(const char *a, const char *b)
+{
+    unsigned char ca;
+    unsigned char cb;
+
+    if (!a || !b)
+        return 0;
+
+    while (*a && *b)
+    {
+        ca = (unsigned char)*a++;
+        cb = (unsigned char)*b++;
+
+        if (ca >= 'a' && ca <= 'z')
+            ca = (unsigned char)(ca - ('a' - 'A'));
+        if (cb >= 'a' && cb <= 'z')
+            cb = (unsigned char)(cb - ('a' - 'A'));
+
+        if (ca != cb)
+            return 0;
+    }
+
+    return *a == '\0' && *b == '\0';
+}
+
+void mc_fd_audio_get_music_diag(mc_fd_audio_music_diag_t *diag)
+{
+    if (!diag)
+        return;
+
+    memset(diag, 0, sizeof(*diag));
+    diag->music_handle = -1;
+    snprintf(diag->name, sizeof(diag->name), "%s", "<none>");
+
+    if (!mc_core_ready)
+        return;
+
+    mc_lock();
+
+    diag->core_ready = mc_core_ready;
+    diag->genmidi_ready = mc_genmidi_ready;
+    diag->backend_active = mc_music_active;
+    diag->backend_paused = mc_music_backend_paused;
+    diag->doom_paused = mc_music_paused;
+    diag->music_volume = snd_MusicVolume;
+
+    diag->audio_frame = mc_audio_frame;
+    diag->music_frame = mc_music_frame;
+    diag->player_start_frame = mc_player.start_frame;
+    diag->player_next_frame = mc_player.next_frame;
+
+    diag->messages_emitted = mc_music_messages_emitted;
+    diag->loops_completed = mc_player.loops_completed;
+    diag->midi_notes_started = mc_opl.midi_notes_started;
+    diag->opl_voices_started = mc_opl.opl_voices_started;
+    diag->opl_voices_released = mc_opl.opl_voices_released;
+    diag->voices_stolen = mc_opl.voices_stolen;
+    diag->secondary_voices_dropped = mc_opl.secondary_voices_dropped;
+    diag->dropped_events = mc_opl.dropped_events;
+    diag->register_writes = mc_opl.register_writes;
+
+    diag->player_cursor = mc_player.cursor;
+    diag->player_score_end = mc_player.score_end;
+    diag->ticks_in_loop = mc_player.ticks_in_loop;
+    diag->player_finished = mc_player.finished;
+    diag->player_error = mc_player.error;
+
+    diag->active_voices = snd_genmidi_opl_active_voices(&mc_opl);
+    diag->pending_events = snd_genmidi_opl_pending_events(&mc_opl);
+    diag->output_gain = mc_opl.output_gain;
+    diag->opl_peak = mc_music_opl_peak;
+    diag->opl_peak_max = mc_music_opl_peak_max;
+    diag->filtered_peak = mc_music_filtered_peak;
+    diag->filtered_peak_max = mc_music_filtered_peak_max;
+    diag->opl_post_gain_shift = MC_FD_OPL_POST_GAIN_SHIFT;
+    diag->opl_post_gain_clips = mc_music_post_gain_clips;
+
+    if (mc_music_playing)
+    {
+        diag->music_handle = mc_music_playing->handle;
+        if (mc_music_playing->name)
+            snprintf(diag->name, sizeof(diag->name), "%s",
+                     mc_music_playing->name);
+    }
+
+    mc_unlock();
+}
+
+int mc_fd_audio_debug_change_music(const char *name)
+{
+    if (mc_music_ascii_equal_ci(name, "INTROA"))
+    {
+        S_ChangeMusic(mus_introa, 0);
+        return 1;
+    }
+
+    if (mc_music_ascii_equal_ci(name, "E1M1"))
+    {
+        S_ChangeMusic(mus_e1m1, 1);
+        return 1;
+    }
+
+    if (mc_music_ascii_equal_ci(name, "E1M5"))
+    {
+        S_ChangeMusic(mus_e1m5, 1);
+        return 1;
+    }
+
+    return 0;
 }
 
 void mc_fd_audio_transport_failed(void)
@@ -1180,15 +1486,15 @@ void S_UpdateSounds(void)
 void S_ChangeMusic(int musicnum, int looping)
 {
     musicinfo_t *music;
+    musicinfo_t *old_music;
     int bytes;
-
-    (void)mc_fd_audio_transport_start();
 
     if (snd_MusicDevice == snd_none)
         return;
 
-    /* FastDoom/DMX selects the alternate intro lump for AdLib/SB OPL. */
-    if (musicnum == mus_intro)
+    if ((snd_MusicDevice == snd_Adlib ||
+         snd_MusicDevice == snd_SB) &&
+        musicnum == mus_intro)
         musicnum = mus_introa;
 
     if (musicnum <= mus_None || musicnum >= NUMMUSIC)
@@ -1198,27 +1504,38 @@ void S_ChangeMusic(int musicnum, int looping)
     if (mc_music_playing == music)
         return;
 
-    S_StopMusic();
-
+    /*
+     * Core 0 owns WAD/zone memory.  Load the replacement while the old lump is
+     * still valid, then ask Core 1 to atomically stop/reset/start the synth.
+     * Only after Core 1 has completed the transition is the old lump freed.
+     */
     music->data = W_CacheLumpNum(music->lumpnum, PU_MUSIC);
     bytes = W_LumpLength(music->lumpnum);
-    if (!music->data || !mc_start_music_backend(music->data, bytes, looping))
-    {
-        if (music->data)
-        {
-            Z_Free(music->data);
-            music->data = NULL;
-        }
+
+    if (!music->data)
         return;
+
+    old_music = mc_music_playing;
+
+    if (!mc_start_music_backend(music->data, bytes, looping))
+    {
+        Z_Free(music->data);
+        music->data = NULL;
+        return;
+    }
+
+    if (old_music && old_music != music && old_music->data)
+    {
+        Z_Free(old_music->data);
+        old_music->data = NULL;
     }
 
     music->handle = musicnum;
     mc_music_playing = music;
     mc_music_paused = 0;
-    mc_fd_audio_transport_service();
 
     fprintf(stderr,
-            "MicroWave music: D_%s (%s)\n",
+            "MicroWave music: D_%s (%s, core1-owned)\n",
             music->name,
             looping ? "loop" : "once");
     fflush(stderr);
@@ -1236,7 +1553,15 @@ void S_StopMusic(void)
     if (!music)
         return;
 
-    mc_stop_music_backend();
+    if (!mc_stop_music_backend())
+    {
+        /*
+         * Core 1 did not reach a safe chunk boundary.  Keep both the backend
+         * and the WAD lump alive rather than freeing memory it may still be
+         * reading.
+         */
+        return;
+    }
 
     if (music->data)
     {

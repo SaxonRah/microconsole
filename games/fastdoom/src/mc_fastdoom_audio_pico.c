@@ -8,14 +8,14 @@
  *   - 32 kHz logical audio
  *   - PIO1 SM0 running mw_i2s.pio
  *   - one DMA channel
- *   - two DMA buffers
- *   - IRQ only swaps buffers and requests a refill
- *   - mc_fd_audio_transport_service() performs the expensive Doom/MicroWave
- *     render outside interrupt context
+ *   - four short queued DMA periods
+ *   - Core 1 owns the producer and MUS/MIDI/GENMIDI/Nuked transitions
+ *   - IRQ only retires/starts already-rendered periods
  *
- * The DMA period may be larger than MC_FD_AUDIO_BLOCK. mc_fd_audio_render()
- * handles that by walking the exact same 256-frame Doom/MUS/OPL core used by
- * Raylib and delivering consecutive chunks to the sink below.
+ * The producer renders 512-frame transport periods as two consecutive
+ * 256-frame authoritative Doom/MUS/OPL chunks.  Keeping two periods ready
+ * absorbs normal synthesis jitter without turning an underrun into repeated,
+ * slow-sounding game audio.
  */
 
 #include <stdbool.h>
@@ -54,8 +54,18 @@
 #endif
 
 #ifndef MC_FD_PICO_DMA_BLOCK
-#define MC_FD_PICO_DMA_BLOCK 1024
+#define MC_FD_PICO_DMA_BLOCK 512
 #endif
+
+#ifndef MC_FD_PICO_RING_COUNT
+#define MC_FD_PICO_RING_COUNT 4
+#endif
+
+#ifndef MC_FD_PICO_RING_TARGET
+#define MC_FD_PICO_RING_TARGET 2
+#endif
+
+#define MC_FD_PICO_TIMING_WINDOW 32u
 
 #define MC_FD_PICO_PIO pio1
 #define MC_FD_PICO_SM 0
@@ -78,6 +88,14 @@ static uint32_t __attribute__((aligned(8)))
 #error "MC_FD_PICO_DMA_BLOCK must be positive"
 #endif
 
+#if MC_FD_PICO_RING_COUNT < 2
+#error "MC_FD_PICO_RING_COUNT must be at least 2"
+#endif
+
+#if MC_FD_PICO_RING_TARGET < 1 || MC_FD_PICO_RING_TARGET >= MC_FD_PICO_RING_COUNT
+#error "MC_FD_PICO_RING_TARGET must be 1..MC_FD_PICO_RING_COUNT-1"
+#endif
+
 #if MC_AUDIO_VOLUME < 0 || MC_AUDIO_VOLUME > 100
 #error "MC_AUDIO_VOLUME must be in the range 0..100"
 #endif
@@ -87,27 +105,64 @@ typedef struct mc_fd_pico_sink {
     unsigned int frame_offset;
 } mc_fd_pico_sink_t;
 
-static uint32_t mc_fd_pico_i2s[2][MC_FD_PICO_DMA_BLOCK];
+enum {
+    MC_FD_RING_FREE = 0,
+    MC_FD_RING_READY = 1,
+    MC_FD_RING_ACTIVE = 2
+};
+
+static uint32_t
+    mc_fd_pico_i2s[MC_FD_PICO_RING_COUNT][MC_FD_PICO_DMA_BLOCK];
+static uint32_t mc_fd_pico_silence[MC_FD_PICO_DMA_BLOCK];
+static volatile uint8_t mc_fd_pico_ring_state[MC_FD_PICO_RING_COUNT];
+static volatile unsigned int mc_fd_pico_ring_write = 0u;
+static volatile unsigned int mc_fd_pico_ring_read = 0u;
+static volatile int mc_fd_pico_active = -1;
+
 static int mc_fd_pico_dma = -1;
 static uint mc_fd_pico_pio_offset = 0u;
-static volatile int mc_fd_pico_active = 0;
-static volatile int mc_fd_pico_ready_buffer[2] = {0, 0};
-static volatile int mc_fd_pico_refill = -1;
+
 static volatile unsigned long mc_fd_pico_underrun_count = 0ul;
 static volatile unsigned long mc_fd_pico_refill_count = 0ul;
 static volatile uint32_t mc_fd_pico_last_refill_us = 0u;
+static volatile uint32_t mc_fd_pico_min_refill_us = 0u;
+static volatile uint32_t mc_fd_pico_avg_refill_us = 0u;
 static volatile uint32_t mc_fd_pico_max_refill_us = 0u;
+static volatile unsigned int mc_fd_pico_ring_low_water =
+    MC_FD_PICO_RING_TARGET;
+static volatile unsigned int mc_fd_pico_ring_high_water = 0u;
+
+static uint32_t mc_fd_pico_timing_samples[MC_FD_PICO_TIMING_WINDOW];
+static uint32_t mc_fd_pico_timing_sum;
+static unsigned int mc_fd_pico_timing_count;
+static unsigned int mc_fd_pico_timing_pos;
+
 static volatile int mc_fd_pico_core1_started = 0;
 static volatile int mc_fd_pico_core1_running = 0;
+
 /*
- * Written by core 0 and polled continuously by core 1.
- * This MUST be volatile (or atomic).  Without that qualifier, -O2 may keep
- * the initial zero in a core-1 register forever because a C data race on a
- * non-volatile object has undefined behavior.
+ * Core-0 -> Core-1 control mailbox.
+ *
+ * A monotonically increasing request sequence makes every transaction unique.
+ * The callback executes only on Core 1, between complete 256-frame
+ * MicroWave renders, so MUS/MIDI/GENMIDI/Nuked have one owner.
  */
+static mc_fd_audio_pico_control_fn volatile mc_fd_pico_control_fn_ptr = NULL;
+static void * volatile mc_fd_pico_control_user = NULL;
+static volatile uint32_t mc_fd_pico_control_request_seq = 0u;
+static volatile uint32_t mc_fd_pico_control_done_seq = 0u;
+static volatile unsigned long mc_fd_pico_control_timeout_count = 0ul;
+
 static volatile int mc_fd_pico_ready = 0;
 static int mc_fd_pico_failed = 0;
 static int mc_fd_pico_pio_claimed = 0;
+
+#if defined(__GNUC__)
+#define MC_FD_PICO_HOT(name) \
+    __attribute__((noinline, section(".time_critical." #name))) name
+#else
+#define MC_FD_PICO_HOT(name) name
+#endif
 
 static int16_t mc_fd_pico_sample_s16(snd_sample_t sample)
 {
@@ -121,21 +176,31 @@ static int16_t mc_fd_pico_sample_s16(snd_sample_t sample)
 static uint32_t mc_fd_pico_pack_frame(int16_t left, int16_t right)
 {
 #if MC_AUDIO_DEVICE == 2
-    /* PCM5102A: retain FastDoom's stereo SFX separation. */
     return ((uint32_t)(uint16_t)left << 16) | (uint16_t)right;
 #else
-    /* MAX98357A and NS4168 are mono output stages. Fold FastDoom's stereo
-     * final mix once, then place the same sample in both I2S slots so either
-     * channel-selection convention produces the complete game mix. */
     int32_t mono = ((int32_t)left + (int32_t)right) / 2;
     uint16_t sample = (uint16_t)(int16_t)mono;
     return ((uint32_t)sample << 16) | sample;
 #endif
 }
 
-static void mc_fd_pico_sink(const snd_sample_t *samples,
-                            unsigned int frames,
-                            void *user)
+static unsigned int mc_fd_pico_ring_ready_count_snapshot(void)
+{
+    unsigned int i;
+    unsigned int count = 0u;
+
+    for (i = 0u; i < (unsigned int)MC_FD_PICO_RING_COUNT; ++i)
+    {
+        if (mc_fd_pico_ring_state[i] == MC_FD_RING_READY)
+            ++count;
+    }
+
+    return count;
+}
+
+static void MC_FD_PICO_HOT(mc_fd_pico_sink)(const snd_sample_t *samples,
+                                             unsigned int frames,
+                                             void *user)
 {
     mc_fd_pico_sink_t *sink = (mc_fd_pico_sink_t *)user;
     unsigned int i;
@@ -154,6 +219,7 @@ static void mc_fd_pico_sink(const snd_sample_t *samples,
         unsigned int src = i * MC_FD_AUDIO_CHANNELS;
         int16_t left = mc_fd_pico_sample_s16(samples[src]);
         int16_t right = mc_fd_pico_sample_s16(samples[src + 1u]);
+
         sink->dst[sink->frame_offset + i] =
             mc_fd_pico_pack_frame(left, right);
     }
@@ -161,7 +227,9 @@ static void mc_fd_pico_sink(const snd_sample_t *samples,
     sink->frame_offset += frames;
 }
 
-static void mc_fd_pico_fill(int index)
+static void mc_fd_pico_control_checkpoint(void);
+
+static void MC_FD_PICO_HOT(mc_fd_pico_fill)(int index)
 {
     mc_fd_pico_sink_t sink;
 
@@ -169,11 +237,9 @@ static void mc_fd_pico_fill(int index)
     sink.frame_offset = 0u;
 
     /*
-     * Keep the transport period at 1024 frames, but do not hold the shared
-     * MicroWave lock for the entire ~27 ms render.  The platform-neutral core
-     * already renders internally in 256-frame chunks; invoking it once per
-     * chunk releases the lock between chunks so Core 0 can install SFX/music
-     * events without stalling behind a whole DMA period.
+     * A transport period is 512 frames, but the authoritative Doom audio core
+     * remains 256 frames.  Releasing the core lock and checking the control
+     * mailbox between chunks keeps music transitions responsive.
      */
     while (sink.frame_offset < (unsigned int)MC_FD_PICO_DMA_BLOCK)
     {
@@ -186,24 +252,19 @@ static void mc_fd_pico_fill(int index)
         unsigned int before = sink.frame_offset;
 
         mc_fd_audio_render(chunk, mc_fd_pico_sink, &sink);
+        mc_fd_pico_control_checkpoint();
 
         if (sink.frame_offset == before)
             break;
     }
 
-    /* Leave any hypothetical short tail as digital silence. */
     while (sink.frame_offset < (unsigned int)MC_FD_PICO_DMA_BLOCK)
         sink.dst[sink.frame_offset++] = 0u;
-
-    __dmb();
-    mc_fd_pico_ready_buffer[index] = 1;
 }
 
-static void mc_fd_pico_start_dma(int index)
+static void mc_fd_pico_start_dma_buffer(const uint32_t *buffer)
 {
-    dma_channel_set_read_addr((uint)mc_fd_pico_dma,
-                              mc_fd_pico_i2s[index],
-                              false);
+    dma_channel_set_read_addr((uint)mc_fd_pico_dma, buffer, false);
     dma_channel_set_trans_count((uint)mc_fd_pico_dma,
                                 MC_FD_PICO_DMA_BLOCK,
                                 true);
@@ -212,8 +273,7 @@ static void mc_fd_pico_start_dma(int index)
 static void mc_fd_pico_dma_irq(void)
 {
     uint32_t mask;
-    int done;
-    int next;
+    unsigned int ready_after;
 
     if (mc_fd_pico_dma < 0)
         return;
@@ -224,24 +284,38 @@ static void mc_fd_pico_dma_irq(void)
 
     dma_hw->ints0 = mask;
 
-    done = mc_fd_pico_active;
-    next = done ^ 1;
-
-    __dmb();
-    if (mc_fd_pico_ready_buffer[next])
+    if (mc_fd_pico_active >= 0)
     {
-        mc_fd_pico_ready_buffer[next] = 0;
-        mc_fd_pico_active = next;
-        mc_fd_pico_start_dma(next);
-        mc_fd_pico_refill = done;
+        mc_fd_pico_ring_state[mc_fd_pico_active] = MC_FD_RING_FREE;
+        mc_fd_pico_active = -1;
+        __dmb();
+    }
+
+    if (mc_fd_pico_ring_state[mc_fd_pico_ring_read] == MC_FD_RING_READY)
+    {
+        unsigned int index = mc_fd_pico_ring_read;
+
+        mc_fd_pico_ring_state[index] = MC_FD_RING_ACTIVE;
+        mc_fd_pico_active = (int)index;
+        mc_fd_pico_ring_read =
+            (index + 1u) % (unsigned int)MC_FD_PICO_RING_COUNT;
+        __dmb();
+
+        mc_fd_pico_start_dma_buffer(mc_fd_pico_i2s[index]);
     }
     else
     {
-        /* Never stop I2S mid-frame. Repeating the just-finished period is a
-         * much less destructive failure mode than starving the PIO FIFO. */
+        /*
+         * Preserve real audio time on a miss.  Repeating the previous period
+         * made effects sound slow; one zero period is a short dropout instead.
+         */
         ++mc_fd_pico_underrun_count;
-        mc_fd_pico_start_dma(done);
+        mc_fd_pico_start_dma_buffer(mc_fd_pico_silence);
     }
+
+    ready_after = mc_fd_pico_ring_ready_count_snapshot();
+    if (ready_after < mc_fd_pico_ring_low_water)
+        mc_fd_pico_ring_low_water = ready_after;
 }
 
 int mc_fd_audio_transport_ready(void)
@@ -249,32 +323,89 @@ int mc_fd_audio_transport_ready(void)
     return mc_fd_pico_ready;
 }
 
-static void mc_fd_pico_service_once(void)
+static void mc_fd_pico_update_timing(uint32_t elapsed_us)
 {
-    int index;
+    uint32_t old;
+
+    old = mc_fd_pico_timing_samples[mc_fd_pico_timing_pos];
+    mc_fd_pico_timing_sum -= old;
+    mc_fd_pico_timing_samples[mc_fd_pico_timing_pos] = elapsed_us;
+    mc_fd_pico_timing_sum += elapsed_us;
+
+    mc_fd_pico_timing_pos =
+        (mc_fd_pico_timing_pos + 1u) % MC_FD_PICO_TIMING_WINDOW;
+
+    if (mc_fd_pico_timing_count < MC_FD_PICO_TIMING_WINDOW)
+        ++mc_fd_pico_timing_count;
+
+    if (mc_fd_pico_timing_count != 0u)
+        mc_fd_pico_avg_refill_us =
+            mc_fd_pico_timing_sum / mc_fd_pico_timing_count;
+}
+
+static void MC_FD_PICO_HOT(mc_fd_pico_service_once)(void)
+{
+    unsigned int index;
+    unsigned int ready;
     uint32_t begin_us;
     uint32_t elapsed_us;
 
     if (!mc_fd_pico_ready)
         return;
 
-    index = mc_fd_pico_refill;
-    if (index < 0)
+    ready = mc_fd_pico_ring_ready_count_snapshot();
+    if (ready >= (unsigned int)MC_FD_PICO_RING_TARGET)
         return;
 
-    /* Claim the request before doing expensive MUS/OPL work. */
-    mc_fd_pico_refill = -1;
-    __dmb();
+    index = mc_fd_pico_ring_write;
+    if (mc_fd_pico_ring_state[index] != MC_FD_RING_FREE)
+        return;
 
     begin_us = time_us_32();
-    mc_fd_pico_fill(index);
+    mc_fd_pico_fill((int)index);
     elapsed_us = time_us_32() - begin_us;
 
+    __dmb();
+    mc_fd_pico_ring_state[index] = MC_FD_RING_READY;
+    mc_fd_pico_ring_write =
+        (index + 1u) % (unsigned int)MC_FD_PICO_RING_COUNT;
+    __dmb();
+
     mc_fd_pico_last_refill_us = elapsed_us;
+    if (mc_fd_pico_min_refill_us == 0u ||
+        elapsed_us < mc_fd_pico_min_refill_us)
+        mc_fd_pico_min_refill_us = elapsed_us;
     if (elapsed_us > mc_fd_pico_max_refill_us)
         mc_fd_pico_max_refill_us = elapsed_us;
+    mc_fd_pico_update_timing(elapsed_us);
 
     ++mc_fd_pico_refill_count;
+
+    ready = mc_fd_pico_ring_ready_count_snapshot();
+    if (ready > mc_fd_pico_ring_high_water)
+        mc_fd_pico_ring_high_water = ready;
+}
+
+static void mc_fd_pico_control_checkpoint(void)
+{
+    uint32_t request;
+    mc_fd_audio_pico_control_fn fn;
+    void *user;
+
+    request = mc_fd_pico_control_request_seq;
+    if (request == mc_fd_pico_control_done_seq)
+        return;
+
+    __dmb();
+    fn = mc_fd_pico_control_fn_ptr;
+    user = mc_fd_pico_control_user;
+
+    if (fn)
+        fn(user);
+
+    __dmb();
+    mc_fd_pico_control_done_seq = request;
+    __dmb();
 }
 
 static void mc_fd_pico_core1_main(void)
@@ -284,7 +415,11 @@ static void mc_fd_pico_core1_main(void)
 
     for (;;)
     {
-        if (mc_fd_pico_ready && mc_fd_pico_refill >= 0)
+        mc_fd_pico_control_checkpoint();
+
+        if (mc_fd_pico_ready &&
+            mc_fd_pico_ring_ready_count_snapshot() <
+                (unsigned int)MC_FD_PICO_RING_TARGET)
             mc_fd_pico_service_once();
         else
             tight_loop_contents();
@@ -377,14 +512,28 @@ int mc_fd_audio_transport_start(void)
                           false);
 
     memset(mc_fd_pico_i2s, 0, sizeof(mc_fd_pico_i2s));
-    mc_fd_pico_active = 0;
-    mc_fd_pico_ready_buffer[0] = 0;
-    mc_fd_pico_ready_buffer[1] = 0;
-    mc_fd_pico_refill = 1;
+    memset(mc_fd_pico_silence, 0, sizeof(mc_fd_pico_silence));
+    memset((void *)mc_fd_pico_ring_state, 0, sizeof(mc_fd_pico_ring_state));
+    memset(mc_fd_pico_timing_samples, 0, sizeof(mc_fd_pico_timing_samples));
+    mc_fd_pico_ring_write = 0u;
+    mc_fd_pico_ring_read = 0u;
+    mc_fd_pico_active = -1;
     mc_fd_pico_underrun_count = 0ul;
     mc_fd_pico_refill_count = 0ul;
     mc_fd_pico_last_refill_us = 0u;
+    mc_fd_pico_min_refill_us = 0u;
+    mc_fd_pico_avg_refill_us = 0u;
     mc_fd_pico_max_refill_us = 0u;
+    mc_fd_pico_ring_low_water = MC_FD_PICO_RING_TARGET;
+    mc_fd_pico_ring_high_water = 0u;
+    mc_fd_pico_timing_sum = 0u;
+    mc_fd_pico_timing_count = 0u;
+    mc_fd_pico_timing_pos = 0u;
+    mc_fd_pico_control_fn_ptr = NULL;
+    mc_fd_pico_control_user = NULL;
+    mc_fd_pico_control_request_seq = 0u;
+    mc_fd_pico_control_done_seq = 0u;
+    mc_fd_pico_control_timeout_count = 0ul;
 
     if (!mc_fd_pico_core1_started)
     {
@@ -408,17 +557,19 @@ int mc_fd_audio_transport_start(void)
     irq_set_enabled(DMA_IRQ_0, true);
     pio_sm_set_enabled(MC_FD_PICO_PIO, MC_FD_PICO_SM, true);
 
-    /* Start with one zeroed period. S_StartSound()/S_ChangeMusic() call the
-     * service hook after installing the first event, so buffer 1 is rendered
-     * with real Doom state rather than pre-advancing 32 ms of silence before
-     * the event exists. */
+    /*
+     * Start one short zero period while Core 1 fills the producer ring.
+     * The first real slot can be consumed on the next 16 ms DMA boundary.
+     */
     mc_fd_pico_ready = 1;
-    mc_fd_pico_start_dma(0);
+    mc_fd_pico_start_dma_buffer(mc_fd_pico_silence);
 
-    printf("MicroWave FastDoom Pico: %d Hz I2S DMA, block=%d, "
+    printf("MicroWave FastDoom Pico: %d Hz I2S DMA, block=%d ring=%d ahead=%d, "
            "BCLK=%d LRCLK=%d DATA=%d, volume=%d%%\n",
            MC_FD_AUDIO_RATE,
            MC_FD_PICO_DMA_BLOCK,
+           MC_FD_PICO_RING_COUNT,
+           MC_FD_PICO_RING_TARGET,
            MC_I2S_BCLK,
            MC_I2S_LRCLK,
            MC_I2S_DATA,
@@ -454,10 +605,10 @@ void mc_fd_audio_transport_stop(void)
 
     mc_fd_pico_ready = 0;
     mc_fd_pico_failed = 0;
-    mc_fd_pico_active = 0;
-    mc_fd_pico_ready_buffer[0] = 0;
-    mc_fd_pico_ready_buffer[1] = 0;
-    mc_fd_pico_refill = -1;
+    mc_fd_pico_active = -1;
+    memset((void *)mc_fd_pico_ring_state, 0, sizeof(mc_fd_pico_ring_state));
+    mc_fd_pico_ring_write = 0u;
+    mc_fd_pico_ring_read = 0u;
 }
 
 unsigned long mc_fd_audio_pico_underruns(void)
@@ -480,12 +631,161 @@ uint32_t mc_fd_audio_pico_last_refill_us(void)
     return mc_fd_pico_last_refill_us;
 }
 
+uint32_t mc_fd_audio_pico_min_refill_us(void)
+{
+    return mc_fd_pico_min_refill_us;
+}
+
+uint32_t mc_fd_audio_pico_avg_refill_us(void)
+{
+    return mc_fd_pico_avg_refill_us;
+}
+
 uint32_t mc_fd_audio_pico_max_refill_us(void)
 {
     return mc_fd_pico_max_refill_us;
 }
 
+unsigned int mc_fd_audio_pico_block_frames(void)
+{
+    return (unsigned int)MC_FD_PICO_DMA_BLOCK;
+}
+
+unsigned int mc_fd_audio_pico_period_us(void)
+{
+    return (unsigned int)(
+        (((uint64_t)MC_FD_PICO_DMA_BLOCK * 1000000ull) +
+         ((uint64_t)MC_FD_AUDIO_RATE / 2ull)) /
+        (uint64_t)MC_FD_AUDIO_RATE);
+}
+
+unsigned int mc_fd_audio_pico_ring_ready(void)
+{
+    return mc_fd_pico_ring_ready_count_snapshot();
+}
+
+unsigned int mc_fd_audio_pico_ring_count(void)
+{
+    return (unsigned int)MC_FD_PICO_RING_COUNT;
+}
+
+unsigned int mc_fd_audio_pico_ring_target(void)
+{
+    return (unsigned int)MC_FD_PICO_RING_TARGET;
+}
+
+unsigned int mc_fd_audio_pico_ring_low_water(void)
+{
+    return mc_fd_pico_ring_low_water;
+}
+
+unsigned int mc_fd_audio_pico_ring_high_water(void)
+{
+    return mc_fd_pico_ring_high_water;
+}
+
 unsigned int mc_fd_audio_pico_core1_stack_bytes(void)
 {
     return (unsigned int)sizeof(mc_fd_pico_core1_stack);
+}
+
+unsigned int mc_fd_audio_pico_core1_stack_used_bytes(void)
+{
+    const uint32_t fill = 0xa5a5a5a5u;
+    unsigned int words =
+        (unsigned int)(sizeof(mc_fd_pico_core1_stack) /
+                       sizeof(mc_fd_pico_core1_stack[0]));
+    unsigned int i;
+
+    for (i = 0u; i < words; ++i)
+    {
+        if (mc_fd_pico_core1_stack[i] != fill)
+            break;
+    }
+
+    return (words - i) * (unsigned int)sizeof(uint32_t);
+}
+
+int mc_fd_audio_pico_run_control(mc_fd_audio_pico_control_fn fn,
+                                 void *user,
+                                 unsigned int timeout_us)
+{
+    uint64_t deadline;
+    uint32_t request;
+
+    if (!fn)
+        return 0;
+
+    /*
+     * Before the dedicated producer exists (or when already called on Core 1),
+     * execute directly.  This preserves startup behavior and makes the bridge
+     * usable on the same code path before transport launch.
+     */
+    if (!mc_fd_pico_core1_started ||
+        !mc_fd_pico_core1_running ||
+        get_core_num() == 1u)
+    {
+        fn(user);
+        return 1;
+    }
+
+    if (timeout_us == 0u)
+        timeout_us = 250000u;
+
+    deadline = time_us_64() + (uint64_t)timeout_us;
+
+    /*
+     * Only one synchronous control transaction is allowed at a time.  Doom's
+     * main thread is the normal caller, but this also makes an accidental
+     * nested/overlapping request fail boundedly instead of corrupting payload.
+     */
+    while (mc_fd_pico_control_request_seq != mc_fd_pico_control_done_seq)
+    {
+        if (time_us_64() >= deadline)
+        {
+            ++mc_fd_pico_control_timeout_count;
+            return 0;
+        }
+        tight_loop_contents();
+    }
+
+    request = mc_fd_pico_control_request_seq + 1u;
+    if (request == 0u)
+        request = 1u;
+
+    mc_fd_pico_control_fn_ptr = fn;
+    mc_fd_pico_control_user = user;
+    __dmb();
+    mc_fd_pico_control_request_seq = request;
+    __dmb();
+
+    while (mc_fd_pico_control_done_seq != request)
+    {
+        if (time_us_64() >= deadline)
+        {
+            /*
+             * Do not revoke the callback after publication: Core 1 may already
+             * be entering it.  The bridge uses persistent request storage, so a
+             * late completion cannot dereference a dead stack object.
+             */
+            ++mc_fd_pico_control_timeout_count;
+            return 0;
+        }
+        tight_loop_contents();
+    }
+
+    __dmb();
+    mc_fd_pico_control_fn_ptr = NULL;
+    mc_fd_pico_control_user = NULL;
+    return 1;
+}
+
+unsigned long mc_fd_audio_pico_control_timeouts(void)
+{
+    return mc_fd_pico_control_timeout_count;
+}
+
+int mc_fd_audio_pico_control_paused(void)
+{
+    return mc_fd_pico_control_request_seq != mc_fd_pico_control_done_seq;
 }

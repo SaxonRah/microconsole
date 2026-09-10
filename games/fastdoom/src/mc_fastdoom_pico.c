@@ -22,6 +22,9 @@
 #include "hardware/irq.h"
 #include "hardware/psram.h"
 #include "hardware/regs/clocks.h"
+#include "hardware/regs/qmi.h"
+#include "hardware/structs/qmi.h"
+#include "hardware/vreg.h"
 #include "pico/multicore.h"
 #include "pico/stdlib.h"
 #include "pico/time.h"
@@ -72,6 +75,9 @@ int mc_fd_pico_fs_raw_miso(void);
 #ifndef MC_SYS_KHZ
 #define MC_SYS_KHZ 300000
 #endif
+
+#define MC_FD_SAFE_SYS_KHZ 300000u
+#define MC_FD_FLASH_MAX_HZ 88000000u
 
 #ifndef MC_FD_PSRAM_ZONE_BYTES
 #define MC_FD_PSRAM_ZONE_BYTES 6291456u
@@ -141,6 +147,7 @@ static int mc_fd_fatal;
 static int mc_fd_fatal_line = -1;
 static int mc_fd_psram_config_rc;
 static int mc_fd_psram_reinit_rc;
+static int mc_fd_clock_fallback;
 
 static repeating_timer_t mc_fd_tic_timer;
 static int mc_fd_tic_timer_active;
@@ -177,6 +184,50 @@ static uint16_t mc_fd_rgb565(unsigned int r, unsigned int g, unsigned int b)
     return (uint16_t)((r5 << 11) | (g6 << 5) | b5);
 }
 
+static void __no_inline_not_in_flash_func(mc_fd_set_flash_timings)(
+    uint32_t sys_khz)
+{
+    uint32_t clock_hz = sys_khz * 1000u;
+    uint32_t divisor;
+    uint32_t rxdelay;
+
+    divisor =
+        (clock_hz + MC_FD_FLASH_MAX_HZ -
+         (MC_FD_FLASH_MAX_HZ >> 4) - 1u) /
+        MC_FD_FLASH_MAX_HZ;
+
+    if (divisor < 1u)
+        divisor = 1u;
+    if (divisor == 1u && clock_hz >= 166000000u)
+        divisor = 2u;
+
+    rxdelay = divisor;
+    if ((clock_hz / divisor) > 100000000u &&
+        clock_hz >= 166000000u)
+        ++rxdelay;
+
+    qmi_hw->m[0].timing =
+        0x60007000u |
+        (rxdelay << QMI_M0_TIMING_RXDELAY_LSB) |
+        (divisor << QMI_M0_TIMING_CLKDIV_LSB);
+}
+
+static void mc_fd_prepare_fast_clock(void)
+{
+    if ((uint32_t)MC_SYS_KHZ <= 252000u)
+        return;
+
+    vreg_disable_voltage_limit();
+
+    if ((uint32_t)MC_SYS_KHZ >= 378000u)
+        vreg_set_voltage(VREG_VOLTAGE_1_60);
+    else
+        vreg_set_voltage(VREG_VOLTAGE_1_50);
+
+    sleep_ms(100);
+    mc_fd_set_flash_timings((uint32_t)MC_SYS_KHZ);
+}
+
 static void mc_fd_configure_peripheral_clock(void)
 {
     uint32_t sys_hz = clock_get_hz(clk_sys);
@@ -211,8 +262,16 @@ void MC_FastDoomPicoBoot(void)
 {
     mc_fd_recover_warm_boot();
 
+    mc_fd_clock_fallback = 0;
+    mc_fd_prepare_fast_clock();
+
     if (!set_sys_clock_khz(MC_SYS_KHZ, false))
-        panic("FastDoom Pico: requested system clock was rejected");
+    {
+        mc_fd_set_flash_timings(MC_FD_SAFE_SYS_KHZ);
+        if (!set_sys_clock_khz(MC_FD_SAFE_SYS_KHZ, false))
+            panic("FastDoom Pico: requested and fallback clocks were rejected");
+        mc_fd_clock_fallback = 1;
+    }
 
     /*
      * hardware_psram is initialized by the SDK runtime before main(), using
@@ -235,9 +294,10 @@ void MC_FastDoomPicoBoot(void)
     stdio_init_all();
     sleep_ms(250);
 
-    printf("MCFDOOM1 boot sys=%lu psram=%lu zone=%u "
+    printf("MCFDOOM1 boot sys=%lu clock_fallback=%d psram=%lu zone=%u "
            "zone_start=%p zone_end=%p psram_cfg=%d psram_reinit=%d\n",
            (unsigned long)clock_get_hz(clk_sys),
+           mc_fd_clock_fallback,
            (unsigned long)psram_get_size(),
            (unsigned int)MC_FD_PSRAM_ZONE_BYTES,
            (void *)&mc_fd_zone[0],
@@ -352,11 +412,64 @@ static int mc_fd_parse_volume(const char *cmd)
     return value;
 }
 
+static int mc_fd_cmd_equal_ci(const char *a, const char *b)
+{
+    unsigned char ca;
+    unsigned char cb;
+
+    if (!a || !b)
+        return 0;
+
+    while (*a && *b)
+    {
+        ca = (unsigned char)*a++;
+        cb = (unsigned char)*b++;
+
+        if (ca >= 'a' && ca <= 'z')
+            ca = (unsigned char)(ca - ('a' - 'A'));
+        if (cb >= 'a' && cb <= 'z')
+            cb = (unsigned char)(cb - ('a' - 'A'));
+
+        if (ca != cb)
+            return 0;
+    }
+
+    return *a == '\0' && *b == '\0';
+}
+
+static int mc_fd_cmd_prefix_ci(const char *text, const char *prefix)
+{
+    unsigned char a;
+    unsigned char b;
+
+    if (!text || !prefix)
+        return 0;
+
+    while (*prefix)
+    {
+        if (!*text)
+            return 0;
+
+        a = (unsigned char)*text++;
+        b = (unsigned char)*prefix++;
+
+        if (a >= 'a' && a <= 'z')
+            a = (unsigned char)(a - ('a' - 'A'));
+        if (b >= 'a' && b <= 'z')
+            b = (unsigned char)(b - ('a' - 'A'));
+
+        if (a != b)
+            return 0;
+    }
+
+    return 1;
+}
+
 static void mc_fd_handle_command(const char *cmd)
 {
     int volume;
 
-    if (strcmp(cmd, "PING") == 0)
+    if (mc_fd_cmd_equal_ci(cmd, "PING"))
     {
         /*
          * Keep liveness probes deliberately short.  The host uses PING while
@@ -373,12 +486,92 @@ static void mc_fd_handle_command(const char *cmd)
         return;
     }
 
-    if (strcmp(cmd, "STAT") == 0)
+    if (mc_fd_cmd_equal_ci(cmd, "MUSIC"))
     {
-        printf("MCFDOOM1 stat state=%s fatal_line=%d psram=%lu zone=%u "
-               "audio=%d core1=%d stack=%u underrun=%lu refills=%lu "
-               "audio_us=%lu audio_max_us=%lu volume=%d "
-               "fps=%u period_us=%lu max_period_us=%lu "
+        mc_fd_audio_music_diag_t m;
+
+        mc_fd_audio_get_music_diag(&m);
+
+        printf("MCFDOOM1 music name=%s handle=%d active=%d backend_pause=%d "
+               "doom_pause=%d genmidi=%d volume=%d gain=%d "
+               "audio_frame=%ld music_frame=%ld start=%ld next=%ld "
+               "cursor=%u score_end=%u ticks=%u loops=%lu finished=%d error=%d "
+               "emitted=%lu notes=%lu voices_started=%lu voices_released=%lu "
+               "active_voices=%d pending=%d stolen=%lu secondary_drop=%lu "
+               "dropped=%lu regwrites=%lu "
+               "opl_peak=%d opl_peak_max=%d filtered_peak=%d filtered_peak_max=%d "
+               "post_shift=%d post_clips=%lu\n",
+               m.name,
+               m.music_handle,
+               m.backend_active,
+               m.backend_paused,
+               m.doom_paused,
+               m.genmidi_ready,
+               m.music_volume,
+               m.output_gain,
+               m.audio_frame,
+               m.music_frame,
+               m.player_start_frame,
+               m.player_next_frame,
+               m.player_cursor,
+               m.player_score_end,
+               m.ticks_in_loop,
+               m.loops_completed,
+               m.player_finished,
+               m.player_error,
+               m.messages_emitted,
+               m.midi_notes_started,
+               m.opl_voices_started,
+               m.opl_voices_released,
+               m.active_voices,
+               m.pending_events,
+               m.voices_stolen,
+               m.secondary_voices_dropped,
+               m.dropped_events,
+               m.register_writes,
+               m.opl_peak,
+               m.opl_peak_max,
+               m.filtered_peak,
+               m.filtered_peak_max,
+               m.opl_post_gain_shift,
+               m.opl_post_gain_clips);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_prefix_ci(cmd, "TRACK "))
+    {
+        const char *name = cmd + 6;
+        int ok = mc_fd_audio_debug_change_music(name);
+
+        printf("MCFDOOM1 track=%s ok=%d\n", name, ok);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_equal_ci(cmd, "STACK"))
+    {
+        unsigned int total = mc_fd_audio_pico_core1_stack_bytes();
+        unsigned int used = mc_fd_audio_pico_core1_stack_used_bytes();
+
+        printf("MCFDOOM1 stack total=%u used=%u free=%u\n",
+               total,
+               used,
+               used <= total ? total - used : 0u);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_equal_ci(cmd, "STAT"))
+    {
+        printf("MCFDOOM1 stat state=%s fatal_line=%d "
+               "sys=%lu clock_fallback=%d psram=%lu zone=%u "
+               "audio=%d core1=%d stack=%u ctrl_to=%lu ctrl_pause=%d "
+               "block=%u deadline_us=%u ring=%u/%u ring_target=%u "
+               "ring_low=%u ring_high=%u "
+               "underrun=%lu refills=%lu "
+               "audio_us=%lu audio_min_us=%lu audio_avg_us=%lu audio_max_us=%lu "
+               "volume=%d fps=%u period_us=%lu max_period_us=%lu "
                "render_us=%lu max_render_us=%lu "
                "present_us=%lu max_present_us=%lu "
                "convert_us=%lu lcd_block_us=%lu "
@@ -387,14 +580,27 @@ static void mc_fd_handle_command(const char *cmd)
                "psram_cfg=%d psram_reinit=%d\n",
                mc_fd_fatal ? "fatal" : "running",
                mc_fd_fatal_line,
+               (unsigned long)clock_get_hz(clk_sys),
+               mc_fd_clock_fallback,
                (unsigned long)psram_get_size(),
                (unsigned int)MC_FD_PSRAM_ZONE_BYTES,
                mc_fd_audio_transport_ready(),
                mc_fd_audio_pico_core1_running(),
                mc_fd_audio_pico_core1_stack_bytes(),
+               mc_fd_audio_pico_control_timeouts(),
+               mc_fd_audio_pico_control_paused(),
+               mc_fd_audio_pico_block_frames(),
+               mc_fd_audio_pico_period_us(),
+               mc_fd_audio_pico_ring_ready(),
+               mc_fd_audio_pico_ring_count(),
+               mc_fd_audio_pico_ring_target(),
+               mc_fd_audio_pico_ring_low_water(),
+               mc_fd_audio_pico_ring_high_water(),
                mc_fd_audio_pico_underruns(),
                mc_fd_audio_pico_refills(),
                (unsigned long)mc_fd_audio_pico_last_refill_us(),
+               (unsigned long)mc_fd_audio_pico_min_refill_us(),
+               (unsigned long)mc_fd_audio_pico_avg_refill_us(),
                (unsigned long)mc_fd_audio_pico_max_refill_us(),
                snd_vol_to_percent(mc_fd_audio_master_volume()),
                fps,
@@ -419,7 +625,7 @@ static void mc_fd_handle_command(const char *cmd)
         return;
     }
 
-    if (strcmp(cmd, "FS") == 0)
+    if (mc_fd_cmd_equal_ci(cmd, "FS"))
     {
         int wad_ok = mc_fd_pico_fs_probe_wad();
 
@@ -436,7 +642,7 @@ static void mc_fd_handle_command(const char *cmd)
         return;
     }
 
-    if (strcmp(cmd, "SDRAW") == 0)
+    if (mc_fd_cmd_equal_ci(cmd, "SDRAW"))
     {
         int raw = mc_fd_pico_fs_raw_probe();
 

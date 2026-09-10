@@ -104,18 +104,25 @@ def find_pico_port(require_response=False):
     return None
 
 
-def wait_for_pico(timeout=20.0):
+def wait_for_pico(timeout=8.0):
+    """Wait only for the application USB CDC device to enumerate.
+
+    Do not open the serial port or send PING here.  FastDoom can spend several
+    seconds in WAD/game startup before I_StartTic() begins servicing commands,
+    and on Windows opening a just-reset COM port can itself block in
+    GetCommState().  OpenOCD has already verified the flash image; this helper
+    is only confirming that the application USB device came back.
+    """
     deadline = time.time() + timeout
     while time.time() < deadline:
-        # After a flash/reset, require an actual firmware PING response.
-        port = find_pico_port(require_response=True)
+        port = find_pico_port(require_response=False)
         if port:
             return port
-        time.sleep(0.5)
+        time.sleep(0.1)
     return None
 
 
-def open_serial():
+def open_serial(retries=12, retry_delay=0.25):
     try:
         import serial
     except ImportError:
@@ -124,17 +131,21 @@ def open_serial():
 
     port = find_pico_port(require_response=False)
     if not port:
-        print("no MicroConsole Pico found")
+        print("No MicroConsole serial port found")
         return None, None
 
-    try:
-        ser = serial.Serial(port, 115200, timeout=2.0)
-        time.sleep(0.15)
-        ser.reset_input_buffer()
-        return port, ser
-    except (OSError, ValueError) as exc:
-        print("serial error:", exc)
-        return None, None
+    last_error = None
+    for attempt in range(retries):
+        try:
+            ser = serial.Serial(port, 115200, timeout=0.15)
+            return port, ser
+        except (OSError, ValueError) as exc:
+            last_error = exc
+            if attempt + 1 < retries:
+                time.sleep(retry_delay)
+
+    print("serial error:", last_error)
+    return None, None
 
 
 def set_volume(volume):
@@ -219,30 +230,106 @@ def list_examples():
     return 1
 
 
+
+def command_response_matches(command, text):
+    cmd = command.strip()
+    upper = cmd.upper()
+
+    if upper == "PING":
+        return text.startswith("MCFDOOM1 state=") or text.startswith("MWPICO1")
+    if upper == "STAT":
+        return text.startswith("MCFDOOM1 stat ")
+    if upper == "MUSIC":
+        return text.startswith("MCFDOOM1 music ")
+    if upper.startswith("TRACK "):
+        return text.startswith("MCFDOOM1 track=")
+    if upper == "STACK":
+        return text.startswith("MCFDOOM1 stack ")
+    if upper == "FS":
+        return text.startswith("MCFDOOM1 fs_probe=")
+    if upper == "SDRAW":
+        return text.startswith("MCFDOOM1 sdraw=")
+
+    # Generic MicroConsole commands may have several response shapes.
+    return (text.startswith("MCFDOOM1") or
+            text.startswith("MWPICO1") or
+            text.startswith("MCFDPSRAM1"))
+
+
+def read_command_response(ser, port, command, timeout=3.0):
+    deadline = time.time() + timeout
+
+    while time.time() < deadline:
+        line = ser.readline()
+        if not line:
+            continue
+
+        text = line.decode("ascii", "replace").strip()
+        if not text:
+            continue
+
+        # Boot/status chatter may arrive after the command was sent.  Show it,
+        # but do not mistake it for the requested command's acknowledgement.
+        print("%s: %s" % (port, text))
+
+        if command_response_matches(command, text):
+            return 0
+
+    return 1
+
+
+def command_shell():
+    port, ser = open_serial()
+    if not ser:
+        return 1
+
+    print("MicroConsole command shell on %s" % port)
+    print("Commands: PING, STAT, MUSIC, TRACK INTROA|E1M1|E1M5, STACK, FS, SDRAW, VOL n, KEY ...")
+    print("Type quit or exit to close the port.")
+
+    try:
+        while True:
+            try:
+                command = input("mc> ").strip()
+            except (EOFError, KeyboardInterrupt):
+                print()
+                break
+
+            if not command:
+                continue
+            if command.lower() in ("quit", "exit"):
+                break
+
+            try:
+                ser.reset_input_buffer()
+                ser.write((command + "\n").encode("ascii"))
+                ser.flush()
+            except (OSError, ValueError) as exc:
+                print("serial error:", exc)
+                return 1
+
+            if read_command_response(ser, port, command, timeout=3.0) != 0:
+                print("%s: no matching response for %s" % (port, command))
+    finally:
+        ser.close()
+
+    return 0
+
+
 def send_command(command):
     port, ser = open_serial()
     if not ser:
         return 1
+
     try:
+        ser.reset_input_buffer()
         ser.write((command + "\n").encode("ascii"))
         ser.flush()
-        deadline = time.time() + 2.0
-        printed = False
-        while time.time() < deadline:
-            line = ser.readline()
-            if not line:
-                if printed:
-                    break
-                continue
-            text = line.decode("ascii", "replace").strip()
-            if text:
-                print("%s: %s" % (port, text))
-                printed = True
-                if (text.startswith("MWPICO1") or
-                        text.startswith("MCFDPSRAM1") or
-                        text.startswith("MCFDOOM1")):
-                    break
-        return 0 if printed else 1
+
+        rc = read_command_response(ser, port, command, timeout=3.0)
+        if rc != 0:
+            print("%s: no matching response for %s" % (port, command))
+        return rc
     finally:
         ser.close()
 
@@ -268,7 +355,10 @@ def swd(elf):
     e = os.path.abspath(elf).replace("\\", "/")
     cmd = [tool, "-s", scripts, "-f", "interface/cmsis-dap.cfg",
            "-f", "target/rp2350.cfg", "-c",
-           "adapter speed 5000; program {%s} verify reset exit" % e]
+           ("adapter speed 5000; "
+            "rp2350.dap.core0 cortex_m reset_config sysresetreq; "
+            "rp2350.dap.core1 cortex_m reset_config sysresetreq; "
+            "program {%s} verify reset exit" % e)]
     print("SWD:", " ".join(cmd))
     return subprocess.call(cmd, cwd=ROOT)
 
@@ -312,11 +402,12 @@ def flash(device, method, image):
     if rc != 0:
         return rc
 
-    port = wait_for_pico(20.0)
+    port = wait_for_pico(8.0)
     if port:
-        print("MicroConsole target is answering on " + port)
+        print("MicroConsole USB enumerated on " + port +
+              " (firmware may still be starting)")
     else:
-        print("flash verified, but no recognized MicroConsole USB serial response was found")
+        print("flash verified; MicroConsole USB has not enumerated yet")
     return 0
 
 
@@ -328,7 +419,8 @@ def usage():
     print("       mc_pico.py volume 0..100")
     print("       mc_pico.py example ID")
     print("       mc_pico.py list-examples")
-    print('       mc_pico.py command "PING|STAT|FS|SDRAW|KEY LEFT DOWN|..."')
+    print('       mc_pico.py command "PING|STAT|MUSIC|TRACK E1M1|STACK|FS|SDRAW|KEY LEFT DOWN|..."')
+    print("       mc_pico.py shell")
 
 
 def main(argv):
@@ -358,6 +450,9 @@ def main(argv):
             usage()
             return 2
         return send_command(" ".join(argv[2:]))
+
+    if cmd == "shell":
+        return command_shell()
 
     if cmd not in ("flash", "flash-examples", "flash-psram", "flash-fastdoom"):
         usage()
