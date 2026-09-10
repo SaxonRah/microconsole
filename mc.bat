@@ -5,7 +5,7 @@ set "MC_ROOT=%CD%"
 
 rem Pinned engine revisions.
 set "MC_MR_SHA=61d8d875cbdf605edaa2b6ca2f2e5739b80ee61d"
-set "MC_MW_SHA=432fe71ce2686923f351161543d4fed4f8e67e11"
+set "MC_MW_SHA=0b591fb813e54c5d7cff8c1f44336a4ba6ddb51c"
 
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=help"
@@ -47,8 +47,8 @@ if errorlevel 1 exit /b 1
 git submodule sync --recursive || exit /b 1
 git submodule update --init third_party/microrender third_party/microwave || exit /b 1
 
-rem Fetch current remote history so the newer MicroWave volume commit is
-rem available even if the repository's gitlink still points at the old pin.
+rem Fetch current remote history so the pinned engine revisions are available
+rem even when the repository gitlinks still point at an older dependency pin.
 git -C third_party/microrender fetch origin || exit /b 1
 git -C third_party/microwave fetch origin || exit /b 1
 

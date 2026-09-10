@@ -14,6 +14,7 @@ if /i "%WHAT%"=="raylib" goto raylib
 if /i "%WHAT%"=="dos"    goto dos
 if /i "%WHAT%"=="dos-examples" goto dos_examples
 if /i "%WHAT%"=="fastdoom-raylib" goto fastdoom_raylib
+if /i "%WHAT%"=="fastdoom-pico" goto fastdoom_pico
 if /i "%WHAT%"=="pico"   goto pico
 if /i "%WHAT%"=="all"    goto all
 
@@ -152,6 +153,40 @@ if not exist "%MC_ROOT%\build-fastdoom-raylib\Release\microconsole_fastdoom.exe"
 echo built build-fastdoom-raylib\Release\microconsole_fastdoom.exe
 exit /b 0
 
+
+:fastdoom_pico
+where python >nul 2>nul || (echo ERROR: python not found on PATH.& exit /b 1)
+
+set "DEVICE=%~1"
+if "%DEVICE%"=="" set "DEVICE=max98357a"
+
+call "%MC_ROOT%\scripts\mc_fastdoom_deps.bat"
+if errorlevel 1 exit /b 1
+
+call "%MC_ROOT%\scripts\mc_fastdoom_pico_sd_deps.bat"
+if errorlevel 1 exit /b 1
+
+python "%MC_ROOT%\scripts\mc_fastdoom_prepare.py" ^
+    --fastdoom "%MC_ROOT%\third_party\fastdoom" ^
+    --out "%MC_ROOT%\build-fastdoom-src"
+if errorlevel 1 exit /b 1
+
+python "%MC_ROOT%\scripts\mc_fastdoom_pico_prepare.py" ^
+    --src "%MC_ROOT%\build-fastdoom-src\FASTDOOM"
+if errorlevel 1 exit /b 1
+
+echo === FastDoom Pico 2 Cortex-M33 bring-up: %DEVICE% ===
+call "%~f0" pico "%DEVICE%"
+if errorlevel 1 exit /b 1
+
+if not exist "%MC_ROOT%\pico\build-%DEVICE%\microconsole_fastdoom_pico.uf2" (
+    echo ERROR: Pico build completed but microconsole_fastdoom_pico.uf2 was not found.
+    exit /b 1
+)
+
+echo built pico\build-%DEVICE%\microconsole_fastdoom_pico.uf2
+exit /b 0
+
 :pico
 set "DEVICE=%~1"
 if "%DEVICE%"=="" set "DEVICE=max98357a"
@@ -163,9 +198,64 @@ set "MC_PICO_ARGS=!MC_PICO_ARGS! "%~1""
 shift /1
 goto pico_args
 :pico_args_done
+
 call "%MC_ROOT%\third_party\microwave\microwave\pico_env_auto.bat" || exit /b 1
+
+rem Pico SDK 2.3+ may build pioasm/picotool as native Windows host tools.
+rem Keep those tools completely isolated from a global Open Watcom environment
+rem and force a compiler that matches the installed Visual Studio STL.
+set "INCLUDE="
+set "LIB="
+set "LIBPATH="
+set "CPATH="
+set "C_INCLUDE_PATH="
+set "CPLUS_INCLUDE_PATH="
+set "CC="
+set "CXX="
+
+set "MC_VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
+set "MC_VSINSTALL="
+
+if exist "%MC_VSWHERE%" (
+    for /f "usebackq tokens=*" %%I in (`"%MC_VSWHERE%" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do (
+        if not defined MC_VSINSTALL set "MC_VSINSTALL=%%I"
+    )
+)
+
+if not defined MC_VSINSTALL if exist "%ProgramFiles%\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" (
+    set "MC_VSINSTALL=%ProgramFiles%\Microsoft Visual Studio\2022\Community"
+)
+if not defined MC_VSINSTALL if exist "%ProgramFiles%\Microsoft Visual Studio\2022\Professional\Common7\Tools\VsDevCmd.bat" (
+    set "MC_VSINSTALL=%ProgramFiles%\Microsoft Visual Studio\2022\Professional"
+)
+if not defined MC_VSINSTALL if exist "%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" (
+    set "MC_VSINSTALL=%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise"
+)
+if not defined MC_VSINSTALL if exist "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" (
+    set "MC_VSINSTALL=%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools"
+)
+
+if not defined MC_VSINSTALL (
+    echo ERROR: Visual Studio C++ host tools were not found.
+    echo Pico SDK 2.3+ needs a native compiler for pioasm/picotool.
+    exit /b 1
+)
+
+call "%MC_VSINSTALL%\Common7\Tools\VsDevCmd.bat" -no_logo -arch=x64 -host_arch=x64
+if errorlevel 1 exit /b 1
+
+set "CC=cl.exe"
+set "CXX=cl.exe"
+
+where cl.exe >nul 2>nul || (
+    echo ERROR: cl.exe was not available after VsDevCmd.
+    exit /b 1
+)
+
 for %%D in ("%NINJA_EXE%") do set "PATH=%%~dpD;%PICO_TOOLCHAIN_PATH%\bin;%PATH%"
+
 echo === Pico 2 combined demo: %DEVICE% ===
+echo Host tools: MSVC cl.exe; RP2350 target: arm-none-eabi-gcc
 pushd pico
 cmake --preset "%DEVICE%" -DCMAKE_MAKE_PROGRAM:FILEPATH="%NINJA_EXE%" !MC_PICO_ARGS! || (popd & exit /b 1)
 cmake --build --preset "%DEVICE%" --parallel || (popd & exit /b 1)

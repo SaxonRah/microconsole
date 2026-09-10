@@ -28,7 +28,19 @@ static void mc_renderer_abort(const char *what, int a, int b, int c, int d)
     abort();
 }
 
-static void mc_validate_column(int pixel_width)
+/*
+ * Every column renderer needs valid destination geometry, but not every
+ * FastDoom column renderer consumes dc_source/dc_colormap:
+ *
+ *   textured columns -> dc_source + dc_colormap
+ *   flat columns     -> dc_color only
+ *   fuzz columns     -> framebuffer + global colormaps
+ *
+ * Keeping those contracts separate is important.  The previous shared
+ * validator rejected legal flat/fuzz calls whenever the higher-level renderer
+ * intentionally left dc_source or dc_colormap unset.
+ */
+static void mc_validate_column_geometry(int pixel_width)
 {
     int xoff;
 
@@ -37,14 +49,32 @@ static void mc_validate_column(int pixel_width)
 
     if (dc_x < 0 || dc_x >= SCREENWIDTH ||
         dc_yl < 0 || dc_yh >= SCREENHEIGHT)
-        mc_renderer_abort("column coordinates", dc_x, dc_yl, dc_yh, pixel_width);
+        mc_renderer_abort("column coordinates",
+                          dc_x, dc_yl, dc_yh, pixel_width);
 
     xoff = columnofs[dc_x];
     if (xoff < 0 || xoff + pixel_width > SCREENWIDTH)
-        mc_renderer_abort("column destination", dc_x, xoff, pixel_width, SCREENWIDTH);
+        mc_renderer_abort("column destination",
+                          dc_x, xoff, pixel_width, SCREENWIDTH);
+
+    if (ylookup[dc_yl] == NULL || ylookup[dc_yh] == NULL)
+        mc_renderer_abort("column ylookup",
+                          dc_x, dc_yl, dc_yh, pixel_width);
+}
+
+static void mc_validate_textured_column(int pixel_width)
+{
+    mc_validate_column_geometry(pixel_width);
+
+    if (dc_yh < dc_yl)
+        return;
 
     if (dc_source == NULL || dc_colormap == NULL)
-        mc_renderer_abort("column source/colormap", dc_x, dc_yl, dc_yh, 0);
+        mc_renderer_abort("textured column source/colormap",
+                          dc_x,
+                          dc_yl,
+                          dc_source != NULL,
+                          dc_colormap != NULL);
 }
 
 static void mc_validate_span(int pixel_width)
@@ -58,15 +88,25 @@ static void mc_validate_span(int pixel_width)
     if (ds_y < 0 || ds_y >= SCREENHEIGHT ||
         ds_x1 < 0 || ds_x1 >= SCREENWIDTH ||
         ds_x2 < 0 || ds_x2 >= SCREENWIDTH)
-        mc_renderer_abort("span coordinates", ds_y, ds_x1, ds_x2, pixel_width);
+        mc_renderer_abort("span coordinates",
+                          ds_y, ds_x1, ds_x2, pixel_width);
 
     xoff = columnofs[ds_x1];
     pixels = (ds_x2 - ds_x1 + 1) * pixel_width;
     if (xoff < 0 || xoff + pixels > SCREENWIDTH)
-        mc_renderer_abort("span destination", ds_y, xoff, pixels, SCREENWIDTH);
+        mc_renderer_abort("span destination",
+                          ds_y, xoff, pixels, SCREENWIDTH);
+
+    if (ylookup[ds_y] == NULL)
+        mc_renderer_abort("span ylookup",
+                          ds_y, ds_x1, ds_x2, pixel_width);
 
     if (ds_source == NULL || ds_colormap == NULL)
-        mc_renderer_abort("span source/colormap", ds_y, ds_x1, ds_x2, 0);
+        mc_renderer_abort("span source/colormap",
+                          ds_y,
+                          ds_x1,
+                          ds_source != NULL,
+                          ds_colormap != NULL);
 }
 
 static void mc_draw_column_scaled(int pixel_width)
@@ -79,7 +119,7 @@ static void mc_draw_column_scaled(int pixel_width)
     if (dc_yh < dc_yl)
         return;
 
-    mc_validate_column(pixel_width);
+    mc_validate_textured_column(pixel_width);
     count = dc_yh - dc_yl + 1;
     dest = ylookup[dc_yl] + columnofs[dc_x];
 
@@ -110,7 +150,11 @@ static void mc_draw_column_flat(int pixel_width)
     if (dc_yh < dc_yl)
         return;
 
-    mc_validate_column(pixel_width);
+    /*
+     * Flat renderers intentionally do not consume dc_source or dc_colormap.
+     * They render the caller-provided flat dc_color.
+     */
+    mc_validate_column_geometry(pixel_width);
     count = dc_yh - dc_yl + 1;
     dest = ylookup[dc_yl] + columnofs[dc_x];
     color = dc_color;
@@ -118,8 +162,10 @@ static void mc_draw_column_flat(int pixel_width)
     while (count-- > 0)
     {
         int k;
+
         for (k = 0; k < pixel_width; ++k)
             dest[k] = color;
+
         dest += SCREENWIDTH;
     }
 }
@@ -166,11 +212,11 @@ static void mc_draw_span(int pixel_width)
 static void mc_draw_fuzz(int pixel_width, int flat)
 {
     static const signed char fuzz_dir[50] = {
-        1,-1, 1,-1, 1, 1,-1, 1, 1,-1,
-        1, 1, 1,-1, 1, 1, 1,-1,-1,-1,
-       -1, 1,-1,-1, 1,-1,-1, 1, 1, 1,
-        1,-1, 1, 1,-1,-1,-1,-1,-1, 1,
-       -1,-1, 1, 1,-1, 1, 1,-1, 1, 1
+         1,-1, 1,-1, 1, 1,-1, 1, 1,-1,
+         1, 1, 1,-1, 1, 1, 1,-1,-1,-1,
+        -1, 1,-1,-1, 1,-1,-1, 1, 1, 1,
+         1,-1, 1, 1,-1,-1,-1,-1,-1, 1,
+        -1,-1, 1, 1,-1, 1, 1,-1, 1, 1
     };
     static unsigned fuzz_pos;
     int y;
@@ -178,7 +224,16 @@ static void mc_draw_fuzz(int pixel_width, int flat)
     if (dc_yh < dc_yl)
         return;
 
-    mc_validate_column(pixel_width);
+    /*
+     * Fuzz rendering is framebuffer based.  Like Doom's original fuzz path,
+     * it does not read dc_source or dc_colormap.
+     */
+    mc_validate_column_geometry(pixel_width);
+
+    if (colormaps == NULL)
+        mc_renderer_abort("fuzz colormaps",
+                          dc_x, dc_yl, dc_yh, pixel_width);
+
     for (y = dc_yl; y <= dc_yh; ++y)
     {
         byte *dest = ylookup[y] + columnofs[dc_x];
@@ -215,59 +270,61 @@ static void mc_draw_fuzz(int pixel_width, int flat)
 }
 
 /* Normal wall/sprite columns. */
-void R_DrawColumnBackbuffer(void)             { mc_draw_column_scaled(1); }
-void R_DrawColumnLowBackbuffer(void)          { mc_draw_column_scaled(2); }
-void R_DrawColumnPotatoBackbuffer(void)       { mc_draw_column_scaled(4); }
+void R_DrawColumnBackbuffer(void)              { mc_draw_column_scaled(1); }
+void R_DrawColumnLowBackbuffer(void)           { mc_draw_column_scaled(2); }
+void R_DrawColumnPotatoBackbuffer(void)        { mc_draw_column_scaled(4); }
 
-void R_DrawColumnBackbufferFastLEA(void)      { mc_draw_column_scaled(1); }
-void R_DrawColumnLowBackbufferFastLEA(void)   { mc_draw_column_scaled(2); }
-void R_DrawColumnPotatoBackbufferFastLEA(void){ mc_draw_column_scaled(4); }
+void R_DrawColumnBackbufferFastLEA(void)       { mc_draw_column_scaled(1); }
+void R_DrawColumnLowBackbufferFastLEA(void)    { mc_draw_column_scaled(2); }
+void R_DrawColumnPotatoBackbufferFastLEA(void) { mc_draw_column_scaled(4); }
 
-void R_DrawColumnBackbufferRoll(void)         { mc_draw_column_scaled(1); }
-void R_DrawColumnBackbufferMMX(void)          { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbufferRoll(void)          { mc_draw_column_scaled(1); }
+void R_DrawColumnBackbufferMMX(void)           { mc_draw_column_scaled(1); }
 
 /* FastDoom's full-screen/direct specializations are semantic aliases here. */
-void R_DrawColumnBackbufferDirect(void)       { mc_draw_column_scaled(1); }
-void R_DrawColumnLowBackbufferDirect(void)    { mc_draw_column_scaled(2); }
-void R_DrawColumnPotatoBackbufferDirect(void) { mc_draw_column_scaled(4); }
+void R_DrawColumnBackbufferDirect(void)        { mc_draw_column_scaled(1); }
+void R_DrawColumnLowBackbufferDirect(void)     { mc_draw_column_scaled(2); }
+void R_DrawColumnPotatoBackbufferDirect(void)  { mc_draw_column_scaled(4); }
 
 void R_DrawColumnBackbufferSkyFullDirect(void)
 {
     mc_draw_column_scaled(1);
 }
+
 void R_DrawColumnLowBackbufferSkyFullDirect(void)
 {
     mc_draw_column_scaled(2);
 }
+
 void R_DrawColumnPotatoBackbufferSkyFullDirect(void)
 {
     mc_draw_column_scaled(4);
 }
 
 /* Flat wall/sprite columns. */
-void R_DrawColumnBackbufferFlat(void)         { mc_draw_column_flat(1); }
-void R_DrawColumnLowBackbufferFlat(void)      { mc_draw_column_flat(2); }
-void R_DrawColumnPotatoBackbufferFlat(void)   { mc_draw_column_flat(4); }
+void R_DrawColumnBackbufferFlat(void)          { mc_draw_column_flat(1); }
+void R_DrawColumnLowBackbufferFlat(void)       { mc_draw_column_flat(2); }
+void R_DrawColumnPotatoBackbufferFlat(void)    { mc_draw_column_flat(4); }
 
 /* Floor/ceiling spans. */
-void R_DrawSpanBackbuffer(void)               { mc_draw_span(1); }
-void R_DrawSpanLowBackbuffer(void)            { mc_draw_span(2); }
-void R_DrawSpanPotatoBackbuffer(void)         { mc_draw_span(4); }
+void R_DrawSpanBackbuffer(void)                { mc_draw_span(1); }
+void R_DrawSpanLowBackbuffer(void)             { mc_draw_span(2); }
+void R_DrawSpanPotatoBackbuffer(void)          { mc_draw_span(4); }
 
-void R_DrawSpanBackbufferRoll(void)           { mc_draw_span(1); }
-void R_DrawSpanBackbufferMMX(void)            { mc_draw_span(1); }
-void R_DrawSpanBackbufferPentium(void)        { mc_draw_span(1); }
-void R_DrawSpanLowBackbufferPentium(void)     { mc_draw_span(2); }
-void R_DrawSpanPotatoBackbufferPentium(void)  { mc_draw_span(4); }
+void R_DrawSpanBackbufferRoll(void)            { mc_draw_span(1); }
+void R_DrawSpanBackbufferMMX(void)             { mc_draw_span(1); }
+void R_DrawSpanBackbufferPentium(void)         { mc_draw_span(1); }
+void R_DrawSpanLowBackbufferPentium(void)      { mc_draw_span(2); }
+void R_DrawSpanPotatoBackbufferPentium(void)   { mc_draw_span(4); }
 
 /* Spectre/fuzz paths that are NASM in the original linear renderer. */
-void R_DrawFuzzColumnBackbuffer(void)          { mc_draw_fuzz(1, 0); }
-void R_DrawFuzzColumnLowBackbuffer(void)       { mc_draw_fuzz(2, 0); }
-void R_DrawFuzzColumnPotatoBackbuffer(void)    { mc_draw_fuzz(4, 0); }
+void R_DrawFuzzColumnBackbuffer(void)           { mc_draw_fuzz(1, 0); }
+void R_DrawFuzzColumnLowBackbuffer(void)        { mc_draw_fuzz(2, 0); }
+void R_DrawFuzzColumnPotatoBackbuffer(void)     { mc_draw_fuzz(4, 0); }
 
-void R_DrawFuzzColumnFlatBackbuffer(void)      { mc_draw_fuzz(1, 1); }
-void R_DrawFuzzColumnFlatLowBackbuffer(void)   { mc_draw_fuzz(2, 1); }
-void R_DrawFuzzColumnFlatPotatoBackbuffer(void){ mc_draw_fuzz(4, 1); }
+void R_DrawFuzzColumnFlatBackbuffer(void)       { mc_draw_fuzz(1, 1); }
+void R_DrawFuzzColumnFlatLowBackbuffer(void)    { mc_draw_fuzz(2, 1); }
+void R_DrawFuzzColumnFlatPotatoBackbuffer(void) { mc_draw_fuzz(4, 1); }
 
 /*
  * The DOS versions patch constants into generated/unrolled machine code.

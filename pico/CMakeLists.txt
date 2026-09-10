@@ -1,15 +1,29 @@
 # Pico 2 combined MicroRender + MicroWave demo and console-era examples.
-if(WIN32)
-    set(USERHOME $ENV{USERPROFILE})
+#
+# An explicit PICO_SDK_PATH must win over the VS Code extension helper.
+# pico-vscode.cmake selects the hard-coded sdkVersion below, which is useful
+# for the normal zero-configuration 2.2.0 workflow but must not overwrite a
+# caller that deliberately selected a newer SDK (FastDoom PSRAM uses 2.3.0+).
+if(DEFINED ENV{PICO_SDK_PATH} AND NOT "$ENV{PICO_SDK_PATH}" STREQUAL "")
+    file(TO_CMAKE_PATH "$ENV{PICO_SDK_PATH}" MC_EXPLICIT_PICO_SDK_PATH)
+    set(PICO_SDK_PATH "${MC_EXPLICIT_PICO_SDK_PATH}" CACHE PATH
+        "Path to the Raspberry Pi Pico SDK" FORCE)
+    message(STATUS
+        "MicroConsole Pico: honoring explicit PICO_SDK_PATH=${PICO_SDK_PATH}")
 else()
-    set(USERHOME $ENV{HOME})
-endif()
-set(sdkVersion 2.2.0)
-set(toolchainVersion 14_2_Rel1)
-set(picotoolVersion 2.2.0-a4)
-set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
-if(EXISTS ${picoVscode})
-    include(${picoVscode})
+    if(WIN32)
+        set(USERHOME $ENV{USERPROFILE})
+    else()
+        set(USERHOME $ENV{HOME})
+    endif()
+
+    set(sdkVersion 2.2.0)
+    set(toolchainVersion 14_2_Rel1)
+    set(picotoolVersion 2.2.0-a4)
+    set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+    if(EXISTS ${picoVscode})
+        include(${picoVscode})
+    endif()
 endif()
 
 set(PICO_BOARD pimoroni_pico_plus2_rp2350 CACHE STRING "Board type")
@@ -61,13 +75,117 @@ set(MC_LCD_SPI_BAUD 75000000 CACHE STRING "ILI9341 SPI clock")
 set(MC_LACE_BLOCK_H 8 CACHE STRING "Alternating lace block height")
 set(MC_I2S_BCLK 10 CACHE STRING "I2S BCLK GPIO")
 set(MC_I2S_LRCLK 11 CACHE STRING "I2S LRCLK GPIO")
-set(MC_I2S_DATA 12 CACHE STRING "I2S DATA GPIO")
+set(MC_I2S_DATA 20 CACHE STRING "I2S DATA GPIO" FORCE)
+message(STATUS "MicroConsole Pico: forcing I2S DATA to GP${MC_I2S_DATA} (GP12 reserved for SD MISO)")
+
+set(MC_SD_MISO 12 CACHE STRING "microSD SPI1 MISO GPIO")
+set(MC_SD_CS 13 CACHE STRING "microSD chip-select GPIO")
+set(MC_SD_SCK 14 CACHE STRING "microSD SPI1 SCK GPIO")
+set(MC_SD_MOSI 15 CACHE STRING "microSD SPI1 MOSI GPIO")
+set(MC_SD_BAUD 12500000 CACHE STRING "microSD SPI clock")
 
 set(MR_BUILD_ENGINE_HELPERS OFF CACHE BOOL "" FORCE)
+
+# Existing examples still use the sequencer. FastDoom additionally needs the
+# validated MUS -> MIDI -> strict GENMIDI OPL -> Nuked OPL path.
+set(MW_SND_U8 OFF CACHE BOOL "" FORCE)
 set(MW_BUILD_SEQUENCER ON CACHE BOOL "" FORCE)
+set(MW_BUILD_MIDI ON CACHE BOOL "" FORCE)
+set(MW_BUILD_MUS ON CACHE BOOL "" FORCE)
+set(MW_BUILD_MIDI_FM OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_GENMIDI OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_GENMIDI_OPL ON CACHE BOOL "" FORCE)
 set(MW_BUILD_PACK OFF CACHE BOOL "" FORCE)
+
 add_subdirectory("${MC_MR}/shared" "${CMAKE_BINARY_DIR}/microrender-shared")
 add_subdirectory("${MC_MW}/shared" "${CMAKE_BINARY_DIR}/microwave-shared")
+
+set(MC_PICO_FATFS_SD "${MC_ROOT}/third_party/pico-fatfs-sd")
+if(EXISTS "${MC_PICO_FATFS_SD}/src/CMakeLists.txt")
+    add_subdirectory(
+        "${MC_PICO_FATFS_SD}/src"
+        "${CMAKE_BINARY_DIR}/pico-fatfs-sd")
+else()
+    message(STATUS
+        "MicroConsole Pico FatFS SD: dependency missing "
+        "(FastDoom Pico build command will fetch the pinned checkout)")
+endif()
+
+# ---------------------------------------------------------------------------
+# FastDoom Pico audio transport compile target.
+#
+# This is intentionally a static library for now. It lets the real Pico SDK
+# compile the DMA/PIO transport before the remaining FastDoom Pico platform
+# pieces (ILI9341 presentation, SD/FatFS WAD access and controls) are linked
+# into the final executable. Undefined mc_fd_audio_render()/core symbols are
+# resolved later by that executable; static archive creation does not require
+# them yet.
+# ---------------------------------------------------------------------------
+add_library(microconsole_fastdoom_audio_pico STATIC
+    "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_audio_pico.c")
+
+pico_generate_pio_header(microconsole_fastdoom_audio_pico
+    "${MC_MW}/microwave/mw_i2s.pio")
+
+target_include_directories(microconsole_fastdoom_audio_pico PRIVATE
+    "${MC_ROOT}/games/fastdoom/src"
+    "${MC_MW}/shared/src")
+
+target_compile_definitions(microconsole_fastdoom_audio_pico PRIVATE
+    MC_AUDIO_DEVICE=${MC_AUDIO_DEVICE_ID}
+    MC_AUDIO_VOLUME=${MC_AUDIO_VOLUME}
+    MC_I2S_BCLK=${MC_I2S_BCLK}
+    MC_I2S_LRCLK=${MC_I2S_LRCLK}
+    MC_I2S_DATA=${MC_I2S_DATA}
+    MC_FD_AUDIO_RATE=${MC_AUDIO_RATE}
+    MC_FD_PICO_DMA_BLOCK=${MC_AUDIO_BLOCK})
+
+target_link_libraries(microconsole_fastdoom_audio_pico PRIVATE
+    microwave::snd
+    pico_stdlib
+    pico_multicore
+    hardware_clocks
+    hardware_dma
+    hardware_irq
+    hardware_pio)
+
+add_library(microconsole::fastdoom_audio_pico ALIAS
+    microconsole_fastdoom_audio_pico)
+
+
+# ---------------------------------------------------------------------------
+# FastDoom PSRAM probe (Pico SDK 2.3.0+).
+#
+# SDK 2.2.0 does not provide hardware_psram, so this target is deliberately
+# conditional. Existing 2.2.0 demo/example/audio builds remain unchanged.
+# With SDK 2.3.0+ on Pimoroni Pico Plus 2, hardware_psram initializes the
+# board's on-board PSRAM before main() and the probe verifies a Doom-sized zone.
+# ---------------------------------------------------------------------------
+if(TARGET hardware_psram)
+    add_executable(microconsole_fastdoom_psram_probe
+        "${MC_ROOT}/src/pico/mc_fastdoom_psram_probe.c")
+
+    target_compile_definitions(microconsole_fastdoom_psram_probe PRIVATE
+        MC_FD_PSRAM_ZONE_BYTES=6291456u)
+
+    target_link_libraries(microconsole_fastdoom_psram_probe PRIVATE
+        pico_stdlib
+        hardware_psram)
+
+    pico_enable_stdio_usb(microconsole_fastdoom_psram_probe 1)
+    pico_enable_stdio_uart(microconsole_fastdoom_psram_probe 0)
+    pico_add_extra_outputs(microconsole_fastdoom_psram_probe)
+
+    target_link_options(microconsole_fastdoom_psram_probe PRIVATE
+        "-Wl,--print-memory-usage")
+
+    message(STATUS
+        "MicroConsole FastDoom PSRAM: target=microconsole_fastdoom_psram_probe "
+        "(6 MiB zone verification)")
+else()
+    message(STATUS
+        "MicroConsole FastDoom PSRAM: skipped (hardware_psram requires Pico SDK 2.3.0+)")
+endif()
 
 function(mc_configure_pico_target target)
     pico_generate_pio_header(${target}
@@ -152,5 +270,172 @@ target_link_libraries(microconsole_examples PRIVATE pico_multicore)
 target_link_options(microconsole_examples PRIVATE
     "-Wl,--print-memory-usage")
 
+
+# ---------------------------------------------------------------------------
+# First real FastDoom Pico 2 target.
+#
+# The generated source overlay is prepared by:
+#   .\mc.bat build fastdoom-pico max98357a
+#
+# Normal Pico demo/example builds do not require FastDoom. If the overlay does
+# not exist, this target is simply omitted.
+# ---------------------------------------------------------------------------
+set(MC_FD "${MC_ROOT}/build-fastdoom-src/FASTDOOM")
+
+if(EXISTS "${MC_FD}/d_main.c")
+    set(MC_FD_SOURCES
+        "${MC_FD}/d_main.c"
+        "${MC_FD}/am_map.c"
+        "${MC_FD}/d_net.c"
+        "${MC_FD}/dutils.c"
+        "${MC_FD}/f_finale.c"
+        "${MC_FD}/f_wipe.c"
+        "${MC_FD}/g_game.c"
+        "${MC_FD}/hu_lib.c"
+        "${MC_FD}/hu_stuff.c"
+        "${MC_FD}/i_file.c"
+        "${MC_FD}/i_gamma.c"
+        "${MC_FD}/i_random.c"
+        "${MC_FD}/info.c"
+        "${MC_FD}/m_bench.c"
+        "${MC_FD}/m_menu.c"
+        "${MC_FD}/m_misc.c"
+        "${MC_FD}/math.c"
+        "${MC_FD}/p_ceilng.c"
+        "${MC_FD}/p_doors.c"
+        "${MC_FD}/p_enemy.c"
+        "${MC_FD}/p_floor.c"
+        "${MC_FD}/p_inter.c"
+        "${MC_FD}/p_lights.c"
+        "${MC_FD}/p_map.c"
+        "${MC_FD}/p_maputl.c"
+        "${MC_FD}/p_mobj.c"
+        "${MC_FD}/p_plats.c"
+        "${MC_FD}/p_pspr.c"
+        "${MC_FD}/p_saveg.c"
+        "${MC_FD}/p_setup.c"
+        "${MC_FD}/p_sight.c"
+        "${MC_FD}/p_spec.c"
+        "${MC_FD}/p_switch.c"
+        "${MC_FD}/p_telept.c"
+        "${MC_FD}/p_tick.c"
+        "${MC_FD}/p_user.c"
+        "${MC_FD}/r_bsp.c"
+        "${MC_FD}/r_data.c"
+        "${MC_FD}/r_draw.c"
+        "${MC_FD}/r_main.c"
+        "${MC_FD}/r_plane.c"
+        "${MC_FD}/r_segs.c"
+        "${MC_FD}/r_things.c"
+        "${MC_FD}/sounds.c"
+        "${MC_FD}/st_lib.c"
+        "${MC_FD}/st_stuff.c"
+        "${MC_FD}/tables.c"
+        "${MC_FD}/v_video.c"
+        "${MC_FD}/w_wad.c"
+        "${MC_FD}/wi_stuff.c"
+        "${MC_FD}/z_zone.c")
+
+    set(MC_FD_PORT_SOURCES
+        ${MC_FD_SOURCES}
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_compat_data.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_fastmath.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_render.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_sound_mw.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_fs.c"
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_main.c")
+
+    add_executable(microconsole_fastdoom_pico
+        ${MC_FD_PORT_SOURCES}
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_sd.c"
+        "${MC_MR}/shared/rp2350/mr_pico_ili9341.c")
+
+    # IMPORTANT:
+    # Pico SDK interface libraries inject SDK C and ASM sources directly into
+    # this executable. FastDoom compatibility headers must therefore be scoped
+    # to the FastDoom/MicroConsole C files instead of target-wide; otherwise
+    # compat/io.h, compat/unistd.h, FastDoom's math.h, etc. shadow newlib while
+    # compiling the SDK, and -include would even feed C declarations to .S.
+    set_property(SOURCE ${MC_FD_PORT_SOURCES} APPEND PROPERTY
+        INCLUDE_DIRECTORIES
+            "${MC_ROOT}/games/fastdoom/compat"
+            "${MC_ROOT}/games/fastdoom/src"
+            "${MC_FD}"
+            "${MC_MR}/shared/src"
+            "${MC_MR}/shared/rp2350"
+            "${MC_MW}/shared/src")
+
+    set_property(SOURCE ${MC_FD_PORT_SOURCES} APPEND PROPERTY
+        COMPILE_OPTIONS
+            -include
+            "${MC_ROOT}/games/fastdoom/compat/mc_fastdoom_force_compat.h"
+            -O2
+            -fsigned-char
+            -Wall
+            -Wextra
+            -Wno-unknown-pragmas
+            -Wno-unused-parameter)
+
+    target_compile_definitions(microconsole_fastdoom_pico PRIVATE
+        MC_FASTDOOM_PICO=1
+        MC_FD_AUDIO_RATE=${MC_AUDIO_RATE}
+        MC_FD_AUDIO_BLOCK=256
+        MC_FD_PSRAM_ZONE_BYTES=6291456u
+        MC_I2S_DATA=${MC_I2S_DATA}
+        MC_SYS_KHZ=${MC_SYS_KHZ}
+        MC_SD_MISO=${MC_SD_MISO}
+        MC_SD_CS=${MC_SD_CS}
+        MC_SD_SCK=${MC_SD_SCK}
+        MC_SD_MOSI=${MC_SD_MOSI}
+        MC_SD_BAUD=${MC_SD_BAUD}
+        USE_BACKBUFFER=1
+        SCREENWIDTH=320
+        SCREENHEIGHT=200
+        DEBUG_ENABLED=0
+        ASSERT_ENABLED=0
+        BOUNDS_CHECK_ENABLED=0
+        MR_LCD_PIN_MISO=4
+        MR_LCD_PIN_CS=5
+        MR_LCD_PIN_SCK=6
+        MR_LCD_PIN_MOSI=7
+        MR_LCD_PIN_RST=8
+        MR_LCD_PIN_DC=9
+        MR_LCD_SPI_BAUD=${MC_LCD_SPI_BAUD}
+        MR_ILI9341_MADCTL=0xE8
+        MR_ILI9341_FRMCTR1_DIVA=0x00
+        MR_ILI9341_FRMCTR1_RTNA=0x1B)
+
+    target_link_libraries(microconsole_fastdoom_pico PRIVATE
+        microconsole::fastdoom_audio_pico
+        microwave::mus
+        microwave::genmidi_opl
+        microrender::gfx
+        pico-fatfs-sd
+        pico_stdlib
+        pico_multicore
+        hardware_clocks
+        hardware_dma
+        hardware_irq
+        hardware_pio
+        hardware_psram
+        hardware_spi)
+
+    pico_enable_stdio_usb(microconsole_fastdoom_pico 1)
+    pico_enable_stdio_uart(microconsole_fastdoom_pico 0)
+    pico_add_extra_outputs(microconsole_fastdoom_pico)
+
+    target_link_options(microconsole_fastdoom_pico PRIVATE
+        "-Wl,--print-memory-usage")
+
+    message(STATUS
+        "MicroConsole FastDoom Pico: target=microconsole_fastdoom_pico "
+        "(real Cortex-M33 game + SPI1/FatFS SD backend)")
+else()
+    message(STATUS
+        "MicroConsole FastDoom Pico: skipped (run .\\mc.bat build fastdoom-pico max98357a)")
+endif()
+
 message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RATE}Hz block=${MC_AUDIO_BLOCK} volume=${MC_AUDIO_VOLUME}%; stress=${MC_STRESS_SPRITES}; sys=${MC_SYS_KHZ}kHz; SPI=${MC_LCD_SPI_BAUD}; lace=${MC_LACE_BLOCK_H}")
 message(STATUS "MicroConsole Pico examples: target=microconsole_examples (tiled SRAM frontend, no PSRAM)")
+message(STATUS "MicroConsole FastDoom Pico audio: target=microconsole_fastdoom_audio_pico (PIO/DMA transport compile check)")

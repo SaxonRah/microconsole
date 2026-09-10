@@ -15,6 +15,7 @@ set(FASTDOOM_PATCHED_DIR "${MC_ROOT}/build-fastdoom-src" CACHE PATH
 set(FD "${FASTDOOM_PATCHED_DIR}/FASTDOOM")
 set(FD_MAIN "${FD}/d_main.c")
 set(MC_MR "${MC_ROOT}/third_party/microrender")
+set(MC_MW "${MC_ROOT}/third_party/microwave")
 set(MC_RAYLIB "${MC_MR}/third_party/raylib")
 
 if(NOT EXISTS "${FD}/doomdef.h")
@@ -33,6 +34,17 @@ if(NOT EXISTS "${MC_RAYLIB}/CMakeLists.txt")
         "MicroRender's Raylib dependency is missing. Run: .\\mc.bat deps")
 endif()
 
+if(NOT EXISTS "${MC_MW}/shared/CMakeLists.txt")
+    message(FATAL_ERROR
+        "MicroWave is missing. Run: .\\mc.bat deps")
+endif()
+
+if(NOT EXISTS "${MC_MW}/third_party/nuked-opl3/opl3.c")
+    message(FATAL_ERROR
+        "MicroWave's pinned Nuked OPL3 source is missing. "
+        "Update third_party/microwave to the MicroWave main revision pinned by mc.bat.")
+endif()
+
 if(MSVC AND NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
     message(FATAL_ERROR
         "FastDoom Raylib bring-up must be configured as Win32/x86. "
@@ -42,6 +54,28 @@ endif()
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 add_subdirectory("${MC_RAYLIB}" "${CMAKE_BINARY_DIR}/raylib" EXCLUDE_FROM_ALL)
+
+# FastDoom uses the same 32 kHz logical rate as the existing Pico audio path.
+# The Raylib callback may request a larger buffer; the bridge chunks it through
+# this fixed MicroWave working block, so the audio device -- not the game tick --
+# owns advancement of both music and PCM voices.
+set(MC_FD_AUDIO_RATE 32000 CACHE STRING "FastDoom MicroWave mix rate")
+set(MC_FD_AUDIO_BLOCK 256 CACHE STRING "FastDoom MicroWave working block frames")
+
+# Build only the MicroWave layers this target actually needs. The accurate Doom
+# path is MUS -> MIDI -> strict GENMIDI OPL -> Nuked OPL3; PCM SFX use the base
+# mixer directly.
+set(MW_SND_U8 OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_SEQUENCER OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_MIDI ON CACHE BOOL "" FORCE)
+set(MW_BUILD_MUS ON CACHE BOOL "" FORCE)
+set(MW_BUILD_MIDI_FM OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_GENMIDI OFF CACHE BOOL "" FORCE)
+set(MW_BUILD_GENMIDI_OPL ON CACHE BOOL "" FORCE)
+set(MW_BUILD_PACK OFF CACHE BOOL "" FORCE)
+add_subdirectory("${MC_MW}/shared"
+                 "${CMAKE_BINARY_DIR}/microwave-shared"
+                 EXCLUDE_FROM_ALL)
 
 set(FD_SOURCES
     "${FD_MAIN}"
@@ -88,6 +122,7 @@ set(FD_SOURCES
     "${FD}/r_plane.c"
     "${FD}/r_segs.c"
     "${FD}/r_things.c"
+    "${FD}/sounds.c"
     "${FD}/st_lib.c"
     "${FD}/st_stuff.c"
     "${FD}/tables.c"
@@ -104,16 +139,20 @@ add_executable(microconsole_fastdoom
     "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_fastmath.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_render.c"
     "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_raylib.c"
-    "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_sound_stub.c"
+    "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_sound_mw.c"
+    "${CMAKE_CURRENT_LIST_DIR}/src/mc_fastdoom_audio_raylib.c"
 )
 
 target_include_directories(microconsole_fastdoom PRIVATE
     "${CMAKE_CURRENT_LIST_DIR}/compat"
+    "${CMAKE_CURRENT_LIST_DIR}/src"
     "${FD}"
 )
 
 target_compile_definitions(microconsole_fastdoom PRIVATE
     MC_FASTDOOM_RAYLIB=1
+    MC_FD_AUDIO_RATE=${MC_FD_AUDIO_RATE}
+    MC_FD_AUDIO_BLOCK=${MC_FD_AUDIO_BLOCK}
     USE_BACKBUFFER=1
     SCREENWIDTH=320
     SCREENHEIGHT=200
@@ -124,7 +163,11 @@ target_compile_definitions(microconsole_fastdoom PRIVATE
     _CRT_NONSTDC_NO_DEPRECATE
 )
 
-target_link_libraries(microconsole_fastdoom PRIVATE raylib)
+target_link_libraries(microconsole_fastdoom PRIVATE
+    raylib
+    microwave::mus
+    microwave::genmidi_opl
+)
 
 if(WIN32)
     target_link_libraries(microconsole_fastdoom PRIVATE dbghelp)
