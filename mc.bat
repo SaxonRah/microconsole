@@ -5,7 +5,7 @@ set "MC_ROOT=%CD%"
 
 rem Pinned engine revisions.
 set "MC_MR_SHA=90747c5d7130015aef7549608d05252f15595fab"
-set "MC_MW_SHA=0b591fb813e54c5d7cff8c1f44336a4ba6ddb51c"
+set "MC_MW_SHA=62c2ed87086cd1dc9533cbf632ed4864f5c58ff3"
 
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=help"

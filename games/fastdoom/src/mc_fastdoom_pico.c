@@ -679,9 +679,8 @@ static void mc_fd_handle_command(const char *cmd)
                "present_us=%lu max_present_us=%lu "
                "convert_us=%lu lcd_block_us=%lu "
 #if MC_FD_LCD_PANEL_ST7796S
-               "scan_phase_hz=%u.%u scan_cycle_hz=%u.%u "
-               "scan_blocks=%lu scan_phases=%lu scan_irq_us=%lu/%lu "
-               "scan_publish_us=%lu/%lu "
+               "scan_frame_hz=%u.%u scan_blocks=%lu scan_frames=%lu "
+               "scan_irq_us=%lu/%lu scan_publish_us=%lu/%lu "
 #endif
                "fs=%d sd_driver=%d mount_fr=%d last_fr=%d "
                "attempts=%u path=%s i2s_data=%d "
@@ -723,12 +722,10 @@ static void mc_fd_handle_command(const char *cmd)
                (unsigned long)mc_fd_last_convert_us,
                (unsigned long)mc_fd_last_lcd_us,
 #if MC_FD_LCD_PANEL_ST7796S
-               mc_fd_st7796s_scanout_phase_hz10() / 10u,
-               mc_fd_st7796s_scanout_phase_hz10() % 10u,
-               mc_fd_st7796s_scanout_cycle_hz10() / 10u,
-               mc_fd_st7796s_scanout_cycle_hz10() % 10u,
+               mc_fd_st7796s_scanout_frame_hz10() / 10u,
+               mc_fd_st7796s_scanout_frame_hz10() % 10u,
                mc_fd_st7796s_scanout_blocks(),
-               mc_fd_st7796s_scanout_phases(),
+               mc_fd_st7796s_scanout_frames(),
                (unsigned long)mc_fd_st7796s_scanout_last_service_us(),
                (unsigned long)mc_fd_st7796s_scanout_max_service_us(),
                (unsigned long)mc_fd_st7796s_scanout_last_publish_us(),
@@ -778,41 +775,6 @@ static void mc_fd_handle_command(const char *cmd)
         fflush(stdout);
         return;
     }
-
-#if MC_FD_LCD_PANEL_ST7796S
-    if (mc_fd_cmd_equal_ci(cmd, "SCAN"))
-    {
-        printf("MCFDOOM1 scan phases=%u requested=%u phase_hz=%u.%u cycle_hz=%u.%u\n",
-               mc_fd_st7796s_scanout_get_phases(),
-               mc_fd_st7796s_scanout_get_requested_phases(),
-               mc_fd_st7796s_scanout_phase_hz10() / 10u,
-               mc_fd_st7796s_scanout_phase_hz10() % 10u,
-               mc_fd_st7796s_scanout_cycle_hz10() / 10u,
-               mc_fd_st7796s_scanout_cycle_hz10() % 10u);
-        fflush(stdout);
-        return;
-    }
-
-    if (mc_fd_cmd_prefix_ci(cmd, "SCAN "))
-    {
-        unsigned int phases = 0u;
-
-        if (sscanf(cmd + 5, "%u", &phases) == 1 &&
-            mc_fd_st7796s_scanout_set_phases(phases))
-        {
-            printf("MCFDOOM1 scan requested=%u current=%u\n",
-                   phases,
-                   mc_fd_st7796s_scanout_get_phases());
-        }
-        else
-        {
-            printf("MCFDOOM1 error=scan-syntax valid=1,2,4,5\n");
-        }
-
-        fflush(stdout);
-        return;
-    }
-#endif
 
     volume = mc_fd_parse_volume(cmd);
     if (volume >= 0)

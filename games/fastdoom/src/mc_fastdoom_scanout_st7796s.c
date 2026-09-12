@@ -594,25 +594,6 @@ void mc_fd_st7796s_scanout_stop(void)
     g_scan.lcd = NULL;
 }
 
-/*
- * Compatibility with the temporary SCAN command. The A/B test is complete:
- * production FastDoom presentation is deliberately progressive only.
- */
-int mc_fd_st7796s_scanout_set_phases(unsigned int phases)
-{
-    return phases == 1u ? 1 : 0;
-}
-
-unsigned int mc_fd_st7796s_scanout_get_phases(void)
-{
-    return 1u;
-}
-
-unsigned int mc_fd_st7796s_scanout_get_requested_phases(void)
-{
-    return 1u;
-}
-
 int mc_fd_st7796s_scanout_running(void)
 {
     return g_scan.running ? 1 : 0;
@@ -623,12 +604,7 @@ unsigned long mc_fd_st7796s_scanout_blocks(void)
     return g_scan.blocks_completed;
 }
 
-unsigned long mc_fd_st7796s_scanout_phases(void)
-{
-    return g_scan.frames_completed;
-}
-
-unsigned long mc_fd_st7796s_scanout_cycles(void)
+unsigned long mc_fd_st7796s_scanout_frames(void)
 {
     return g_scan.frames_completed;
 }
@@ -648,12 +624,7 @@ unsigned long mc_fd_st7796s_scanout_replaced_pending_frames(void)
     return g_scan.replaced_pending_frames;
 }
 
-unsigned int mc_fd_st7796s_scanout_phase_hz10(void)
-{
-    return g_scan.frame_hz10;
-}
-
-unsigned int mc_fd_st7796s_scanout_cycle_hz10(void)
+unsigned int mc_fd_st7796s_scanout_frame_hz10(void)
 {
     return g_scan.frame_hz10;
 }

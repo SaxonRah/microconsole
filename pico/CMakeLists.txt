@@ -134,6 +134,15 @@ foreach(_mc_mw_perf_target
     endif()
 endforeach()
 
+# FastDoom Pico production baseline: the per-sample Nuked OPL path lives
+# in SRAM. This removes XIP/QMI stalls that caused audio underruns while
+# the ST7796S presenter and PSRAM-backed Doom workload were active.
+target_compile_definitions(microwave_nuked_opl3 PRIVATE
+    MC_OPL3_TIME_CRITICAL=1)
+target_compile_definitions(microwave_genmidi_opl PRIVATE
+    MC_OPL3_TIME_CRITICAL=1)
+message(STATUS "MicroConsole FastDoom OPL3 hot path: SRAM")
+
 
 set(MC_PICO_FATFS_SD "${MC_ROOT}/third_party/pico-fatfs-sd")
 if(EXISTS "${MC_PICO_FATFS_SD}/src/CMakeLists.txt")

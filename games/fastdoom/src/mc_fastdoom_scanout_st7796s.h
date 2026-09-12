@@ -21,25 +21,15 @@ void mc_fd_st7796s_scanout_publish(
 
 void mc_fd_st7796s_scanout_stop(void);
 
-/*
- * Temporary SCAN-command compatibility. FastDoom production output is now
- * progressive only, so only phase count 1 is accepted.
- */
-int mc_fd_st7796s_scanout_set_phases(unsigned int phases);
-unsigned int mc_fd_st7796s_scanout_get_phases(void);
-unsigned int mc_fd_st7796s_scanout_get_requested_phases(void);
-
 int mc_fd_st7796s_scanout_running(void);
 
 unsigned long mc_fd_st7796s_scanout_blocks(void);
-unsigned long mc_fd_st7796s_scanout_phases(void);
-unsigned long mc_fd_st7796s_scanout_cycles(void);
+unsigned long mc_fd_st7796s_scanout_frames(void);
 unsigned long mc_fd_st7796s_scanout_published_frames(void);
 unsigned long mc_fd_st7796s_scanout_latched_frames(void);
 unsigned long mc_fd_st7796s_scanout_replaced_pending_frames(void);
 
-unsigned int mc_fd_st7796s_scanout_phase_hz10(void);
-unsigned int mc_fd_st7796s_scanout_cycle_hz10(void);
+unsigned int mc_fd_st7796s_scanout_frame_hz10(void);
 
 uint32_t mc_fd_st7796s_scanout_last_service_us(void);
 uint32_t mc_fd_st7796s_scanout_max_service_us(void);

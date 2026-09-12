@@ -460,15 +460,11 @@ def play_mode():
     }
 
     VK_STAT = ord("P")
-    VK_SCAN = ord("O")
-    VK_EXIT = 0x7B
+    VK_EXIT = ord("Q")
 
     held = {name: False for name in actions}
     stat_was_down = False
-    scan_was_down = False
     exit_was_down = False
-    scan_modes = [1, 2, 4, 5]
-    scan_index = 0
 
     def vk_down(vk):
         return bool(get_key(vk) & 0x8000)
@@ -503,13 +499,11 @@ def play_mode():
     print("  Shift run        Alt strafe modifier")
     print("  Tab/M map        1..7 weapons")
     print("  Esc menu         Enter select")
-    print("  P STAT           O cycle scan 1/2/4/5")
-    print("  F12 exit")
+    print("  P STAT           Q exit")
     print()
 
     try:
         send_command("PING")
-        send_command("SCAN")
 
         while True:
             for name, vks in actions.items():
@@ -522,12 +516,6 @@ def play_mode():
             if stat_down and not stat_was_down:
                 send_command("STAT")
             stat_was_down = stat_down
-
-            scan_down = vk_down(VK_SCAN)
-            if scan_down and not scan_was_down:
-                scan_index = (scan_index + 1) % len(scan_modes)
-                send_command("SCAN %d" % scan_modes[scan_index])
-            scan_was_down = scan_down
 
             exit_down = vk_down(VK_EXIT)
             if exit_down and not exit_was_down:
