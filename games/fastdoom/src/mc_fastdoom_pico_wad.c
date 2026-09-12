@@ -89,6 +89,41 @@ static int mc_fd_wad_ends_with_ci(const char *text, const char *suffix)
     return 1;
 }
 
+
+/* MC_FASTDOOM_PICO_PWAD_BASE_PROFILES
+ *
+ * Known official expansions have a required base IWAD. Do not inherit
+ * whichever base happened to be selected previously.
+ */
+static int mc_fd_wad_string_equal_ci(const char *a, const char *b)
+{
+    if (!a || !b)
+        return 0;
+
+    while (*a && *b)
+    {
+        if (!mc_fd_wad_equal_ci(*a, *b))
+            return 0;
+        ++a;
+        ++b;
+    }
+
+    return *a == '\0' && *b == '\0';
+}
+
+static const char *mc_fd_wad_profile_base(const char *filename)
+{
+    if (mc_fd_wad_string_equal_ci(filename, "sigil.wad") ||
+        mc_fd_wad_string_equal_ci(filename, "sigil2.wad"))
+        return "doomu.wad";
+
+    if (mc_fd_wad_string_equal_ci(filename, "nerve.wad") ||
+        mc_fd_wad_string_equal_ci(filename, "masterlevels.wad"))
+        return "doom2.wad";
+
+    return NULL;
+}
+
 static void mc_fd_wad_default_config(mc_fd_wad_config_t *cfg)
 {
     memset(cfg, 0, sizeof(*cfg));
@@ -428,17 +463,37 @@ int mc_fd_pico_wad_select(const char *request, mc_fd_wad_boot_t *out)
     }
     else
     {
-        /*
-         * A PWAD overlays the currently selected base IWAD. If the current
-         * selection is itself a PWAD, g_mc_fd_wad_cfg.base still names the
-         * underlying IWAD.
-         */
-        strcpy(cfg.base, g_mc_fd_wad_cfg.base[0]
-                             ? g_mc_fd_wad_cfg.base
-                             : MC_FD_WAD_DEFAULT);
+        const char *profile_base = mc_fd_wad_profile_base(filename);
 
-        if (!mc_fd_wad_probe(cfg.base, &mode, NULL) || mode != 'I')
-            strcpy(cfg.base, MC_FD_WAD_DEFAULT);
+        /*
+         * Known expansions have a required game-family base. This prevents
+         * e.g. selecting NERVE after SIGIL from accidentally layering NERVE
+         * over doomu.wad.
+         */
+        if (profile_base)
+        {
+            strcpy(cfg.base, profile_base);
+
+            /*
+             * A known expansion without its required IWAD is not a valid
+             * selection. Do not silently substitute some unrelated base.
+             */
+            if (!mc_fd_wad_probe(cfg.base, &mode, NULL) || mode != 'I')
+                return 0;
+        }
+        else
+        {
+            /*
+             * Generic PWADs retain the existing behavior: overlay the current
+             * base IWAD, falling back to doom.wad only if that base vanished.
+             */
+            strcpy(cfg.base, g_mc_fd_wad_cfg.base[0]
+                                 ? g_mc_fd_wad_cfg.base
+                                 : MC_FD_WAD_DEFAULT);
+
+            if (!mc_fd_wad_probe(cfg.base, &mode, NULL) || mode != 'I')
+                strcpy(cfg.base, MC_FD_WAD_DEFAULT);
+        }
 
         cfg.mode = 'P';
     }

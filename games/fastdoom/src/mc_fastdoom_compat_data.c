@@ -11,9 +11,17 @@
  * i_ibm.c rather than doomdef.h. Keep the exact original FastDoom values here
  * instead of pulling the DOS input implementation back into the portable
  * target.
+ *
+ * FastDoom's r_data.h still exposes R_CheckTextureNumForName(), but the pinned
+ * renderer implementation has folded the non-fatal texture lookup semantics
+ * into R_TextureNumForName() and no longer emits the former symbol.  Some
+ * compatibility code (for example optional episode sky probing) still wants
+ * the old API.  Keep that ABI here rather than modifying the generated
+ * FastDoom source overlay.
  */
 #include "doomtype.h"
 #include "doomdef.h"
+#include "r_data.h"
 
 #define FD_KEY_LSHIFT 0xfe
 #define FD_KEY_INS    (0x80 + 0x52)
@@ -42,3 +50,8 @@ byte scantokey[128] =
     /* 70 */ 0, 0, 0, 0, 0, 0, 0, 0,
     /* 78 */ 0, 0, 0, 0, 0, 0, 0, 0
 };
+
+int R_CheckTextureNumForName(char *name)
+{
+    return (int)R_TextureNumForName(name);
+}
