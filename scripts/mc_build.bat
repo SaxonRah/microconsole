@@ -159,6 +159,28 @@ where python >nul 2>nul || (echo ERROR: python not found on PATH.& exit /b 1)
 
 set "DEVICE=%~1"
 if "%DEVICE%"=="" set "DEVICE=max98357a"
+if not "%~1"=="" shift /1
+
+set "PANEL=%~1"
+if "%PANEL%"=="" set "PANEL=ili9341"
+if not "%~1"=="" shift /1
+
+if /i "%PANEL%"=="ili9341" (
+    set "MC_FD_PANEL_CMAKE=ILI9341"
+) else if /i "%PANEL%"=="st7796s" (
+    set "MC_FD_PANEL_CMAKE=ST7796S"
+) else (
+    echo ERROR: FastDoom Pico panel must be ili9341 or st7796s.
+    exit /b 1
+)
+
+set "MC_FD_PICO_ARGS="
+:fastdoom_pico_args
+if "%~1"=="" goto fastdoom_pico_args_done
+set "MC_FD_PICO_ARGS=!MC_FD_PICO_ARGS! "%~1""
+shift /1
+goto fastdoom_pico_args
+:fastdoom_pico_args_done
 
 call "%MC_ROOT%\scripts\mc_fastdoom_deps.bat"
 if errorlevel 1 exit /b 1
@@ -175,8 +197,8 @@ python "%MC_ROOT%\scripts\mc_fastdoom_pico_prepare.py" ^
     --src "%MC_ROOT%\build-fastdoom-src\FASTDOOM"
 if errorlevel 1 exit /b 1
 
-echo === FastDoom Pico 2 Cortex-M33 bring-up: %DEVICE% ===
-call "%~f0" pico "%DEVICE%"
+echo === FastDoom Pico 2 Cortex-M33 bring-up: %DEVICE% / %MC_FD_PANEL_CMAKE% ===
+call "%~f0" pico "%DEVICE%" "-DMC_FASTDOOM_LCD_PANEL=%MC_FD_PANEL_CMAKE%" !MC_FD_PICO_ARGS!
 if errorlevel 1 exit /b 1
 
 if not exist "%MC_ROOT%\pico\build-%DEVICE%\microconsole_fastdoom_pico.uf2" (
@@ -198,6 +220,17 @@ set "MC_PICO_ARGS=!MC_PICO_ARGS! "%~1""
 shift /1
 goto pico_args
 :pico_args_done
+
+rem MicroConsole standardizes every Pico target on SDK 2.3.0.
+rem Do this before calling the dependency helper so an old shell-level
+rem PICO_SDK_PATH cannot mix SDK trees inside a CMake cache.
+set "MC_PICO_REQUIRED_SDK=2.3.0"
+set "PICO_SDK_PATH=%USERPROFILE%\.pico-sdk\sdk\%MC_PICO_REQUIRED_SDK%"
+if not exist "%PICO_SDK_PATH%\pico_sdk_init.cmake" (
+    echo ERROR: MicroConsole Pico requires Pico SDK %MC_PICO_REQUIRED_SDK%:
+    echo   %PICO_SDK_PATH%
+    exit /b 1
+)
 
 call "%MC_ROOT%\third_party\microwave\microwave\pico_env_auto.bat" || exit /b 1
 
@@ -266,7 +299,7 @@ exit /b 0
 :all
 call "%~f0" raylib || exit /b 1
 if not "%WATCOM%"=="" call "%~f0" dos
-if not errorlevel 1 if exist "%USERPROFILE%\.pico-sdk\sdk\2.2.0\pico_sdk_init.cmake" call "%~f0" pico max98357a
+if not errorlevel 1 if exist "%USERPROFILE%\.pico-sdk\sdk\2.3.0\pico_sdk_init.cmake" call "%~f0" pico max98357a
 exit /b 0
 
 :no_deps

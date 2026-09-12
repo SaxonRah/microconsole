@@ -423,6 +423,139 @@ def flash(device, method, image):
     return 0
 
 
+
+def play_mode():
+    # Use the Windows keyboard as a live FastDoom controller.
+    if os.name != "nt":
+        print("play mode currently requires Windows")
+        return 2
+
+    import ctypes
+
+    port, ser = open_serial()
+    if not ser:
+        return 1
+
+    get_key = ctypes.windll.user32.GetAsyncKeyState
+
+    actions = {
+        "UP":      (0x26, ord("W")),
+        "DOWN":    (0x28, ord("S")),
+        "LEFT":    (0x25, ord("A")),
+        "RIGHT":   (0x27, ord("D")),
+        "FIRE":    (0x11, ord("Z")),
+        "USE":     (0x20, ord("E")),
+        "RUN":     (0x10,),
+        "STRAFE":  (0x12,),
+        "MAP":     (0x09, ord("M")),
+        "ESC":     (0x1B,),
+        "ENTER":   (0x0D,),
+        "1":       (ord("1"),),
+        "2":       (ord("2"),),
+        "3":       (ord("3"),),
+        "4":       (ord("4"),),
+        "5":       (ord("5"),),
+        "6":       (ord("6"),),
+        "7":       (ord("7"),),
+    }
+
+    VK_STAT = ord("P")
+    VK_SCAN = ord("O")
+    VK_EXIT = 0x7B
+
+    held = {name: False for name in actions}
+    stat_was_down = False
+    scan_was_down = False
+    exit_was_down = False
+    scan_modes = [1, 2, 4, 5]
+    scan_index = 0
+
+    def vk_down(vk):
+        return bool(get_key(vk) & 0x8000)
+
+    def send_key(name, down):
+        ser.write(("KEY %s %s\n" %
+                   (name, "DOWN" if down else "UP")).encode("ascii"))
+
+    def send_command(command):
+        ser.reset_input_buffer()
+        ser.write((command + "\n").encode("ascii"))
+        ser.flush()
+        read_command_response(ser, port, command, timeout=1.5)
+
+    def release_all():
+        for name in held:
+            if held[name]:
+                try:
+                    send_key(name, False)
+                except Exception:
+                    pass
+                held[name] = False
+        try:
+            ser.flush()
+        except Exception:
+            pass
+
+    print("MicroConsole FastDoom PLAY mode on %s" % port)
+    print("  W/Up forward     S/Down backward")
+    print("  A/Left turn      D/Right turn")
+    print("  Ctrl/Z fire      Space/E use")
+    print("  Shift run        Alt strafe modifier")
+    print("  Tab/M map        1..7 weapons")
+    print("  Esc menu         Enter select")
+    print("  P STAT           O cycle scan 1/2/4/5")
+    print("  F12 exit")
+    print()
+
+    try:
+        send_command("PING")
+        send_command("SCAN")
+
+        while True:
+            for name, vks in actions.items():
+                down = any(vk_down(vk) for vk in vks)
+                if down != held[name]:
+                    send_key(name, down)
+                    held[name] = down
+
+            stat_down = vk_down(VK_STAT)
+            if stat_down and not stat_was_down:
+                send_command("STAT")
+            stat_was_down = stat_down
+
+            scan_down = vk_down(VK_SCAN)
+            if scan_down and not scan_was_down:
+                scan_index = (scan_index + 1) % len(scan_modes)
+                send_command("SCAN %d" % scan_modes[scan_index])
+            scan_was_down = scan_down
+
+            exit_down = vk_down(VK_EXIT)
+            if exit_down and not exit_was_down:
+                break
+            exit_was_down = exit_down
+
+            try:
+                waiting = ser.in_waiting
+                if waiting:
+                    ser.read(waiting)
+            except (OSError, ValueError) as exc:
+                print("serial error:", exc)
+                return 1
+
+            time.sleep(1.0 / 120.0)
+
+    except KeyboardInterrupt:
+        print()
+    finally:
+        release_all()
+        try:
+            send_command("STAT")
+        except Exception:
+            pass
+        ser.close()
+
+    return 0
+
 def usage():
     print("usage: mc_pico.py flash [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
     print("       mc_pico.py flash-examples [max98357a|pcm5102a|ns4168] [swd|picotool|manual]")
@@ -433,6 +566,7 @@ def usage():
     print("       mc_pico.py list-examples")
     print('       mc_pico.py command "PING|STAT|WAD|WADS|WAD doom2|MUSIC|TRACK E1M1|STACK|FS|SDRAW|KEY LEFT DOWN|..."')
     print("       mc_pico.py shell")
+    print("       mc_pico.py play")
 
 
 def main(argv):
@@ -465,6 +599,9 @@ def main(argv):
 
     if cmd == "shell":
         return command_shell()
+
+    if cmd == "play":
+        return play_mode()
 
     if cmd not in ("flash", "flash-examples", "flash-psram", "flash-fastdoom"):
         usage()

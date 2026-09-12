@@ -4,7 +4,7 @@ cd /d "%~dp0"
 set "MC_ROOT=%CD%"
 
 rem Pinned engine revisions.
-set "MC_MR_SHA=61d8d875cbdf605edaa2b6ca2f2e5739b80ee61d"
+set "MC_MR_SHA=90747c5d7130015aef7549608d05252f15595fab"
 set "MC_MW_SHA=0b591fb813e54c5d7cff8c1f44336a4ba6ddb51c"
 
 set "CMD=%~1"
@@ -118,6 +118,12 @@ echo.
 echo FastDoom Raylib:
 echo   .\mc.bat build fastdoom-raylib
 echo   .\mc.bat run fastdoom-raylib -iwad "C:\path\DOOM1.WAD"
+echo.
+echo FastDoom Pico:
+echo   .\mc.bat build fastdoom-pico max98357a ili9341
+echo   .\mc.bat build fastdoom-pico max98357a st7796s
+echo   python scripts\mc_pico.py flash-fastdoom max98357a swd
+echo   python scripts\mc_pico.py shell
 echo.
 echo Pico live volume:
 echo   python scripts\mc_pico.py volume 50

@@ -17,9 +17,9 @@ else()
         set(USERHOME $ENV{HOME})
     endif()
 
-    set(sdkVersion 2.2.0)
+    set(sdkVersion 2.3.0)
     set(toolchainVersion 14_2_Rel1)
-    set(picotoolVersion 2.2.0-a4)
+    set(picotoolVersion 2.3.0)
     set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
     if(EXISTS ${picoVscode})
         include(${picoVscode})
@@ -76,7 +76,21 @@ set(MC_FASTDOOM_AUDIO_BLOCK 512 CACHE STRING "FastDoom I2S DMA period frames")
 set(MC_FASTDOOM_AUDIO_RING 4 CACHE STRING "FastDoom queued audio slots")
 set(MC_FASTDOOM_AUDIO_AHEAD 3 CACHE STRING "FastDoom target ready audio slots")
 set(MC_FASTDOOM_PERI_KHZ 300000 CACHE STRING "FastDoom peripheral clock")
-set(MC_LCD_SPI_BAUD 75000000 CACHE STRING "ILI9341 SPI clock")
+
+set(MC_FASTDOOM_LCD_PANEL "ILI9341" CACHE STRING
+    "FastDoom LCD controller: ILI9341 or ST7796S")
+set_property(CACHE MC_FASTDOOM_LCD_PANEL PROPERTY STRINGS ILI9341 ST7796S)
+string(TOUPPER "${MC_FASTDOOM_LCD_PANEL}" MC_FASTDOOM_LCD_PANEL_UPPER)
+if(MC_FASTDOOM_LCD_PANEL_UPPER STREQUAL "ILI9341")
+    set(MC_FASTDOOM_LCD_PANEL_ST7796S 0)
+elseif(MC_FASTDOOM_LCD_PANEL_UPPER STREQUAL "ST7796S")
+    set(MC_FASTDOOM_LCD_PANEL_ST7796S 1)
+else()
+    message(FATAL_ERROR
+        "MC_FASTDOOM_LCD_PANEL must be ILI9341 or ST7796S, got '${MC_FASTDOOM_LCD_PANEL}'")
+endif()
+
+set(MC_LCD_SPI_BAUD 75100000 CACHE STRING "LCD SPI clock ceiling" FORCE)
 set(MC_LACE_BLOCK_H 8 CACHE STRING "Alternating lace block height")
 set(MC_I2S_BCLK 10 CACHE STRING "I2S BCLK GPIO")
 set(MC_I2S_LRCLK 11 CACHE STRING "I2S LRCLK GPIO")
@@ -372,10 +386,26 @@ if(EXISTS "${MC_FD}/d_main.c")
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_wad.c"
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_main.c")
 
+    set(MC_FD_ST7796S_SCANOUT
+        "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_scanout_st7796s.c")
+
     add_executable(microconsole_fastdoom_pico
         ${MC_FD_PORT_SOURCES}
         "${MC_ROOT}/games/fastdoom/src/mc_fastdoom_pico_sd.c"
+        "${MC_FD_ST7796S_SCANOUT}"
         "${MC_MR}/shared/rp2350/mr_pico_ili9341.c")
+
+    set_property(SOURCE "${MC_FD_ST7796S_SCANOUT}" APPEND PROPERTY
+        INCLUDE_DIRECTORIES
+            "${MC_ROOT}/games/fastdoom/src"
+            "${MC_MR}/shared/src"
+            "${MC_MR}/shared/rp2350")
+
+    set_property(SOURCE "${MC_FD_ST7796S_SCANOUT}" APPEND PROPERTY
+        COMPILE_OPTIONS
+            -O3
+            -Wall
+            -Wextra)
 
     # IMPORTANT:
     # Pico SDK interface libraries inject SDK C and ASM sources directly into
@@ -414,6 +444,7 @@ if(EXISTS "${MC_FD}/d_main.c")
         MC_FD_PERI_KHZ=${MC_FASTDOOM_PERI_KHZ}
         MC_FD_OPL_POST_GAIN_SHIFT=3
         MC_FD_RENDER_VALIDATE=0
+        MC_FD_LCD_PANEL_ST7796S=${MC_FASTDOOM_LCD_PANEL_ST7796S}
         MC_SD_MISO=${MC_SD_MISO}
         MC_SD_CS=${MC_SD_CS}
         MC_SD_SCK=${MC_SD_SCK}
@@ -432,6 +463,7 @@ if(EXISTS "${MC_FD}/d_main.c")
         MR_LCD_PIN_RST=8
         MR_LCD_PIN_DC=9
         MR_LCD_SPI_BAUD=${MC_LCD_SPI_BAUD}
+        MR_LCD_PANEL_ST7796S=${MC_FASTDOOM_LCD_PANEL_ST7796S}
         MR_ILI9341_MADCTL=0xE8
         MR_ILI9341_FRMCTR1_DIVA=0x00
         MR_ILI9341_FRMCTR1_RTNA=0x1B)
@@ -462,7 +494,8 @@ if(EXISTS "${MC_FD}/d_main.c")
 
     message(STATUS
         "MicroConsole FastDoom Pico: target=microconsole_fastdoom_pico "
-        "(real Cortex-M33 game + SPI1/FatFS SD backend)")
+        "(real Cortex-M33 game + SPI1/FatFS SD backend, "
+        "panel=${MC_FASTDOOM_LCD_PANEL_UPPER})")
 else()
     message(STATUS
         "MicroConsole FastDoom Pico: skipped (run .\\mc.bat build fastdoom-pico max98357a)")
@@ -472,6 +505,7 @@ message(STATUS "MicroConsole Pico: audio=${MC_AUDIO_DEVICE_UPPER} ${MC_AUDIO_RAT
 message(STATUS
     "MicroConsole FastDoom perf: sys=${MC_FASTDOOM_SYS_KHZ}kHz "
     "audio=${MC_FASTDOOM_AUDIO_BLOCK}f ring=${MC_FASTDOOM_AUDIO_RING} "
-    "ahead=${MC_FASTDOOM_AUDIO_AHEAD} OPL-postgain=x8 checks=off O3")
+    "ahead=${MC_FASTDOOM_AUDIO_AHEAD} OPL-postgain=x8 checks=off O3 "
+    "panel=${MC_FASTDOOM_LCD_PANEL_UPPER}")
 message(STATUS "MicroConsole Pico examples: target=microconsole_examples (tiled SRAM frontend, no PSRAM)")
 message(STATUS "MicroConsole FastDoom Pico audio: target=microconsole_fastdoom_audio_pico (PIO/DMA transport compile check)")

@@ -61,6 +61,9 @@
 #include "mc_fastdoom_audio.h"
 #include "mc_fastdoom_audio_pico.h"
 #include "mc_fastdoom_pico_wad.h"
+#if MC_FD_LCD_PANEL_ST7796S
+#include "mc_fastdoom_scanout_st7796s.h"
+#endif
 
 /* Implemented by mc_fastdoom_pico_fs.c. */
 int mc_fd_pico_fs_ready(void);
@@ -92,10 +95,19 @@ int mc_fd_pico_fs_raw_miso(void);
 
 #define MC_FD_WIDTH       320
 #define MC_FD_HEIGHT      200
+
+#if MC_FD_LCD_PANEL_ST7796S
+#define MC_FD_LCD_WIDTH   480
+#define MC_FD_LCD_HEIGHT  320
+#define MC_FD_LCD_Y       10
+#else
+#define MC_FD_LCD_WIDTH   320
 #define MC_FD_LCD_HEIGHT  240
 #define MC_FD_LCD_Y       ((MC_FD_LCD_HEIGHT - MC_FD_HEIGHT) / 2)
+#endif
+
 #define MC_FD_PALETTES    14
-#define MC_FD_LCD_CHUNK_H  8
+#define MC_FD_LCD_CHUNK_H 8
 #define MC_FD_FRAME_US    (1000000u / TICRATE)
 
 _Static_assert(
@@ -122,14 +134,18 @@ static byte __uninitialized_psram("fastdoom_zone")
     mc_fd_zone[MC_FD_PSRAM_ZONE_BYTES];
 
 /*
- * Two small SRAM staging buffers replace the old full 320x200 RGB565 PSRAM
- * presentation surface.  While SPI DMA transmits one 8-row chunk, Core 0
- * converts the next chunk into the other buffer.
+ * The ILI9341 path keeps the proven two-band foreground presenter.
+ *
+ * ST7796S presentation is independent of Doom's 35 Hz I_FinishUpdate(): the
+ * background scanout module owns its own pair of 480x8 staging bands and
+ * continuously samples the INDEX8 backbuffer from DMA IRQ 1.
  */
+#if !MC_FD_LCD_PANEL_ST7796S
 static gfx_color_t
     mc_fd_lcd_rows[2][MC_FD_WIDTH * MC_FD_LCD_CHUNK_H];
+#endif
 
-static uint16_t mc_fd_palette565[MC_FD_PALETTES][256];
+static volatile uint16_t mc_fd_palette565[MC_FD_PALETTES][256];
 
 static mr_pico_ili9341_t mc_fd_lcd = {
     .spi = MR_LCD_SPI,
@@ -149,7 +165,7 @@ static mr_pico_ili9341_t mc_fd_lcd = {
 
 static int mc_fd_graphics_ready;
 static int mc_fd_panel_ready;
-static int mc_fd_palette;
+static volatile int mc_fd_palette;
 static int mc_fd_fatal;
 static int mc_fd_fatal_line = -1;
 static int mc_fd_psram_config_rc;
@@ -349,30 +365,32 @@ void MC_FastDoomPicoBoot(void)
     mr_pico_ili9341_init(&mc_fd_lcd);
     mr_pico_ili9341_panel_init(&mc_fd_lcd);
     mr_pico_ili9341_fill_screen(
-        &mc_fd_lcd, GFX_RGB565_BLACK, MC_FD_WIDTH, MC_FD_LCD_HEIGHT);
+        &mc_fd_lcd, GFX_RGB565_BLACK, MC_FD_LCD_WIDTH, MC_FD_LCD_HEIGHT);
     mc_fd_panel_ready = 1;
 
     printf("MCFDOOM1 psram=ok lcd=black sd=probing\n");
     fflush(stdout);
 }
 
+#if !MC_FD_LCD_PANEL_ST7796S
 static void __not_in_flash_func(mc_fd_convert_lcd_rows)(
     gfx_color_t *dst,
     int first_y,
     int rows)
 {
-    const byte *src;
-    const uint16_t *pal;
+    const byte *source;
+    const volatile uint16_t *pal;
     unsigned int count;
     unsigned int i;
 
-    src = &backbuffer[first_y * MC_FD_WIDTH];
+    source = &backbuffer[first_y * MC_FD_WIDTH];
     pal = mc_fd_palette565[mc_fd_palette];
     count = (unsigned int)(rows * MC_FD_WIDTH);
 
     for (i = 0u; i < count; ++i)
-        dst[i] = pal[src[i]];
+        dst[i] = (gfx_color_t)pal[source[i]];
 }
+#endif
 
 static void mc_fd_post_key(int type, int key)
 {
@@ -402,6 +420,14 @@ static int mc_fd_key_from_name(const char *name)
         return KEY_ESCAPE;
     if (strcmp(name, "ENTER") == 0)
         return KEY_ENTER;
+    if (strcmp(name, "RUN") == 0)
+        return KEY_RSHIFT;
+    if (strcmp(name, "STRAFE") == 0)
+        return KEY_RALT;
+    if (strcmp(name, "MAP") == 0)
+        return '\t';
+    if (name[0] >= '1' && name[0] <= '7' && name[1] == '\0')
+        return name[0];
 
     return 0;
 }
@@ -652,6 +678,11 @@ static void mc_fd_handle_command(const char *cmd)
                "render_us=%lu max_render_us=%lu "
                "present_us=%lu max_present_us=%lu "
                "convert_us=%lu lcd_block_us=%lu "
+#if MC_FD_LCD_PANEL_ST7796S
+               "scan_phase_hz=%u.%u scan_cycle_hz=%u.%u "
+               "scan_blocks=%lu scan_phases=%lu scan_irq_us=%lu/%lu "
+               "scan_publish_us=%lu/%lu "
+#endif
                "fs=%d sd_driver=%d mount_fr=%d last_fr=%d "
                "attempts=%u path=%s i2s_data=%d "
                "psram_cfg=%d psram_reinit=%d\n",
@@ -691,6 +722,18 @@ static void mc_fd_handle_command(const char *cmd)
                (unsigned long)mc_fd_max_frame_us,
                (unsigned long)mc_fd_last_convert_us,
                (unsigned long)mc_fd_last_lcd_us,
+#if MC_FD_LCD_PANEL_ST7796S
+               mc_fd_st7796s_scanout_phase_hz10() / 10u,
+               mc_fd_st7796s_scanout_phase_hz10() % 10u,
+               mc_fd_st7796s_scanout_cycle_hz10() / 10u,
+               mc_fd_st7796s_scanout_cycle_hz10() % 10u,
+               mc_fd_st7796s_scanout_blocks(),
+               mc_fd_st7796s_scanout_phases(),
+               (unsigned long)mc_fd_st7796s_scanout_last_service_us(),
+               (unsigned long)mc_fd_st7796s_scanout_max_service_us(),
+               (unsigned long)mc_fd_st7796s_scanout_last_publish_us(),
+               (unsigned long)mc_fd_st7796s_scanout_max_publish_us(),
+#endif
                mc_fd_pico_fs_ready(),
                mc_fd_pico_fs_sd_driver_ok(),
                mc_fd_pico_fs_mount_result(),
@@ -735,6 +778,41 @@ static void mc_fd_handle_command(const char *cmd)
         fflush(stdout);
         return;
     }
+
+#if MC_FD_LCD_PANEL_ST7796S
+    if (mc_fd_cmd_equal_ci(cmd, "SCAN"))
+    {
+        printf("MCFDOOM1 scan phases=%u requested=%u phase_hz=%u.%u cycle_hz=%u.%u\n",
+               mc_fd_st7796s_scanout_get_phases(),
+               mc_fd_st7796s_scanout_get_requested_phases(),
+               mc_fd_st7796s_scanout_phase_hz10() / 10u,
+               mc_fd_st7796s_scanout_phase_hz10() % 10u,
+               mc_fd_st7796s_scanout_cycle_hz10() / 10u,
+               mc_fd_st7796s_scanout_cycle_hz10() % 10u);
+        fflush(stdout);
+        return;
+    }
+
+    if (mc_fd_cmd_prefix_ci(cmd, "SCAN "))
+    {
+        unsigned int phases = 0u;
+
+        if (sscanf(cmd + 5, "%u", &phases) == 1 &&
+            mc_fd_st7796s_scanout_set_phases(phases))
+        {
+            printf("MCFDOOM1 scan requested=%u current=%u\n",
+                   phases,
+                   mc_fd_st7796s_scanout_get_phases());
+        }
+        else
+        {
+            printf("MCFDOOM1 error=scan-syntax valid=1,2,4,5\n");
+        }
+
+        fflush(stdout);
+        return;
+    }
+#endif
 
     volume = mc_fd_parse_volume(cmd);
     if (volume >= 0)
@@ -893,7 +971,7 @@ void I_InitGraphics(void)
     }
 
     mr_pico_ili9341_fill_screen(
-        &mc_fd_lcd, GFX_RGB565_BLACK, MC_FD_WIDTH, MC_FD_LCD_HEIGHT);
+        &mc_fd_lcd, GFX_RGB565_BLACK, MC_FD_LCD_WIDTH, MC_FD_LCD_HEIGHT);
 
     memset(backbuffer, 0, sizeof(backbuffer));
 
@@ -909,9 +987,25 @@ void I_InitGraphics(void)
 
     mc_fd_graphics_ready = 1;
 
+#if MC_FD_LCD_PANEL_ST7796S
+    if (!mc_fd_st7796s_scanout_start(
+            &mc_fd_lcd,
+            (const volatile uint8_t *)backbuffer,
+            &mc_fd_palette565[0][0],
+            &mc_fd_palette))
+    {
+        panic("FastDoom Pico: unable to start ST7796S background scanout");
+    }
+
+    printf("MCFDOOM1 graphics=st7796s src=320x200 panel=480x320 "
+           "scaled=480x300 y=%d temporal=5x8 spi=%u\n",
+           MC_FD_LCD_Y,
+           (unsigned int)mc_fd_lcd.spi_baud_hz);
+#else
     printf("MCFDOOM1 graphics=ili9341 320x200 y=%d spi=%u\n",
            MC_FD_LCD_Y,
            (unsigned int)mc_fd_lcd.spi_baud_hz);
+#endif
     fflush(stdout);
 }
 
@@ -920,7 +1014,11 @@ void I_ShutdownGraphics(void)
     if (!mc_fd_graphics_ready)
         return;
 
+#if MC_FD_LCD_PANEL_ST7796S
+    mc_fd_st7796s_scanout_stop();
+#else
     mr_pico_ili9341_flush_wait(NULL, &mc_fd_lcd);
+#endif
     mc_fd_graphics_ready = 0;
 }
 
@@ -976,8 +1074,10 @@ void I_SetPalette(int numpalette)
 
 void I_FinishUpdate(void)
 {
+#if !MC_FD_LCD_PANEL_ST7796S
     int y;
     int chunk_index;
+#endif
     uint64_t frame_begin;
     uint64_t lcd_end;
     uint64_t now;
@@ -1009,6 +1109,21 @@ void I_FinishUpdate(void)
 
     mc_fd_audio_transport_service();
 
+#if MC_FD_LCD_PANEL_ST7796S
+    /*
+     * Publish one completed INDEX8 frame to the stable scanout snapshot.
+     * This prevents sprites/HUD/menu patches from being sampled half-written.
+     */
+    {
+        uint64_t t0 = time_us_64();
+        uint64_t t1;
+
+        mc_fd_st7796s_scanout_publish(backbuffer, mc_fd_palette);
+        t1 = time_us_64();
+        convert_total += t1 - t0;
+        lcd_end = t1;
+    }
+#else
     /*
      * Pipeline INDEX8 -> RGB565 conversion with SPI DMA:
      *
@@ -1016,10 +1131,6 @@ void I_FinishUpdate(void)
      *   DMA A while converting rows 8..15 into buffer B
      *   DMA B while converting the next rows back into A
      *   ...
-     *
-     * The old path converted the whole frame into a 128 KiB PSRAM surface and
-     * then DMA-read that surface back through QMI.  This removes both copies
-     * from PSRAM and lets conversion overlap the wire transfer.
      */
     chunk_index = 0;
     for (y = 0; y < MC_FD_HEIGHT; y += MC_FD_LCD_CHUNK_H)
@@ -1063,6 +1174,7 @@ void I_FinishUpdate(void)
         lcd_block_total += t1 - t0;
         lcd_end = t1;
     }
+#endif
 
     mc_fd_audio_transport_service();
 
@@ -1231,9 +1343,12 @@ void I_Error(int line, ...)
 
     if (mc_fd_panel_ready)
     {
+#if MC_FD_LCD_PANEL_ST7796S
+        mc_fd_st7796s_scanout_stop();
+#endif
         mr_pico_ili9341_fill_screen(
             &mc_fd_lcd, (gfx_color_t)0xF800u,
-            MC_FD_WIDTH, MC_FD_LCD_HEIGHT);
+            MC_FD_LCD_WIDTH, MC_FD_LCD_HEIGHT);
     }
 
     fprintf(stderr, "\nMCFDOOM1 fatal line=%d", line);
