@@ -82,6 +82,24 @@
 #define MC_AUDIO_DEVICE 1
 #endif
 
+#ifndef MC_LCD_PANEL_ST7796S
+#define MC_LCD_PANEL_ST7796S 0
+#endif
+
+#if MC_LCD_PANEL_ST7796S
+#define MC_LCD_PHYS_W 480
+#define MC_LCD_PHYS_H 320
+#define MC_LCD_X_OFFSET 0
+#define MC_LCD_Y_OFFSET 0
+#define MC_LCD_PANEL_NAME "ST7796S"
+#else
+#define MC_LCD_PHYS_W 320
+#define MC_LCD_PHYS_H 240
+#define MC_LCD_X_OFFSET 0
+#define MC_LCD_Y_OFFSET 0
+#define MC_LCD_PANEL_NAME "ILI9341"
+#endif
+
 #define MC_W MC_EX_W
 #define MC_H MC_EX_H
 #define MC_AUDIO_PIO pio1
@@ -116,6 +134,14 @@ static mr_pico_ili9341_t g_lcd = {
 
 static gfx_renderer_t g_renderer;
 static gfx_color_t g_tile[2][MC_W * MC_TILE_H];
+
+#if MC_LCD_PANEL_ST7796S
+/*
+ * Physical ST7796S output staging. The examples remain authored at 320x240;
+ * only this presentation layer expands them to the 480x320 panel.
+ */
+static gfx_color_t g_scaled[2][MC_LCD_PHYS_W * MC_TILE_H];
+#endif
 
 static snd_mixer_t g_mixer;
 static snd_sample_t g_audio_mix[2][MC_AUDIO_BLOCK];
@@ -256,9 +282,9 @@ static void handle_command(const char *cmd) {
     int v;
 
     if (strcmp(cmd, "PING") == 0) {
-        printf("MWPICO1 mode=examples device=%s rate=%d vol=%d cur=%d "
+        printf("MWPICO1 mode=examples panel=%s device=%s rate=%d vol=%d cur=%d "
                "example=%s underrun=%lu\n",
-               device_name(), MC_AUDIO_RATE,
+               MC_LCD_PANEL_NAME, device_name(), MC_AUDIO_RATE,
                snd_vol_to_percent(snd_master_volume(&g_mixer)),
                snd_vol_to_percent(snd_master_volume_current(&g_mixer)),
                g_example ? g_example->id : "(none)", g_audio_underruns);
@@ -524,7 +550,86 @@ static void build_input(mr_demo_input_t *input) {
     input->buttons = g_edge_buttons;
 }
 
+#if MC_LCD_PANEL_ST7796S
+static void scale_row_320_to_480(const gfx_color_t *src,
+                                 gfx_color_t *dst) {
+    int sx;
+    int dx = 0;
+
+    /* Exact nearest-neighbour 1.5x horizontal scale: a,b -> a,a,b. */
+    for (sx = 0; sx < MC_W; sx += 2) {
+        gfx_color_t a = src[sx];
+        gfx_color_t b = src[sx + 1];
+        dst[dx++] = a;
+        dst[dx++] = a;
+        dst[dx++] = b;
+    }
+}
+
+static void present_st7796s_full(void) {
+    int dy;
+    int buffer_index = 0;
+    int dma_started = 0;
+
+    /*
+     * Full-screen nearest-neighbour scale:
+     *   320x240 logical -> 480x320 physical
+     *   source_y = floor(dest_y * 3 / 4)
+     *
+     * A 16-row physical strip needs at most 13 source rows, so the existing
+     * logical tile buffer remains large enough.
+     */
+    for (dy = 0; dy < MC_LCD_PHYS_H; dy += MC_TILE_H) {
+        int h = MC_TILE_H;
+        int sy0;
+        int sy1;
+        int sh;
+        int oy;
+        gfx_color_t *out = g_scaled[buffer_index];
+
+        if (dy + h > MC_LCD_PHYS_H)
+            h = MC_LCD_PHYS_H - dy;
+
+        sy0 = (dy * 3) / 4;
+        sy1 = ((dy + h - 1) * 3) / 4;
+        sh = sy1 - sy0 + 1;
+
+        g_renderer.tile = g_tile[0];
+        gfx_begin_tile(&g_renderer, sy0, sh);
+
+        if (g_example && g_example->render)
+            g_example->render(&g_renderer);
+
+        for (oy = 0; oy < h; ++oy) {
+            int sy = (((dy + oy) * 3) / 4) - sy0;
+            const gfx_color_t *src = g_tile[0] + sy * MC_W;
+            gfx_color_t *dst = out + oy * MC_LCD_PHYS_W;
+            scale_row_320_to_480(src, dst);
+        }
+
+        /* Render/scale work above overlaps the previous strip's LCD DMA. */
+        if (dma_started)
+            mr_pico_ili9341_flush_wait(&g_renderer, &g_lcd);
+
+        mr_pico_ili9341_flush_begin(&g_renderer, 0, dy,
+                                    MC_LCD_PHYS_W, h,
+                                    out, &g_lcd);
+        dma_started = 1;
+        buffer_index ^= 1;
+
+        audio_service();
+    }
+
+    if (dma_started)
+        mr_pico_ili9341_flush_wait(&g_renderer, &g_lcd);
+}
+#endif
+
 static void present_lace(int phase) {
+#if MC_LCD_PANEL_ST7796S
+    (void)phase;
+    present_st7796s_full();
+#else
     int y;
     int buffer_index = 0;
     int dma_started = 0;
@@ -545,10 +650,6 @@ static void present_lace(int phase) {
         if (g_example && g_example->render)
             g_example->render(&g_renderer);
 
-        /*
-         * Rendering the next band happens before this wait on the following
-         * iteration, so CPU rasterization overlaps the previous LCD DMA.
-         */
         if (dma_started)
             mr_pico_ili9341_flush_wait(&g_renderer, &g_lcd);
 
@@ -557,12 +658,12 @@ static void present_lace(int phase) {
         dma_started = 1;
         buffer_index ^= 1;
 
-        /* Audio refill is CPU work and can also overlap the LCD DMA. */
         audio_service();
     }
 
     if (dma_started)
         mr_pico_ili9341_flush_wait(&g_renderer, &g_lcd);
+#endif
 }
 
 static void user_button_init(void) {
@@ -605,7 +706,11 @@ int main(void) {
 
     mr_pico_ili9341_init(&g_lcd);
     mr_pico_ili9341_panel_init(&g_lcd);
-    mr_pico_ili9341_fill_screen(&g_lcd, GFX_RGB565_BLACK, MC_W, MC_H);
+
+    g_lcd.x_offset = 0;
+    g_lcd.y_offset = 0;
+    mr_pico_ili9341_fill_screen(&g_lcd, GFX_RGB565_BLACK,
+                                MC_LCD_PHYS_W, MC_LCD_PHYS_H);
 
     gfx_init(&g_renderer, MC_W, MC_H, g_tile[0], MC_TILE_H,
              noop_flush, NULL);
@@ -613,9 +718,11 @@ int main(void) {
     user_button_init();
     audio_init();
 
-    printf("MicroConsole Pico examples: count=%d tile=%d sys=%lu spi=%u "
+    printf("MicroConsole Pico examples: count=%d tile=%d panel=%s "
+           "logical=%dx%d output=%dx%d sys=%lu spi=%u "
            "audio=%s %dHz block=%d volume=%d%%\n",
-           mc_example_count(), MC_TILE_H,
+           mc_example_count(), MC_TILE_H, MC_LCD_PANEL_NAME,
+           MC_W, MC_H, MC_LCD_PHYS_W, MC_LCD_PHYS_H,
            (unsigned long)clock_get_hz(clk_sys), (unsigned)g_lcd.spi_baud_hz,
            device_name(), MC_AUDIO_RATE, MC_AUDIO_BLOCK,
            snd_vol_to_percent(snd_master_volume(&g_mixer)));

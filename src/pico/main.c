@@ -55,6 +55,24 @@
 #define MC_AUDIO_DEVICE 1
 #endif
 
+#ifndef MC_LCD_PANEL_ST7796S
+#define MC_LCD_PANEL_ST7796S 0
+#endif
+
+#if MC_LCD_PANEL_ST7796S
+#define MC_LCD_PHYS_W 480
+#define MC_LCD_PHYS_H 320
+#define MC_LCD_X_OFFSET 0
+#define MC_LCD_Y_OFFSET 0
+#define MC_LCD_PANEL_NAME "ST7796S"
+#else
+#define MC_LCD_PHYS_W 320
+#define MC_LCD_PHYS_H 240
+#define MC_LCD_X_OFFSET 0
+#define MC_LCD_Y_OFFSET 0
+#define MC_LCD_PANEL_NAME "ILI9341"
+#endif
+
 #define MC_W 320
 #define MC_H 240
 #define MC_AUDIO_PIO pio1
@@ -88,6 +106,10 @@ static gfx_color_t g_frame_b[MC_W * MC_H];
 static const gfx_color_t *volatile g_present_buffer;
 static volatile int g_present_phase;
 static int g_present_pending;
+
+#if MC_LCD_PANEL_ST7796S
+static gfx_color_t g_present_scaled[MC_LCD_PHYS_W * MC_LACE_BLOCK_H];
+#endif
 
 static snd_mixer_t g_mixer;
 static mw_demo_t g_demo;
@@ -138,8 +160,8 @@ static void serial_service(void) {
                 int v;
                 g_cmd[g_cmd_n] = '\0';
                 if (strcmp(g_cmd, "PING") == 0) {
-                    printf("MWPICO1 device=%s rate=%d vol=%d cur=%d underrun=%lu\n",
-                           device_name(), MC_AUDIO_RATE,
+                    printf("MWPICO1 panel=%s device=%s rate=%d vol=%d cur=%d underrun=%lu\n",
+                           MC_LCD_PANEL_NAME, device_name(), MC_AUDIO_RATE,
                            snd_vol_to_percent(snd_master_volume(&g_mixer)),
                            snd_vol_to_percent(
                                snd_master_volume_current(&g_mixer)),
@@ -170,14 +192,54 @@ static void noop_flush(gfx_renderer_t *r, int x, int y, int w, int h,
     (void)r; (void)x; (void)y; (void)w; (void)h; (void)pixels; (void)user;
 }
 
+#if MC_LCD_PANEL_ST7796S
+static void scale_row_320_to_480(const gfx_color_t *src,
+                                 gfx_color_t *dst) {
+    int sx;
+    int dx = 0;
+
+    for (sx = 0; sx < MC_W; sx += 2) {
+        gfx_color_t a = src[sx];
+        gfx_color_t b = src[sx + 1];
+        dst[dx++] = a;
+        dst[dx++] = a;
+        dst[dx++] = b;
+    }
+}
+#endif
+
 static void lace_send(const gfx_color_t *buffer, int phase) {
+#if MC_LCD_PANEL_ST7796S
+    int dy;
+    (void)phase;
+
+    for (dy = 0; dy < MC_LCD_PHYS_H; dy += MC_LACE_BLOCK_H) {
+        int h = MC_LACE_BLOCK_H;
+        int oy;
+
+        if (dy + h > MC_LCD_PHYS_H)
+            h = MC_LCD_PHYS_H - dy;
+
+        for (oy = 0; oy < h; ++oy) {
+            int sy = ((dy + oy) * 3) / 4;
+            scale_row_320_to_480(
+                buffer + sy * MC_W,
+                g_present_scaled + oy * MC_LCD_PHYS_W);
+        }
+
+        mr_pico_ili9341_flush(0, 0, dy, MC_LCD_PHYS_W, h,
+                             g_present_scaled, &g_lcd);
+    }
+#else
     int y;
     for (y = phase * MC_LACE_BLOCK_H; y < MC_H; y += MC_LACE_BLOCK_H * 2) {
         int h = MC_LACE_BLOCK_H;
-        if (y + h > MC_H) h = MC_H - y;
+        if (y + h > MC_H)
+            h = MC_H - y;
         mr_pico_ili9341_flush(0, 0, y, MC_W, h,
                              buffer + y * MC_W, &g_lcd);
     }
+#endif
 }
 
 static void core1_present(void) {
@@ -344,7 +406,11 @@ int main(void) {
 
     mr_pico_ili9341_init(&g_lcd);
     mr_pico_ili9341_panel_init(&g_lcd);
-    mr_pico_ili9341_fill_screen(&g_lcd, GFX_RGB565_BLACK, MC_W, MC_H);
+
+    g_lcd.x_offset = 0;
+    g_lcd.y_offset = 0;
+    mr_pico_ili9341_fill_screen(&g_lcd, GFX_RGB565_BLACK,
+                                MC_LCD_PHYS_W, MC_LCD_PHYS_H);
 
     gfx_init(&g_renderer, MC_W, MC_H, g_frame_a, MC_H, noop_flush, NULL);
     mr_stress_config_defaults(&cfg, MC_W, MC_H);
@@ -356,8 +422,11 @@ int main(void) {
     audio_init();
     multicore_launch_core1(core1_present);
 
-    printf("MicroConsole Pico: stress=%d sprites lace=%d sys=%lu spi=%u; audio=%s %dHz block=%d volume=%d%% BCLK=%d LRCLK=%d DATA=%d\n",
-           MC_STRESS_SPRITES, MC_LACE_BLOCK_H,
+    printf("MicroConsole Pico: stress=%d sprites lace=%d panel=%s "
+           "logical=%dx%d output=%dx%d sys=%lu spi=%u; "
+           "audio=%s %dHz block=%d volume=%d%% BCLK=%d LRCLK=%d DATA=%d\n",
+           MC_STRESS_SPRITES, MC_LACE_BLOCK_H, MC_LCD_PANEL_NAME,
+           MC_W, MC_H, MC_LCD_PHYS_W, MC_LCD_PHYS_H,
            (unsigned long)clock_get_hz(clk_sys), (unsigned)g_lcd.spi_baud_hz,
            device_name(), MC_AUDIO_RATE, MC_AUDIO_BLOCK,
            snd_vol_to_percent(snd_master_volume(&g_mixer)),

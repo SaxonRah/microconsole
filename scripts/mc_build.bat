@@ -210,6 +210,31 @@ echo built pico\build-%DEVICE%\microconsole_fastdoom_pico.uf2
 exit /b 0
 
 :pico
+rem Optional panel selector comes before the audio device:
+rem   pico ili9341 max98357a
+rem   pico st7796s max98357a
+rem Backward compatibility: pico max98357a still means ILI9341.
+set "PANEL=ili9341"
+set "MC_LCD_PANEL_CMAKE=ILI9341"
+
+if /i "%~1"=="ili9341" (
+    set "PANEL=ili9341"
+    set "MC_LCD_PANEL_CMAKE=ILI9341"
+    shift /1
+) else if /i "%~1"=="ili" (
+    set "PANEL=ili9341"
+    set "MC_LCD_PANEL_CMAKE=ILI9341"
+    shift /1
+) else if /i "%~1"=="st7796s" (
+    set "PANEL=st7796s"
+    set "MC_LCD_PANEL_CMAKE=ST7796S"
+    shift /1
+) else if /i "%~1"=="st" (
+    set "PANEL=st7796s"
+    set "MC_LCD_PANEL_CMAKE=ST7796S"
+    shift /1
+)
+
 set "DEVICE=%~1"
 if "%DEVICE%"=="" set "DEVICE=max98357a"
 if not "%~1"=="" shift /1
@@ -287,10 +312,10 @@ where cl.exe >nul 2>nul || (
 
 for %%D in ("%NINJA_EXE%") do set "PATH=%%~dpD;%PICO_TOOLCHAIN_PATH%\bin;%PATH%"
 
-echo === Pico 2 combined demo: %DEVICE% ===
+echo === Pico 2 combined demo: %PANEL% / %DEVICE% ===
 echo Host tools: MSVC cl.exe; RP2350 target: arm-none-eabi-gcc
 pushd pico
-cmake --preset "%DEVICE%" -DCMAKE_MAKE_PROGRAM:FILEPATH="%NINJA_EXE%" !MC_PICO_ARGS! || (popd & exit /b 1)
+cmake --preset "%DEVICE%" -DCMAKE_MAKE_PROGRAM:FILEPATH="%NINJA_EXE%" -DMC_LCD_PANEL=%MC_LCD_PANEL_CMAKE% !MC_PICO_ARGS! || (popd & exit /b 1)
 cmake --build --preset "%DEVICE%" --parallel || (popd & exit /b 1)
 popd
 echo built pico\build-%DEVICE%\microconsole_demo.uf2

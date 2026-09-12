@@ -113,6 +113,9 @@ echo   .\mc.bat run raylib [--volume N]
 echo   .\mc.bat build dos-examples
 echo   .\mc.bat run dos [/sprites N] [/frames N] [/volume N] [/noaudio]
 echo   .\mc.bat run dos-examples [/example ID] [/frames N] [/volume N] [/noaudio] [/list]
+echo   .\mc.bat build pico ili9341 max98357a
+echo   .\mc.bat build pico st7796s max98357a
+echo   python scripts\mc_pico.py flash-examples max98357a swd
 echo   .\mc.bat run pico [device] [swd^|picotool^|manual] [-DMC_AUDIO_VOLUME=N]
 echo.
 echo FastDoom Raylib:
