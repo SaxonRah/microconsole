@@ -17,11 +17,19 @@
 #define MC_FD_PANEL_W 480
 #define MC_FD_PANEL_H 320
 #define MC_FD_CONTENT_H 300
-#define MC_FD_CONTENT_Y ((MC_FD_PANEL_H - MC_FD_CONTENT_H) / 2)
+#define MC_FD_CONTENT_Y 10
 
-#define MC_FD_SCAN_BLOCK_H 8
-#define MC_FD_SCAN_DEFAULT_PHASES 1u
-
+/*
+ * Progressive FastDoom no longer needs the old 8-row temporal-lace
+ * granularity. Twenty rows gives 15 windows for the 300-row active image.
+ *
+ * Two RGB565 strips let Core 0 convert strip N+1 while DMA is shifting strip
+ * N over SPI. The 10 black rows above and below the active image are written
+ * once by the existing startup clear and never retransmitted.
+ */
+#define MC_FD_SCAN_BLOCK_H 20
+#define MC_FD_SCAN_BLOCKS \
+    ((MC_FD_CONTENT_H + MC_FD_SCAN_BLOCK_H - 1) / MC_FD_SCAN_BLOCK_H)
 
 typedef struct mc_fd_st7796s_scanout
 {
@@ -29,83 +37,66 @@ typedef struct mc_fd_st7796s_scanout
     const volatile uint16_t *palettes;
 
     volatile int running;
+    volatile int displaying;
 
     /*
-     * The IRQ reads active_frame only. Doom writes pending_frame only while
-     * DMA IRQ 1 is masked. At a five-phase boundary the IRQ swaps indices.
+     * active_frame is immutable while a physical frame is transmitted.
+     * pending_frame receives the newest completed Doom frame.
      */
     volatile unsigned int active_frame;
     volatile unsigned int pending_frame;
     volatile int pending_ready;
+    volatile int pending_writing;
 
     volatile int active_palette;
     volatile int pending_palette;
 
-    volatile unsigned int phase_count;
-    volatile unsigned int requested_phase_count;
+    unsigned int dma_block;
+    unsigned int dma_buffer;
 
-    unsigned int phase;
-    unsigned int block;
-    unsigned int buffer_index;
+    unsigned int prepared_block;
+    unsigned int prepared_buffer;
+    int prepared_valid;
 
     unsigned long blocks_completed;
-    unsigned long phases_completed;
-    unsigned long cycles_completed;
-
+    unsigned long frames_started;
+    unsigned long frames_completed;
     unsigned long published_frames;
-    unsigned long latched_frames;
     unsigned long replaced_pending_frames;
 
     uint32_t rate_start_ms;
-    unsigned long rate_start_phases;
-    unsigned long rate_start_cycles;
-
-    volatile unsigned int phase_hz10;
-    volatile unsigned int cycle_hz10;
+    unsigned long rate_start_frames;
+    volatile unsigned int frame_hz10;
 
     volatile uint32_t last_service_us;
     volatile uint32_t max_service_us;
     volatile uint32_t last_publish_us;
     volatile uint32_t max_publish_us;
-
-    int launched_last_block;
 } mc_fd_st7796s_scanout_t;
 
 static mc_fd_st7796s_scanout_t g_scan;
 
 /*
- * Two complete INDEX8 snapshots live in PSRAM rather than SRAM:
+ * Two coherent 320x200 INDEX8 snapshots in PSRAM:
  *
- *   active  = immutable for one complete five-phase panel cycle
- *   pending = newest completed Doom frame
+ *   active  - display pipeline reads this only
+ *   pending - Doom publishes the newest completed frame here
  *
- * 2 * 320 * 200 = 128,000 bytes.
- *
- * FastDoom already reserves 6 MiB of the Pico Plus 2's 8 MiB PSRAM for Z_Zone,
- * leaving ample headroom. Keeping these snapshots out of SRAM avoids pushing
- * the RP2350's 512 KiB SRAM image over the linker limit.
+ * 128 KB total. Keeping them in PSRAM is what made the coherent renderer fit
+ * alongside FastDoom + MicroWave in the RP2350's 512 KB SRAM.
  */
 static uint8_t __uninitialized_psram("fastdoom_scanout")
     g_scan_frame[2][MC_FD_SRC_BYTES];
 
-/* Two 480x8 RGB565 DMA staging bands remain in fast SRAM: 15,360 bytes. */
-static gfx_color_t g_scan_rows[MC_FD_PANEL_W * MC_FD_SCAN_BLOCK_H];
-
-static int scan_valid_phases(unsigned int phases)
-{
-    return phases == 1u || phases == 2u || phases == 4u || phases == 5u;
-}
-
-static unsigned int scan_period_h(void)
-{
-    return MC_FD_SCAN_BLOCK_H * g_scan.phase_count;
-}
-
-static unsigned int scan_blocks_per_phase(void)
-{
-    unsigned int period = scan_period_h();
-    return period ? (MC_FD_PANEL_H / period) : 1u;
-}
+/*
+ * Two 480x20 RGB565 strips = 38,400 bytes of SRAM.
+ *
+ * DMA owns one while Core 0 prepares the other. This is intentionally SRAM:
+ * the SPI DMA gets a fast local source and the QMI/PSRAM traffic is limited to
+ * reading the small INDEX8 source rows during conversion.
+ */
+static gfx_color_t
+    g_scan_rows[2][MC_FD_PANEL_W * MC_FD_SCAN_BLOCK_H];
 
 static int scan_clamp_palette(int palette)
 {
@@ -116,14 +107,29 @@ static int scan_clamp_palette(int palette)
     return palette;
 }
 
+static int scan_block_rows(unsigned int block)
+{
+    int first = (int)(block * MC_FD_SCAN_BLOCK_H);
+    int remain = MC_FD_CONTENT_H - first;
+
+    if (remain <= 0)
+        return 0;
+
+    if (remain > MC_FD_SCAN_BLOCK_H)
+        remain = MC_FD_SCAN_BLOCK_H;
+
+    return remain;
+}
+
 static void __not_in_flash_func(scan_convert_block)(
     gfx_color_t *dst,
-    int panel_y)
+    unsigned int block)
 {
     const uint8_t *frame;
     const volatile uint16_t *pal;
     unsigned int active;
     int palette;
+    int rows;
     int oy;
 
     active = g_scan.active_frame & 1u;
@@ -132,74 +138,47 @@ static void __not_in_flash_func(scan_convert_block)(
     palette = scan_clamp_palette(g_scan.active_palette);
     pal = g_scan.palettes + palette * 256;
 
-    for (oy = 0; oy < MC_FD_SCAN_BLOCK_H; ++oy)
+    rows = scan_block_rows(block);
+
+    for (oy = 0; oy < rows; ++oy)
     {
-        int py = panel_y + oy;
-        gfx_color_t *row = dst + oy * MC_FD_PANEL_W;
+        int content_y =
+            (int)(block * MC_FD_SCAN_BLOCK_H) + oy;
+        int sy = (content_y * 2) / 3;
+        const uint8_t *src;
+        gfx_color_t *row;
+        int sx;
+        int dx;
 
-        if (py < MC_FD_CONTENT_Y ||
-            py >= MC_FD_CONTENT_Y + MC_FD_CONTENT_H)
+        if (sy < 0)
+            sy = 0;
+        if (sy >= MC_FD_SRC_H)
+            sy = MC_FD_SRC_H - 1;
+
+        src = frame + sy * MC_FD_SRC_W;
+        row = dst + oy * MC_FD_PANEL_W;
+
+        /*
+         * Exact 320 -> 480 nearest-neighbor expansion.
+         * Every source pair a,b becomes physical pixels a,a,b.
+         */
+        dx = 0;
+
+        for (sx = 0; sx < MC_FD_SRC_W; sx += 2)
         {
-            int x;
+            gfx_color_t a =
+                (gfx_color_t)pal[src[sx + 0]];
+            gfx_color_t b =
+                (gfx_color_t)pal[src[sx + 1]];
 
-            for (x = 0; x < MC_FD_PANEL_W; ++x)
-                row[x] = GFX_RGB565_BLACK;
-        }
-        else
-        {
-            int content_y = py - MC_FD_CONTENT_Y;
-            int sy = (content_y * 2) / 3;
-            const uint8_t *src;
-            int sx;
-            int dx;
-
-            if (sy < 0)
-                sy = 0;
-            if (sy >= MC_FD_SRC_H)
-                sy = MC_FD_SRC_H - 1;
-
-            src = frame + sy * MC_FD_SRC_W;
-
-            /*
-             * Exact 3:2 horizontal nearest-neighbor expansion:
-             * two source pixels become three physical pixels.
-             */
-            dx = 0;
-            for (sx = 0; sx < MC_FD_SRC_W; sx += 2)
-            {
-                gfx_color_t a = (gfx_color_t)pal[src[sx + 0]];
-                gfx_color_t b = (gfx_color_t)pal[src[sx + 1]];
-
-                row[dx++] = a;
-                row[dx++] = a;
-                row[dx++] = b;
-            }
+            row[dx++] = a;
+            row[dx++] = a;
+            row[dx++] = b;
         }
     }
 }
 
-static int scan_current_y(void)
-{
-    return (int)(
-        g_scan.phase * MC_FD_SCAN_BLOCK_H +
-        g_scan.block * scan_period_h());
-}
-
-static void scan_advance(void)
-{
-    ++g_scan.block;
-
-    if (g_scan.block >= scan_blocks_per_phase())
-    {
-        g_scan.block = 0u;
-        ++g_scan.phase;
-
-        if (g_scan.phase >= g_scan.phase_count)
-            g_scan.phase = 0u;
-    }
-}
-
-static void scan_update_rates(void)
+static void scan_update_rate(void)
 {
     uint32_t now;
     uint32_t delta_ms;
@@ -209,8 +188,8 @@ static void scan_update_rates(void)
     if (g_scan.rate_start_ms == 0u)
     {
         g_scan.rate_start_ms = now;
-        g_scan.rate_start_phases = g_scan.phases_completed;
-        g_scan.rate_start_cycles = g_scan.cycles_completed;
+        g_scan.rate_start_frames =
+            g_scan.frames_completed;
         return;
     }
 
@@ -218,81 +197,129 @@ static void scan_update_rates(void)
 
     if (delta_ms >= 1000u)
     {
-        unsigned long phase_delta =
-            g_scan.phases_completed - g_scan.rate_start_phases;
-        unsigned long cycle_delta =
-            g_scan.cycles_completed - g_scan.rate_start_cycles;
+        unsigned long frames =
+            g_scan.frames_completed -
+            g_scan.rate_start_frames;
 
-        g_scan.phase_hz10 =
-            (unsigned int)((phase_delta * 10000ul) / delta_ms);
-
-        g_scan.cycle_hz10 =
-            (unsigned int)((cycle_delta * 10000ul) / delta_ms);
+        g_scan.frame_hz10 =
+            (unsigned int)(
+                (frames * 10000ul) / delta_ms);
 
         g_scan.rate_start_ms = now;
-        g_scan.rate_start_phases = g_scan.phases_completed;
-        g_scan.rate_start_cycles = g_scan.cycles_completed;
+        g_scan.rate_start_frames =
+            g_scan.frames_completed;
     }
 }
 
-/*
- * Called only from DMA IRQ 1 immediately after phase 4 has fully completed and
- * before phase 0 of the next physical cycle is converted.
- */
-static void __not_in_flash_func(scan_latch_pending_at_cycle_boundary)(void)
+static void scan_launch_block(
+    unsigned int block,
+    unsigned int buffer)
 {
-    unsigned int old_active;
-
-    if (g_scan.pending_ready)
-    {
-        old_active = g_scan.active_frame & 1u;
-
-        g_scan.active_frame = g_scan.pending_frame & 1u;
-        g_scan.active_palette = g_scan.pending_palette;
-
-        g_scan.pending_frame = old_active;
-        g_scan.pending_ready = 0;
-
-        ++g_scan.latched_frames;
-    }
-
-    /*
-     * A scan-mode request is independent of whether Doom happened to publish a
-     * new frame before this cycle boundary.
-     */
-    if (scan_valid_phases(g_scan.requested_phase_count) &&
-        g_scan.requested_phase_count != g_scan.phase_count)
-    {
-        g_scan.phase_count = g_scan.requested_phase_count;
-        g_scan.phase = 0u;
-        g_scan.block = 0u;
-    }
-
-    __compiler_memory_barrier();
-}
-
-static void scan_launch_next(void)
-{
+    int rows;
     int y;
 
-    if (!g_scan.running || !g_scan.lcd)
+    rows = scan_block_rows(block);
+
+    if (rows <= 0)
         return;
 
-    y = scan_current_y();
-    scan_convert_block(g_scan_rows, y);
-
-    g_scan.launched_last_block =
-        (g_scan.block + 1u == scan_blocks_per_phase()) ? 1 : 0;
+    y = MC_FD_CONTENT_Y +
+        (int)(block * MC_FD_SCAN_BLOCK_H);
 
     mr_pico_ili9341_flush_begin(
         NULL,
         0,
         y,
         MC_FD_PANEL_W,
-        MC_FD_SCAN_BLOCK_H,
-        g_scan_rows,
+        rows,
+        g_scan_rows[buffer & 1u],
         g_scan.lcd);
-    scan_advance();
+
+    g_scan.dma_block = block;
+    g_scan.dma_buffer = buffer & 1u;
+}
+
+static void scan_prepare_block(
+    unsigned int block,
+    unsigned int buffer)
+{
+    if (block >= (unsigned int)MC_FD_SCAN_BLOCKS)
+    {
+        g_scan.prepared_valid = 0;
+        return;
+    }
+
+    scan_convert_block(
+        g_scan_rows[buffer & 1u],
+        block);
+
+    g_scan.prepared_block = block;
+    g_scan.prepared_buffer = buffer & 1u;
+    g_scan.prepared_valid = 1;
+}
+
+/*
+ * Start one progressive physical frame from active_frame.
+ *
+ * Block 0 is prepared before DMA starts. Block 1 is then converted while the
+ * first block is physically crossing SPI, establishing the steady-state
+ * convert/DMA overlap.
+ */
+static void scan_start_active_frame(void)
+{
+    if (!g_scan.running ||
+        !g_scan.lcd ||
+        g_scan.displaying)
+    {
+        return;
+    }
+
+    g_scan.displaying = 1;
+    ++g_scan.frames_started;
+
+    scan_convert_block(
+        g_scan_rows[0],
+        0u);
+
+    scan_launch_block(
+        0u,
+        0u);
+
+    if (MC_FD_SCAN_BLOCKS > 1)
+        scan_prepare_block(1u, 1u);
+    else
+        g_scan.prepared_valid = 0;
+}
+
+/*
+ * Swap a completed pending snapshot into active state.
+ *
+ * Caller must prevent DMA IRQ 1 from changing the same state concurrently.
+ */
+static int scan_latch_pending(void)
+{
+    unsigned int old_active;
+
+    if (!g_scan.pending_ready ||
+        g_scan.pending_writing)
+    {
+        return 0;
+    }
+
+    old_active = g_scan.active_frame & 1u;
+
+    g_scan.active_frame =
+        g_scan.pending_frame & 1u;
+
+    g_scan.active_palette =
+        g_scan.pending_palette;
+
+    g_scan.pending_frame = old_active;
+    g_scan.pending_ready = 0;
+
+    __compiler_memory_barrier();
+
+    return 1;
 }
 
 static void __not_in_flash_func(scan_dma_irq1)(void)
@@ -300,6 +327,8 @@ static void __not_in_flash_func(scan_dma_irq1)(void)
     uint32_t mask;
     uint32_t begin_us;
     uint32_t elapsed_us;
+    unsigned int completed_block;
+    unsigned int completed_buffer;
 
     if (!g_scan.lcd)
         return;
@@ -314,39 +343,68 @@ static void __not_in_flash_func(scan_dma_irq1)(void)
     dma_hw->ints1 = mask;
 
     /*
-     * DMA count can reach zero before the last SPI word exits the shifter.
-     * Finish the band before changing CS, D/C or SPI word size.
+     * DMA transfer count may reach zero before the last SPI bit leaves the
+     * shifter. Finish the strip before changing the LCD window or reusing its
+     * SRAM buffer.
      */
-    mr_pico_ili9341_flush_wait(NULL, g_scan.lcd);
+    mr_pico_ili9341_flush_wait(
+        NULL,
+        g_scan.lcd);
+
+    completed_block = g_scan.dma_block;
+    completed_buffer = g_scan.dma_buffer;
 
     ++g_scan.blocks_completed;
 
-    if (g_scan.launched_last_block)
+    if (completed_block + 1u >=
+        (unsigned int)MC_FD_SCAN_BLOCKS)
     {
-        ++g_scan.phases_completed;
+        /*
+         * The ST7796S retains GRAM. Once this progressive frame is complete,
+         * stop all LCD traffic unless Doom has a newer coherent frame waiting.
+         */
+        g_scan.displaying = 0;
+        g_scan.prepared_valid = 0;
+
+        ++g_scan.frames_completed;
+        scan_update_rate();
+
+        if (scan_latch_pending())
+            scan_start_active_frame();
+    }
+    else
+    {
+        unsigned int next_block;
+        unsigned int free_buffer;
 
         /*
-         * scan_advance() ran when this band was launched. phase==0 therefore
-         * means the just-completed band was the final band of phase 4.
+         * The next strip was prepared while the completed DMA was running.
+         * Launch it first so SPI immediately resumes, then fill the now-free
+         * old DMA buffer with the strip after that.
          */
-        if (g_scan.phase == 0u)
+        if (!g_scan.prepared_valid)
         {
-            ++g_scan.cycles_completed;
-
-            /*
-             * Critical coherency rule:
-             * swap Doom frames only here, never between phase 0..4.
-             */
-            scan_latch_pending_at_cycle_boundary();
+            /* Defensive fallback; normal steady state never needs this. */
+            scan_prepare_block(
+                completed_block + 1u,
+                completed_buffer ^ 1u);
         }
 
-        scan_update_rates();
+        next_block = g_scan.prepared_block;
+
+        scan_launch_block(
+            g_scan.prepared_block,
+            g_scan.prepared_buffer);
+
+        free_buffer = completed_buffer;
+
+        scan_prepare_block(
+            next_block + 1u,
+            free_buffer);
     }
 
-    if (g_scan.running)
-        scan_launch_next();
-
-    elapsed_us = time_us_32() - begin_us;
+    elapsed_us =
+        time_us_32() - begin_us;
 
     g_scan.last_service_us = elapsed_us;
 
@@ -361,7 +419,7 @@ void mc_fd_st7796s_scanout_publish(
     uint32_t begin_us;
     uint32_t elapsed_us;
     unsigned int target;
-    int was_running;
+    int start_now;
 
     if (!source_index8)
         return;
@@ -369,37 +427,54 @@ void mc_fd_st7796s_scanout_publish(
     begin_us = time_us_32();
 
     /*
-     * scan_latch_pending_at_cycle_boundary() runs in DMA IRQ 1 on this core.
-     * Mask it while selecting and replacing the pending frame so it cannot
-     * swap the buffer halfway through the 64 KB memcpy.
+     * Protect only the state handoff, not the 64 KB PSRAM memcpy.
      *
-     * Audio IRQ 0/Core 1 is unaffected.
+     * The previous implementation masked display IRQ 1 across the whole copy
+     * (~4 ms in current measurements), which could leave SPI idle. Here the
+     * current physical frame continues while Doom copies the next snapshot.
      */
-    was_running = g_scan.running ? 1 : 0;
-
-    if (was_running)
-        irq_set_enabled(DMA_IRQ_1, false);
+    irq_set_enabled(DMA_IRQ_1, false);
 
     if (g_scan.pending_ready)
         ++g_scan.replaced_pending_frames;
 
+    g_scan.pending_ready = 0;
+    g_scan.pending_writing = 1;
+
     target = g_scan.pending_frame & 1u;
+
+    irq_set_enabled(DMA_IRQ_1, true);
 
     memcpy(
         g_scan_frame[target],
         (const void *)source_index8,
         MC_FD_SRC_BYTES);
 
-    g_scan.pending_palette = scan_clamp_palette(palette_index);
-    __compiler_memory_barrier();
+    irq_set_enabled(DMA_IRQ_1, false);
 
+    g_scan.pending_palette =
+        scan_clamp_palette(palette_index);
+
+    g_scan.pending_writing = 0;
     g_scan.pending_ready = 1;
+
     ++g_scan.published_frames;
 
-    if (was_running)
-        irq_set_enabled(DMA_IRQ_1, true);
+    /*
+     * If the prior physical frame ended during the PSRAM copy, start this one
+     * now. Otherwise DMA IRQ 1 will pick it up at the current frame boundary.
+     */
+    start_now =
+        g_scan.running &&
+        !g_scan.displaying;
 
-    elapsed_us = time_us_32() - begin_us;
+    if (start_now && scan_latch_pending())
+        scan_start_active_frame();
+
+    irq_set_enabled(DMA_IRQ_1, true);
+
+    elapsed_us =
+        time_us_32() - begin_us;
 
     g_scan.last_publish_us = elapsed_us;
 
@@ -436,10 +511,9 @@ int mc_fd_st7796s_scanout_start(
 
     g_scan.active_frame = 0u;
     g_scan.pending_frame = 1u;
-    g_scan.phase_count = MC_FD_SCAN_DEFAULT_PHASES;
-    g_scan.requested_phase_count = MC_FD_SCAN_DEFAULT_PHASES;
 
-    initial_palette = scan_clamp_palette(*palette_index);
+    initial_palette =
+        scan_clamp_palette(*palette_index);
 
     memcpy(
         g_scan_frame[g_scan.active_frame],
@@ -448,7 +522,6 @@ int mc_fd_st7796s_scanout_start(
 
     g_scan.active_palette = initial_palette;
     g_scan.pending_palette = initial_palette;
-    g_scan.pending_ready = 0;
 
     mask = 1u << lcd->dma_chan;
 
@@ -462,13 +535,26 @@ int mc_fd_st7796s_scanout_start(
         DMA_IRQ_1,
         scan_dma_irq1);
 
+    /*
+     * Display service can do palette expansion work. Put it below the default
+     * IRQ priority so the short MicroWave DMA IRQ 0 can preempt it if both hit
+     * Core 0 at the same time.
+     */
+    irq_set_priority(
+        DMA_IRQ_1,
+        PICO_LOWEST_IRQ_PRIORITY);
+
     irq_set_enabled(
         DMA_IRQ_1,
         true);
 
     g_scan.running = 1;
 
-    scan_launch_next();
+    /*
+     * Draw the initial complete frame once. Thereafter presentation is driven
+     * only by mc_fd_st7796s_scanout_publish().
+     */
+    scan_start_active_frame();
 
     return 1;
 }
@@ -504,41 +590,27 @@ void mc_fd_st7796s_scanout_stop(void)
         NULL,
         g_scan.lcd);
 
+    g_scan.displaying = 0;
     g_scan.lcd = NULL;
 }
 
+/*
+ * Compatibility with the temporary SCAN command. The A/B test is complete:
+ * production FastDoom presentation is deliberately progressive only.
+ */
 int mc_fd_st7796s_scanout_set_phases(unsigned int phases)
 {
-    int was_running;
-
-    if (!scan_valid_phases(phases))
-        return 0;
-
-    was_running = g_scan.running ? 1 : 0;
-
-    if (was_running)
-        irq_set_enabled(DMA_IRQ_1, false);
-
-    g_scan.requested_phase_count = phases;
-    __compiler_memory_barrier();
-
-    if (!was_running)
-        g_scan.phase_count = phases;
-
-    if (was_running)
-        irq_set_enabled(DMA_IRQ_1, true);
-
-    return 1;
+    return phases == 1u ? 1 : 0;
 }
 
 unsigned int mc_fd_st7796s_scanout_get_phases(void)
 {
-    return g_scan.phase_count;
+    return 1u;
 }
 
 unsigned int mc_fd_st7796s_scanout_get_requested_phases(void)
 {
-    return g_scan.requested_phase_count;
+    return 1u;
 }
 
 int mc_fd_st7796s_scanout_running(void)
@@ -553,12 +625,12 @@ unsigned long mc_fd_st7796s_scanout_blocks(void)
 
 unsigned long mc_fd_st7796s_scanout_phases(void)
 {
-    return g_scan.phases_completed;
+    return g_scan.frames_completed;
 }
 
 unsigned long mc_fd_st7796s_scanout_cycles(void)
 {
-    return g_scan.cycles_completed;
+    return g_scan.frames_completed;
 }
 
 unsigned long mc_fd_st7796s_scanout_published_frames(void)
@@ -568,7 +640,7 @@ unsigned long mc_fd_st7796s_scanout_published_frames(void)
 
 unsigned long mc_fd_st7796s_scanout_latched_frames(void)
 {
-    return g_scan.latched_frames;
+    return g_scan.frames_started;
 }
 
 unsigned long mc_fd_st7796s_scanout_replaced_pending_frames(void)
@@ -578,12 +650,12 @@ unsigned long mc_fd_st7796s_scanout_replaced_pending_frames(void)
 
 unsigned int mc_fd_st7796s_scanout_phase_hz10(void)
 {
-    return g_scan.phase_hz10;
+    return g_scan.frame_hz10;
 }
 
 unsigned int mc_fd_st7796s_scanout_cycle_hz10(void)
 {
-    return g_scan.cycle_hz10;
+    return g_scan.frame_hz10;
 }
 
 uint32_t mc_fd_st7796s_scanout_last_service_us(void)
