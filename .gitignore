@@ -18,3 +18,4 @@ __pycache__/
 *.pyc
 *.err
 /third_party/pico-fatfs-sd
+/microconsole_hardware/mc_hw/mc_hw-backups
