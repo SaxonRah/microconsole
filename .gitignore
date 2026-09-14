@@ -19,3 +19,8 @@ __pycache__/
 *.err
 /third_party/pico-fatfs-sd
 /microconsole_hardware/mc_hw/mc_hw-backups
+
+~*.kicad_*.lck
+*.kicad_prl
+microconsole_hardware/mc_hw/mc_hw.kicad_prl
+*.kicad_prl
