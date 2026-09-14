@@ -459,7 +459,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -533,7 +533,7 @@
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -551,7 +551,7 @@
 				(pin passive line
 					(at 0 -3.81 90)
 					(length 2.794)
-					(name "~"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1010,7 +1010,7 @@
 				)
 			)
 			(symbol "CR2013-MI2120_0_0"
-				(text "SPI TFT LCD"
+				(text "ILI9341"
 					(at -5.461 4.572 0)
 					(effects
 						(font
@@ -1040,7 +1040,7 @@
 						(justify left)
 					)
 				)
-				(text "ILI9341 / ST7796S"
+				(text "320x240 LCD"
 					(at 0.889 2.032 0)
 					(effects
 						(font
@@ -1629,7 +1629,7 @@
 				(pin input line
 					(at -12.7 20.32 0)
 					(length 2.54)
-					(name "SCL"
+					(name "SCK"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4646,6 +4646,10 @@
 		(uuid "424b19d0-c825-4915-99ee-0b6bba8654f4")
 	)
 	(no_connect
+		(at 224.79 25.4)
+		(uuid "4f043226-2c72-4671-84ea-a98d24abde59")
+	)
+	(no_connect
 		(at 252.73 58.42)
 		(uuid "54312220-1c70-4a4a-8db7-732e472b5866")
 	)
@@ -4696,6 +4700,14 @@
 	(no_connect
 		(at 102.87 189.23)
 		(uuid "b2dc0204-86bd-4605-909e-e0366cd445ea")
+	)
+	(no_connect
+		(at 207.01 40.64)
+		(uuid "c73200fc-13f5-43bd-a3de-413f4e622f00")
+	)
+	(no_connect
+		(at 207.01 43.18)
+		(uuid "dd4e54eb-dbf0-4a6b-a81d-339938790beb")
 	)
 	(no_connect
 		(at 181.61 143.51)
@@ -5405,6 +5417,16 @@
 	)
 	(wire
 		(pts
+			(xy 78.74 149.86) (xy 81.28 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d6045d3-59ae-4210-9549-17c93302a92a")
+	)
+	(wire
+		(pts
 			(xy 116.84 142.24) (xy 116.84 143.51)
 		)
 		(stroke
@@ -5562,6 +5584,16 @@
 			(type default)
 		)
 		(uuid "aa88547e-6951-45a4-8b78-2c76c44cde6b")
+	)
+	(wire
+		(pts
+			(xy 78.74 147.32) (xy 81.28 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abb21e56-96a3-487c-9f0f-4c57f59e8a1f")
 	)
 	(wire
 		(pts
@@ -5785,6 +5817,16 @@
 	)
 	(wire
 		(pts
+			(xy 78.74 142.24) (xy 81.28 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3f9a621-b900-4e08-b94e-9144e2d0fc90")
+	)
+	(wire
+		(pts
 			(xy 193.04 219.71) (xy 193.04 222.25)
 		)
 		(stroke
@@ -5872,6 +5914,16 @@
 			(type default)
 		)
 		(uuid "f77c0f56-f9a4-4efa-bfbe-6aa7e56f5084")
+	)
+	(wire
+		(pts
+			(xy 78.74 144.78) (xy 81.28 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f88a8ef5-2ecc-477f-a258-cbcb3be5854f")
 	)
 	(wire
 		(pts
@@ -6673,30 +6725,6 @@
 		(uuid "373ad872-edf1-4864-aa65-a56b16877f83")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 233.6413 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "3v3"
-		(shape input)
-		(at 173.99 149.86 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "39002461-1edd-42ba-be08-185f644c31ac")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 173.99 143.4882 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9104,6 +9132,30 @@
 			)
 		)
 	)
+	(global_label "VBUS"
+		(shape input)
+		(at 173.99 149.86 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dd8363f0-4a63-4e32-af07-784ddad95631")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 173.99 141.9762 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "GND"
 		(shape input)
 		(at 95.25 27.94 270)
@@ -9780,7 +9832,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -10044,7 +10096,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 274.32 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10123,7 +10175,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 130.81 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -10582,7 +10634,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -10661,7 +10713,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 124.46 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -11152,7 +11204,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 287.02 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -11391,7 +11443,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 295.91 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -11550,7 +11602,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 173.99 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -12160,7 +12212,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 237.49 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -12319,7 +12371,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 168.91 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -12520,7 +12572,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 243.84 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -12692,7 +12744,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -12931,7 +12983,7 @@
 				)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 166.37 217.17 0)
 			(hide yes)
 			(show_name no)
