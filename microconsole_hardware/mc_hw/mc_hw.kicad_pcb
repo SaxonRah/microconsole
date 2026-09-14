@@ -2288,7 +2288,7 @@
 			)
 		)
 	)
-	(footprint "microconsole:TFT"
+	(footprint "microconsole_hardware:TFT"
 		(layer "F.Cu")
 		(uuid "50319c07-6de1-422f-909b-0e6e83d2f997")
 		(at 147.150001 105.175)
@@ -3178,7 +3178,6 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Display.3dshapes/CR2013-MI2120.step"
-			(hide yes)
 			(offset
 				(xyz 0 0 0)
 			)
@@ -6207,7 +6206,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -6219,7 +6218,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -6318,7 +6317,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "0c77023d-a3f0-4f1f-a1fc-18c979ef5cfc")
 		)
@@ -6328,7 +6326,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "7d6040d7-9cb3-433d-bef1-e241d257ac58")
 		)
@@ -6375,7 +6372,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -6387,7 +6384,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -6486,7 +6483,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "c0881300-e559-4b6b-92a7-56b97e79f60c")
 		)
@@ -6496,7 +6492,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "374053d2-7ebe-4647-8c64-e011d98c6506")
 		)
@@ -6543,7 +6538,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -6555,7 +6550,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -6654,7 +6649,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "3v3")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "4e110a49-9138-48db-88cc-7d119943ce03")
 		)
@@ -6664,7 +6658,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "f38b6c23-6454-4522-99cd-b04dc8871abe")
 		)
@@ -6928,7 +6921,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -6940,7 +6933,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -7039,7 +7032,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "72499dc7-d685-4367-9922-023d2fb0b9c5")
 		)
@@ -7049,7 +7041,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "3v3")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "abc3cdc8-0c25-4e88-b153-3c3126d586c5")
 		)
@@ -7096,7 +7087,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7108,7 +7099,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7207,7 +7198,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "a1d4c3ff-312c-43ed-913a-b903e1d9f588")
 		)
@@ -7217,7 +7207,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "3v3")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "e0a62309-b1cc-41b4-89d4-723f66c58b2c")
 		)
@@ -7264,7 +7253,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -7276,7 +7265,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -7373,7 +7362,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "3v3")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "725bc952-1696-458d-addd-b5eae152a66e")
 		)
@@ -7383,7 +7371,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "908d070c-4567-4653-ac9c-6f643764fc9c")
 		)
@@ -7430,7 +7417,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7442,7 +7429,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7541,7 +7528,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBUS")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "cf1fa1a6-160b-4d9e-af02-35312d17b5ab")
 		)
@@ -7551,7 +7537,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "5e886819-6cec-4e39-b5d6-8f4abd400ab8")
 		)
@@ -7598,7 +7583,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7610,7 +7595,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7709,7 +7694,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "c13e6cb2-c566-4109-baee-e79b61215378")
 		)
@@ -7719,7 +7703,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "5836ad11-c24f-4888-a607-2d25c6dfdadb")
 		)
@@ -7766,7 +7749,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7778,7 +7761,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -7877,7 +7860,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBUS")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "88be5d05-6818-4c0d-a8a0-0b35ae288b7f")
 		)
@@ -7887,7 +7869,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "4e7068b0-9229-4ea8-915f-131ebe7a96fd")
 		)
@@ -8286,7 +8267,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -8298,7 +8279,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -8395,7 +8376,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "AGND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "fa60ce31-6d48-4b95-80b0-483c1bf72373")
 		)
@@ -8405,7 +8385,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GPIO28 {slash} VOLUME POT")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "9d029408-b4b7-479f-af7d-dedd9b3ab2a8")
 		)
@@ -9014,7 +8993,7 @@
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(pinfunction "PAD_17")
-			(pintype "unspecified")
+			(pintype "power_in")
 			(zone_connect 2)
 			(uuid "54e76ca2-73f3-41ab-908e-6573ce68c6d4")
 		)
@@ -9444,7 +9423,7 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GPIO3 {slash} MCP|ADC SCL")
-			(pinfunction "SCL_12")
+			(pinfunction "SCK_12")
 			(pintype "input")
 			(uuid "77219a07-50c0-49e6-a224-ea703d4aa02c")
 		)
@@ -10085,7 +10064,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -10097,7 +10076,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -10196,7 +10175,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "f8ce0876-612c-4859-89f9-2d4f14517d61")
 		)
@@ -10206,7 +10184,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "b7f012e5-ebcd-41e7-801e-2dfbf621430b")
 		)
@@ -10253,7 +10230,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -10265,7 +10242,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -10364,7 +10341,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "bb4a88e3-ee69-4993-86b7-4b205d7ed619")
 		)
@@ -10374,7 +10350,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "940b3718-dc48-4fe7-8242-5704e36d426f")
 		)
@@ -10391,7 +10366,7 @@
 			)
 		)
 	)
-	(footprint "microconsole:PCB0029_Footprint"
+	(footprint "microconsole_hardware:PCB0029_Footprint"
 		(layer "B.Cu")
 		(uuid "e8c1d813-241e-40e3-a687-722ce4bbf856")
 		(at 153.150001 99.175 180)
@@ -14741,7 +14716,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -14753,7 +14728,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "100nF volume ADC noise filter"
+		(property "Description" "Unpolarized capacitor"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -14852,7 +14827,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "GND")
-			(pinfunction "~_1")
 			(pintype "passive")
 			(uuid "24ac89c7-3ec8-4786-a81a-d0cfa4e164f4")
 		)
@@ -14862,7 +14836,6 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.212766)
 			(net "VBUS")
-			(pinfunction "~_2")
 			(pintype "passive")
 			(uuid "dcc9c6a4-4e3a-458d-843e-a2df01fee44e")
 		)
