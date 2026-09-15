@@ -1541,18 +1541,8 @@
 			)
 		)
 		(symbol "ili9xxx/st7xxxx_0_0"
-			(text "ILI9341"
-				(at -5.461 4.572 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-				)
-			)
 			(text "SPI Interface"
-				(at -5.461 -0.508 0)
+				(at -5.588 0.254 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1562,7 +1552,7 @@
 				)
 			)
 			(text "SD Card Slot"
-				(at -5.461 -3.048 0)
+				(at -5.588 -1.524 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1571,20 +1561,11 @@
 					(justify left)
 				)
 			)
-			(text "320x240 LCD"
-				(at 0.889 2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
 		)
 		(symbol "ili9xxx/st7xxxx_0_1"
 			(rectangle
 				(start -17.78 12.7)
-				(end 17.78 -12.7)
+				(end 17.78 -15.24)
 				(stroke
 					(width 0.254)
 					(type default)
@@ -1606,35 +1587,36 @@
 			)
 		)
 		(symbol "ili9xxx/st7xxxx_1_1"
-			(pin power_in line
-				(at 0 15.24 270)
-				(length 2.54)
-				(name "VCC"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
+			(text "320x240 LCD\n480x320 LCD"
+				(at 1.016 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
 					)
 				)
 			)
-			(pin power_in line
-				(at 0 -15.24 90)
+			(text "ILI9xxx\nST7xxxx"
+				(at 2.54 9.398 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(pin input line
+				(at 20.32 10.16 180)
 				(length 2.54)
-				(name "GND"
+				(name "CS"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "2"
+				(number "CS"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1645,32 +1627,14 @@
 			(pin input line
 				(at 20.32 5.08 180)
 				(length 2.54)
-				(name "~{CS}"
+				(name "DC"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at 20.32 -7.62 180)
-				(length 2.54)
-				(name "RESET"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
+				(number "DC"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1678,53 +1642,17 @@
 					)
 				)
 			)
-			(pin input line
-				(at 20.32 7.62 180)
+			(pin power_in line
+				(at 0 -17.78 90)
 				(length 2.54)
-				(name "D/~{C}"
+				(name "GND"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at 20.32 2.54 180)
-				(length 2.54)
-				(name "MOSI"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at 20.32 -2.54 180)
-				(length 2.54)
-				(name "SCK"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "7"
+				(number "GND"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1742,7 +1670,7 @@
 						)
 					)
 				)
-				(number "8"
+				(number "LED"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1751,7 +1679,7 @@
 				)
 			)
 			(pin output line
-				(at 20.32 0 180)
+				(at 20.32 -8.89 180)
 				(length 2.54)
 				(name "MISO"
 					(effects
@@ -1760,7 +1688,61 @@
 						)
 					)
 				)
-				(number "9"
+				(number "MISO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 20.32 1.27 180)
+				(length 2.54)
+				(name "MOSI"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "MOSI"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 20.32 7.62 180)
+				(length 2.54)
+				(name "RESET"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "RESET"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 20.32 -2.54 180)
+				(length 2.54)
+				(name "SCK"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "SCK"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1778,25 +1760,7 @@
 						)
 					)
 				)
-				(number "10"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -20.32 7.62 0)
-				(length 2.54)
-				(name "SD_MOSI"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "11"
+				(number "SD_CS"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1814,7 +1778,25 @@
 						)
 					)
 				)
-				(number "12"
+				(number "SD_MISO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -20.32 7.62 0)
+				(length 2.54)
+				(name "SD_MOSI"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "SD_MOSI"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1832,7 +1814,7 @@
 						)
 					)
 				)
-				(number "13"
+				(number "SD_SCK"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1841,16 +1823,106 @@
 				)
 			)
 			(pin input line
-				(at -20.32 0 0)
+				(at -20.32 -2.54 0)
 				(length 2.54)
-				(name "FLASH_CD"
+				(name "T_CLK"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "14"
+				(number "T_CLK"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -20.32 -5.08 0)
+				(length 2.54)
+				(name "T_CS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "T_CS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -20.32 -7.62 0)
+				(length 2.54)
+				(name "T_DIN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "T_DIN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin output line
+				(at -20.32 -10.16 0)
+				(length 2.54)
+				(name "T_DO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "T_DO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin output line
+				(at -20.32 -12.7 0)
+				(length 2.54)
+				(name "T_IRQ"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "T_IRQ"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 15.24 270)
+				(length 2.54)
+				(name "VCC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "VCC"
 					(effects
 						(font
 							(size 1.27 1.27)

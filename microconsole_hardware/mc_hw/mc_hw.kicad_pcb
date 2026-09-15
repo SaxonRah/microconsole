@@ -2350,7 +2350,9 @@
 		(units
 			(unit
 				(name "A")
-				(pins "10" "11" "12" "13" "14" "1" "2" "5" "3" "6" "9" "7" "8" "4")
+				(pins "SD_CS" "SD_MOSI" "SD_MISO" "SD_SCK" "T_CLK" "T_CS" "T_DIN" "T_DO"
+					"T_IRQ" "VCC" "GND" "CS" "RESET" "DC" "MOSI" "SCK" "LED" "MISO"
+				)
 			)
 		)
 		(attr through_hole)
@@ -2697,6 +2699,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO5 {slash} LCD CS")
+			(pinfunction "CS_CS")
+			(pintype "input")
 			(uuid "8b50e8fc-cd3e-4ca0-a903-157ee9d549cc")
 		)
 		(pad "CS" thru_hole roundrect
@@ -2706,6 +2711,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO5 {slash} LCD CS")
+			(pinfunction "CS_CS")
+			(pintype "input")
 			(uuid "e4b54237-d965-486b-85c3-1ef680aa8bef")
 		)
 		(pad "CS" thru_hole roundrect
@@ -2715,6 +2723,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO5 {slash} LCD CS")
+			(pinfunction "CS_CS")
+			(pintype "input")
 			(uuid "d477c0e9-2d2a-4ec7-9374-1c511b470ff1")
 		)
 		(pad "DC" thru_hole roundrect
@@ -2724,6 +2735,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO9 {slash} LCD DC")
+			(pinfunction "DC_DC")
+			(pintype "input")
 			(uuid "0af50907-aa69-44ba-8b98-afa52c97ecc6")
 		)
 		(pad "DC" thru_hole roundrect
@@ -2733,6 +2747,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO9 {slash} LCD DC")
+			(pinfunction "DC_DC")
+			(pintype "input")
 			(uuid "84661624-9465-4e41-b124-9be9b1a3a044")
 		)
 		(pad "DC" thru_hole roundrect
@@ -2742,6 +2759,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO9 {slash} LCD DC")
+			(pinfunction "DC_DC")
+			(pintype "input")
 			(uuid "c9813e21-f0bc-4cd3-b887-6abbe5671839")
 		)
 		(pad "GND" thru_hole roundrect
@@ -2751,6 +2771,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GND")
+			(pinfunction "GND_GND")
+			(pintype "power_in")
 			(uuid "d802db4c-ec89-4b26-9bd9-762343f005a9")
 		)
 		(pad "GND" thru_hole roundrect
@@ -2760,6 +2783,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GND")
+			(pinfunction "GND_GND")
+			(pintype "power_in")
 			(uuid "8b0a37b7-6f99-47da-9067-a537f5cebfd4")
 		)
 		(pad "GND" thru_hole roundrect
@@ -2769,6 +2795,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GND")
+			(pinfunction "GND_GND")
+			(pintype "power_in")
 			(uuid "42b47ec6-df02-4069-991e-f57dd349df27")
 		)
 		(pad "LED" thru_hole roundrect
@@ -2778,6 +2807,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "LED_LED")
+			(pintype "input")
 			(uuid "fa730cce-3b6e-4349-98f1-21d06c616564")
 		)
 		(pad "LED" thru_hole roundrect
@@ -2787,6 +2819,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "LED_LED")
+			(pintype "input")
 			(uuid "f2872f94-beb0-4d33-bf55-a65a9c18950f")
 		)
 		(pad "LED" thru_hole roundrect
@@ -2796,6 +2831,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "LED_LED")
+			(pintype "input")
 			(uuid "5201ef3c-1a76-4e3c-b9d8-d92defef4784")
 		)
 		(pad "RESET" thru_hole roundrect
@@ -2805,6 +2843,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO8 {slash} LCD RESET")
+			(pinfunction "RESET_RESET")
+			(pintype "input")
 			(uuid "5376eccd-96c0-4a56-8610-f4e766bd5dda")
 		)
 		(pad "RESET" thru_hole roundrect
@@ -2814,6 +2855,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO8 {slash} LCD RESET")
+			(pinfunction "RESET_RESET")
+			(pintype "input")
 			(uuid "731ce641-fad8-4456-a6b7-64aced431a8e")
 		)
 		(pad "RESET" thru_hole roundrect
@@ -2823,6 +2867,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO8 {slash} LCD RESET")
+			(pinfunction "RESET_RESET")
+			(pintype "input")
 			(uuid "1265a26b-5d47-4f01-afd4-bc14a7413bfd")
 		)
 		(pad "SCK" thru_hole roundrect
@@ -2832,6 +2879,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO6 {slash} LCD SCK")
+			(pinfunction "SCK_SCK")
+			(pintype "input")
 			(uuid "5473fd77-d76b-4b61-99c4-29825a8428a7")
 		)
 		(pad "SCK" thru_hole roundrect
@@ -2841,6 +2891,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO6 {slash} LCD SCK")
+			(pinfunction "SCK_SCK")
+			(pintype "input")
 			(uuid "8602e37a-e058-4329-8940-7944393b3a01")
 		)
 		(pad "SCK" thru_hole roundrect
@@ -2850,6 +2903,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO6 {slash} LCD SCK")
+			(pinfunction "SCK_SCK")
+			(pintype "input")
 			(uuid "cf23679a-1fd7-4f1a-85ec-06ea9ed26595")
 		)
 		(pad "SDI (MOSI)" thru_hole roundrect
@@ -2913,6 +2969,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO13 {slash} SD CS")
+			(pinfunction "SD_CS_SD_CS")
+			(pintype "input")
 			(uuid "d66611e0-4389-4b21-bcc8-ce1e5a64f927")
 		)
 		(pad "SD_CS" thru_hole roundrect
@@ -2922,6 +2981,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO13 {slash} SD CS")
+			(pinfunction "SD_CS_SD_CS")
+			(pintype "input")
 			(uuid "52f68470-847d-4e95-8b80-c20db4bf7839")
 		)
 		(pad "SD_CS" thru_hole roundrect
@@ -2931,6 +2993,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO13 {slash} SD CS")
+			(pinfunction "SD_CS_SD_CS")
+			(pintype "input")
 			(uuid "89641961-8f45-49f1-90aa-359d9eb7ca4c")
 		)
 		(pad "SD_MISO" thru_hole roundrect
@@ -2940,6 +3005,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO12 {slash} SD MISO")
+			(pinfunction "SD_MISO_SD_MISO")
+			(pintype "output")
 			(uuid "9625a996-a5b8-4361-8ef6-a906bef2297f")
 		)
 		(pad "SD_MISO" thru_hole roundrect
@@ -2949,6 +3017,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO12 {slash} SD MISO")
+			(pinfunction "SD_MISO_SD_MISO")
+			(pintype "output")
 			(uuid "75e7642d-b8a2-4ce1-87b6-09e9a19ed089")
 		)
 		(pad "SD_MISO" thru_hole roundrect
@@ -2958,6 +3029,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO12 {slash} SD MISO")
+			(pinfunction "SD_MISO_SD_MISO")
+			(pintype "output")
 			(uuid "bccec2f7-5d41-4029-bede-52822a4fcbb5")
 		)
 		(pad "SD_MOSI" thru_hole roundrect
@@ -2967,6 +3041,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO15 {slash} SD MOSI")
+			(pinfunction "SD_MOSI_SD_MOSI")
+			(pintype "input")
 			(uuid "a4978853-7648-4c6f-996a-6852d52ef8db")
 		)
 		(pad "SD_MOSI" thru_hole roundrect
@@ -2976,6 +3053,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO15 {slash} SD MOSI")
+			(pinfunction "SD_MOSI_SD_MOSI")
+			(pintype "input")
 			(uuid "775a1784-958c-4065-bfcc-70c4b699a669")
 		)
 		(pad "SD_MOSI" thru_hole roundrect
@@ -2985,6 +3065,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO15 {slash} SD MOSI")
+			(pinfunction "SD_MOSI_SD_MOSI")
+			(pintype "input")
 			(uuid "a0452b0b-1bfa-4b2f-9c7d-0404019d0629")
 		)
 		(pad "SD_SCK" thru_hole roundrect
@@ -2994,6 +3077,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO14 {slash} SD SCK")
+			(pinfunction "SD_SCK_SD_SCK")
+			(pintype "input")
 			(uuid "c9f7257e-d612-4519-b868-d884950dfc52")
 		)
 		(pad "SD_SCK" thru_hole roundrect
@@ -3003,6 +3089,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO14 {slash} SD SCK")
+			(pinfunction "SD_SCK_SD_SCK")
+			(pintype "input")
 			(uuid "6430c3e5-8c66-421b-9e64-cdf327b5b3c1")
 		)
 		(pad "SD_SCK" thru_hole roundrect
@@ -3012,6 +3101,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "GPIO14 {slash} SD SCK")
+			(pinfunction "SD_SCK_SD_SCK")
+			(pintype "input")
 			(uuid "d7267102-b3e5-4439-944d-756912557962")
 		)
 		(pad "T_CLK" thru_hole roundrect
@@ -3021,6 +3113,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CLK)_1")
+			(pinfunction "T_CLK_T_CLK")
+			(pintype "input+no_connect")
 			(uuid "3a8b9089-bdc8-45eb-ba38-9976982cbc34")
 		)
 		(pad "T_CLK" thru_hole roundrect
@@ -3030,6 +3125,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CLK)")
+			(pinfunction "T_CLK_T_CLK")
+			(pintype "input+no_connect")
 			(uuid "39534550-3894-443b-9f84-35faf23c35d7")
 		)
 		(pad "T_CLK" thru_hole roundrect
@@ -3039,6 +3137,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CLK)_2")
+			(pinfunction "T_CLK_T_CLK")
+			(pintype "input+no_connect")
 			(uuid "58f8fc4b-9666-479b-97c1-b5d376410f33")
 		)
 		(pad "T_CS" thru_hole roundrect
@@ -3048,6 +3149,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CS)_2")
+			(pinfunction "T_CS_T_CS")
+			(pintype "input+no_connect")
 			(uuid "cff3735c-47a0-41ea-a451-ba5fffccc309")
 		)
 		(pad "T_CS" thru_hole roundrect
@@ -3057,6 +3161,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CS)")
+			(pinfunction "T_CS_T_CS")
+			(pintype "input+no_connect")
 			(uuid "29035534-2b36-44bd-bf88-57d3aea188be")
 		)
 		(pad "T_CS" thru_hole roundrect
@@ -3066,6 +3173,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_CS)_1")
+			(pinfunction "T_CS_T_CS")
+			(pintype "input+no_connect")
 			(uuid "702590fe-963e-4394-9802-b12cb5f91438")
 		)
 		(pad "T_DIN" thru_hole roundrect
@@ -3075,6 +3185,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DIN)_2")
+			(pinfunction "T_DIN_T_DIN")
+			(pintype "input+no_connect")
 			(uuid "549ee00e-27ba-44dc-aeb6-a8828f3173c3")
 		)
 		(pad "T_DIN" thru_hole roundrect
@@ -3084,6 +3197,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DIN)")
+			(pinfunction "T_DIN_T_DIN")
+			(pintype "input+no_connect")
 			(uuid "073a2993-8345-41e6-a567-94be56ec6994")
 		)
 		(pad "T_DIN" thru_hole roundrect
@@ -3093,6 +3209,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DIN)_1")
+			(pinfunction "T_DIN_T_DIN")
+			(pintype "input+no_connect")
 			(uuid "3b7543d5-3756-426b-a15e-519ce733ee24")
 		)
 		(pad "T_DO" thru_hole roundrect
@@ -3102,6 +3221,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DO)_2")
+			(pinfunction "T_DO_T_DO")
+			(pintype "output+no_connect")
 			(uuid "e7afd712-66f2-41f5-b27e-444322a31dce")
 		)
 		(pad "T_DO" thru_hole roundrect
@@ -3111,6 +3233,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DO)")
+			(pinfunction "T_DO_T_DO")
+			(pintype "output+no_connect")
 			(uuid "1ad4fc23-eff3-4674-aaf2-5351df709b9f")
 		)
 		(pad "T_DO" thru_hole roundrect
@@ -3120,6 +3245,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_DO)_1")
+			(pinfunction "T_DO_T_DO")
+			(pintype "output+no_connect")
 			(uuid "dc7246a2-18c1-4de4-97ab-ff89c53c11a3")
 		)
 		(pad "T_IRQ" thru_hole roundrect
@@ -3129,6 +3257,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_IRQ)_2")
+			(pinfunction "T_IRQ_T_IRQ")
+			(pintype "output+no_connect")
 			(uuid "dde63d9d-9e9b-4480-8820-40e9d9b6252f")
 		)
 		(pad "T_IRQ" thru_hole roundrect
@@ -3138,6 +3269,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_IRQ)_1")
+			(pinfunction "T_IRQ_T_IRQ")
+			(pintype "output+no_connect")
 			(uuid "559c3d73-09f6-44b2-97b0-53d846e417a1")
 		)
 		(pad "T_IRQ" thru_hole roundrect
@@ -3147,6 +3281,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "unconnected-(U1-PadT_IRQ)")
+			(pinfunction "T_IRQ_T_IRQ")
+			(pintype "output+no_connect")
 			(uuid "4c18b10b-c0ed-48a0-a6e6-e3e12f6ca44c")
 		)
 		(pad "VCC" thru_hole roundrect
@@ -3156,6 +3293,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "VCC_VCC")
+			(pintype "power_in")
 			(uuid "d3bcbb8e-1882-4835-9c3d-72f27cd5a8b8")
 		)
 		(pad "VCC" thru_hole roundrect
@@ -3165,6 +3305,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "VCC_VCC")
+			(pintype "power_in")
 			(uuid "eec53db9-ab8b-4c65-857f-840cb20a2ce7")
 		)
 		(pad "VCC" thru_hole roundrect
@@ -3174,6 +3317,9 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(roundrect_rratio 0.15)
+			(net "VBUS")
+			(pinfunction "VCC_VCC")
+			(pintype "power_in")
 			(uuid "8180eecb-6dbd-4cc3-bf21-d41db8e2bdad")
 		)
 		(embedded_fonts no)
