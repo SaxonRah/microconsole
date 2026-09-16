@@ -1097,7 +1097,7 @@
 				)
 			)
 		)
-		(property "Footprint" "project_parts:GINFULL HallEffect Joystick PTH"
+		(property "Footprint" "microconsole:Joystick_PTH"
 			(at 0 -13.208 0)
 			(show_name no)
 			(do_not_autoplace no)
