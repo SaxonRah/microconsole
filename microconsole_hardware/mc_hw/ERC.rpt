@@ -1,13 +1,7 @@
-ERC report (2026-09-16T12:09:28, Encoding UTF8)
+ERC report (2026-09-16T15:02:46, Encoding UTF8)
 Report includes: Errors, Warnings
 
 ***** Sheet /mc_hw/
-[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
-    ; error
-    @(7850 mils, 3100 mils): Symbol A1 Pin 39 [VSYS, Power input, Line]
-[label_dangling]: Label not connected
-    ; error
-    @(6450 mils, 3800 mils): Global Label 'VSYS_BAT'
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6850 mils, 8500 mils): Symbol C21 Pin 2 [2, Unspecified, Line]
@@ -20,9 +14,6 @@ Report includes: Errors, Warnings
     ; warning
     @(7500 mils, 2150 mils): Symbol C26 Pin 1 [1, Unspecified, Line]
     @(7550 mils, 2500 mils): Symbol C27 Pin 1 [Passive, Line]
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(7850 mils, 3000 mils): Global Label 'VSYS_BAT'
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(7900 mils, 2150 mils): Symbol C26 Pin 2 [2, Unspecified, Line]
@@ -260,34 +251,21 @@ Report includes: Errors, Warnings
     @(6650 mils, 2050 mils): Symbol C63 Pin 2 [2, Unspecified, Line]
 
 ***** Sheet /USBC/Battery/
-[pin_to_pin]: Pins of type Power output and Power output are connected
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(7250 mils, 2700 mils): Symbol U6 Hidden pin 10 [V_{BAT}, Power output, Line]
-    @(8050 mils, 3100 mils): Symbol A1 Pin 40 [VBUS, Power output, Line]
-[pin_to_pin]: Pins of type Power output and Power output are connected
-    ; error
-    @(7250 mils, 2700 mils): Symbol U6 Pin 9 [V_{BAT}, Power output, Line]
-    @(8050 mils, 3100 mils): Symbol A1 Pin 40 [VBUS, Power output, Line]
-[multiple_net_names]: Both VBUS and VDD are attached to the same items; VBUS will be used in the netlist
+    @(6600 mils, 3650 mils): Symbol U6 Hidden pin 1 [VDD, Power input, Line]
+[multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
     ; warning
-    @(6250 mils, 2900 mils): Global Label 'VBUS'
-    @(6450 mils, 2700 mils): Symbol U6 Hidden pin 1 [VDD, Power input, Line]
-[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
+    @(5000 mils, 1100 mils): Global Label 'USB-VBUS'
+    @(6600 mils, 3650 mils): Symbol U6 Hidden pin 1 [VDD, Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
     ; warning
-    @(9350 mils, 2950 mils): Symbol U23 Pin 1 [1, Unspecified, Line]
-    @(9350 mils, 3450 mils): Symbol U24 Pin 1 [1, Unspecified, Line]
+    @(8550 mils, 3650 mils): Symbol U23 Pin 1 [1, Unspecified, Line]
+    @(7400 mils, 3650 mils): Symbol U6 Pin 9 [V_{BAT}, Power output, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
-    @(9350 mils, 3450 mils): Symbol U24 Pin 1 [1, Unspecified, Line]
-    @(7650 mils, 2750 mils): Symbol C16 Pin 2 [Passive, Line]
-[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
-    ; warning
-    @(9450 mils, 2950 mils): Symbol U23 Pin 2 [2, Unspecified, Line]
-    @(9450 mils, 3450 mils): Symbol U24 Pin 2 [2, Unspecified, Line]
-[pin_to_pin]: Pins of type Unspecified and Passive are connected
-    ; warning
-    @(9450 mils, 3450 mils): Symbol U24 Pin 2 [2, Unspecified, Line]
-    @(8650 mils, 2900 mils): Symbol R20 Pin 2 [Passive, Line]
+    @(8550 mils, 3750 mils): Symbol U23 Pin 2 [2, Unspecified, Line]
+    @(8250 mils, 3750 mils): Symbol C16 Pin 1 [Passive, Line]
 
 ***** Sheet /Joysticks/Buttons/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
@@ -503,7 +481,7 @@ Report includes: Errors, Warnings
     @(9950 mils, 1350 mils): Symbol C80 Pin 1 [1, Unspecified, Line]
     @(9200 mils, 1300 mils): Symbol C77 Pin 2 [Passive, Line]
 
- ** ERC messages: 125  Errors 4  Warnings 121
+ ** ERC messages: 119  Errors 1  Warnings 118
 
  ** Ignored checks:
     - Global label only appears once in the schematic

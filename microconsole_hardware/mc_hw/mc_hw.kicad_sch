@@ -1975,8 +1975,8 @@
 	)
 	(text_box "Pimoroni Pico 2 Plus"
 		(exclude_from_sim no)
-		(at 142.24 40.64 0)
-		(size 116.84 127)
+		(at 142.24 35.56 0)
+		(size 116.84 132.08)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2090,7 +2090,7 @@
 		(uuid "215f4a63-8388-4d66-85dc-1f3226b5f191")
 	)
 	(no_connect
-		(at 200.66 257.81)
+		(at 203.2 257.81)
 		(uuid "3702346f-4775-4509-8b3f-7d261236b627")
 	)
 	(no_connect
@@ -2118,19 +2118,19 @@
 		(uuid "8e998dba-77b3-4aa2-86d4-25583c4318f2")
 	)
 	(no_connect
-		(at 200.66 255.27)
+		(at 203.2 255.27)
 		(uuid "9707b78e-0d89-40da-9a42-924d979a2a22")
 	)
 	(no_connect
-		(at 200.66 250.19)
+		(at 203.2 250.19)
 		(uuid "a4a0691c-ba52-4ea7-bee6-07ecc5d1a422")
 	)
 	(no_connect
-		(at 200.66 260.35)
+		(at 203.2 260.35)
 		(uuid "c2c852e4-2023-463c-9876-2b0a45776e74")
 	)
 	(no_connect
-		(at 200.66 252.73)
+		(at 203.2 252.73)
 		(uuid "c48ae730-1500-4fb3-852d-a0f2ba617ee3")
 	)
 	(no_connect
@@ -2151,7 +2151,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 227.33) (xy 223.52 227.33)
+			(xy 228.6 227.33) (xy 226.06 227.33)
 		)
 		(stroke
 			(width 0)
@@ -2171,6 +2171,16 @@
 	)
 	(wire
 		(pts
+			(xy 203.2 242.57) (xy 200.66 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07676ae6-6385-4f65-9caa-2cd47555a982")
+	)
+	(wire
+		(pts
 			(xy 179.07 124.46) (xy 181.61 124.46)
 		)
 		(stroke
@@ -2178,6 +2188,16 @@
 			(type default)
 		)
 		(uuid "08a612ca-a1f7-499f-a4a8-f10854bdf1a3")
+	)
+	(wire
+		(pts
+			(xy 203.2 232.41) (xy 200.66 232.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b97f5b4-e27f-425a-ab1f-b07ab23a1789")
 	)
 	(wire
 		(pts
@@ -2241,7 +2261,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 227.33) (xy 194.31 227.33)
+			(xy 203.2 227.33) (xy 194.31 227.33)
 		)
 		(stroke
 			(width 0)
@@ -2311,6 +2331,16 @@
 	)
 	(wire
 		(pts
+			(xy 203.2 247.65) (xy 200.66 247.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d474909-288a-41ab-89d5-e033c1ac18ed")
+	)
+	(wire
+		(pts
 			(xy 179.07 137.16) (xy 181.61 137.16)
 		)
 		(stroke
@@ -2341,6 +2371,16 @@
 	)
 	(wire
 		(pts
+			(xy 203.2 245.11) (xy 200.66 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57a1d297-ef67-42f0-8721-6b51a8ed9c12")
+	)
+	(wire
+		(pts
 			(xy 177.8 106.68) (xy 177.8 82.55)
 		)
 		(stroke
@@ -2361,7 +2401,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 232.41) (xy 223.52 232.41)
+			(xy 228.6 232.41) (xy 226.06 232.41)
 		)
 		(stroke
 			(width 0)
@@ -2401,7 +2441,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 48.26) (xy 209.55 54.61)
+			(xy 209.55 49.53) (xy 209.55 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2501,7 +2541,17 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 229.87) (xy 200.66 229.87)
+			(xy 203.2 240.03) (xy 200.66 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c81b39c-300d-4183-b3ef-f159be377721")
+	)
+	(wire
+		(pts
+			(xy 179.07 229.87) (xy 203.2 229.87)
 		)
 		(stroke
 			(width 0)
@@ -2511,7 +2561,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 229.87) (xy 223.52 229.87)
+			(xy 228.6 229.87) (xy 226.06 229.87)
 		)
 		(stroke
 			(width 0)
@@ -2558,6 +2608,16 @@
 			(type default)
 		)
 		(uuid "9e3ad3d4-29ee-47bf-ba6a-79d0ed00e62c")
+	)
+	(wire
+		(pts
+			(xy 203.2 237.49) (xy 200.66 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a39f0c40-850d-4a3d-a0cd-9a8806d9600b")
 	)
 	(wire
 		(pts
@@ -2641,13 +2701,23 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 234.95) (xy 223.52 234.95)
+			(xy 228.6 234.95) (xy 226.06 234.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d51477b3-2c98-4930-93b4-e3bdd321217a")
+	)
+	(wire
+		(pts
+			(xy 203.2 234.95) (xy 200.66 234.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d979eb93-c043-4826-921c-8091f411f8f1")
 	)
 	(wire
 		(pts
@@ -2728,54 +2798,6 @@
 			(type default)
 		)
 		(uuid "fd8f7dd3-273c-440d-adaa-864ab4ff91be")
-	)
-	(global_label "VBUS"
-		(shape input)
-		(at 173.99 210.82 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "005e081b-fbba-4ab4-b932-7bbff35816dd")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 173.99 202.9362 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "VBUS"
-		(shape input)
-		(at 204.47 49.53 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "00c8f0ce-584a-4da3-aa8b-3d79bdccf3f0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 204.47 41.6462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 	)
 	(global_label "GPIO6 {slash} LCD SCK"
 		(shape input)
@@ -2969,6 +2991,30 @@
 			)
 		)
 	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 173.99 210.82 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3e13076c-c224-4808-bcb5-aa6566b4756e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 173.99 198.9448 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "GPIO15 {slash} SD MOSI"
 		(shape input)
 		(at 179.07 139.7 180)
@@ -3038,6 +3084,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "3v3"
+		(shape input)
+		(at 200.66 245.11 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5641a9c4-fbe1-4fc3-9609-adabafcc41ca")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.2882 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -3282,7 +3352,7 @@
 	)
 	(global_label "GPIO14 {slash} SD SCK"
 		(shape input)
-		(at 226.06 234.95 0)
+		(at 228.6 234.95 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3292,7 +3362,7 @@
 		)
 		(uuid "a3833513-2c0d-4ebb-92aa-9e9ac502725b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 246.4018 234.95 0)
+			(at 248.9418 234.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3317,6 +3387,30 @@
 		(uuid "ac7ebdd4-fbbd-47bd-9caf-02c7b6fb97a8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 250.9376 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 204.47 49.53 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b4a96111-94e9-4879-ba46-bc0c5652601d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 204.47 37.6548 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3354,7 +3448,7 @@
 	)
 	(global_label "3v3"
 		(shape input)
-		(at 209.55 48.26 90)
+		(at 209.55 49.53 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3364,7 +3458,7 @@
 		)
 		(uuid "ca091945-dc70-4e0b-9426-5ff2f648c881")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 209.55 41.8882 90)
+			(at 209.55 43.1582 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3402,7 +3496,7 @@
 	)
 	(global_label "GPIO13 {slash} SD CS"
 		(shape input)
-		(at 226.06 227.33 0)
+		(at 228.6 227.33 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3412,7 +3506,7 @@
 		)
 		(uuid "d21cd3c4-6e59-4baa-8abe-66a3b10c721a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 245.1318 227.33 0)
+			(at 247.6718 227.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3426,7 +3520,7 @@
 	)
 	(global_label "GPIO12 {slash} SD MISO"
 		(shape input)
-		(at 226.06 232.41 0)
+		(at 228.6 232.41 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3436,7 +3530,7 @@
 		)
 		(uuid "e423f0ee-03d3-40a6-9ceb-c0e67a96d99b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 247.2485 232.41 0)
+			(at 249.7885 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3567,30 +3661,6 @@
 			)
 		)
 	)
-	(global_label "VBUS"
-		(shape input)
-		(at 200.66 245.11 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f77c0b9d-9a45-417e-9a24-d75f210e37eb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 192.7762 245.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "GPIO9 {slash} LCD DC"
 		(shape input)
 		(at 179.07 124.46 180)
@@ -3641,7 +3711,7 @@
 	)
 	(global_label "GPIO15 {slash} SD MOSI"
 		(shape input)
-		(at 226.06 229.87 0)
+		(at 228.6 229.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3651,7 +3721,7 @@
 		)
 		(uuid "fc0be6bc-dc65-460d-b523-a5f847b013d2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 247.2485 229.87 0)
+			(at 249.7885 229.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4273,7 +4343,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:MSP4021")
-		(at 213.36 243.84 0)
+		(at 215.9 243.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4284,7 +4354,7 @@
 		(fields_autoplaced yes)
 		(uuid "ac296d41-d9f1-48b7-91b7-a7f4925de5e5")
 		(property "Reference" "DS2"
-			(at 213.6574 219.71 0)
+			(at 216.1974 219.71 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4294,7 +4364,7 @@
 			)
 		)
 		(property "Value" "MSP4021"
-			(at 213.6574 222.25 0)
+			(at 216.1974 222.25 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4304,7 +4374,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm"
-			(at 213.36 243.84 0)
+			(at 215.9 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4315,7 +4385,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcdwiki.com/4.0inch_SPI_Module_ST7796"
-			(at 213.36 243.84 0)
+			(at 215.9 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4326,7 +4396,7 @@
 			)
 		)
 		(property "Description" "4.0in 480x320 SPI TFT module, ST7796S + XPT2046 resistive touch (MSP4020 = no touch), 3.3-5V"
-			(at 213.36 243.84 0)
+			(at 215.9 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
