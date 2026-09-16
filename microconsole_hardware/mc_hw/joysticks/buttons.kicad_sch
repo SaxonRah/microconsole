@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "08230958-0c7f-48e9-b9d2-9017c99d7366")
+	(uuid "3589b2d5-b7f0-47a9-a607-76ff04e67953")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Device:FerriteBead_Small"
