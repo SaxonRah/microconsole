@@ -670,15 +670,24 @@
         "filename": "mc_hw.kicad_sch",
         "name": "mc_hw",
         "uuid": "a5ee2319-7084-42f3-8115-a198bb762e21"
+      },
+      {
+        "filename": "old.kicad_sch",
+        "name": "OLD",
+        "uuid": "9471f16d-6679-4341-b674-816e667a48e5"
       }
     ],
-    "used_designators": "A1,LS1-6,U1-17,SW1-18,RV1-3,J1-3,R1-14,C5-27,JP1-2,D1-3,QD1,DS1-2",
+    "used_designators": "A1,LS1-6,U1-17,SW1-18,RV1-3,J1-3,R1-26,C1-3,C5-38,JP1-2,D1-3,QD1,DS1-2",
     "variants": []
   },
   "sheets": [
     [
       "a5ee2319-7084-42f3-8115-a198bb762e21",
       "mc_hw"
+    ],
+    [
+      "9471f16d-6679-4341-b674-816e667a48e5",
+      "OLD"
     ]
   ],
   "text_variables": {},
