@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "f28f3a7c-b3ea-4276-af1b-1cb0cfd99fda")
+	(uuid "e0affa9e-17f0-4feb-9fb8-132cc4cb0443")
 	(paper "A4")
 	(lib_symbols
 		(symbol "GINFULL_HallEffect_Joystick_PTH_1"

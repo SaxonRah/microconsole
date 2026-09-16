@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "92f59490-d086-498f-b036-b165bea75964")
+	(uuid "0f22c706-3254-4b13-8d07-16e58d32f4f3")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
