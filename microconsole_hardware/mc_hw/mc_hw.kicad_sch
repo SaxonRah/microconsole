@@ -2094,10 +2094,6 @@
 		(uuid "3702346f-4775-4509-8b3f-7d261236b627")
 	)
 	(no_connect
-		(at 199.39 78.74)
-		(uuid "4f043226-2c72-4671-84ea-a98d24abde59")
-	)
-	(no_connect
 		(at 227.33 111.76)
 		(uuid "54312220-1c70-4a4a-8db7-732e472b5866")
 	)
@@ -2492,6 +2488,16 @@
 			(type default)
 		)
 		(uuid "83acaec5-6ab8-48e8-aa04-d30a151e3361")
+	)
+	(wire
+		(pts
+			(xy 199.39 76.2) (xy 199.39 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "850af967-4bcb-4b5f-baa1-7917ec8444eb")
 	)
 	(wire
 		(pts
@@ -3008,6 +3014,30 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 199.39 76.2 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "437f0359-cc8c-418c-88bd-1b5b383b86fb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 64.3248 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)

@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "0f22c706-3254-4b13-8d07-16e58d32f4f3")
+	(uuid "7a8ea6b9-40e6-4644-aaae-55e7ae195963")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
@@ -2791,6 +2791,30 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 163.83 96.52 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8a9f033b-196a-450f-8bc3-edf9dec4bdf4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 163.83 84.6448 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)
