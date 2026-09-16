@@ -487,7 +487,8 @@
   "libraries": {
     "pinned_footprint_libs": [],
     "pinned_symbol_libs": [
-      "microconsole"
+      "microconsole",
+      "project_parts"
     ]
   },
   "meta": {
@@ -669,15 +670,24 @@
         "filename": "mc_hw.kicad_sch",
         "name": "mc_hw",
         "uuid": "a5ee2319-7084-42f3-8115-a198bb762e21"
+      },
+      {
+        "filename": "raw.kicad_sch",
+        "name": "Raw",
+        "uuid": "455a7bd4-49e4-4997-a754-3908b004dd14"
       }
     ],
-    "used_designators": "A1,LS1,U1-5,SW1-17,RV1,J1-3,R1-10,C5-15,JP1-2,D1-3",
+    "used_designators": "A1,LS1-3,U1-11,SW1-17,RV1-2,J1-3,R1-12,C5-17,JP1-2,D1-3",
     "variants": []
   },
   "sheets": [
     [
       "a5ee2319-7084-42f3-8115-a198bb762e21",
       "mc_hw"
+    ],
+    [
+      "455a7bd4-49e4-4997-a754-3908b004dd14",
+      "Raw"
     ]
   ],
   "text_variables": {},

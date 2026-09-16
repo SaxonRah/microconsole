@@ -1,4 +1,6 @@
 (sym_lib_table
 	(version 7)
 	(lib (name "microconsole") (type "KiCad") (uri "${KIPRJMOD}/microconsole.kicad_sym") (options "") (descr ""))
+	(lib (name "SamacSys") (type "KiCad") (uri "C:/Users/Jupiter/Documents/SamacSys_PCB_Library/KiCad") (options "") (descr ""))
+  (lib (name "project_parts")(type "KiCad")(uri "${KIPRJMOD}/libs/bom2ecad/project_parts.kicad_sym")(options "")(descr "bom2ecad parts"))
 )
