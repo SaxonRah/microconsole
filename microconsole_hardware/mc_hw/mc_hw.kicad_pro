@@ -672,12 +672,22 @@
         "uuid": "a5ee2319-7084-42f3-8115-a198bb762e21"
       },
       {
-        "filename": "old.kicad_sch",
-        "name": "OLD",
-        "uuid": "9471f16d-6679-4341-b674-816e667a48e5"
+        "filename": "audio.kicad_sch",
+        "name": "Audio",
+        "uuid": "cf955bee-1207-4d34-b139-374418ecc34e"
+      },
+      {
+        "filename": "usbc\\battery.kicad_sch",
+        "name": "USBC/Battery",
+        "uuid": "6b885c6b-191b-4674-ada7-0b3ed625b72f"
+      },
+      {
+        "filename": "joysticks\\buttons.kicad_sch",
+        "name": "Joysticks/Buttons",
+        "uuid": "719302af-dc57-4543-bdcd-0eb891c4def3"
       }
     ],
-    "used_designators": "A1,LS1-6,U1-17,SW1-18,RV1-3,J1-3,R1-26,C1-3,C5-43,JP1-2,D1-3,QD1,DS1-2",
+    "used_designators": "A1,LS1-9,U1-24,SW1-46,RV1-4,J1-3,R1-48,C1-3,C5-80,JP1-4,D1-6,QD1,DS1-2",
     "variants": []
   },
   "sheets": [
@@ -686,8 +696,16 @@
       "mc_hw"
     ],
     [
-      "9471f16d-6679-4341-b674-816e667a48e5",
-      "OLD"
+      "cf955bee-1207-4d34-b139-374418ecc34e",
+      "Audio"
+    ],
+    [
+      "6b885c6b-191b-4674-ada7-0b3ed625b72f",
+      "USBC/Battery"
+    ],
+    [
+      "719302af-dc57-4543-bdcd-0eb891c4def3",
+      "Joysticks/Buttons"
     ]
   ],
   "text_variables": {},
