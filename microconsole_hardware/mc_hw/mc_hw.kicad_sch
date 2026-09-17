@@ -2110,6 +2110,10 @@
 		(uuid "70675bb6-e2f5-4f72-a18d-7054a9355d5b")
 	)
 	(no_connect
+		(at 227.33 134.62)
+		(uuid "754ed5c8-d1c3-4669-9b6d-358a90c28cd3")
+	)
+	(no_connect
 		(at 227.33 124.46)
 		(uuid "7c7a47c9-0189-4cde-8273-9c5a8af2569e")
 	)
@@ -2789,16 +2793,6 @@
 		)
 		(uuid "fa88f0c2-5b52-4188-821d-de2f5300dfb5")
 	)
-	(wire
-		(pts
-			(xy 229.87 134.62) (xy 227.33 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd8f7dd3-273c-440d-adaa-864ab4ff91be")
-	)
 	(global_label "GPIO6 {slash} LCD SCK"
 		(shape input)
 		(at 200.66 242.57 180)
@@ -2892,30 +2886,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-	)
-	(global_label "AGND"
-		(shape input)
-		(at 231.14 139.7 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "1e76db6a-c001-4b36-b471-d496dfb5150d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 239.0843 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 	)
@@ -3159,6 +3129,30 @@
 			)
 		)
 	)
+	(global_label "GND"
+		(shape input)
+		(at 231.14 139.7 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "63600bba-c354-4b9a-9bf6-79a7e53d8b87")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 237.9957 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "GPIO8 {slash} LCD RESET"
 		(shape input)
 		(at 179.07 121.92 180)
@@ -3299,30 +3293,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-	)
-	(global_label "GPIO28 {slash} VOLUME POT"
-		(shape input)
-		(at 229.87 134.62 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "979557d6-aff7-46b4-8a1e-54fd9bef87cb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 254.929 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 	)

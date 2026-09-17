@@ -2623,12 +2623,6 @@
 		)
 	)
 	(junction
-		(at 168.91 49.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "06065bd6-7083-47fe-acc1-f010311a2d31")
-	)
-	(junction
 		(at 107.95 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2641,16 +2635,22 @@
 		(uuid "1ebfa37a-a7a9-4458-b0fb-d209748e7285")
 	)
 	(junction
+		(at 45.72 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "33e62d80-a2de-4ae7-b5ff-cc50dfa6828d")
+	)
+	(junction
 		(at 73.66 177.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3463fc9a-d1d9-4f6f-8720-56d3579fd7a4")
 	)
 	(junction
-		(at 34.29 80.01)
+		(at 168.91 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "502405d3-6d7c-4a3a-ac8c-874bab5f062a")
+		(uuid "3ffaffbf-2c26-40d9-b585-ab9d8d5abcf6")
 	)
 	(junction
 		(at 107.95 166.37)
@@ -2683,7 +2683,7 @@
 		(uuid "7b1ddbeb-262b-44ff-b8d7-6cfaae217247")
 	)
 	(junction
-		(at 34.29 27.94)
+		(at 29.21 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7f66c91e-b45c-42be-ba85-9c48fd0f7b83")
@@ -2695,13 +2695,19 @@
 		(uuid "87a44adf-ed95-4992-a3be-5ae7f1bef4db")
 	)
 	(junction
+		(at 49.53 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8ae04919-3fad-4c59-a15b-40873e7b9eee")
+	)
+	(junction
 		(at 210.82 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "94a53b59-e8b0-4ccc-842d-0bfd50d6d608")
 	)
 	(junction
-		(at 168.91 36.83)
+		(at 184.15 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9c0334ee-5317-4c46-8ad7-3d5b326156a2")
@@ -2747,12 +2753,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7defac1-9ca8-4c79-aee4-0decdd67d97c")
-	)
-	(junction
-		(at 34.29 43.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f8ba76d0-2284-4451-a378-7eaf2ead3457")
 	)
 	(junction
 		(at 105.41 92.71)
@@ -2810,6 +2810,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 66.04) (xy 78.74 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09664171-dace-40f8-a29c-3f33527f5a35")
+	)
+	(wire
+		(pts
 			(xy 190.5 107.95) (xy 194.31 107.95)
 		)
 		(stroke
@@ -2857,16 +2867,6 @@
 			(type default)
 		)
 		(uuid "10b926a1-5da9-42af-80f2-75f4f923d0ec")
-	)
-	(wire
-		(pts
-			(xy 34.29 40.64) (xy 34.29 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1160dc18-de1d-46de-ba05-4c23811eb49c")
 	)
 	(wire
 		(pts
@@ -2950,16 +2950,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 36.83) (xy 168.91 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b64009e-a68a-41d5-bff6-06cfdf218fc4")
-	)
-	(wire
-		(pts
 			(xy 31.75 66.04) (xy 34.29 66.04)
 		)
 		(stroke
@@ -2977,6 +2967,16 @@
 			(type default)
 		)
 		(uuid "1d3f1aa6-9371-4b06-85fe-a5202bb1978c")
+	)
+	(wire
+		(pts
+			(xy 184.15 46.99) (xy 184.15 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f958444-12f2-468a-b8fb-572e2f9949db")
 	)
 	(wire
 		(pts
@@ -3007,6 +3007,16 @@
 			(type default)
 		)
 		(uuid "23c5d6ea-ef17-4c0d-b196-5b3957522a3d")
+	)
+	(wire
+		(pts
+			(xy 116.84 36.83) (xy 168.91 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "245479de-c466-4e4c-a603-b849730217d8")
 	)
 	(wire
 		(pts
@@ -3100,16 +3110,6 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 77.47) (xy 34.29 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3250acfb-fc66-4b5c-9f75-ca1efd8bef83")
-	)
-	(wire
-		(pts
 			(xy 49.53 55.88) (xy 52.07 55.88)
 		)
 		(stroke
@@ -3127,6 +3127,16 @@
 			(type default)
 		)
 		(uuid "37424334-5b65-4c1c-bb5a-b8b246022777")
+	)
+	(wire
+		(pts
+			(xy 29.21 40.64) (xy 29.21 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ab9c2a4-5254-4043-b25c-f8f536f22976")
 	)
 	(wire
 		(pts
@@ -3227,6 +3237,16 @@
 			(type default)
 		)
 		(uuid "48401105-2701-4054-b52a-9c1b6c28ba61")
+	)
+	(wire
+		(pts
+			(xy 34.29 77.47) (xy 34.29 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b4b233a-647a-45f4-aa9c-d85ecb4bb4a7")
 	)
 	(wire
 		(pts
@@ -3380,7 +3400,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 34.29) (xy 52.07 34.29)
+			(xy 62.23 34.29) (xy 64.77 34.29)
 		)
 		(stroke
 			(width 0)
@@ -3450,7 +3470,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 66.04) (xy 173.99 66.04)
+			(xy 168.91 49.53) (xy 172.72 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3467,16 +3487,6 @@
 			(type default)
 		)
 		(uuid "71d32b3d-b4e5-4843-b63f-5872be5d9c80")
-	)
-	(wire
-		(pts
-			(xy 168.91 46.99) (xy 168.91 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76dd694c-9d4f-4116-9eb0-8a08157622b1")
 	)
 	(wire
 		(pts
@@ -3510,7 +3520,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 34.29) (xy 168.91 36.83)
+			(xy 184.15 34.29) (xy 184.15 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3770,7 +3780,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 27.94) (xy 91.44 27.94)
+			(xy 29.21 27.94) (xy 91.44 27.94)
 		)
 		(stroke
 			(width 0)
@@ -3810,7 +3820,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 49.53) (xy 168.91 49.53)
+			(xy 189.23 49.53) (xy 184.15 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3830,7 +3840,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 92.71) (xy 34.29 96.52)
+			(xy 49.53 76.2) (xy 49.53 80.01)
 		)
 		(stroke
 			(width 0)
@@ -3880,7 +3890,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 36.83) (xy 168.91 39.37)
+			(xy 184.15 36.83) (xy 184.15 39.37)
 		)
 		(stroke
 			(width 0)
@@ -3900,7 +3910,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 43.18) (xy 34.29 43.18)
+			(xy 26.67 43.18) (xy 29.21 43.18)
 		)
 		(stroke
 			(width 0)
@@ -3960,6 +3970,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 36.83) (xy 184.15 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c05a4a6e-e526-4c60-bb1f-4a8abcc0804b")
+	)
+	(wire
+		(pts
 			(xy 71.12 45.72) (xy 71.12 49.53)
 		)
 		(stroke
@@ -3980,7 +4000,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 66.04) (xy 78.74 66.04)
+			(xy 34.29 66.04) (xy 49.53 66.04)
 		)
 		(stroke
 			(width 0)
@@ -4010,7 +4030,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 27.94) (xy 34.29 27.94)
+			(xy 26.67 27.94) (xy 29.21 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4060,7 +4080,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 96.52) (xy 31.75 96.52)
+			(xy 49.53 80.01) (xy 46.99 80.01)
 		)
 		(stroke
 			(width 0)
@@ -4090,7 +4110,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 27.94) (xy 34.29 33.02)
+			(xy 29.21 27.94) (xy 29.21 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4180,7 +4200,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 34.29) (xy 57.15 34.29)
+			(xy 72.39 34.29) (xy 69.85 34.29)
 		)
 		(stroke
 			(width 0)
@@ -4200,7 +4220,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 59.69) (xy 31.75 59.69)
+			(xy 45.72 40.64) (xy 43.18 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4250,7 +4270,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 62.23) (xy 168.91 66.04)
+			(xy 168.91 46.99) (xy 168.91 49.53)
 		)
 		(stroke
 			(width 0)
@@ -4260,7 +4280,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 55.88) (xy 34.29 59.69)
+			(xy 45.72 38.1) (xy 45.72 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4324,7 +4344,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 31.75 43.18 180)
+		(at 26.67 43.18 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4334,7 +4354,7 @@
 		)
 		(uuid "0b397417-a586-4f30-916d-ffeacb352612")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 24.8943 43.18 0)
+			(at 19.8143 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4540,7 +4560,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 31.75 96.52 180)
+		(at 46.99 80.01 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4550,7 +4570,7 @@
 		)
 		(uuid "30b7548e-e0d8-494f-b137-e23841812c7c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 24.8943 96.52 0)
+			(at 40.1343 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4684,7 +4704,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 31.75 59.69 180)
+		(at 43.18 40.64 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4694,7 +4714,7 @@
 		)
 		(uuid "4d1e4c7b-2da3-4d3a-9ed6-aef80a115ef0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 24.8943 59.69 0)
+			(at 36.3243 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4900,7 +4920,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 173.99 49.53 0)
+		(at 189.23 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4910,7 +4930,7 @@
 		)
 		(uuid "8219d239-7e91-42e9-9fb5-01c745b48582")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8457 49.53 0)
+			(at 196.0857 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5164,7 +5184,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 173.99 66.04 0)
+		(at 172.72 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5174,7 +5194,7 @@
 		)
 		(uuid "a5781475-81d7-499d-a9fa-50b191f416cf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.8457 66.04 0)
+			(at 179.5757 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5188,7 +5208,7 @@
 	)
 	(global_label "3v3_AUDIO"
 		(shape input)
-		(at 168.91 34.29 90)
+		(at 184.15 34.29 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5198,7 +5218,7 @@
 		)
 		(uuid "ad99740a-5708-4f56-af9b-6daf214ee727")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 168.91 21.3262 90)
+			(at 184.15 21.3262 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5548,7 +5568,7 @@
 	)
 	(global_label "3v3_AUDIO"
 		(shape input)
-		(at 31.75 27.94 180)
+		(at 26.67 27.94 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5558,7 +5578,7 @@
 		)
 		(uuid "e71a1752-d4cf-4eb0-b1b7-15b64d0f0d41")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 18.7862 27.94 0)
+			(at 13.7062 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5788,7 +5808,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 49.53 34.29 180)
+		(at 62.23 34.29 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5798,7 +5818,7 @@
 		)
 		(uuid "fe32d938-8c21-4c14-91b4-56d413f0b843")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.6743 34.29 0)
+			(at 55.3743 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5908,7 +5928,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:C0805C104K5RAC7210")
-		(at 34.29 36.83 180)
+		(at 29.21 36.83 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5918,7 +5938,7 @@
 		(dnp no)
 		(uuid "08cd1597-61dd-4ddc-9ef9-6b90ab7289a9")
 		(property "Reference" "C14"
-			(at 39.878 36.576 90)
+			(at 34.798 36.576 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5928,7 +5948,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 37.592 37.084 90)
+			(at 32.512 37.084 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5938,7 +5958,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
-			(at 34.29 36.83 0)
+			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5949,7 +5969,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 34.29 36.83 0)
+			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5960,7 +5980,7 @@
 			)
 		)
 		(property "Description" "KEMET 0805 MLCC 0.1uF 10% 50V X7R"
-			(at 34.29 36.83 0)
+			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5971,7 +5991,7 @@
 			)
 		)
 		(property "MPN" "C0805C104K5RAC7210"
-			(at 34.29 36.83 0)
+			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5982,7 +6002,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 34.29 36.83 0)
+			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6261,7 +6281,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0603_1608Metric"
+		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
 			(at 241.3 42.672 90)
 			(hide yes)
 			(show_name no)
@@ -6825,7 +6845,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:1206ZD106KAT2A")
-		(at 34.29 87.63 90)
+		(at 49.53 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6835,7 +6855,7 @@
 		(dnp no)
 		(uuid "46c42bdb-e832-46dc-8f12-6712cb031301")
 		(property "Reference" "C17"
-			(at 39.624 85.852 0)
+			(at 54.864 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6846,7 +6866,7 @@
 			)
 		)
 		(property "Value" "1206ZD106KAT2A"
-			(at 37.338 83.058 0)
+			(at 52.578 66.548 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6857,7 +6877,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:C1206"
-			(at 41.91 87.63 0)
+			(at 57.15 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6868,7 +6888,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
-			(at 44.45 87.63 0)
+			(at 59.69 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6879,7 +6899,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 34.29 87.63 0)
+			(at 49.53 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6890,7 +6910,7 @@
 			)
 		)
 		(property "Manufacturer" "Kyocera AVX"
-			(at 46.99 87.63 0)
+			(at 62.23 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6901,7 +6921,7 @@
 			)
 		)
 		(property "MPN" "1206ZD106KAT2A"
-			(at 49.53 87.63 0)
+			(at 64.77 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6912,7 +6932,7 @@
 			)
 		)
 		(property "LCSC Part" "C597553"
-			(at 52.07 87.63 0)
+			(at 67.31 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8432,7 +8452,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0603_1608Metric"
+		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
 			(at 241.3 54.102 90)
 			(hide yes)
 			(show_name no)
@@ -8899,7 +8919,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:1206ZD106KAT2A")
-		(at 34.29 50.8 90)
+		(at 45.72 33.02 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8909,7 +8929,7 @@
 		(dnp no)
 		(uuid "b4af3b9a-202e-47d3-b1b0-72b815166da5")
 		(property "Reference" "C15"
-			(at 39.624 49.022 0)
+			(at 51.054 31.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8920,7 +8940,7 @@
 			)
 		)
 		(property "Value" "1206ZD106KAT2A"
-			(at 37.338 46.228 0)
+			(at 49.022 25.908 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8931,7 +8951,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:C1206"
-			(at 41.91 50.8 0)
+			(at 53.34 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8942,7 +8962,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
-			(at 44.45 50.8 0)
+			(at 55.88 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8953,7 +8973,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 34.29 50.8 0)
+			(at 45.72 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8964,7 +8984,7 @@
 			)
 		)
 		(property "Manufacturer" "Kyocera AVX"
-			(at 46.99 50.8 0)
+			(at 58.42 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8975,7 +8995,7 @@
 			)
 		)
 		(property "MPN" "1206ZD106KAT2A"
-			(at 49.53 50.8 0)
+			(at 60.96 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8986,7 +9006,7 @@
 			)
 		)
 		(property "LCSC Part" "C597553"
-			(at 52.07 50.8 0)
+			(at 63.5 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9667,7 +9687,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:C0805C104K5RAC7210")
-		(at 168.91 43.18 180)
+		(at 184.15 43.18 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9677,7 +9697,7 @@
 		(dnp no)
 		(uuid "d76f4293-c478-45eb-91c1-2ec762d2c1f7")
 		(property "Reference" "C40"
-			(at 165.862 43.688 90)
+			(at 181.102 43.688 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9687,7 +9707,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 163.576 44.958 90)
+			(at 187.96 40.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9697,7 +9717,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
-			(at 168.91 43.18 0)
+			(at 184.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9708,7 +9728,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 168.91 43.18 0)
+			(at 184.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9719,7 +9739,7 @@
 			)
 		)
 		(property "Description" "KEMET 0805 MLCC 0.1uF 10% 50V X7R"
-			(at 168.91 43.18 0)
+			(at 184.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9730,7 +9750,7 @@
 			)
 		)
 		(property "MPN" "C0805C104K5RAC7210"
-			(at 168.91 43.18 0)
+			(at 184.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9741,7 +9761,7 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
-			(at 168.91 43.18 0)
+			(at 184.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9883,7 +9903,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:1206ZD106KAT2A")
-		(at 168.91 57.15 90)
+		(at 168.91 41.91 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9893,7 +9913,7 @@
 		(dnp no)
 		(uuid "dcd45645-3ebc-4fb5-8f43-bab86acecabb")
 		(property "Reference" "C41"
-			(at 165.608 56.134 0)
+			(at 165.608 40.894 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9904,7 +9924,7 @@
 			)
 		)
 		(property "Value" "1206ZD106KAT2A"
-			(at 163.322 56.642 0)
+			(at 163.576 37.846 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9915,7 +9935,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:C1206"
-			(at 176.53 57.15 0)
+			(at 176.53 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9926,7 +9946,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
-			(at 179.07 57.15 0)
+			(at 179.07 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9937,7 +9957,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 168.91 57.15 0)
+			(at 168.91 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9948,7 +9968,7 @@
 			)
 		)
 		(property "Manufacturer" "Kyocera AVX"
-			(at 181.61 57.15 0)
+			(at 181.61 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9959,7 +9979,7 @@
 			)
 		)
 		(property "MPN" "1206ZD106KAT2A"
-			(at 184.15 57.15 0)
+			(at 184.15 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9970,7 +9990,7 @@
 			)
 		)
 		(property "LCSC Part" "C597553"
-			(at 186.69 57.15 0)
+			(at 186.69 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10981,7 +11001,7 @@
 	)
 	(symbol
 		(lib_id "PCM_SparkFun-Capacitor:2.2uF_0805_25V_20%")
-		(at 54.61 34.29 270)
+		(at 67.31 34.29 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10991,7 +11011,7 @@
 		(dnp no)
 		(uuid "fe580c89-6881-4de2-87d4-11f16df2f46e")
 		(property "Reference" "C22"
-			(at 51.054 35.814 90)
+			(at 63.754 35.814 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11002,7 +11022,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 49.784 37.592 90)
+			(at 62.484 37.592 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11013,7 +11033,7 @@
 			)
 		)
 		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
-			(at 43.18 34.29 0)
+			(at 55.88 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11024,7 +11044,7 @@
 			)
 		)
 		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
-			(at 38.1 35.56 0)
+			(at 50.8 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11035,7 +11055,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 35.56 34.29 0)
+			(at 48.26 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11046,7 +11066,7 @@
 			)
 		)
 		(property "PROD_ID" "CAP-11624"
-			(at 40.64 33.02 0)
+			(at 53.34 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11057,7 +11077,7 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 52.832 39.37 90)
+			(at 65.532 39.37 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11068,7 +11088,7 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 48.768 39.37 90)
+			(at 61.468 39.37 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

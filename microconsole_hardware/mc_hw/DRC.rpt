@@ -1,0 +1,206 @@
+** Drc report for top.kicad_pcb **
+** Created on 2026-09-17T05:26:27 **
+** Report includes: Errors, Warnings **
+
+** Found 53 DRC violations **
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
+    @(198.3800 mm, 103.7500 mm): Track [GPIO13 / SD CS] on F.Cu, length 11.1299 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(199.8800 mm, 105.2500 mm): Segment of DS1 on Margin
+    @(198.3800 mm, 101.2100 mm): Track [GPIO15 / SD MOSI] on F.Cu, length 1.9375 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(196.8800 mm, 105.2500 mm): Segment of DS1 on Margin
+    @(199.7500 mm, 104.5000 mm): Track [GPIO15 / SD MOSI] on F.Cu, length 16.9706 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(199.8800 mm, 105.2500 mm): Segment of DS1 on Margin
+    @(199.7500 mm, 102.5800 mm): Track [GPIO15 / SD MOSI] on F.Cu, length 1.9200 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.1983 mm)
+    Rule: board setup constraints edge; warning
+    @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
+    @(198.3800 mm, 98.6700 mm): Track [GPIO12 / SD MISO] on F.Cu, length 1.1517 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
+    @(186.8183 mm, 109.0800 mm): Track [GPIO12 / SD MISO] on F.Cu, length 14.7220 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; warning
+    @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
+    @(198.3800 mm, 96.1300 mm): Track [GPIO14 / SD SCK] on B.Cu, length 23.8649 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(90.7500 mm, 59.6400 mm): Pad 1 [GND] of SW12 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(95.2500 mm, 59.6400 mm): Pad 4 [MCP GPB5 / L2] of SW12 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(203.7500 mm, 59.6400 mm): Pad 1 [GND] of SW15 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(208.2500 mm, 59.6400 mm): Pad 4 [MCP GPB6 / R2] of SW15 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(221.7500 mm, 59.6400 mm): Pad 1 [GND] of SW8 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(226.2500 mm, 59.6400 mm): Pad 4 [MCP GPB4 / R1] of SW8 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4800 mm)
+    Rule: board setup constraints edge; warning
+    @(199.8800 mm, 94.7500 mm): Segment of DS1 on Margin
+    @(198.3800 mm, 96.1300 mm): PTH pad 18 [GPIO14 / SD SCK] of DS1
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(72.7500 mm, 59.6400 mm): Pad 1 [GND] of SW4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    Rule: board setup constraints edge; warning
+    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(77.2500 mm, 59.6400 mm): Pad 4 [MCP GPB3 / L1] of SW4 on F.Cu
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
+    @(116.0000 mm, 159.3000 mm): Segment of RV1 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
+    @(120.5000 mm, 153.7000 mm): Segment of RV1 on B.Silkscreen
+[lib_footprint_mismatch]: Footprint 'Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical' does not match copy in library 'Connector_Molex'
+    Local override; warning
+    @(80.6250 mm, 74.9550 mm): Footprint LS1
+[lib_footprint_mismatch]: Footprint 'PTV09A2015FB103' does not match copy in library 'project_parts'
+    Local override; warning
+    @(121.5000 mm, 148.0000 mm): Footprint RV1
+[lib_footprint_mismatch]: Footprint 'CONN-TH_S2B-PH-K-S-LF-SN' does not match copy in library 'project_parts'
+    Local override; warning
+    @(189.0000 mm, 77.0000 mm): Footprint U2
+[lib_footprint_mismatch]: Footprint 'USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal' does not match copy in library 'Connector_USB'
+    Local override; warning
+    @(149.5000 mm, 60.0000 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'MSOP-10_3x3mm_P0.5mm' does not match copy in library 'PCM_SparkFun-Semiconductor-Standard'
+    Local override; warning
+    @(188.5000 mm, 66.7500 mm): Footprint U1
+[lib_footprint_mismatch]: Footprint 'RaspberryPi_Pico_Common_Unspecified' does not match copy in library 'Module'
+    Local override; warning
+    @(114.1100 mm, 95.1100 mm): Footprint A2
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.1300 mm, 90.1200 mm): Footprint text of DS1 (RESET)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 82.5000 mm): Footprint text of DS1 (VCC)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 85.0400 mm): Footprint text of DS1 (GND)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 92.5000 mm): Footprint text of DS1 (DC/RS)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 95.2000 mm): Footprint text of DS1 (SDI)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 97.7400 mm): Footprint text of DS1 (SCK)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 102.8200 mm): Footprint text of DS1 (SDO)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 105.3600 mm): Footprint text of DS1 (T_CLK)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 107.9000 mm): Footprint text of DS1 (T_CS)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 112.9800 mm): Footprint text of DS1 (T_DO)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 115.5200 mm): Footprint text of DS1 (T_IRQ)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 87.5800 mm): Footprint text of DS1 (CS)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 100.2800 mm): Footprint text of DS1 (LED)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(99.3800 mm, 110.4400 mm): Footprint text of DS1 (T_DIN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(196.8800 mm, 96.2500 mm): Footprint text of DS1 (SD_CS)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(196.8800 mm, 98.7500 mm): Footprint text of DS1 (SD_MOSI)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(196.8800 mm, 101.2500 mm): Footprint text of DS1 (SD_MISO)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(196.8800 mm, 104.0000 mm): Footprint text of DS1 (SD_SCK)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(206.0000 mm, 100.0000 mm): Reference field of SW14
+    @(206.0000 mm, 100.0000 mm): Circle of SW14 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(215.0000 mm, 92.0000 mm): Reference field of SW11
+    @(215.0000 mm, 92.0000 mm): Circle of SW11 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.0000 mm, 129.3570 mm): Reference field of SW13
+    @(95.6300 mm, 127.0000 mm): PTH pad [<no net>] of DS1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(154.3100 mm, 103.7600 mm): Segment of C17 on B.Silkscreen
+    @(154.5400 mm, 103.7000 mm): Segment of C16 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(188.0000 mm, 83.2000 mm): Segment of U2 on B.Silkscreen
+    @(189.0000 mm, 81.0000 mm): Reference field of U2
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(186.7400 mm, 97.1100 mm): Reference field of C35
+    @(186.3300 mm, 96.1800 mm): Segment of C35 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(182.8300 mm, 94.7000 mm): Segment of C29 on B.Silkscreen
+    @(183.2400 mm, 97.1100 mm): Reference field of C29
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(186.7400 mm, 97.1100 mm): Reference field of C35
+    @(186.3300 mm, 98.0400 mm): Segment of C35 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(182.8300 mm, 99.5200 mm): Segment of C29 on B.Silkscreen
+    @(183.2400 mm, 97.1100 mm): Reference field of C29
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(187.6000 mm, 81.0000 mm): Segment of U2 on B.Silkscreen
+    @(188.0000 mm, 77.0000 mm): PTH pad 2 [Net-(C2-Pad1)] of U2
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(190.4000 mm, 77.2000 mm): Segment of U2 on B.Silkscreen
+    @(190.0000 mm, 77.0000 mm): PTH pad 1 [BAT+] of U2
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
