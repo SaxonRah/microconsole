@@ -710,7 +710,9 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+			)
+			(symbol "1206ZD106KAT2A_1_1"
+				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
 					(name "1"
@@ -728,7 +730,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
@@ -2653,6 +2655,12 @@
 		(uuid "3ffaffbf-2c26-40d9-b585-ab9d8d5abcf6")
 	)
 	(junction
+		(at 144.78 175.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4d0e1453-cb3d-4dd4-bced-3b12cab56483")
+	)
+	(junction
 		(at 107.95 166.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2687,12 +2695,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7f66c91e-b45c-42be-ba85-9c48fd0f7b83")
-	)
-	(junction
-		(at 144.78 175.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "87a44adf-ed95-4992-a3be-5ae7f1bef4db")
 	)
 	(junction
 		(at 49.53 66.04)
@@ -2753,6 +2755,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7defac1-9ca8-4c79-aee4-0decdd67d97c")
+	)
+	(junction
+		(at 149.86 175.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "face3618-ee84-43cd-a919-4ced047e91f7")
 	)
 	(junction
 		(at 105.41 92.71)
@@ -2860,16 +2868,6 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 175.26) (xy 144.78 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10b926a1-5da9-42af-80f2-75f4f923d0ec")
-	)
-	(wire
-		(pts
 			(xy 115.57 99.06) (xy 115.57 88.9)
 		)
 		(stroke
@@ -2897,6 +2895,16 @@
 			(type default)
 		)
 		(uuid "14f370e9-e8e6-4de2-a94d-f0145b7604ee")
+	)
+	(wire
+		(pts
+			(xy 149.86 175.26) (xy 152.4 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1672777b-6ab1-4657-9680-c5610a774c97")
 	)
 	(wire
 		(pts
@@ -3197,16 +3205,6 @@
 			(type default)
 		)
 		(uuid "42469414-460d-4153-8edd-9fcb1db5fdf5")
-	)
-	(wire
-		(pts
-			(xy 144.78 172.72) (xy 144.78 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4254a5e1-140f-4d75-abfa-2a5857c3cfe3")
 	)
 	(wire
 		(pts
@@ -3650,7 +3648,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 170.18) (xy 128.27 170.18)
+			(xy 163.83 170.18) (xy 128.27 170.18)
 		)
 		(stroke
 			(width 0)
@@ -3660,7 +3658,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 168.91) (xy 158.75 170.18)
+			(xy 163.83 168.91) (xy 163.83 170.18)
 		)
 		(stroke
 			(width 0)
@@ -3677,16 +3675,6 @@
 			(type default)
 		)
 		(uuid "90d7e1fe-9407-4d1f-8648-5044b0f3698d")
-	)
-	(wire
-		(pts
-			(xy 92.71 123.19) (xy 92.71 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95dbb86e-590e-4aba-977b-bec944128666")
 	)
 	(wire
 		(pts
@@ -3810,6 +3798,16 @@
 	)
 	(wire
 		(pts
+			(xy 144.78 175.26) (xy 149.86 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a05a158f-000c-4555-b425-0d64097ff846")
+	)
+	(wire
+		(pts
 			(xy 31.75 170.18) (xy 33.02 170.18)
 		)
 		(stroke
@@ -3830,7 +3828,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 187.96) (xy 161.29 187.96)
+			(xy 128.27 187.96) (xy 166.37 187.96)
 		)
 		(stroke
 			(width 0)
@@ -4170,7 +4168,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 168.91) (xy 161.29 187.96)
+			(xy 166.37 168.91) (xy 166.37 187.96)
 		)
 		(stroke
 			(width 0)
@@ -4187,16 +4185,6 @@
 			(type default)
 		)
 		(uuid "e7c9eff1-a48d-45e2-b2a9-c223495e0ebf")
-	)
-	(wire
-		(pts
-			(xy 146.05 172.72) (xy 144.78 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e841bd76-f24a-4514-a447-26a87ae59f91")
 	)
 	(wire
 		(pts
@@ -5712,7 +5700,7 @@
 	)
 	(global_label "AMP_VDD"
 		(shape input)
-		(at 146.05 172.72 0)
+		(at 152.4 175.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5722,7 +5710,7 @@
 		)
 		(uuid "f6586dab-128d-4be1-8b67-5df2418c6afc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.4414 172.72 0)
+			(at 163.7914 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6207,25 +6195,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 56.388 46.736 0)
+			(at 52.07 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 60.452 46.736 0)
+			(at 52.07 57.15 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(pin "2"
@@ -6281,7 +6267,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
+		(property "Footprint" ""
 			(at 241.3 42.672 90)
 			(hide yes)
 			(show_name no)
@@ -6574,25 +6560,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 181.61 112.522 90)
+			(at 191.77 107.95 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 185.674 112.522 90)
+			(at 194.31 107.95 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -7041,25 +7025,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 76.962 43.688 0)
+			(at 81.28 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 72.898 43.688 0)
+			(at 81.28 50.8 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -7257,25 +7239,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 100.584 125.984 90)
+			(at 92.71 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 96.52 125.984 90)
+			(at 90.17 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -7377,25 +7357,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 101.346 174.244 90)
+			(at 99.314 174.244 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 97.282 174.244 90)
+			(at 103.632 174.244 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(pin "2"
@@ -7689,25 +7667,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 155.702 182.372 0)
+			(at 153.67 183.134 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 151.638 182.372 0)
+			(at 149.86 183.134 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -8042,25 +8018,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 56.388 56.896 0)
+			(at 52.07 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 60.452 56.896 0)
+			(at 52.07 67.31 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(pin "2"
@@ -8162,25 +8136,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 71.12 191.516 90)
+			(at 67.564 188.722 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 67.056 191.516 90)
+			(at 67.818 186.944 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -8452,7 +8424,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
+		(property "Footprint" ""
 			(at 241.3 54.102 90)
 			(hide yes)
 			(show_name no)
@@ -8508,7 +8480,7 @@
 	)
 	(symbol
 		(lib_id "project_parts:AS03208AS-HT")
-		(at 158.75 163.83 90)
+		(at 163.83 163.83 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8519,7 +8491,7 @@
 		(fields_autoplaced yes)
 		(uuid "a0c2c47f-7de3-4c94-b26c-052d0157dd02")
 		(property "Reference" "LS2"
-			(at 166.37 162.0519 90)
+			(at 171.45 162.0519 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8530,7 +8502,7 @@
 			)
 		)
 		(property "Value" "8R 3W"
-			(at 166.37 164.5919 90)
+			(at 171.45 164.5919 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8541,7 +8513,7 @@
 			)
 		)
 		(property "Footprint" "project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm"
-			(at 158.75 163.83 0)
+			(at 163.83 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8552,7 +8524,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 158.75 163.83 0)
+			(at 163.83 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8563,7 +8535,7 @@
 			)
 		)
 		(property "Description" "PUI 32 mm 8 ohm 3 W IPX5 speaker, solder terminals, panel mount; red dot = +"
-			(at 158.75 163.83 0)
+			(at 163.83 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8574,7 +8546,7 @@
 			)
 		)
 		(property "MPN" "AS03208AS-HT"
-			(at 158.75 163.83 0)
+			(at 163.83 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8585,7 +8557,7 @@
 			)
 		)
 		(property "Manufacturer" "PUI Audio"
-			(at 158.75 163.83 0)
+			(at 163.83 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9115,25 +9087,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 187.706 92.964 0)
+			(at 193.04 97.79 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 183.642 92.964 0)
+			(at 193.04 100.33 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -9643,25 +9613,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 110.998 91.694 0)
+			(at 105.41 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 106.934 91.694 0)
+			(at 105.41 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -10256,25 +10224,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 128.27 134.366 90)
+			(at 124.714 131.318 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 124.206 134.366 90)
+			(at 124.968 129.54 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -10741,25 +10707,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 101.346 181.864 90)
+			(at 90.17 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 97.282 181.864 90)
+			(at 87.63 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -10861,25 +10825,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 140.208 182.626 0)
+			(at 143.764 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 136.144 182.626 0)
+			(at 139.954 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -11077,25 +11039,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 65.532 39.37 90)
+			(at 60.96 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 61.468 39.37 90)
+			(at 58.42 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"

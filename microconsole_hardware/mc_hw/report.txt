@@ -1,10 +1,4 @@
 Info: Processing symbol 'A2:Module:RaspberryPi_Pico_Common_Unspecified'.
-Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
-Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
-Info: Processing symbol 'U2:project_parts:CONN-TH_S2B-PH-K-S-LF-SN'.
-Info: Processing symbol 'U3:project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL'.
-Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
-Info: Processing symbol 'U5:project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'C1:'.
 Info: Processing symbol 'C2:'.
 Info: Processing symbol 'C4:project_parts:C1206'.
@@ -47,22 +41,21 @@ Info: Processing symbol 'C47:project_parts:C1206'.
 Info: Processing symbol 'C48:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C49:project_parts:C1206'.
 Info: Processing symbol 'C50:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'D1:Diode_SMD:Nexperia_CFP3_SOD-123W'.
-Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
-Info: Processing symbol 'D2:PCM_SparkFun-Resistor:R_0603_1608Metric'.
-Info: Processing symbol 'D3:PCM_SparkFun-Resistor:R_0603_1608Metric'.
-Info: Processing symbol 'D4:PCM_SparkFun-Resistor:R_0603_1608Metric'.
+Info: Processing symbol 'D1:'.
+Info: Processing symbol 'D2:'.
+Info: Processing symbol 'D3:'.
+Info: Processing symbol 'D4:'.
+Info: Processing symbol 'D5:Package_TO_SOT_SMD:SOT-23'.
 Info: Processing symbol 'DS1:project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm'.
-Info: Processing symbol 'FB1:Ferrite_THT:LairdTech_28C0236-0JW-10'.
-Info: Processing symbol 'FB4:Ferrite_THT:LairdTech_28C0236-0JW-10'.
-Info: Processing symbol 'FB5:Ferrite_THT:LairdTech_28C0236-0JW-10'.
+Info: Processing symbol 'FB1:'.
+Info: Processing symbol 'FB4:'.
+Info: Processing symbol 'FB5:'.
 Info: Processing symbol 'J1:Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal'.
 Info: Processing symbol 'LS1:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
 Info: Processing symbol 'LS2:project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm'.
 Info: Processing symbol 'LS3:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
-Info: Processing symbol 'Q1:Package_TO_SOT_SMD:SOT-23'.
-Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
-Info: Processing symbol 'Q2:Package_TO_SOT_SMD:SOT-23'.
+Info: Processing symbol 'Q1:'.
+Info: Processing symbol 'Q2:'.
 Info: Processing symbol 'R3:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R4:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R5:PCM_SparkFun-Resistor:R_0603_1608Metric'.
@@ -110,15 +103,14 @@ Info: Processing symbol 'SW14:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
-Add net unconnected-(A2-VBUS-Pad40).
-Reconnected A2 pin 40 from VSYS_BAT to unconnected-(A2-VBUS-Pad40).
-Add net unconnected-(A2-VBUS-Pad40)_1.
-Reconnected A2 pin 40 from VSYS_BAT to unconnected-(A2-VBUS-Pad40)_1.
-Add net unconnected-(A2-AGND-Pad33)_1.
-Reconnected A2 pin 33 from unconnected-(A2-AGND-Pad33) to unconnected-(A2-AGND-Pad33)_1.
-Changed D1 value from D_Schottky to PMEG40T30ER Schottky.
-Updated Q1 unit metadata.
-Changed R9 value from 2k to 3.32k.
+Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
+Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
+Info: Processing symbol 'U2:project_parts:CONN-TH_S2B-PH-K-S-LF-SN'.
+Info: Processing symbol 'U3:project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL'.
+Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
+Info: Processing symbol 'U5:project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL'.
+Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
+Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
 Error: J1 pad A1 not found in Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal.
 Error: J1 pad B1 not found in Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal.
 Error: J1 pad A4 not found in Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal.

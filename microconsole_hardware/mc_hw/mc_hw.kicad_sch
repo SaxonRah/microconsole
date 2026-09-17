@@ -1203,6 +1203,121 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:PWR_FLAG"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "project_parts:1206ZD106KAT2A"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1355,7 +1470,9 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+			)
+			(symbol "1206ZD106KAT2A_1_1"
+				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
 					(name "1"
@@ -1373,7 +1490,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
@@ -2068,6 +2185,12 @@
 		(uuid "6a7831e8-c1f6-40d4-9624-2b923facf228")
 	)
 	(junction
+		(at 199.39 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "837d6315-e732-4fe0-8dbe-917e38e8395a")
+	)
+	(junction
 		(at 209.55 54.61)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2259,6 +2382,16 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 44.45) (xy 199.39 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20864148-75c1-4ad8-bb28-cdb4e6a058a8")
+	)
+	(wire
+		(pts
 			(xy 229.87 104.14) (xy 227.33 104.14)
 		)
 		(stroke
@@ -2299,7 +2432,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 49.53) (xy 199.39 54.61)
+			(xy 199.39 41.91) (xy 199.39 44.45)
 		)
 		(stroke
 			(width 0)
@@ -2566,6 +2699,16 @@
 			(type default)
 		)
 		(uuid "92f89575-ed37-4abd-9a5e-cbda16a2d89d")
+	)
+	(wire
+		(pts
+			(xy 195.58 44.45) (xy 199.39 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94d3155a-6ca3-4416-8eb2-4be28f9904c4")
 	)
 	(wire
 		(pts
@@ -3338,30 +3481,6 @@
 			)
 		)
 	)
-	(global_label "VSYS_BAT"
-		(shape input)
-		(at 199.39 49.53 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b4a96111-94e9-4879-ba46-bc0c5652601d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 199.39 37.6548 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "GPIO17 {slash} Right Stick"
 		(shape input)
 		(at 229.87 106.68 0)
@@ -3455,6 +3574,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 195.58 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "df13a118-f8cc-47ca-8522-e04ef4d185b1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.7048 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -4011,7 +4154,7 @@
 		(fields_autoplaced yes)
 		(uuid "7b1e7e56-9bca-4b58-8daf-94f454e5c0a5")
 		(property "Reference" "C50"
-			(at 220.98 57.15 90)
+			(at 220.98 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4021,7 +4164,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 220.98 59.69 90)
+			(at 220.98 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4446,6 +4589,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 199.39 41.91 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b081715d-c406-49a4-9b98-e21dd6740b5d")
+		(property "Reference" "#FLG01"
+			(at 199.39 40.005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 199.39 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 199.39 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8148dfad-2042-4e33-99c4-229d6f2d49a2")
+		)
+		(instances
+			(project "top"
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
+					(reference "#FLG01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "project_parts:1206ZD106KAT2A")
 		(at 220.98 54.61 0)
 		(unit 1)
@@ -4697,7 +4918,7 @@
 		(fields_autoplaced yes)
 		(uuid "ef8052d2-e22c-4caa-97a9-e19ee82397c4")
 		(property "Reference" "C48"
-			(at 190.5 57.15 90)
+			(at 190.5 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4707,7 +4928,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 190.5 59.69 90)
+			(at 190.5 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

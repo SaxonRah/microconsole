@@ -1294,7 +1294,9 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+			)
+			(symbol "1206ZD106KAT2A_1_1"
+				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
 					(name "1"
@@ -1312,7 +1314,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
@@ -3269,6 +3271,12 @@
 		(uuid "1508de7b-a5db-48b8-956e-db560ce3c25d")
 	)
 	(junction
+		(at 212.09 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "156a9b14-3502-48d2-8de9-e3ee2d24719e")
+	)
+	(junction
 		(at 147.32 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3285,12 +3293,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "59dc688a-3e5d-4c5d-a17c-7b1ee1a0d156")
-	)
-	(junction
-		(at 137.16 172.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "630e5ab7-6ced-438a-810a-58cdc6ffef8d")
 	)
 	(junction
 		(at 67.31 170.18)
@@ -3538,7 +3540,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 33.02) (xy 212.09 33.02)
+			(xy 218.44 30.48) (xy 212.09 30.48)
 		)
 		(stroke
 			(width 0)
@@ -3735,16 +3737,6 @@
 			(type default)
 		)
 		(uuid "371abb51-644a-4f87-972e-bdb8601bb5ad")
-	)
-	(wire
-		(pts
-			(xy 139.7 172.72) (xy 137.16 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f6ca51c-3caf-486f-9fb5-bdd4e2708b16")
 	)
 	(wire
 		(pts
@@ -3978,6 +3970,16 @@
 	)
 	(wire
 		(pts
+			(xy 212.09 30.48) (xy 212.09 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90dda539-bd03-4e49-a706-eaa684482756")
+	)
+	(wire
+		(pts
 			(xy 137.16 172.72) (xy 130.81 172.72)
 		)
 		(stroke
@@ -4015,16 +4017,6 @@
 			(type default)
 		)
 		(uuid "9f7ebbd0-1178-4611-9dbd-e7eb6c5d901b")
-	)
-	(wire
-		(pts
-			(xy 212.09 30.48) (xy 212.09 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a281df35-f4fc-43d3-8b6b-7923f3fe98ba")
 	)
 	(wire
 		(pts
@@ -5648,7 +5640,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 218.44 33.02 0)
+		(at 218.44 30.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5658,7 +5650,7 @@
 		)
 		(uuid "a36ad202-a1b7-4ac0-9b15-8241a5a0b49d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 225.2957 33.02 0)
+			(at 225.2957 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5947,30 +5939,6 @@
 		(uuid "c345322b-55f3-4768-88e4-6fbca26a07a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 160.7071 157.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "MCP RESET"
-		(shape input)
-		(at 139.7 172.72 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c35e34ff-cfff-4715-94ad-6aa8438bb826")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 153.3893 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6612,25 +6580,23 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 216.662 46.482 0)
+			(at 210.82 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 212.598 46.482 0)
+			(at 210.82 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(pin "2"
@@ -8581,7 +8547,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
+		(property "Footprint" ""
 			(at 269.24 47.752 90)
 			(hide yes)
 			(show_name no)
@@ -8636,6 +8602,7 @@
 		)
 	)
 	(symbol
+		(lib_name "GINFULL_HallEffect_Joystick_PTH_1")
 		(lib_id "project_parts:GINFULL_HallEffect_Joystick_PTH")
 		(at 147.32 109.22 0)
 		(unit 1)
@@ -9783,7 +9750,6 @@
 		)
 	)
 	(symbol
-		(lib_name "GINFULL_HallEffect_Joystick_PTH_1")
 		(lib_id "project_parts:GINFULL_HallEffect_Joystick_PTH")
 		(at 243.84 109.22 0)
 		(unit 1)
