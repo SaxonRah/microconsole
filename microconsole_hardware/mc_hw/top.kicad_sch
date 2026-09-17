@@ -45,8 +45,8 @@
 		)
 		(instances
 			(project "mc_hw"
-				(path "/1b4f24ce-4644-4f48-b948-d506c6ad30e0"
-					(page "8")
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
+					(page "2")
 				)
 			)
 		)
@@ -91,8 +91,8 @@
 		)
 		(instances
 			(project "mc_hw"
-				(path "/1b4f24ce-4644-4f48-b948-d506c6ad30e0"
-					(page "5")
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
+					(page "3")
 				)
 			)
 		)
@@ -137,8 +137,8 @@
 		)
 		(instances
 			(project "mc_hw"
-				(path "/1b4f24ce-4644-4f48-b948-d506c6ad30e0"
-					(page "9")
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
+					(page "1")
 				)
 			)
 		)
@@ -183,8 +183,8 @@
 		)
 		(instances
 			(project "mc_hw"
-				(path "/1b4f24ce-4644-4f48-b948-d506c6ad30e0"
-					(page "6")
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
+					(page "4")
 				)
 			)
 		)

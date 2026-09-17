@@ -91,7 +91,7 @@
 		(layer "F.Cu")
 		(uuid "213c2b0c-d369-4aa1-bf2f-2a49bede4514")
 		(at 85 127)
-		(property "Reference" "SW33"
+		(property "Reference" "SW2"
 			(at 5 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "0800bbc9-412d-43ef-8c61-2d088939aa54")
@@ -174,7 +174,8 @@
 			)
 		)
 		(path "/3caadc2c-dbe7-443c-ad74-14363efd7fb4")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -309,7 +310,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW33-Pad2)")
+			(net "unconnected-(SW2-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "87757e2f-89c0-4727-888b-33c7cf4dc312")
@@ -318,7 +319,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW33-Pad3)")
+			(net "unconnected-(SW2-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "c67e3b8d-fdfc-41b3-9123-81fca1f00ef4")
@@ -349,7 +350,7 @@
 		(layer "F.Cu")
 		(uuid "3983a458-20d1-4a21-a12c-7376326057d6")
 		(at 206 105)
-		(property "Reference" "SW46"
+		(property "Reference" "SW14"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "da9b9376-7c53-40ed-91d2-efacf8f8cee9")
@@ -432,7 +433,8 @@
 			)
 		)
 		(path "/5ba22fea-77e0-491e-98fc-df144eb1ebec")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -567,7 +569,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW46-Pad2)")
+			(net "unconnected-(SW14-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "95ddab58-7f62-4913-b3be-51a5b4e47875")
@@ -576,7 +578,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW46-Pad3)")
+			(net "unconnected-(SW14-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "c0a725b5-4d2e-4d5a-8e48-bd88c31f4be6")
@@ -693,6 +695,7 @@
 		)
 		(path "/3823d101-9d99-4231-a97b-86612f949fb2")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -968,7 +971,7 @@
 		(layer "F.Cu")
 		(uuid "569bef44-23bc-4391-a141-7c6eebeb6067")
 		(at 222 55)
-		(property "Reference" "SW45"
+		(property "Reference" "SW15"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "4e88222a-65c5-4917-8d9a-34847701c58f")
@@ -1051,7 +1054,8 @@
 			)
 		)
 		(path "/7ca022f6-2c47-4f6e-bccf-3962bac2368a")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1186,7 +1190,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW45-Pad2)")
+			(net "unconnected-(SW15-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "05401be1-31aa-402e-ab12-60ab2894bfcd")
@@ -1195,7 +1199,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW45-Pad3)")
+			(net "unconnected-(SW15-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "aa16eb9b-9008-4224-8810-a53657771013")
@@ -1226,7 +1230,7 @@
 		(layer "F.Cu")
 		(uuid "59d280cc-a759-4443-91b4-487eea813469")
 		(at 216 115)
-		(property "Reference" "SW42"
+		(property "Reference" "SW7"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "69974ee6-f32a-4848-8a0b-7f13d5aa49aa")
@@ -1309,7 +1313,8 @@
 			)
 		)
 		(path "/b6758c6b-5582-4f7a-9421-bf88a91e2559")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1444,7 +1449,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW42-Pad2)")
+			(net "unconnected-(SW7-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "8cc0b2d6-61d9-4ce8-ac75-588d559888ca")
@@ -1453,7 +1458,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW42-Pad3)")
+			(net "unconnected-(SW7-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "a51b9326-0ace-4b5e-aa94-754899fb3efa")
@@ -1484,7 +1489,7 @@
 		(layer "F.Cu")
 		(uuid "60097c60-35b5-42b3-a5ac-32fa24ea5776")
 		(at 75 137)
-		(property "Reference" "SW37"
+		(property "Reference" "SW10"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "58a0d42d-04c6-4422-8276-9f9c9cd5152c")
@@ -1567,7 +1572,8 @@
 			)
 		)
 		(path "/f7d24a0c-18c9-433d-a815-2b3b9b068575")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1702,7 +1708,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW37-Pad2)")
+			(net "unconnected-(SW10-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "bb10bff9-df56-449e-9e02-a2258652cab3")
@@ -1711,7 +1717,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW37-Pad3)")
+			(net "unconnected-(SW10-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "43e30dda-fcfa-40ab-be03-cf64e702f359")
@@ -1742,7 +1748,7 @@
 		(layer "F.Cu")
 		(uuid "6076df4c-6b96-44e8-bfeb-685c25e23566")
 		(at 208 55)
-		(property "Reference" "SW41"
+		(property "Reference" "SW8"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "f1ed6251-5fa4-4ac8-beed-5398ff280b0f")
@@ -1825,7 +1831,8 @@
 			)
 		)
 		(path "/29bf2388-1ec2-4db6-9881-da8aa51d72c5")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1960,7 +1967,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW41-Pad2)")
+			(net "unconnected-(SW8-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "d5995b2c-0bad-40a4-9b36-d4ba8fccd7e0")
@@ -1969,7 +1976,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW41-Pad3)")
+			(net "unconnected-(SW8-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "5c3b5e82-8049-41a8-8ba3-3f81b8d08ab5")
@@ -2000,7 +2007,7 @@
 		(layer "F.Cu")
 		(uuid "71467108-f198-4427-b9e1-f2de3167af0f")
 		(at 190 137)
-		(property "Reference" "SW36"
+		(property "Reference" "SW9"
 			(at 15 -26.143 0)
 			(layer "F.SilkS")
 			(uuid "f0433bd8-da92-4fd2-8c10-4463bd97f5a0")
@@ -2083,7 +2090,8 @@
 			)
 		)
 		(path "/a3b9f75d-2968-4f27-965f-ffe24fe90c80")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -2218,7 +2226,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW36-Pad2)")
+			(net "unconnected-(SW9-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "03793f56-177a-4b5f-9c85-cd016d6c700a")
@@ -2227,7 +2235,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW36-Pad3)")
+			(net "unconnected-(SW9-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "2cc2091c-e8aa-41b2-989b-068f46dd267c")
@@ -2258,7 +2266,7 @@
 		(layer "F.Cu")
 		(uuid "75226f2b-1f93-4550-87f1-e6492dfead88")
 		(at 91 55)
-		(property "Reference" "SW39"
+		(property "Reference" "SW4"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "cff4978e-fac8-4c85-8c17-f43b321a98da")
@@ -2341,7 +2349,8 @@
 			)
 		)
 		(path "/f568d8ed-2e5e-422c-9ff4-57aebe7671c3")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -2476,7 +2485,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW39-Pad2)")
+			(net "unconnected-(SW4-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "f93570e9-87e7-43df-9262-f7b7dd6295dc")
@@ -2485,7 +2494,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW39-Pad3)")
+			(net "unconnected-(SW4-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "6ca5cd7c-5ae6-409d-9314-93c55b854ade")
@@ -3428,7 +3437,7 @@
 		(layer "F.Cu")
 		(uuid "77ed3a57-264f-439e-97bb-25cb0aa612c9")
 		(at 85 147)
-		(property "Reference" "SW35"
+		(property "Reference" "SW6"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "8793cd49-055b-46c6-88a1-9f2a410c63fb")
@@ -3511,7 +3520,8 @@
 			)
 		)
 		(path "/d38db386-8595-4810-a1e5-f42b16bb533c")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -3646,7 +3656,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW35-Pad2)")
+			(net "unconnected-(SW6-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "c837d6e6-1f1c-49df-b09d-8e3152dadfda")
@@ -3655,7 +3665,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW35-Pad3)")
+			(net "unconnected-(SW6-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "59b6ecce-c983-4be3-9ced-cc561b8c605f")
@@ -3688,7 +3698,7 @@
 		(at 222.498 141.165)
 		(descr "A joystick very similar to the ‘analog’ joysticks on game controllers.")
 		(tags "SparkFun directional joystick with select switch")
-		(property "Reference" "SW18"
+		(property "Reference" "SW17"
 			(at -0.25 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3752,7 +3762,8 @@
 			)
 		)
 		(path "/e851b8b4-6cd8-41c4-9738-4d0064bd821e")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -3986,7 +3997,7 @@
 		(layer "F.Cu")
 		(uuid "a5fdb41e-7e4a-48f1-8f20-673156b5640c")
 		(at 216 95)
-		(property "Reference" "SW44"
+		(property "Reference" "SW11"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "ade8b1b0-fd22-461c-862d-f15b254f6d72")
@@ -4069,7 +4080,8 @@
 			)
 		)
 		(path "/62d16aa9-7f49-40b7-b1db-743919e46ca8")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4204,7 +4216,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW44-Pad2)")
+			(net "unconnected-(SW11-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "616bbcab-7b18-4298-b37b-8d2f6f49edd6")
@@ -4213,7 +4225,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW44-Pad3)")
+			(net "unconnected-(SW11-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "28d131dc-5dce-4128-997e-b8c41da41c62")
@@ -4244,7 +4256,7 @@
 		(layer "F.Cu")
 		(uuid "bc170b96-d8f3-42cb-a465-392d2b491037")
 		(at 77 55)
-		(property "Reference" "SW43"
+		(property "Reference" "SW12"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "68066fbb-cce8-439c-9140-550fbe328733")
@@ -4327,7 +4339,8 @@
 			)
 		)
 		(path "/aa3effd0-0d0e-450e-b868-f2ff50b6a418")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4462,7 +4475,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW43-Pad2)")
+			(net "unconnected-(SW12-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "cc2d1de8-ac2f-467b-a605-21fd56d44ddc")
@@ -4471,7 +4484,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW43-Pad3)")
+			(net "unconnected-(SW12-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "921eaa16-7a75-45a2-a66f-b2055dbd1158")
@@ -4502,7 +4515,7 @@
 		(layer "F.Cu")
 		(uuid "bc27b035-c396-4d3d-88b8-a4854299fdaf")
 		(at 95 137)
-		(property "Reference" "SW38"
+		(property "Reference" "SW13"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "1bf4e3cc-5e39-4386-bbec-231e3369e1f4")
@@ -4585,7 +4598,8 @@
 			)
 		)
 		(path "/dc6b7bd3-3b78-4bb2-859b-077e377a1530")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4720,7 +4734,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW38-Pad2)")
+			(net "unconnected-(SW13-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "b0f9a826-333e-4182-a732-03f6d9188e85")
@@ -4729,7 +4743,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW38-Pad3)")
+			(net "unconnected-(SW13-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "17e6e470-a141-4d0d-b944-c31f969021f1")
@@ -4846,6 +4860,7 @@
 		)
 		(path "/c5968d88-08e0-4b20-b31a-bd713abd88d3")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5121,7 +5136,7 @@
 		(layer "F.Cu")
 		(uuid "da884633-3047-44f3-83fb-ced8ce891168")
 		(at 179 137)
-		(property "Reference" "SW34"
+		(property "Reference" "SW5"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "1d99fbc0-f894-4790-a767-f53ad9ffea16")
@@ -5204,7 +5219,8 @@
 			)
 		)
 		(path "/dd281dfc-2a01-4047-8e8b-39c10edde455")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5339,7 +5355,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW34-Pad2)")
+			(net "unconnected-(SW5-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "83ec243d-70c4-467d-acc5-9e09ad2fe8c6")
@@ -5348,7 +5364,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW34-Pad3)")
+			(net "unconnected-(SW5-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "cf9d3e1b-9601-4d1e-a204-fbecc946095f")
@@ -5381,7 +5397,7 @@
 		(at 87.498 110.165)
 		(descr "A joystick very similar to the ‘analog’ joysticks on game controllers.")
 		(tags "SparkFun directional joystick with select switch")
-		(property "Reference" "SW17"
+		(property "Reference" "SW16"
 			(at -0.25 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5445,7 +5461,8 @@
 			)
 		)
 		(path "/c4f336fd-0d88-410b-a1b0-f37b7b67af7d")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5679,7 +5696,7 @@
 		(layer "F.Cu")
 		(uuid "f659fc5b-4537-4474-8b50-69ca953f8055")
 		(at 226 105)
-		(property "Reference" "SW40"
+		(property "Reference" "SW3"
 			(at 0 -8.643 0)
 			(layer "F.SilkS")
 			(uuid "d7ea2370-2865-4d3f-a8f0-56e3e13480a4")
@@ -5762,7 +5779,8 @@
 			)
 		)
 		(path "/68089511-54d2-4bf8-a88e-fc92b4201d3d")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5897,7 +5915,7 @@
 			(at -2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW40-Pad2)")
+			(net "unconnected-(SW3-Pad2)")
 			(pinfunction "2_2")
 			(pintype "unspecified+no_connect")
 			(uuid "3a5668c6-0eca-441f-baa8-2c00a03747a2")
@@ -5906,7 +5924,7 @@
 			(at 2.25 -4.64)
 			(size 1.4 2.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(SW40-Pad3)")
+			(net "unconnected-(SW3-Pad3)")
 			(pinfunction "3_3")
 			(pintype "unspecified+no_connect")
 			(uuid "b499af56-fb62-4173-985e-e9c1affdf021")
@@ -6010,6 +6028,7 @@
 		)
 		(path "/a0c2c47f-7de3-4c94-b26c-052d0157dd02")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -6172,7 +6191,7 @@
 		(at 145.25 94.25 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R18"
+		(property "Reference" "R10"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "2768e3d6-ba4c-41fd-ad34-70ea3af90cb8")
@@ -6242,7 +6261,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/b4693398-549b-470c-9ef0-20270d7d00bd")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -6356,7 +6376,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(U6-THERM)")
+			(net "Net-(U1-THERM)")
 			(pintype "passive")
 			(uuid "2eef20fd-9170-4276-96e7-a3564e3507c6")
 		)
@@ -6509,6 +6529,7 @@
 		)
 		(path "/df45b9ce-4aac-4622-a92f-1cfad569d5a6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -6925,7 +6946,7 @@
 		(at 75 104 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R46"
+		(property "Reference" "R13"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "7328c67c-c090-4015-ac04-6bf87d25d929")
@@ -6995,7 +7016,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/e03660d8-352b-45ec-b9e2-cd5dac9da2a4")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7141,7 +7163,7 @@
 		(at 215 142 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R47"
+		(property "Reference" "R14"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "7d2f4cc8-ee77-4e52-a3e8-26d665865dbb")
@@ -7211,7 +7233,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/dc1956e1-4013-459a-8d71-74ade2b9476c")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7434,6 +7457,7 @@
 		)
 		(path "/ae356ec5-c51f-4848-b47e-67abb77abbf6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7668,6 +7692,7 @@
 		)
 		(path "/08cd1597-61dd-4ddc-9ef9-6b90ab7289a9")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7896,6 +7921,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/bc078fe2-e822-4c08-bde6-a66752a5d1df")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12143,6 +12169,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/5beba0b9-c2a2-4d4d-90f3-d896098e6d46")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12359,6 +12386,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/11dfc2cf-ed60-4927-9323-f2c8996dbbc2")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12593,6 +12621,7 @@
 		)
 		(path "/f2cceed7-c9fa-4284-a900-9c161fde8c9e")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13009,6 +13038,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/ec99c1d4-1c4f-4efd-ba28-6d5c4861a11a")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13243,6 +13273,7 @@
 		)
 		(path "/41dfe612-48ff-441c-9d54-d1e78e269453")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13532,6 +13563,7 @@
 		)
 		(path "/d76f4293-c478-45eb-91c1-2ec762d2c1f7")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13924,7 +13956,7 @@
 		(at 146.25 91.75 180)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R22"
+		(property "Reference" "R5"
 			(at 0 1.43 0)
 			(layer "B.Fab")
 			(uuid "881a2efa-e56e-465a-aa95-35b9ab3202e9")
@@ -13994,7 +14026,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/14bf9701-2111-4f96-92ee-88b70a50db2f")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14474,6 +14507,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/581e36fd-2947-410e-aafa-ddb0fdba5a9a")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14910,6 +14944,7 @@
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/148e3f1c-a8d6-44d7-a850-1e79b84846b9")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15055,7 +15090,7 @@
 		(at 80.175 111 180)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R45"
+		(property "Reference" "R12"
 			(at 0 1.43 0)
 			(layer "B.Fab")
 			(uuid "2212b783-ff4c-48c0-9f50-1d35f94c1e43")
@@ -15125,7 +15160,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/04b5fea2-3b71-4daa-97e6-8b4afb3a96f4")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15327,7 +15363,8 @@
 		)
 		(property ki_fp_filters "*Nidec?Copal?CAS?120A*")
 		(path "/9f5ac45c-2bb0-4058-ba99-7a57cb7f172f")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15597,6 +15634,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/943cba11-dc43-4dd5-9e24-cdbc5c7a93f6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15831,6 +15869,7 @@
 		)
 		(path "/948d5ab1-2724-4e67-a650-4578b691e0ed")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16142,6 +16181,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/d712fa53-6081-40ce-91c4-b9b480bae287")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16376,6 +16416,7 @@
 		)
 		(path "/46c42bdb-e832-46dc-8f12-6712cb031301")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16588,7 +16629,7 @@
 		(at 150 60)
 		(descr "USB Type C Receptacle, GCT, power-only, 6P, top mounted, horizontal, 3A: https://gct.co/files/drawings/usb4135.pdf")
 		(tags "USB C Type-C Receptacle SMD USB Power-only Charging-only 6P 6C USB4135-GF-A")
-		(property "Reference" "J2"
+		(property "Reference" "J1"
 			(at 0 4.500001 180)
 			(unlocked yes)
 			(layer "B.SilkS")
@@ -16644,7 +16685,8 @@
 		)
 		(property ki_fp_filters "USB*C*Receptacle*")
 		(path "/3fe8621f-1814-45e8-8156-9c65b74423da")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16887,7 +16929,7 @@
 			(size 0.7 1.2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(J2-CC1)")
+			(net "Net-(J1-CC1)")
 			(pinfunction "CC1_A5")
 			(pintype "bidirectional")
 			(uuid "580fa073-717b-4118-ad77-47ff331fdb7d")
@@ -16917,7 +16959,7 @@
 			(size 0.7 1.2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(J2-CC2)")
+			(net "Net-(J1-CC2)")
 			(pinfunction "CC2_B5")
 			(pintype "bidirectional")
 			(uuid "b147bd3a-e86c-4038-adfc-47914beebccf")
@@ -17001,7 +17043,7 @@
 		(at 147.19 116.31 180)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R21"
+		(property "Reference" "R11"
 			(at 0 1.43 0)
 			(layer "B.Fab")
 			(uuid "206e9236-8811-4f32-9167-29c080dd4957")
@@ -17071,7 +17113,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/23e561fd-6e97-4641-adcd-17c202ca63f8")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -17216,7 +17259,7 @@
 		(uuid "5d7a5019-09c6-4747-9bb8-483250a9b6db")
 		(at 210 137)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C79"
+		(property "Reference" "C12"
 			(at 0 1.700001 0)
 			(layer "B.SilkS")
 			(uuid "af5322bc-4c56-408e-abbc-eb47a812f0fa")
@@ -17293,7 +17336,8 @@
 			)
 		)
 		(path "/d9a0870c-43aa-409e-af71-db4f7706e821")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -17450,7 +17494,7 @@
 		(uuid "6178d8a6-6d74-4f81-aaf7-c1f63add4cc4")
 		(at 182.500002 112.250002 180)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C77"
+		(property "Reference" "C10"
 			(at 0 1.700001 0)
 			(layer "B.SilkS")
 			(uuid "8c6f9fa5-a73d-430d-9361-68913df14bc9")
@@ -17527,7 +17571,8 @@
 			)
 		)
 		(path "/24cebe97-47a9-474b-a85e-50212315fc4b")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -17986,7 +18031,7 @@
 		(uuid "678959c7-b5f2-4f09-bba6-050c2658d298")
 		(at 217 142 90)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C78"
+		(property "Reference" "C11"
 			(at 0 1.700001 90)
 			(layer "B.SilkS")
 			(uuid "45ccd8e0-c5c6-4ebb-a228-7350d326ea6e")
@@ -18063,7 +18108,8 @@
 			)
 		)
 		(path "/f7c5da98-0497-43a0-84e7-51e05cbac2ab")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -18221,7 +18267,7 @@
 		(at 147 95 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R15"
+		(property "Reference" "R7"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "e0d57ee5-a144-4fbc-9984-ed10426b98f4")
@@ -18291,7 +18337,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/2c8a9c06-ac98-4843-aa04-c3cff8dfa4ec")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -18405,7 +18452,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(U6-STAT2)")
+			(net "Net-(U1-STAT2)")
 			(pintype "passive")
 			(uuid "91e61b5e-0f21-404d-8020-93426340a38d")
 		)
@@ -18414,7 +18461,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(D5-K)")
+			(net "Net-(D3-K)")
 			(pintype "passive")
 			(uuid "2bf3d469-0b8e-4849-bea6-9d23f7383f8e")
 		)
@@ -18526,6 +18573,7 @@
 		)
 		(path "/296cf096-abf4-4960-be7c-dedcb95e06e6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -18891,6 +18939,7 @@
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/997d6e0c-3413-444c-a170-5ed58b033306")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19135,6 +19184,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/148236f2-3864-45b3-b35f-4047cfd643db")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19369,6 +19419,7 @@
 		)
 		(path "/dcd45645-3ebc-4fb5-8f43-bab86acecabb")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19580,7 +19631,7 @@
 		(uuid "749b1bd6-475d-4d00-9af5-7e94ceee6448")
 		(at 77 106 90)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C75"
+		(property "Reference" "C8"
 			(at 0 1.700001 90)
 			(layer "B.SilkS")
 			(uuid "076938de-feb3-42f8-87b4-b15954b75034")
@@ -19657,7 +19708,8 @@
 			)
 		)
 		(path "/1defa43c-9966-47f4-8041-572103ad2713")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19815,7 +19867,7 @@
 		(at 150.5 94.25 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R12"
+		(property "Reference" "R8"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "ba360d33-a8ed-4c2e-962e-287a8d22db46")
@@ -19885,7 +19937,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/ac3ac128-9064-4c76-8300-9f3f4427a123")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19999,7 +20052,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(U6-~{PG})")
+			(net "Net-(U1-~{PG})")
 			(pintype "passive")
 			(uuid "fec3db63-c52d-4a09-9078-08352ed471bb")
 		)
@@ -20130,6 +20183,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/fe580c89-6881-4de2-87d4-11f16df2f46e")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -20275,7 +20329,7 @@
 		(at 210 135 180)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R48"
+		(property "Reference" "R15"
 			(at 0 1.43 0)
 			(layer "B.Fab")
 			(uuid "08801ef0-32e4-4441-9c1a-42dca9b73e3c")
@@ -20345,7 +20399,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/7822b7a5-5036-4ee5-9e87-862f88c25cad")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -20763,7 +20818,8 @@
 		)
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/b9a63503-913f-42f0-90af-35eb42569eb5")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -20998,6 +21054,7 @@
 		)
 		(path "/7cbc546c-7d7c-47d7-a384-9eaa3388caac")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -21332,6 +21389,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/4b3f1043-27ca-4e5e-bb40-06679f9be4d9")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -21576,6 +21634,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/54f42e52-373d-44e9-83b9-8d358922365f")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -21792,6 +21851,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/ab4d1491-ca00-4a3c-bf99-266a0752bed6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22008,6 +22068,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/4d39f799-b6ca-4428-86a0-5e42958bc236")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22223,7 +22284,8 @@
 		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/a0f5b807-d8f2-444a-a460-3a6ddbc45748")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22370,7 +22432,7 @@
 		(uuid "8dedbfab-e78a-46e7-9a02-4bb6efe33c3b")
 		(at 83.675 111 180)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C74"
+		(property "Reference" "C7"
 			(at 0 1.700001 0)
 			(layer "B.SilkS")
 			(uuid "88262dd0-3c03-4bb0-a5a2-938caf13489d")
@@ -22447,7 +22509,8 @@
 			)
 		)
 		(path "/8fd8e01e-2460-4ebb-a31a-966520f7958a")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22676,6 +22739,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f1db5414-c4d9-468c-8081-d99b7b1a2202")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22892,6 +22956,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/81d34d0f-989a-4b3a-8c32-d84603b7dcd9")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -23136,6 +23201,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/dfe906c4-85d1-47ba-8bd9-3684fb787e91")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -23279,7 +23345,7 @@
 		(layer "B.Cu")
 		(uuid "9440d7fb-227b-4e01-9f07-8ac3134311d7")
 		(at 142 103.65)
-		(property "Reference" "U23"
+		(property "Reference" "U2"
 			(at 0 4 0)
 			(layer "B.SilkS")
 			(uuid "f89ec1ee-4667-4a0a-b663-9731b50f7bb5")
@@ -23369,7 +23435,8 @@
 			)
 		)
 		(path "/6351a9f3-5545-442b-9c37-6a6a3c1d768b")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -23698,7 +23765,7 @@
 			(drill 0.849986)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "Net-(C16-Pad1)")
+			(net "Net-(C2-Pad1)")
 			(pinfunction "2_2")
 			(pintype "unspecified")
 			(uuid "46aa3450-6997-4885-8950-62635465c7c4")
@@ -23793,6 +23860,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/c496eb60-9c93-4d25-b291-f86b152d1286")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24317,6 +24385,7 @@
 		)
 		(path "/d578ab2f-d339-4e60-92b2-316e733e1025")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24563,6 +24632,7 @@
 		)
 		(path "/b4af3b9a-202e-47d3-b1b0-72b815166da5")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24829,7 +24899,8 @@
 		)
 		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
 		(path "/77a7264b-7eb8-4c7f-aacb-46adb54a56e7")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25040,7 +25111,7 @@
 		(at 175.750001 117.500001 180)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R50"
+		(property "Reference" "R4"
 			(at 0 1.43 0)
 			(layer "B.Fab")
 			(uuid "71d68f26-ef55-411a-a355-4b7ad2b94ef0")
@@ -25110,7 +25181,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/e1d9add1-ac89-48ef-b8a1-864ec857d81f")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25233,7 +25305,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(J2-CC2)")
+			(net "Net-(J1-CC2)")
 			(pintype "passive")
 			(uuid "857543ef-058b-43e7-b1c1-0f9b4461603e")
 		)
@@ -25333,6 +25405,7 @@
 		)
 		(path "/ff38f7b7-0382-4938-a31d-b168ce0e51e6")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25488,7 +25561,7 @@
 		(layer "B.Cu")
 		(uuid "a9c97443-3822-4d78-97e1-14aca28f6b53")
 		(at 147.44 123.56 180)
-		(property "Reference" "C28"
+		(property "Reference" "C4"
 			(at 0 4 0)
 			(layer "B.SilkS")
 			(uuid "e997175d-dfc3-4894-be2a-7cbe695e9a7c")
@@ -25578,7 +25651,8 @@
 			)
 		)
 		(path "/8b0ff07b-48d8-4e20-b96b-3dd8a8afc786")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25790,7 +25864,7 @@
 		(uuid "aac53dc5-fc4d-40a0-bb2f-0c67d07bfaca")
 		(at 146.94 120.56)
 		(descr "KEMET 0805 (2012 metric) MLCC, IPC-7351 density level B land pattern per KEMET C1002 Table 3")
-		(property "Reference" "C29"
+		(property "Reference" "C5"
 			(at 0 1.700001 0)
 			(layer "B.SilkS")
 			(uuid "0aaf748c-4e82-48f7-8052-70d92ded2254")
@@ -25867,7 +25941,8 @@
 			)
 		)
 		(path "/ec758207-84cf-4438-952a-ff617953134a")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -26025,7 +26100,7 @@
 		(at 159.75 96.25 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R16"
+		(property "Reference" "R6"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "e958519c-b0a5-4752-9478-513279094d11")
@@ -26095,7 +26170,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/0171f033-6f2a-4172-996c-116e7f7ccaaa")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -26209,7 +26285,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(U6-STAT1)")
+			(net "Net-(U1-STAT1)")
 			(pintype "passive")
 			(uuid "8b2c6a85-2fb5-4bbd-b433-be27d5a31dd7")
 		)
@@ -26218,7 +26294,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(D6-K)")
+			(net "Net-(D2-K)")
 			(pintype "passive")
 			(uuid "88ff1fc9-3e99-4849-943a-f6a34a6dc1ab")
 		)
@@ -26239,7 +26315,7 @@
 		(layer "B.Cu")
 		(uuid "af54445b-cb6b-4eda-9dda-e7f87219e903")
 		(at 155.44 111.81 -90)
-		(property "Reference" "U16"
+		(property "Reference" "U3"
 			(at 0 9.058 90)
 			(layer "B.SilkS")
 			(uuid "f59f49e9-d734-4edc-8a8a-9eb39d3ef869")
@@ -26329,7 +26405,8 @@
 			)
 		)
 		(path "/e0791f17-6291-4dd8-a421-516487afdfc5")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -26553,7 +26630,7 @@
 			(at 0.64 -5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-GPB7-Pad8)")
+			(net "unconnected-(U3-GPB7-Pad8)")
 			(pinfunction "GPB7_8")
 			(pintype "unspecified+no_connect")
 			(uuid "c0fbde62-e2e4-4402-9998-aecf68c758e5")
@@ -26580,7 +26657,7 @@
 			(at 4.44 -5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-NC-Pad11)")
+			(net "unconnected-(U3-NC-Pad11)")
 			(pinfunction "NC_11")
 			(pintype "unspecified+no_connect")
 			(uuid "40ff4b9f-d97b-49f1-b227-934aa7b6c598")
@@ -26607,7 +26684,7 @@
 			(at 8.25 -5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-NC-Pad14)")
+			(net "unconnected-(U3-NC-Pad14)")
 			(pinfunction "NC_14")
 			(pintype "unspecified+no_connect")
 			(uuid "ba63084d-1e7a-44b1-a605-bf1317c092d1")
@@ -26652,7 +26729,7 @@
 			(at 3.17 5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-INTB-Pad19)")
+			(net "unconnected-(U3-INTB-Pad19)")
 			(pinfunction "INTB_19")
 			(pintype "unspecified+no_connect")
 			(uuid "185a7e1a-c3e8-4ac4-a272-2eec6c95a336")
@@ -26661,7 +26738,7 @@
 			(at 1.91 5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-INTA-Pad20)")
+			(net "unconnected-(U3-INTA-Pad20)")
 			(pinfunction "INTA_20")
 			(pintype "unspecified+no_connect")
 			(uuid "d515b873-90ed-4869-93de-afc1ad577074")
@@ -26733,7 +26810,7 @@
 			(at -8.25 5.06 90)
 			(size 0.6 2.3)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U16-GPA7-Pad28)")
+			(net "unconnected-(U3-GPA7-Pad28)")
 			(pinfunction "GPA7_28")
 			(pintype "unspecified+no_connect")
 			(uuid "b6866237-c813-41d4-8cb2-dad88b6c8fe1")
@@ -26757,7 +26834,7 @@
 		(at 143.75 91 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R49"
+		(property "Reference" "R3"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "cc5ea5e4-a8f1-471d-ac4a-4c155c7c90c2")
@@ -26827,7 +26904,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/d8f9adeb-283e-4c25-8f7f-f5d64970b23a")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -26941,7 +27019,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(J2-CC1)")
+			(net "Net-(J1-CC1)")
 			(pintype "passive")
 			(uuid "f2229481-64d0-47d9-a9fb-ac397a670cd7")
 		)
@@ -27072,6 +27150,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/b73def97-a71d-4a40-bec0-d912bacbf6b8")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -27316,6 +27395,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/f72b8e06-2174-4000-b913-748553067425")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -27560,6 +27640,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/6a9f7ab6-4f44-4a97-8097-5ba9f7bdecc3")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -27804,6 +27885,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/f371369b-fdc3-413c-a1ac-a0cbc9b8eaea")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -27949,7 +28031,7 @@
 		(at 148.75 95 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "D5"
+		(property "Reference" "D3"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "efd7a4ef-9e4e-44cc-b5c7-cb32bd7681bc")
@@ -28019,7 +28101,8 @@
 		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/c837e382-5d86-4f86-a958-25369ae3e5da")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -28133,7 +28216,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(D5-K)")
+			(net "Net-(D3-K)")
 			(pinfunction "K_1")
 			(pintype "passive")
 			(uuid "75ec6e0c-2881-4fa5-b602-46e77ede8e93")
@@ -28238,6 +28321,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/fa87d0fb-d48a-448a-b7a4-cf54a3daf69d")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -28454,6 +28538,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/5ac609c7-69bd-4953-96d8-61913b4f33a8")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -28599,7 +28684,7 @@
 		(at 152 97.25 -90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "R17"
+		(property "Reference" "R9"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "a78f749e-07e8-4ee2-8008-abc74c010e00")
@@ -28669,7 +28754,8 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/7dc94d63-f9ed-43ed-912f-768571a920db")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -28783,7 +28869,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(U6-PROG)")
+			(net "Net-(U1-PROG)")
 			(pintype "passive")
 			(uuid "16caf751-2082-4216-aa6b-2198c20a4ae2")
 		)
@@ -28886,6 +28972,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/085312c3-f01e-4f1b-837f-551cfd022235")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -29549,7 +29636,7 @@
 		(uuid "d5c9d8ac-53ac-4f30-b9c4-11bb0d4e9a09")
 		(at 155.75 94.75 180)
 		(tags "SparkFun")
-		(property "Reference" "U6"
+		(property "Reference" "U1"
 			(at 0 1.905 0)
 			(layer "B.Fab")
 			(uuid "be9b3f47-b0d7-483e-99c6-08964b12bb06")
@@ -29617,7 +29704,8 @@
 		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/3b4f23ea-92b0-4ada-8b3d-df046b4eee3c")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -30072,7 +30160,7 @@
 			(at -2.05 0 270)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "Net-(U6-STAT1)")
+			(net "Net-(U1-STAT1)")
 			(pinfunction "STAT1_3")
 			(pintype "output")
 			(thermal_bridge_angle 0)
@@ -30082,7 +30170,7 @@
 			(at -2.05 -0.5 270)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "Net-(U6-STAT2)")
+			(net "Net-(U1-STAT2)")
 			(pinfunction "STAT2_4")
 			(pintype "output")
 			(thermal_bridge_angle 0)
@@ -30102,7 +30190,7 @@
 			(at 2.05 -1 90)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "Net-(U6-PROG)")
+			(net "Net-(U1-PROG)")
 			(pinfunction "PROG_6")
 			(pintype "input")
 			(thermal_bridge_angle 0)
@@ -30112,7 +30200,7 @@
 			(at 2.05 -0.5 90)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "Net-(U6-~{PG})")
+			(net "Net-(U1-~{PG})")
 			(pinfunction "~{PG}_7")
 			(pintype "output")
 			(thermal_bridge_angle 0)
@@ -30122,7 +30210,7 @@
 			(at 2.05 0 90)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "Net-(U6-THERM)")
+			(net "Net-(U1-THERM)")
 			(pinfunction "THERM_8")
 			(pintype "input")
 			(thermal_bridge_angle 0)
@@ -30266,6 +30354,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/2a28f7bd-8f3b-4620-8fa7-3239a8f6643a")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -30409,7 +30498,7 @@
 		(layer "B.Cu")
 		(uuid "db697cce-47b1-4602-8c03-06a1920554a5")
 		(at 180.25 120.5 180)
-		(property "Reference" "U15"
+		(property "Reference" "U4"
 			(at 0 6.866 0)
 			(layer "B.SilkS")
 			(uuid "b4f25457-e483-4b5c-afb2-8e3d63c9160d")
@@ -30499,7 +30588,8 @@
 			)
 		)
 		(path "/db33fae7-bfe0-4ebf-9f00-29000fea30ab")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -30695,7 +30785,7 @@
 			(at 0.98 -2.87 180)
 			(size 0.343 1.731)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U15-CH5-Pad6)")
+			(net "unconnected-(U4-CH5-Pad6)")
 			(pinfunction "CH5_6")
 			(pintype "unspecified+no_connect")
 			(uuid "cedbc0ac-4f5b-498a-bd11-0d315eb8c741")
@@ -30704,7 +30794,7 @@
 			(at 1.630001 -2.87 180)
 			(size 0.343 1.731)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U15-CH6-Pad7)")
+			(net "unconnected-(U4-CH6-Pad7)")
 			(pinfunction "CH6_7")
 			(pintype "unspecified+no_connect")
 			(uuid "6c504593-0a3b-41f7-8b10-ee32584365ab")
@@ -30713,7 +30803,7 @@
 			(at 2.28 -2.87 180)
 			(size 0.343 1.731)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U15-CH7-Pad8)")
+			(net "unconnected-(U4-CH7-Pad8)")
 			(pinfunction "CH7_8")
 			(pintype "unspecified+no_connect")
 			(uuid "b60e21c2-ae44-4e25-9c25-97631ab4f60d")
@@ -30886,6 +30976,7 @@
 		)
 		(path "/dc0c091a-eee3-43a1-97ee-8b5c2f8b7eb3")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31114,6 +31205,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a52a2d3c-4a04-41ad-8636-8a23a46f187b")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31259,7 +31351,7 @@
 		(at 161.5 95.25 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "SparkFun resistor")
-		(property "Reference" "D6"
+		(property "Reference" "D2"
 			(at 0 1.43 90)
 			(layer "B.Fab")
 			(uuid "7a95a46f-a9d6-4e65-978d-0d24adaf4ffc")
@@ -31329,7 +31421,8 @@
 		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/be9a6ff8-64e1-4b31-b593-9372bfa21148")
-		(sheetname "/USBC/Battery/")
+		(sheetname "/Battery/")
+		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31443,7 +31536,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.25)
-			(net "Net-(D6-K)")
+			(net "Net-(D2-K)")
 			(pinfunction "K_1")
 			(pintype "passive")
 			(uuid "486f28b9-4215-4bcf-b988-aaebbaf6d2de")
@@ -31576,6 +31669,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/880c7d49-3ea2-44b8-a28e-9e1cc474ba6f")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31820,6 +31914,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/914b5924-0791-459e-8120-0dc7b2b4e07a")
 		(sheetname "/Audio/")
+		(sheetfile "audio.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31963,7 +32058,7 @@
 		(layer "B.Cu")
 		(uuid "edaa9400-73f9-4fb6-9d80-6ae628b5a401")
 		(at 183.250001 114.750001)
-		(property "Reference" "C80"
+		(property "Reference" "C13"
 			(at 0 4 0)
 			(layer "B.SilkS")
 			(uuid "edafe4bc-516e-4ee1-b64d-beee172b8396")
@@ -32053,7 +32148,8 @@
 			)
 		)
 		(path "/2ad4b008-6df5-44c3-b956-7d72ca38439b")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -32266,7 +32362,7 @@
 		(at 178.750001 112.25)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "SparkFun capacitor")
-		(property "Reference" "C76"
+		(property "Reference" "C9"
 			(at 0 1.679999 0)
 			(layer "B.Fab")
 			(uuid "e499e5f7-239a-4f8f-90b2-298dc7a8fbb5")
@@ -32364,7 +32460,8 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/05e7c3af-3791-4ffe-9266-4764a52dadf8")
-		(sheetname "/Joysticks/Buttons/")
+		(sheetname "/Buttons/")
+		(sheetfile "buttons.kicad_sch")
 		(units
 			(unit
 				(name "A")
