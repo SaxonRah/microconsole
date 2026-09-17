@@ -1,8 +1,8 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-17T14:00:58 **
+** Created on 2026-09-17T17:04:01 **
 ** Report includes: Errors, Warnings **
 
-** Found 43 DRC violations **
+** Found 44 DRC violations **
 [missing_courtyard]: Footprint has no courtyard defined
     Local override; warning
     @(86.2900 mm, 105.0400 mm): Footprint SW17
@@ -37,42 +37,42 @@
     Rule: board setup constraints edge; warning
     @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
     @(198.3800 mm, 96.1300 mm): Track [GPIO14 / SD SCK] on B.Cu, length 23.8649 mm
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4899 mm)
+    Rule: board setup constraints edge; warning
+    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(94.4500 mm, 59.6400 mm): Pad 1 [GND] of SW12 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4899 mm)
+    Rule: board setup constraints edge; warning
+    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(98.9500 mm, 59.6400 mm): Pad 4 [MCP GPB5 / L2] of SW12 on F.Cu
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
     Rule: board setup constraints edge; warning
-    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(90.7500 mm, 59.6400 mm): Pad 1 [GND] of SW12 on F.Cu
+    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(200.1500 mm, 59.6400 mm): Pad 1 [GND] of SW15 on F.Cu
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
     Rule: board setup constraints edge; warning
-    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(95.2500 mm, 59.6400 mm): Pad 4 [MCP GPB5 / L2] of SW12 on F.Cu
+    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(204.6500 mm, 59.6400 mm): Pad 4 [MCP GPB6 / R2] of SW15 on F.Cu
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
     Rule: board setup constraints edge; warning
-    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(203.7500 mm, 59.6400 mm): Pad 1 [GND] of SW15 on F.Cu
+    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(213.9500 mm, 59.6400 mm): Pad 1 [GND] of SW8 on F.Cu
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
     Rule: board setup constraints edge; warning
-    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(208.2500 mm, 59.6400 mm): Pad 4 [MCP GPB6 / R2] of SW15 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(221.7500 mm, 59.6400 mm): Pad 1 [GND] of SW8 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(230.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(226.2500 mm, 59.6400 mm): Pad 4 [MCP GPB4 / R1] of SW8 on F.Cu
+    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(218.4500 mm, 59.6400 mm): Pad 4 [MCP GPB4 / R1] of SW8 on F.Cu
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4800 mm)
     Rule: board setup constraints edge; warning
     @(199.8800 mm, 94.7500 mm): Segment of DS1 on Margin
     @(198.3800 mm, 96.1300 mm): PTH pad 18 [GPIO14 / SD SCK] of DS1
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4896 mm)
     Rule: board setup constraints edge; warning
-    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(72.7500 mm, 59.6400 mm): Pad 1 [GND] of SW4 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
+    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(80.6500 mm, 59.6400 mm): Pad 1 [GND] of SW4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4897 mm)
     Rule: board setup constraints edge; warning
-    @(105.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(77.2500 mm, 59.6400 mm): Pad 4 [MCP GPB3 / L1] of SW4 on F.Cu
+    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
+    @(85.1500 mm, 59.6400 mm): Pad 4 [MCP GPB3 / L1] of SW4 on F.Cu
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
@@ -145,6 +145,10 @@
     Rule: board setup constraints silk; warning
     @(126.8600 mm, 63.6000 mm): Segment of SW19 on F.Silkscreen
     @(129.7550 mm, 63.7250 mm): Reference field of D5
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(111.0000 mm, 130.4700 mm): Reference field of FB1
+    @(112.5500 mm, 129.5000 mm): Pad 2 [GND] of C9 on B.Cu
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(187.6000 mm, 81.0000 mm): Segment of U2 on B.Silkscreen
