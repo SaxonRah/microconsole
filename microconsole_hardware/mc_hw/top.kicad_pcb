@@ -2368,6 +2368,12 @@
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/4d9ef0d0-aa79-45d9-8fba-52410cabe201")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -20811,9 +20817,9 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "unconnected-(A2-AGND-Pad33)")
+			(net "unconnected-(A2-AGND-Pad33)_1")
 			(pinfunction "AGND_33")
-			(pintype "power_out")
+			(pintype "power_out+no_connect")
 			(options
 				(clearance outline)
 				(anchor circle)
@@ -20847,7 +20853,7 @@
 			(layers "B.Cu" "B.Mask")
 			(net "unconnected-(A2-AGND-Pad33)")
 			(pinfunction "AGND_33")
-			(pintype "power_out")
+			(pintype "power_out+no_connect")
 			(options
 				(clearance outline)
 				(anchor rect)
@@ -21068,9 +21074,9 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "VSYS_BAT")
+			(net "unconnected-(A2-VBUS-Pad40)_1")
 			(pinfunction "VBUS_40")
-			(pintype "power_out")
+			(pintype "power_out+no_connect")
 			(uuid "24672b52-3d49-4fae-aa46-8ecc9a52f6fe")
 		)
 		(pad "40" smd roundrect
@@ -21078,9 +21084,9 @@
 			(size 3.2 1.6)
 			(layers "B.Cu" "B.Mask")
 			(roundrect_rratio 0.5)
-			(net "VSYS_BAT")
+			(net "unconnected-(A2-VBUS-Pad40)")
 			(pinfunction "VBUS_40")
-			(pintype "power_out")
+			(pintype "power_out+no_connect")
 			(uuid "20e52c63-dc56-44d8-9f4b-6ac745de44ee")
 		)
 		(zone
@@ -24329,7 +24335,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "D_Schottky"
+		(property "Value" "PMEG40T30ER Schottky"
 			(at 0 -2.000001 90)
 			(layer "B.Fab")
 			(uuid "c2c679d1-f362-47f0-b398-b0dfcbce82d0")
@@ -28190,7 +28196,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "2k"
+		(property "Value" "3.32k"
 			(at 0 -1.43 90)
 			(layer "B.Fab")
 			(uuid "31bb4be9-ec9c-4b97-89ca-4631b0c36916")
@@ -40271,14 +40277,6 @@
 		(uuid "5e9f2fea-5f1e-4217-8e11-5612f9366040")
 	)
 	(segment
-		(start 105.22 70.98)
-		(end 104.42 70.98)
-		(width 0.2)
-		(layer "B.Cu")
-		(net "VSYS_BAT")
-		(uuid "6a921236-ae11-4f97-a204-759108335669")
-	)
-	(segment
 		(start 131.91 73.41)
 		(end 130.7443 73.41)
 		(width 0.2)
@@ -40325,14 +40323,6 @@
 		(layer "B.Cu")
 		(net "VSYS_BAT")
 		(uuid "9be02c6d-9875-40fc-8681-1ba8752aa0dc")
-	)
-	(segment
-		(start 105.22 70.98)
-		(end 105.22 73.52)
-		(width 0.2)
-		(layer "B.Cu")
-		(net "VSYS_BAT")
-		(uuid "adf97ff9-c95a-466a-af67-88a87440c2bb")
 	)
 	(segment
 		(start 90.5 82.1)
@@ -44469,14 +44459,6 @@
 		(layer "B.Cu")
 		(net "GPIO20 {slash} MAX DIN")
 		(uuid "e2596f29-d706-40d3-8de5-718233c7037b")
-	)
-	(segment
-		(start 105.22 88.76)
-		(end 104.42 88.76)
-		(width 0.2)
-		(layer "B.Cu")
-		(net "unconnected-(A2-AGND-Pad33)")
-		(uuid "899541e6-2e37-43bf-b4f7-045e0a14f7e5")
 	)
 	(segment
 		(start 118 135.2012)

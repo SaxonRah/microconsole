@@ -2050,6 +2050,12 @@
 		(uuid "4d5ece02-b646-4c8f-8f4c-0db176acccb4")
 	)
 	(junction
+		(at 204.47 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5c44aaf8-e192-471e-9155-9d0d4891e679")
+	)
+	(junction
 		(at 173.99 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2066,12 +2072,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f0fb42b-e5bb-46b4-a743-f083b2a6b3c4")
-	)
-	(junction
-		(at 204.47 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e72bfc24-de80-4ba3-8d9e-ca7feb18e2a0")
 	)
 	(junction
 		(at 209.55 63.5)
@@ -2122,6 +2122,14 @@
 		(uuid "8e998dba-77b3-4aa2-86d4-25583c4318f2")
 	)
 	(no_connect
+		(at 204.47 78.74)
+		(uuid "95f0b9b7-8c40-4078-8b58-e7659c927eba")
+	)
+	(no_connect
+		(at 227.33 139.7)
+		(uuid "96518204-fe33-4152-96a2-e1570d6ff352")
+	)
+	(no_connect
 		(at 203.2 255.27)
 		(uuid "9707b78e-0d89-40da-9a42-924d979a2a22")
 	)
@@ -2144,10 +2152,6 @@
 	(no_connect
 		(at 181.61 96.52)
 		(uuid "dd4e54eb-dbf0-4a6b-a81d-339938790beb")
-	)
-	(no_connect
-		(at 227.33 139.7)
-		(uuid "ea0c289e-f943-4070-b2b1-6779268e32de")
 	)
 	(no_connect
 		(at 227.33 116.84)
@@ -2286,16 +2290,6 @@
 			(type default)
 		)
 		(uuid "350f7d27-f92f-4f5e-a152-d4848f28e041")
-	)
-	(wire
-		(pts
-			(xy 204.47 63.5) (xy 204.47 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37e85b90-740c-468e-8460-6d92363a5c03")
 	)
 	(wire
 		(pts
@@ -2469,6 +2463,26 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 71.12) (xy 204.47 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "717f0ce4-2618-4ee0-b918-7ada86794d9e")
+	)
+	(wire
+		(pts
+			(xy 199.39 71.12) (xy 199.39 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73b8cfe5-23c2-4780-8f52-fe383b176c4b")
+	)
+	(wire
+		(pts
 			(xy 215.9 54.61) (xy 209.55 54.61)
 		)
 		(stroke
@@ -2526,16 +2540,6 @@
 			(type default)
 		)
 		(uuid "83acaec5-6ab8-48e8-aa04-d30a151e3361")
-	)
-	(wire
-		(pts
-			(xy 199.39 76.2) (xy 199.39 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "850af967-4bcb-4b5f-baa1-7917ec8444eb")
 	)
 	(wire
 		(pts
@@ -2616,6 +2620,16 @@
 			(type default)
 		)
 		(uuid "a39f0c40-850d-4a3d-a0cd-9a8806d9600b")
+	)
+	(wire
+		(pts
+			(xy 204.47 71.12) (xy 204.47 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a45f5aae-02ca-495e-8d0e-84ac801b4be5")
 	)
 	(wire
 		(pts
@@ -3024,30 +3038,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-	)
-	(global_label "VSYS_BAT"
-		(shape input)
-		(at 199.39 76.2 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "437f0359-cc8c-418c-88bd-1b5b383b86fb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 199.39 64.3248 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 	)
