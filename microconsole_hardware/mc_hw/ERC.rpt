@@ -1,4 +1,4 @@
-ERC report (2026-09-17T11:25:49, Encoding UTF8)
+ERC report (2026-09-17T13:20:38, Encoding UTF8)
 Report includes: Errors, Warnings
 
 ***** Sheet /PicoScreen/
@@ -15,12 +15,12 @@ Report includes: Errors, Warnings
     @(7050 mils, 8900 mils): Symbol C46 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
-    @(7500 mils, 2150 mils): Symbol C47 Pin 1 [1, Unspecified, Line]
-    @(7550 mils, 2500 mils): Symbol C48 Pin 1 [Passive, Line]
+    @(7300 mils, 2150 mils): Symbol C47 Pin 1 [1, Unspecified, Line]
+    @(7350 mils, 2500 mils): Symbol C48 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
-    @(7900 mils, 2150 mils): Symbol C47 Pin 2 [2, Unspecified, Line]
-    @(7850 mils, 2500 mils): Symbol C48 Pin 2 [Passive, Line]
+    @(7700 mils, 2150 mils): Symbol C47 Pin 2 [2, Unspecified, Line]
+    @(7650 mils, 2500 mils): Symbol C48 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(8500 mils, 2150 mils): Symbol C49 Pin 1 [1, Unspecified, Line]
@@ -288,7 +288,7 @@ Report includes: Errors, Warnings
 ***** Sheet /Battery/
 [multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
     ; warning
-    @(4550 mils, 3900 mils): Global Label 'USB-VBUS'
+    @(4000 mils, 3950 mils): Global Label 'USB-VBUS'
     @(7950 mils, 2850 mils): Symbol U1 Hidden pin 1 [VDD, Power input, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
