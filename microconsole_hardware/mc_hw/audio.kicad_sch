@@ -3148,16 +3148,6 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 55.88) (xy 246.38 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3dda16a9-60f7-4d45-b5e7-91da7a872a41")
-	)
-	(wire
-		(pts
 			(xy 185.42 93.98) (xy 185.42 100.33)
 		)
 		(stroke
@@ -3668,7 +3658,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 55.88) (xy 238.76 55.88)
+			(xy 236.22 55.88) (xy 246.38 55.88)
 		)
 		(stroke
 			(width 0)
@@ -6257,7 +6247,7 @@
 				)
 			)
 		)
-		(property "Value" "FerriteBead_Small"
+		(property "Value" "MPZ1608S601ATA00 FerriteBead"
 			(at 241.3381 40.64 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6267,7 +6257,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 241.3 42.672 90)
 			(hide yes)
 			(show_name no)
@@ -6278,7 +6268,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/emc/emc/beads/catalog/beads_commercial_power_mpz1608_en.pdf"
 			(at 241.3 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -8387,92 +8377,6 @@
 			(project "mc_hw"
 				(path "/cf955bee-1207-4d34-b139-374418ecc34e"
 					(reference "C69")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:FerriteBead_Small")
-		(at 241.3 55.88 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "997d6e0c-3413-444c-a170-5ed58b033306")
-		(property "Reference" "FB5"
-			(at 241.3381 49.53 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "FerriteBead_Small"
-			(at 241.3381 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 241.3 54.102 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 241.3 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Ferrite bead, small symbol"
-			(at 241.3 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "1a143198-b2ac-474e-a181-aa39e3abb6e0")
-		)
-		(pin "1"
-			(uuid "278de509-0b0b-4849-95c5-179b5e38666a")
-		)
-		(instances
-			(project "top"
-				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d"
-					(reference "FB5")
-					(unit 1)
-				)
-			)
-			(project "mc_hw"
-				(path "/cf955bee-1207-4d34-b139-374418ecc34e"
-					(reference "FB2")
 					(unit 1)
 				)
 			)
