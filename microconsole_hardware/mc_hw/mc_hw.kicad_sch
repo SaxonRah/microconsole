@@ -3945,7 +3945,7 @@
 			(uuid "ce8bfec5-a872-49e8-bdb4-a49e72f43cf8")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "A2")
 					(unit 1)
@@ -4044,7 +4044,7 @@
 			(uuid "e8668e13-29d0-4ce7-95c0-7f26120f4cd8")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "R30")
 					(unit 1)
@@ -4152,7 +4152,7 @@
 			(uuid "ff1a7d23-9dc1-4f8e-b509-c9efa467d75b")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C50")
 					(unit 1)
@@ -4261,7 +4261,7 @@
 			(uuid "cc8836a4-c901-4455-a0f0-ca098bbc2d58")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C46")
 					(unit 1)
@@ -4357,7 +4357,7 @@
 			(uuid "a2bb7f7d-48bb-408a-9334-39bd9b24d22b")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "R45")
 					(unit 1)
@@ -4491,7 +4491,7 @@
 			(uuid "439fcd28-4daa-4f8c-8ebd-df81a02ba8c0")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "DS1")
 					(unit 1)
@@ -4610,7 +4610,7 @@
 			(uuid "10403dfe-f55e-4098-b01c-feb1c8089ebe")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C49")
 					(unit 1)
@@ -4730,7 +4730,7 @@
 			(uuid "e1f30b0b-3ca8-4e57-a685-b45a0cf06e58")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C45")
 					(unit 1)
@@ -4838,7 +4838,7 @@
 			(uuid "1214a007-b50f-47ea-b374-84ba78c47fa3")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C48")
 					(unit 1)
@@ -4957,7 +4957,7 @@
 			(uuid "570dfca1-61c7-4605-b050-0f6ee60a7043")
 		)
 		(instances
-			(project "mc_hw"
+			(project "top"
 				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/522fdc1a-5064-4a45-ac3e-a627e0eb3774"
 					(reference "C47")
 					(unit 1)
