@@ -6560,7 +6560,7 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 191.77 107.95 0)
+			(at 181.356 115.062 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6570,7 +6570,7 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 194.31 107.95 0)
+			(at 181.356 112.522 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7077,7 +7077,7 @@
 		(dnp no)
 		(uuid "4d39f799-b6ca-4428-86a0-5e42958bc236")
 		(property "Reference" "R28"
-			(at 186.944 114.808 0)
+			(at 186.436 114.808 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7086,8 +7086,8 @@
 				)
 			)
 		)
-		(property "Value" "2.2k OHM"
-			(at 188.722 113.792 0)
+		(property "Value" "2k OHM 1%"
+			(at 188.214 113.792 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7239,7 +7239,7 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 92.71 123.19 0)
+			(at 101.854 126.238 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7249,7 +7249,7 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 90.17 123.19 0)
+			(at 101.854 128.778 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7409,7 +7409,7 @@
 		(dnp no)
 		(uuid "5ac609c7-69bd-4953-96d8-61913b4f33a8")
 		(property "Reference" "R22"
-			(at 83.82 119.634 0)
+			(at 83.82 119.126 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7418,8 +7418,8 @@
 				)
 			)
 		)
-		(property "Value" "22k OHM"
-			(at 83.82 121.412 0)
+		(property "Value" "27k OHM 1%"
+			(at 83.82 120.904 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9235,7 +9235,7 @@
 		(dnp no)
 		(uuid "c496eb60-9c93-4d25-b291-f86b152d1286")
 		(property "Reference" "R23"
-			(at 89.408 128.778 0)
+			(at 88.9 126.746 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9244,8 +9244,8 @@
 				)
 			)
 		)
-		(property "Value" "2.2k OHM"
-			(at 90.932 127.762 0)
+		(property "Value" "2k OHM 1%"
+			(at 90.424 129.032 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10381,7 +10381,7 @@
 				)
 			)
 		)
-		(property "Value" "22k OHM"
+		(property "Value" "27k OHM 1%"
 			(at 198.12 109.728 0)
 			(show_name no)
 			(do_not_autoplace no)
