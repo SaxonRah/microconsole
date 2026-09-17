@@ -3970,7 +3970,7 @@
 				)
 			)
 		)
-		(property "Value" "D_Schottky"
+		(property "Value" "PMEG40T30ER Schottky"
 			(at 120.9675 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)

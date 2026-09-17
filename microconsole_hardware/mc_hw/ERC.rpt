@@ -1,10 +1,7 @@
-ERC report (2026-09-17T10:45:02, Encoding UTF8)
+ERC report (2026-09-17T11:15:14, Encoding UTF8)
 Report includes: Errors, Warnings
 
 ***** Sheet /PicoScreen/
-[pin_not_connected]: Pin not connected
-    ; error
-    @(8950 mils, 5500 mils): Symbol A2 Pin 33 [AGND, Power output, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6850 mils, 8500 mils): Symbol C45 Pin 2 [2, Unspecified, Line]
@@ -32,6 +29,44 @@ Report includes: Errors, Warnings
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(3650 mils, 4850 mils): Vertical Wire, length 50 mils
+[four_way_junction]: Four items connected at 1447800, 1752600
+    ; warning
+    @(5900 mils, 6900 mils): Horizontal Wire, length 200 mils
+    @(5700 mils, 6800 mils): Vertical Wire, length 100 mils
+[footprint_filter]: Assigned footprint (lairdtech_28c0236-0jw-10) doesn't match footprint filters (Inductor_* L_* *Ferrite*)
+    ; warning
+    @(9500 mils, 1750 mils): Symbol FB4 [FerriteBead_Small]
+[footprint_filter]: Assigned footprint (lairdtech_28c0236-0jw-10) doesn't match footprint filters (Inductor_* L_* *Ferrite*)
+    ; warning
+    @(9500 mils, 2200 mils): Symbol FB5 [FerriteBead_Small]
+[footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
+    ; warning
+    @(2850 mils, 1500 mils): Symbol C1 [C]
+[footprint_filter]: Assigned footprint (nexperia_cfp3_sod-123w) doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
+    ; warning
+    @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
+[footprint_filter]: Assigned footprint (r_0603_1608metric) doesn't match footprint filters (LED* LED_SMD:* LED_THT:*)
+    ; warning
+    @(6200 mils, 1750 mils): Symbol D2 [LED]
+[footprint_filter]: Assigned footprint (r_0603_1608metric) doesn't match footprint filters (LED* LED_SMD:* LED_THT:*)
+    ; warning
+    @(6850 mils, 1750 mils): Symbol D3 [LED]
+[footprint_filter]: Assigned footprint (r_0603_1608metric) doesn't match footprint filters (LED* LED_SMD:* LED_THT:*)
+    ; warning
+    @(7550 mils, 1750 mils): Symbol D4 [LED]
+[footprint_filter]: Assigned footprint (msop-10_3x3mm_p0.5mm) doesn't match footprint filters (SOT?23*)
+    ; warning
+    @(8350 mils, 2500 mils): Symbol U1 [MCP73833]
+[footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
+    ; warning
+    @(9650 mils, 3000 mils): Symbol C2 [C]
+[four_way_junction]: Four items connected at 2120900, 330200
+    ; warning
+    @(8600 mils, 1300 mils): Horizontal Wire, length 250 mils
+    @(8350 mils, 1300 mils): Vertical Wire, length 100 mils
+[footprint_filter]: Assigned footprint (lairdtech_28c0236-0jw-10) doesn't match footprint filters (Inductor_* L_* *Ferrite*)
+    ; warning
+    @(10600 mils, 1950 mils): Symbol FB1 [FerriteBead_Small]
 
 ***** Sheet /Audio/
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
@@ -250,7 +285,7 @@ Report includes: Errors, Warnings
 ***** Sheet /Battery/
 [multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
     ; warning
-    @(7850 mils, 2850 mils): Global Label 'USB-VBUS'
+    @(4550 mils, 3900 mils): Global Label 'USB-VBUS'
     @(7950 mils, 2850 mils): Symbol U1 Hidden pin 1 [VDD, Power input, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
@@ -262,6 +297,9 @@ Report includes: Errors, Warnings
     @(9650 mils, 3150 mils): Symbol C2 Pin 2 [Passive, Line]
 
 ***** Sheet /Buttons/
+[single_global_label]: Global label only appears once in the schematic
+    ; error
+    @(5500 mils, 6800 mils): Global Label 'MCP RESET'
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(900 mils, 1300 mils): Symbol SW2 Pin 4 [4, Unspecified, Line]
@@ -477,10 +515,7 @@ Report includes: Errors, Warnings
 
 ***** Sheet /
 
- ** ERC messages: 117  Errors 1  Warnings 116
+ ** ERC messages: 129  Errors 1  Warnings 128
 
  ** Ignored checks:
-    - Global label only appears once in the schematic
-    - Four connection points are joined together
-    - SPICE model issue
-    - Assigned footprint doesn't match footprint filters
+    - None
