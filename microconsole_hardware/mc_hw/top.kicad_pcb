@@ -358,7 +358,7 @@
 			(at -0.25 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "da9b9376-7c53-40ed-91d2-efacf8f8cee9")
+			(uuid "775ca23c-e203-4b14-83cf-19e58d91b3a3")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -371,7 +371,7 @@
 			(at 0 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "135e968d-3ba0-4d3a-99c4-0ad546ef0601")
+			(uuid "5d26e914-6817-4520-8f35-84002403c350")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -384,7 +384,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "15092613-0116-4942-961f-fb6fa893a28e")
+			(uuid "5be5e840-2b11-4b3b-a138-01d3ddc24948")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -396,7 +396,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "4afc1587-6d6b-4a08-9dcb-f8ddb038abd6")
+			(uuid "5455a1c8-0fcc-4c3a-ad69-a4dc95ee0630")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -660,7 +660,7 @@
 			(at -0.25 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "8d7b7546-089e-4a26-bca8-afbe50c3e3a9")
+			(uuid "e45fc52b-a596-4741-931b-f937e539b55c")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -673,7 +673,7 @@
 			(at 0 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "6a41ffad-0990-4dc5-b14d-c842c0e9cd40")
+			(uuid "4bee5611-887c-496c-bf07-6a32b807a7ad")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -686,7 +686,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "4d2d6344-d2bf-4413-839b-f5a62092d099")
+			(uuid "6b578aa1-62ab-4130-947a-20a30c495736")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -698,7 +698,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bbadf61b-79d7-48ea-84f8-86683786388a")
+			(uuid "0dfd93f9-a6a0-4ce6-af10-f7f146518186")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1315,6 +1315,7 @@
 		)
 	)
 	(footprint "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "569bef44-23bc-4391-a141-7c6eebeb6067")
 		(at 132 60.5 -90)
@@ -3101,7 +3102,7 @@
 		(property "Reference" "DS1"
 			(at 21.7 -5.73 0)
 			(layer "F.SilkS")
-			(uuid "30c012a4-ee12-42a1-96f0-d62edcd4c836")
+			(uuid "0f3cfb07-fdf1-4889-996f-c9fad3e670c5")
 			(effects
 				(font
 					(size 1 1)
@@ -3112,7 +3113,7 @@
 		(property "Value" "MSP4021"
 			(at 65 -40.75 0)
 			(layer "F.Fab")
-			(uuid "77b1be07-1bcd-4710-82be-2893ca0c29a9")
+			(uuid "963728fd-7abb-40e0-aa8f-d974fb11ae0b")
 			(effects
 				(font
 					(size 1 1)
@@ -3124,7 +3125,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "38162c7f-68d4-433a-a5cd-f98af8d5ab79")
+			(uuid "daf6d10a-33aa-4b75-98b8-cdc3595a9dd1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3135,7 +3136,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2e875ac5-931b-4ddd-a60f-88c246cff259")
+			(uuid "b89d6bdd-71b2-4deb-b55f-e837cfe6c467")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4061,6 +4062,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4320,6 +4322,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5053,6 +5056,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6496,6 +6500,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -9916,6 +9921,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10357,6 +10363,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10606,7 +10613,7 @@
 		(property "Reference" "C40"
 			(at -3.6 -0.5 90)
 			(layer "B.SilkS")
-			(uuid "02d4c36a-6a59-465c-b406-eb3fe4c31a2a")
+			(uuid "85d89bdb-5987-43ab-b92a-386d1baff3ea")
 			(effects
 				(font
 					(size 1 1)
@@ -10615,10 +10622,10 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 50V X7R"
 			(at -0.6 -2 90)
 			(layer "B.Fab")
-			(uuid "7d3ce33d-83fd-4614-b89d-71d856cff8b1")
+			(uuid "9050abb4-006a-4693-81f9-c8b259df8e31")
 			(effects
 				(font
 					(size 1 1)
@@ -10631,7 +10638,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "9b853187-a07f-4a91-9d30-91ba9f8da4a4")
+			(uuid "07785bbd-ccee-4aab-af4b-fcb1becdd35a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10643,7 +10650,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "01ce88c0-fbe8-4431-8a02-5a000766f97e")
+			(uuid "0b4ac172-27c2-456c-a21a-574899cfbfef")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10821,7 +10828,7 @@
 			(uuid "d6c05cf7-e703-4cc6-889e-b556505241ad")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -12434,7 +12441,7 @@
 		(property "Reference" "C14"
 			(at -3.5 0 90)
 			(layer "B.SilkS")
-			(uuid "0cc02f38-7271-4418-b558-e1a2b1791567")
+			(uuid "5b3a0e89-3c00-41cf-a41c-a4137b380b0e")
 			(effects
 				(font
 					(size 1 1)
@@ -12443,10 +12450,10 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 50V X7R"
 			(at 0 2 90)
 			(layer "B.Fab")
-			(uuid "4ddfee5c-ded0-4359-9605-958f9e5d4a65")
+			(uuid "25e5286d-fe53-4533-b91a-58f1776abc95")
 			(effects
 				(font
 					(size 1 1)
@@ -12459,7 +12466,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "8578622e-df09-4d55-a789-1155d31ca0af")
+			(uuid "8f038585-d724-4b39-a665-89d12c0b9d90")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12471,7 +12478,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "48548fca-fa41-46b0-beeb-f76866c8595b")
+			(uuid "d8e6ce80-5a2b-4716-8201-1794a8a25601")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12649,7 +12656,7 @@
 			(uuid "b492ff71-0c52-4fc3-9663-34ce2297e672")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -12669,7 +12676,7 @@
 		(property "Reference" "C16"
 			(at -3.4 0.3 0)
 			(layer "B.SilkS")
-			(uuid "50a75545-a3af-4323-b2f5-2d5bb137b371")
+			(uuid "49ec91ae-2d9a-48d5-9e3c-92319c89e4cc")
 			(effects
 				(font
 					(size 1 1)
@@ -12678,10 +12685,10 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 50V X7R"
 			(at 4.1 0.3 0)
 			(layer "B.Fab")
-			(uuid "2f42a39e-d0ec-4fa7-ab39-e6cc3b34cd1a")
+			(uuid "3ae5ad37-8114-4ea2-b606-a503c000a6af")
 			(effects
 				(font
 					(size 1 1)
@@ -12694,7 +12701,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "7e4f53e4-0913-46ca-abcb-8ab6432fe281")
+			(uuid "894010f6-e850-4505-a58c-1d6665842ba7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12706,7 +12713,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "d39bf22f-f992-4ca8-909d-085e8674239f")
+			(uuid "d5b3f9c7-4841-4401-a730-0ef8b0522ce8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12884,7 +12891,7 @@
 			(uuid "17a1157a-7164-4326-8498-f86fbdf74508")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -13588,6 +13595,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14299,7 +14307,7 @@
 		(property "Reference" "C36"
 			(at -3.4 0 90)
 			(layer "B.SilkS")
-			(uuid "519b8fdb-71f2-4671-bb4f-ff8c557ae3c3")
+			(uuid "ff5db767-79d1-4d81-9f22-447e8258bd31")
 			(effects
 				(font
 					(size 1 1)
@@ -14308,10 +14316,10 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 50V X7R"
 			(at -3.6 -1.5 90)
 			(layer "B.Fab")
-			(uuid "1fe92380-fb5d-44ea-b469-0bf4f9376c81")
+			(uuid "dadb4352-e2f9-46e0-8367-d11806cf17ff")
 			(effects
 				(font
 					(size 1 1)
@@ -14324,7 +14332,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "aa87c03b-4e63-4d2b-8b7e-18f9eb134d87")
+			(uuid "a7af7072-959d-4219-a2c9-5969a881f6ec")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14336,7 +14344,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "b55b4e8b-ccda-4404-b948-c36c70281eac")
+			(uuid "d9d72a21-326e-48f6-9263-da616fa6de84")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14514,7 +14522,7 @@
 			(uuid "20b104b0-8092-4251-ad6d-3b2ce584edcc")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -14586,6 +14594,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16673,6 +16682,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17137,7 +17147,7 @@
 			(uuid "7aaf03cd-a9c6-44ab-b319-7a6ca499374f")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -17405,7 +17415,7 @@
 			(at 11.7475 -24.765 0)
 			(unlocked yes)
 			(layer "B.SilkS")
-			(uuid "647e5a99-5e29-431d-9bfb-3b7c39b240df")
+			(uuid "e7a55037-d111-42ab-b1a4-3345ea78eacc")
 			(effects
 				(font
 					(size 1 1)
@@ -17418,7 +17428,7 @@
 			(at 0 -27.94 0)
 			(unlocked yes)
 			(layer "B.Fab")
-			(uuid "b96c1b0a-76aa-4389-9e30-4d9dcb030e42")
+			(uuid "4e6b4e15-7c26-4b83-9bdb-61c7166a4823")
 			(effects
 				(font
 					(size 1 1)
@@ -17431,7 +17441,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "55574c26-49bb-492a-b7c4-4b38a784ea91")
+			(uuid "77b75e16-c1e4-46cd-86fa-44afba5a28a1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17444,7 +17454,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "5400f567-9197-47c6-b8f1-e9d87d1573fd")
+			(uuid "bdfa9ef5-20e5-40ad-97d1-3542cd85cd0e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21866,7 +21876,7 @@
 			(uuid "fb4fcb15-4b79-4fc4-8609-62bfa6b2b8a4")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -22318,7 +22328,7 @@
 			(uuid "69b81b02-52ec-45f1-880a-9558986b61a4")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -22607,6 +22617,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -23123,6 +23134,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -23590,7 +23602,7 @@
 		(property "Reference" "D1"
 			(at 0 1.700001 0)
 			(layer "B.Fab")
-			(uuid "4d8c431f-523c-4636-9df6-c7c016d6b67a")
+			(uuid "26c63521-deba-4e5b-b143-fef2b5b81f76")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -23602,7 +23614,7 @@
 		(property "Value" "D_Schottky"
 			(at 0 -1.700001 0)
 			(layer "B.Fab")
-			(uuid "d0815dd3-43f2-4631-b796-cd27ddb7c284")
+			(uuid "c2c679d1-f362-47f0-b398-b0dfcbce82d0")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -23616,7 +23628,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "bd80deec-43ed-454d-b473-7a8a1b700a33")
+			(uuid "434f3cbc-f3de-4fe9-9503-52a50445d7c8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23630,7 +23642,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "79b63c5d-4b3e-42b0-8b97-4e7728562da5")
+			(uuid "5d3b0f11-6c55-4162-9292-9758ad75f858")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24071,7 +24083,7 @@
 			(uuid "f1bd53f5-24c1-47f5-a1cd-cf74748a5b2b")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -24360,6 +24372,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -24957,7 +24970,7 @@
 			(uuid "647ecd1c-6774-4565-9e65-45ad39387de8")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -25409,7 +25422,7 @@
 			(uuid "6574aa33-4b0f-4af0-8006-d6344eee65c4")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -25861,7 +25874,7 @@
 			(uuid "10de88c3-4962-4037-b99e-a5783a235abd")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -26395,6 +26408,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -27158,6 +27172,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -27862,7 +27877,7 @@
 			(uuid "f90398ea-8c61-4885-a129-b57e8d06ea30")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -28641,6 +28656,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -28942,6 +28958,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -30903,6 +30920,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -31546,6 +31564,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -31847,6 +31866,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -32653,7 +32673,7 @@
 			(uuid "0e10e2f0-2257-4ea6-8232-dd04a78c3ffe")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)

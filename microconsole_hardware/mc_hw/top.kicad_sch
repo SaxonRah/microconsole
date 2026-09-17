@@ -6,8 +6,8 @@
 	(paper "A4")
 	(lib_symbols)
 	(sheet
-		(at 95.25 149.86)
-		(size 12.7 20.32)
+		(at 20.32 91.44)
+		(size 68.58 66.04)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -22,7 +22,7 @@
 		)
 		(uuid "1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d")
 		(property "Sheetname" "Audio"
-			(at 95.25 149.1484 0)
+			(at 20.32 90.7284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -33,7 +33,7 @@
 			)
 		)
 		(property "Sheetfile" "audio.kicad_sch"
-			(at 95.25 170.7646 0)
+			(at 20.32 158.0646 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -52,8 +52,8 @@
 		)
 	)
 	(sheet
-		(at 119.38 124.46)
-		(size 12.7 20.32)
+		(at 95.25 17.78)
+		(size 68.58 66.04)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -68,7 +68,7 @@
 		)
 		(uuid "2e88eeda-748f-4d75-b88b-5acda3278369")
 		(property "Sheetname" "Battery"
-			(at 119.38 123.7484 0)
+			(at 95.25 17.0684 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -79,7 +79,7 @@
 			)
 		)
 		(property "Sheetfile" "battery.kicad_sch"
-			(at 119.38 145.3646 0)
+			(at 95.25 84.4046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -98,8 +98,8 @@
 		)
 	)
 	(sheet
-		(at 95.25 124.46)
-		(size 12.7 20.32)
+		(at 20.32 17.78)
+		(size 68.58 66.04)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -114,7 +114,7 @@
 		)
 		(uuid "522fdc1a-5064-4a45-ac3e-a627e0eb3774")
 		(property "Sheetname" "PicoScreen"
-			(at 95.25 123.7484 0)
+			(at 20.32 17.0684 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -125,7 +125,7 @@
 			)
 		)
 		(property "Sheetfile" "mc_hw.kicad_sch"
-			(at 95.25 145.3646 0)
+			(at 20.32 84.4046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -144,8 +144,8 @@
 		)
 	)
 	(sheet
-		(at 119.38 149.86)
-		(size 12.7 20.32)
+		(at 95.25 91.44)
+		(size 68.58 66.04)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -160,7 +160,7 @@
 		)
 		(uuid "adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375")
 		(property "Sheetname" "Buttons"
-			(at 119.38 149.1484 0)
+			(at 95.25 90.7284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -171,7 +171,7 @@
 			)
 		)
 		(property "Sheetfile" "buttons.kicad_sch"
-			(at 119.38 170.7646 0)
+			(at 95.25 158.0646 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
