@@ -661,7 +661,7 @@
         "uuid": "3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
       }
     ],
-    "used_designators": "SW18-19,D1,Q1",
+    "used_designators": "SW18-19,D1,Q1-2,R31,C2",
     "variants": []
   },
   "sheets": [

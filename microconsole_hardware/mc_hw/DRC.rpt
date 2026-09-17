@@ -1,14 +1,8 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-17T09:54:12 **
+** Created on 2026-09-17T10:44:38 **
 ** Report includes: Errors, Warnings **
 
-** Found 42 DRC violations **
-[track_dangling]: Track has unconnected end
-    Local override; warning
-    @(158.0000 mm, 65.5000 mm): Track [USB-VBUS] on B.Cu, length 2.5000 mm
-[track_dangling]: Track has unconnected end
-    Local override; warning
-    @(150.0000 mm, 90.9450 mm): Track [3v3] on B.Cu, length 12.2113 mm
+** Found 39 DRC violations **
 [copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
     Rule: board setup constraints edge; warning
     @(196.8800 mm, 94.7500 mm): Segment of DS1 on Margin
@@ -81,9 +75,6 @@
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
     @(120.5000 mm, 153.7000 mm): Segment of RV1 on B.Silkscreen
-[lib_footprint_mismatch]: Footprint 'SOT-23' does not match copy in library 'Package_TO_SOT_SMD'
-    Local override; warning
-    @(193.7000 mm, 63.0000 mm): Footprint Q1
 [lib_footprint_mismatch]: Footprint 'RaspberryPi_Pico_Common_Unspecified' does not match copy in library 'Module'
     Local override; warning
     @(114.1100 mm, 95.1100 mm): Footprint A2
@@ -144,7 +135,7 @@
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(187.6000 mm, 81.0000 mm): Segment of U2 on B.Silkscreen
-    @(188.0000 mm, 77.0000 mm): PTH pad 2 [Net-(C2-Pad1)] of U2
+    @(188.0000 mm, 77.0000 mm): PTH pad 2 [GND] of U2
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(190.4000 mm, 77.2000 mm): Segment of U2 on B.Silkscreen
