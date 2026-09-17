@@ -532,7 +532,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "mc_hw.step",
       "svg": "",
       "vrml": ""
     },
