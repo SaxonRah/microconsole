@@ -1,8 +1,8 @@
-ERC report (2026-09-18T08:10:36, Encoding UTF8)
+ERC report (2026-09-18T08:21:08, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
-[footprint_link_issues]: Footprint 'D_SOD-123W' not found in library 'Diode_SMD'
+[footprint_filter]: Assigned footprint (nexperia_cfp3_sod-123w) doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_* Diode_*)
     ; warning
     @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
 
@@ -181,10 +181,6 @@ Report includes: Errors, Warnings, Exclusions
     @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
 
 ***** Sheet /Battery/
-[pin_to_pin]: Pins of type Power output and Power output are connected
-    ; error
-    @(8750 mils, 2850 mils): Symbol U1 Pin 9 [V_{BAT}, Power output, Line]
-    @(8400 mils, 3000 mils): Symbol U1 Pin 10 [V_{BAT}, Power output, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(9900 mils, 2850 mils): Symbol U2 Pin 1 [1, Unspecified, Line]
@@ -398,7 +394,7 @@ Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 
- ** ERC messages: 97  Errors 1  Warnings 96
+ ** ERC messages: 96  Errors 0  Warnings 96
 
  ** Ignored checks:
     - None
