@@ -43,16 +43,14 @@ Info: Processing symbol 'C49:project_parts:C1206'.
 Info: Processing symbol 'C50:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C51:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'D1:'.
-Info: Processing symbol 'D2:'.
-Info: Processing symbol 'D3:'.
-Info: Processing symbol 'D4:'.
+Info: Processing symbol 'D2:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'D3:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'D4:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'D5:Package_TO_SOT_SMD:SOT-23'.
 Info: Processing symbol 'DS1:project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm'.
 Info: Processing symbol 'FB1:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'FB4:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'J2:Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A'.
-Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
-Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
 Info: Processing symbol 'U2:project_parts:CONN-TH_S2B-PH-K-S-LF-SN'.
 Info: Processing symbol 'U3:project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL'.
 Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
@@ -113,20 +111,14 @@ Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
-Updated J2 fields.
-Disconnected J2 pin B7.
-Disconnected J2 pin A8.
-Disconnected J2 pin A7.
-Disconnected J2 pin B8.
-Disconnected J2 pin B6.
-Disconnected J2 pin A6.
-Updated J2 unit metadata.
-Removed unused net unconnected-(J2-D+-PadA6).
-Removed unused net unconnected-(J2-D+-PadB6).
-Removed unused net unconnected-(J2-D--PadA7).
-Removed unused net unconnected-(J2-D--PadB7).
-Removed unused net unconnected-(J2-SBU1-PadA8).
-Removed unused net unconnected-(J2-SBU2-PadB8).
+Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
+Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
+Warning: No net found for component J2 pad B7 (no pin B7 in symbol).
+Warning: No net found for component J2 pad A8 (no pin A8 in symbol).
+Warning: No net found for component J2 pad A7 (no pin A7 in symbol).
+Warning: No net found for component J2 pad B8 (no pin B8 in symbol).
+Warning: No net found for component J2 pad B6 (no pin B6 in symbol).
+Warning: No net found for component J2 pad A6 (no pin A6 in symbol).
 
 
-Info: Total warnings: 0, errors: 0.
+Info: Total warnings: 6, errors: 0.
