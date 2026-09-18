@@ -1,6 +1,4 @@
 Info: Processing symbol 'A2:Module:RaspberryPi_Pico_Common_Unspecified'.
-Info: Processing symbol 'C1:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C2:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C4:project_parts:C1206'.
 Info: Processing symbol 'C5:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C7:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
@@ -18,6 +16,8 @@ Info: Processing symbol 'C18:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
 Info: Processing symbol 'C19:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
 Info: Processing symbol 'C22:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
 Info: Processing symbol 'C23:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
+Info: Processing symbol 'C26:project_parts:C1206'.
+Info: Processing symbol 'C27:project_parts:C1206'.
 Info: Processing symbol 'C28:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
 Info: Processing symbol 'C29:project_parts:C1206'.
 Info: Processing symbol 'C30:PCM_SparkFun-Capacitor:C_0805_2012Metric'.
@@ -43,8 +43,6 @@ Info: Processing symbol 'C49:project_parts:C1206'.
 Info: Processing symbol 'C50:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C51:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'D1:Diode_SMD:Nexperia_CFP3_SOD-123W'.
-Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
-Info: Processing symbol 'LS1:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
 Info: Processing symbol 'D2:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'D3:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'D4:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
@@ -59,7 +57,7 @@ Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'U5:project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
 Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
-Info: Processing symbol 'R14:PCM_SparkFun-Resistor:R_0603_1608Metric'.
+Info: Processing symbol 'LS1:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
 Info: Processing symbol 'LS2:project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm'.
 Info: Processing symbol 'LS3:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
 Info: Processing symbol 'Q1:'.
@@ -74,6 +72,7 @@ Info: Processing symbol 'R9:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R11:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R12:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R13:PCM_SparkFun-Resistor:R_0603_1608Metric'.
+Info: Processing symbol 'R14:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R15:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R16:PCM_SparkFun-Resistor:R_0603_1608Metric'.
 Info: Processing symbol 'R17:PCM_SparkFun-Resistor:R_0603_1608Metric'.
@@ -113,8 +112,7 @@ Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
 Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
-Updated D1 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_* Diode_*'.
-Removed D1 'Do not place' fabrication attribute.
+Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
 Warning: No net found for component J2 pad B7 (no pin B7 in symbol).
 Warning: No net found for component J2 pad A8 (no pin A8 in symbol).
 Warning: No net found for component J2 pad A7 (no pin A7 in symbol).

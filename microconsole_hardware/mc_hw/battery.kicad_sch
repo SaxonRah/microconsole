@@ -546,161 +546,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C"
-				(at 0.635 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Unpolarized capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "C_0_1"
-				(polyline
-					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:LED"
 			(pin_numbers
 				(hide yes)
@@ -2223,6 +2068,199 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "project_parts:1206ZD106KAT2A"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1206ZD106KAT2A"
+				(at 0 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "project_parts:C1206"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Kyocera AVX"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "1206ZD106KAT2A"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C597553"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Multilayer Ceramic Capacitors MLCC - SMD/SMT"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "1206ZD106KAT2A_0_1"
+				(polyline
+					(pts
+						(xy -0.51 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.51 -2.03) (xy -0.51 2.03)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.51 2.03) (xy 0.51 -2.03)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 0.51 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "1206ZD106KAT2A_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "project_parts:C0805C104K5RAC7210"
 			(pin_numbers
 				(hide yes)
@@ -3281,6 +3319,12 @@
 		(uuid "10415dfd-d4a8-4fed-ad27-2836c7c35910")
 	)
 	(junction
+		(at 245.11 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "36c3b34c-3e4a-4f5d-b760-27ffa60d6350")
+	)
+	(junction
 		(at 200.66 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3305,10 +3349,10 @@
 		(uuid "5d11ad11-31df-40b8-bb8a-b48c73bcb553")
 	)
 	(junction
-		(at 245.11 72.39)
+		(at 245.11 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "63e91a14-00e3-408c-bfab-17f1436e50ad")
+		(uuid "bef6b3ac-31bb-46c9-a1ed-1c82200cf750")
 	)
 	(junction
 		(at 59.69 67.31)
@@ -3333,12 +3377,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d6114511-2c6e-4daf-beed-2554a96d0f46")
-	)
-	(junction
-		(at 245.11 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ddca1af2-eb5d-40bc-9ccd-940065d386db")
 	)
 	(junction
 		(at 204.47 113.03)
@@ -3412,7 +3450,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 80.01) (xy 251.46 74.93)
+			(xy 251.46 82.55) (xy 251.46 74.93)
 		)
 		(stroke
 			(width 0)
@@ -3452,23 +3490,13 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 72.39) (xy 251.46 72.39)
+			(xy 222.25 72.39) (xy 245.11 72.39)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "2205f3ca-3979-43fe-9501-d9d412a6a495")
-	)
-	(wire
-		(pts
-			(xy 240.03 80.01) (xy 245.11 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22a731d7-8429-45d5-a4c9-ec26d54455d1")
 	)
 	(wire
 		(pts
@@ -3492,6 +3520,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 83.82) (xy 245.11 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2cbf29e4-f281-4fa4-9c3d-3686e4ec970a")
+	)
+	(wire
+		(pts
 			(xy 67.31 39.37) (xy 67.31 41.91)
 		)
 		(stroke
@@ -3502,16 +3540,6 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 49.53) (xy 67.31 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38ae3674-6876-4945-a49d-fb54f4db84ab")
-	)
-	(wire
-		(pts
 			(xy 204.47 121.92) (xy 204.47 120.65)
 		)
 		(stroke
@@ -3519,6 +3547,16 @@
 			(type default)
 		)
 		(uuid "3a672be5-b860-4615-ba8d-ed082ed66369")
+	)
+	(wire
+		(pts
+			(xy 245.11 82.55) (xy 251.46 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3da0ee4b-3678-43bb-92d2-12374e7385d0")
 	)
 	(wire
 		(pts
@@ -3712,6 +3750,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 72.39) (xy 251.46 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5bfdaf3-1bcb-4b3b-a706-71edfc1a42d8")
+	)
+	(wire
+		(pts
 			(xy 55.88 54.61) (xy 59.69 54.61)
 		)
 		(stroke
@@ -3719,16 +3767,6 @@
 			(type default)
 		)
 		(uuid "aa38c473-6292-4ca0-9c3e-defab35f607b")
-	)
-	(wire
-		(pts
-			(xy 245.11 80.01) (xy 251.46 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aeddfde2-7429-4574-beab-582912cc6217")
 	)
 	(wire
 		(pts
@@ -3789,6 +3827,16 @@
 			(type default)
 		)
 		(uuid "c373752a-c8f0-4564-a308-43110022bb79")
+	)
+	(wire
+		(pts
+			(xy 67.31 52.07) (xy 67.31 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c53dae98-7d14-47f8-bbca-d5b16b7e239b")
 	)
 	(wire
 		(pts
@@ -4032,7 +4080,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 240.03 80.01 270)
+		(at 245.11 83.82 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4042,7 +4090,7 @@
 		)
 		(uuid "458c5061-15d7-4570-9139-00465a725e69")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 240.03 86.8657 90)
+			(at 245.11 90.6757 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5277,91 +5325,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 67.31 45.72 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "38d4acd3-ca20-4ed0-970e-5052ddb418c4")
-		(property "Reference" "C1"
-			(at 66.04 48.26 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uF"
-			(at 66.04 43.18 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
-			(at 66.3448 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 67.31 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6e6ae76b-b49a-41dd-bdae-a231463848f1")
-		)
-		(pin "2"
-			(uuid "ca0d41d6-a451-41a0-bca2-8133d1972760")
-		)
-		(instances
-			(project "top"
-				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-			(project "mc_hw"
-				(path "/6b885c6b-191b-4674-ada7-0b3ed625b72f"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "project_parts:MCP73833")
 		(at 212.09 63.5 180)
 		(unit 1)
@@ -5479,6 +5442,120 @@
 			(project "mc_hw"
 				(path "/6b885c6b-191b-4674-ada7-0b3ed625b72f"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "project_parts:1206ZD106KAT2A")
+		(at 245.11 77.47 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3faac65f-0009-4a92-8f88-02c2aa8c99f4")
+		(property "Reference" "C27"
+			(at 238.76 77.47 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1206ZD106KAT2A"
+			(at 227.584 79.756 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "project_parts:C1206"
+			(at 252.73 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+			(at 255.27 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 245.11 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 257.81 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206ZD106KAT2A"
+			(at 260.35 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C597553"
+			(at 262.89 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "50825338-6a38-4e45-b339-e3d29423fe1e")
+		)
+		(pin "2"
+			(uuid "482e4028-c1f3-48f2-9025-8573dcfc4b3f")
+		)
+		(instances
+			(project "top"
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -5795,85 +5872,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 245.11 76.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "64fcc978-9cde-4430-80fd-7517c6b3977f")
-		(property "Reference" "C2"
-			(at 247.142 74.168 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uF"
-			(at 249.936 76.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
-			(at 246.0752 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 245.11 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 245.11 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1d1ec366-eb7a-47a0-80f0-12be7b3707ea")
-		)
-		(pin "2"
-			(uuid "60fa5c02-c881-4a52-83fe-705960523a75")
-		)
-		(instances
-			(project "top"
-				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "PCM_SparkFun-Resistor:0.47_0603")
 		(at 224.79 59.69 90)
 		(unit 1)
@@ -5967,6 +5965,120 @@
 			(project "mc_hw"
 				(path "/6b885c6b-191b-4674-ada7-0b3ed625b72f"
 					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "project_parts:1206ZD106KAT2A")
+		(at 67.31 46.99 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9a6a4a8f-1edb-4212-ac35-f000d219189b")
+		(property "Reference" "C26"
+			(at 69.85 46.99 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1206ZD106KAT2A"
+			(at 70.358 50.546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "project_parts:C1206"
+			(at 74.93 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+			(at 77.47 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 67.31 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 80.01 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206ZD106KAT2A"
+			(at 82.55 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C597553"
+			(at 85.09 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "994fc2ad-3d73-4796-92d4-e586db0f2e58")
+		)
+		(pin "2"
+			(uuid "4abfdff5-def2-486f-8162-ffb4cabb8e01")
+		)
+		(instances
+			(project "top"
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
+					(reference "C26")
 					(unit 1)
 				)
 			)

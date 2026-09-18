@@ -1,4 +1,4 @@
-ERC report (2026-09-18T08:24:44, Encoding UTF8)
+ERC report (2026-09-18T08:37:56, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
@@ -181,11 +181,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(9900 mils, 2850 mils): Symbol U2 Pin 1 [1, Unspecified, Line]
-    @(9650 mils, 2850 mils): Symbol C2 Pin 1 [Passive, Line]
+    @(9650 mils, 2850 mils): Symbol C27 Pin 2 [2, Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(9900 mils, 2950 mils): Symbol U2 Pin 2 [2, Unspecified, Line]
-    @(9650 mils, 3150 mils): Symbol C2 Pin 2 [Passive, Line]
+    @(9650 mils, 3250 mils): Symbol C27 Pin 1 [1, Passive, Line]
 
 ***** Sheet /Buttons/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
