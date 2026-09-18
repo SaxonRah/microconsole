@@ -156,7 +156,7 @@
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -524,7 +524,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "export/",
       "specctra_dsn": "",
       "step": "top_board.step",
       "vrml": ""
@@ -661,7 +661,7 @@
         "uuid": "3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
       }
     ],
-    "used_designators": "SW18-19,D1,D5-6,Q1-2,#FLG1,R31,C2",
+    "used_designators": "SW18-19,D1,D5-6,Q1-2,#FLG1,R31-33,C2,C51,TH1",
     "variants": []
   },
   "sheets": [

@@ -1,8 +1,8 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-17T17:04:01 **
+** Created on 2026-09-18T03:07:50 **
 ** Report includes: Errors, Warnings **
 
-** Found 44 DRC violations **
+** Found 45 DRC violations **
 [missing_courtyard]: Footprint has no courtyard defined
     Local override; warning
     @(86.2900 mm, 105.0400 mm): Footprint SW17
@@ -76,14 +76,17 @@
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
-    @(116.0000 mm, 159.3000 mm): Segment of RV1 on B.Silkscreen
+    @(116.0000 mm, 160.0000 mm): Segment of RV1 on B.Silkscreen
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
-    @(120.5000 mm, 153.7000 mm): Segment of RV1 on B.Silkscreen
+    @(122.0000 mm, 153.4000 mm): Segment of RV1 on B.Silkscreen
 [footprint_type_mismatch]: Footprint component type doesn't match footprint pads (expected 'SMD'; actual 'Through hole')
     Local override; warning
     @(116.0000 mm, 134.5000 mm): Footprint U4
+[lib_footprint_mismatch]: Footprint 'PinHeader_1x02_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(178.9000 mm, 79.2000 mm): Footprint TH1
 [lib_footprint_mismatch]: Footprint 'RaspberryPi_Pico_Common_Unspecified' does not match copy in library 'Module'
     Local override; warning
     @(114.1100 mm, 95.1100 mm): Footprint A2
@@ -147,16 +150,16 @@
     @(129.7550 mm, 63.7250 mm): Reference field of D5
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
-    @(111.0000 mm, 130.4700 mm): Reference field of FB1
-    @(112.5500 mm, 129.5000 mm): Pad 2 [GND] of C9 on B.Cu
-[silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; warning
     @(187.6000 mm, 81.0000 mm): Segment of U2 on B.Silkscreen
     @(188.0000 mm, 77.0000 mm): PTH pad 2 [GND] of U2
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(190.4000 mm, 77.2000 mm): Segment of U2 on B.Silkscreen
     @(190.0000 mm, 77.0000 mm): PTH pad 1 [BAT+] of U2
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(111.0000 mm, 130.4700 mm): Reference field of FB1
+    @(112.5500 mm, 129.5000 mm): Pad 2 [GND] of C9 on B.Cu
 
 ** Found 0 unconnected pads **
 

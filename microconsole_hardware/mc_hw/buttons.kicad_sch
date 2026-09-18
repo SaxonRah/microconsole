@@ -3481,10 +3481,6 @@
 		(uuid "d5231909-46e0-47c2-ad99-fc2bec9e7330")
 	)
 	(no_connect
-		(at 157.48 38.1)
-		(uuid "dd6dcac7-44a8-49b5-8fe1-90a6ea0bbf55")
-	)
-	(no_connect
 		(at 69.85 71.12)
 		(uuid "de19dc86-3357-499d-9ed7-c6bbb8a69f54")
 	)
@@ -3957,6 +3953,16 @@
 			(type default)
 		)
 		(uuid "81ba601b-d21d-4740-adcf-42a8e92308d5")
+	)
+	(wire
+		(pts
+			(xy 153.67 38.1) (xy 157.48 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82fb9744-1bfc-4b76-a723-79cbc631cc30")
 	)
 	(wire
 		(pts
@@ -4483,6 +4489,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "BAT_SENSE"
+		(shape input)
+		(at 153.67 38.1 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1d87536a-b4a5-4813-8a1d-4cfc898f991b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.3435 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -6580,7 +6610,7 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 207.01 52.07 0)
+			(at 215.138 45.212 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6590,7 +6620,7 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 207.01 54.61 0)
+			(at 215.138 47.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
