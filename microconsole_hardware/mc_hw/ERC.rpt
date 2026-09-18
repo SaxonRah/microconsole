@@ -1,13 +1,7 @@
-ERC report (2026-09-18T06:01:26, Encoding UTF8)
-Report includes: Errors, Warnings
+ERC report (2026-09-18T07:50:07, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(7300 mils, 3700 mils): Horizontal Wire, length 800 mils
-[footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
-    ; warning
-    @(2650 mils, 1800 mils): Symbol C1 [C]
 [footprint_filter]: Assigned footprint () doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
     ; warning
     @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
@@ -17,9 +11,6 @@ Report includes: Errors, Warnings
 [footprint_filter]: Assigned footprint (pinheader_1x02_p2.54mm_vertical) doesn't match footprint filters (R_* RV_*)
     ; warning
     @(9250 mils, 1700 mils): Symbol TH1 [Thermistor_NTC]
-[footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
-    ; warning
-    @(9650 mils, 3000 mils): Symbol C2 [C]
 
 ***** Sheet /Audio/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
@@ -177,7 +168,7 @@ Report includes: Errors, Warnings
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
-    @(7600 mils, 3700 mils): Symbol C43 Pin 2 [Passive, Line]
+    @(7000 mils, 4050 mils): Symbol R27 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6500 mils, 4050 mils): Symbol U7 Pin 12 [~{SHDN}, Unspecified, Line]
@@ -190,16 +181,16 @@ Report includes: Errors, Warnings
     ; warning
     @(6500 mils, 4250 mils): Symbol U7 Pin 10 [INR, Unspecified, Line]
     @(7200 mils, 4250 mils): Symbol C42 Pin 1 [Passive, Line]
-[pin_to_pin]: Pins of type Unspecified and Passive are connected
+[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(6500 mils, 4350 mils): Symbol U7 Pin 9 [MODE, Unspecified, Line]
-    @(7000 mils, 4050 mils): Symbol R27 Pin 1 [Passive, Line]
+    @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
 
 ***** Sheet /Battery/
 [multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
     ; warning
-    @(6850 mils, 1500 mils): Global Label 'USB-VBUS'
-    @(7950 mils, 2850 mils): Symbol U1 Hidden pin 1 [VDD, Power input, Line]
+    @(4000 mils, 3950 mils): Global Label 'USB-VBUS'
+    @(7900 mils, 2850 mils): Global Label 'VDD'
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(9900 mils, 2850 mils): Symbol U2 Pin 1 [1, Unspecified, Line]
@@ -413,7 +404,7 @@ Report includes: Errors, Warnings
 
 ***** Sheet /
 
- ** ERC messages: 102  Errors 0  Warnings 102
+ ** ERC messages: 99  Errors 0  Warnings 99
 
  ** Ignored checks:
     - None

@@ -24,3 +24,5 @@ __pycache__/
 *.kicad_prl
 microconsole_hardware/mc_hw/mc_hw.kicad_prl
 *.kicad_prl
+/build
+/games/ballet_demo

@@ -1679,300 +1679,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "PCM_SparkFun-IC-Power:MCP73833"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -7.62 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "MCP73833_MSOP"
-				(at 1.27 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm"
-				(at 0 -10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
-			(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/22005b.pdf"
-				(at 0 -12.7 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Single cell, Li-Ion/Li-Po charge management controller, Thermal cut-off"
-				(at 0 -17.78 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "PROD_ID" "IC-19890"
-				(at 0 -15.24 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "SparkFun battery charger lithium"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "MCP73833_0_1"
-				(rectangle
-					(start -7.62 10.16)
-					(end 7.62 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "MCP73833_1_1"
-				(pin power_in line
-					(at 10.16 8.89 180)
-					(length 2.54)
-					(hide yes)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 10.16 8.89 180)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 10.16 5.08 180)
-					(length 2.54)
-					(name "STAT1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 10.16 1.27 180)
-					(length 2.54)
-					(name "STAT2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -6.35 90)
-					(length 2.54)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -10.16 1.27 0)
-					(length 2.54)
-					(name "PROG"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "~{PG}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -10.16 5.08 0)
-					(length 2.54)
-					(name "THERM"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at -10.16 8.89 0)
-					(length 2.54)
-					(name "V_{BAT}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at -10.16 8.89 0)
-					(length 2.54)
-					(hide yes)
-					(name "V_{BAT}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "PCM_SparkFun-Resistor:0.47_0603"
 			(pin_numbers
 				(hide yes)
@@ -3110,6 +2816,296 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "project_parts:MCP73833"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U1"
+				(at 3.048 11.176 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MCP73833-FCI/UN"
+				(at 10.16 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/22005b.pdf"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Single cell, Li-Ion/Li-Po charge management controller, Thermal cut-off"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "PROD_ID" "IC-19890"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "SparkFun battery charger lithium"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MCP73833_0_1"
+				(rectangle
+					(start -7.62 10.16)
+					(end 7.62 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "MCP73833_1_1"
+				(pin power_in line
+					(at -1.27 12.7 270)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 10.16 8.89 180)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 10.16 5.08 180)
+					(length 2.54)
+					(name "STAT1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 10.16 1.27 180)
+					(length 2.54)
+					(name "STAT2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -6.35 90)
+					(length 2.54)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 1.27 0)
+					(length 2.54)
+					(name "PROG"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "~{PG}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 5.08 0)
+					(length 2.54)
+					(name "THERM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at -10.16 8.89 0)
+					(length 2.54)
+					(name "V_{BAT}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 1.27 12.7 270)
+					(length 2.54)
+					(name "V_{BAT}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "project_parts:S2B-PH-K-S"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -3307,12 +3303,6 @@
 		(uuid "63e91a14-00e3-408c-bfab-17f1436e50ad")
 	)
 	(junction
-		(at 193.04 72.39)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9737859f-c76e-4fe4-8445-10ff0da01fa9")
-	)
-	(junction
 		(at 59.69 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3331,6 +3321,12 @@
 		(uuid "cde312d0-f35d-4501-8f8a-5c856196021f")
 	)
 	(junction
+		(at 53.34 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d6114511-2c6e-4daf-beed-2554a96d0f46")
+	)
+	(junction
 		(at 245.11 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3341,6 +3337,14 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e062402f-2644-4d32-a869-67c42453ed02")
+	)
+	(no_connect
+		(at 213.36 76.2)
+		(uuid "10395430-ec8c-4fab-a0ca-c128c40b726e")
+	)
+	(no_connect
+		(at 210.82 76.2)
+		(uuid "2acff730-fb36-4b2d-bf68-14e5f7133a0e")
 	)
 	(no_connect
 		(at 109.22 50.8)
@@ -3418,6 +3422,26 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 72.39) (xy 187.96 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "121014ee-f651-41ab-b28c-50abd2c14266")
+	)
+	(wire
+		(pts
+			(xy 200.66 72.39) (xy 201.93 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12152f5a-f1d2-4e3a-9b1b-d11745294c37")
+	)
+	(wire
+		(pts
 			(xy 173.99 48.26) (xy 173.99 50.8)
 		)
 		(stroke
@@ -3425,6 +3449,16 @@
 			(type default)
 		)
 		(uuid "1cbed113-9297-43fb-8991-5129f13f9572")
+	)
+	(wire
+		(pts
+			(xy 222.25 72.39) (xy 251.46 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2205f3ca-3979-43fe-9501-d9d412a6a495")
 	)
 	(wire
 		(pts
@@ -3475,16 +3509,6 @@
 			(type default)
 		)
 		(uuid "38ae3674-6876-4945-a49d-fb54f4db84ab")
-	)
-	(wire
-		(pts
-			(xy 193.04 72.39) (xy 201.93 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "39102b4a-bd2d-4351-81cf-ec4b5df99306")
 	)
 	(wire
 		(pts
@@ -3558,7 +3582,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 39.37) (xy 72.39 39.37)
+			(xy 43.18 39.37) (xy 53.34 39.37)
 		)
 		(stroke
 			(width 0)
@@ -3638,6 +3662,16 @@
 	)
 	(wire
 		(pts
+			(xy 53.34 39.37) (xy 72.39 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9de3a41e-8fa6-4d56-ac92-cb2688422ce6")
+	)
+	(wire
+		(pts
 			(xy 48.26 52.07) (xy 43.18 52.07)
 		)
 		(stroke
@@ -3688,16 +3722,6 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 72.39) (xy 251.46 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b54396b3-77d6-4d50-8572-0e75ccc18a61")
-	)
-	(wire
-		(pts
 			(xy 119.38 116.84) (xy 119.38 118.11)
 		)
 		(stroke
@@ -3725,16 +3749,6 @@
 			(type default)
 		)
 		(uuid "bc7d3345-46d9-43ea-9756-0121f90e9b2b")
-	)
-	(wire
-		(pts
-			(xy 187.96 72.39) (xy 193.04 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd263533-5777-4c56-a25f-0f0bd3860b64")
 	)
 	(wire
 		(pts
@@ -3855,6 +3869,30 @@
 			(type default)
 		)
 		(uuid "fa6850d1-01aa-4088-8dc9-a0340e5a326d")
+	)
+	(global_label "VDD"
+		(shape input)
+		(at 187.96 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1779d394-8975-4ed2-abbe-d1c42e364e60")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.5738 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(global_label "USB-VBUS"
 		(shape input)
@@ -4218,7 +4256,7 @@
 	)
 	(global_label "USB-VBUS"
 		(shape input)
-		(at 187.96 72.39 180)
+		(at 177.8 72.39 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4228,7 +4266,7 @@
 		)
 		(uuid "9a549c96-fd6f-4e23-9a01-80cb9b8c4831")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 174.6938 72.39 0)
+			(at 164.5338 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4477,6 +4515,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "VDD"
+		(shape input)
+		(at 200.66 72.39 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f59a6f35-f5d7-4ae0-b27a-89e5f19f4ac9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.0462 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -4768,6 +4830,84 @@
 			(project "mc_hw"
 				(path "/6b885c6b-191b-4674-ada7-0b3ed625b72f"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 53.34 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "18714d77-8b8a-4bc9-82cb-0f978bcbe292")
+		(property "Reference" "#FLG02"
+			(at 53.34 37.465 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 53.34 34.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 53.34 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "54dd04ef-eccc-4c4e-97e7-3f5fde1d0d29")
+		)
+		(instances
+			(project "top"
+				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
+					(reference "#FLG02")
 					(unit 1)
 				)
 			)
@@ -5175,7 +5315,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
 			(at 66.3448 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -5230,7 +5370,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-IC-Power:MCP73833")
+		(lib_id "project_parts:MCP73833")
 		(at 212.09 63.5 180)
 		(unit 1)
 		(body_style 1)
@@ -5239,26 +5379,27 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3b4f23ea-92b0-4ada-8b3d-df046b4eee3c")
 		(property "Reference" "U1"
-			(at 212.09 76.2 0)
+			(at 205.74 75.184 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "MCP73833-FCI/UN"
-			(at 212.09 78.74 0)
+			(at 191.516 77.724 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm"
@@ -5692,7 +5833,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "project_parts:C_0805_2012Metric_KEMET_IPC-B"
 			(at 246.0752 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -6227,84 +6368,6 @@
 			(project "mc_hw"
 				(path "/6b885c6b-191b-4674-ada7-0b3ed625b72f"
 					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 193.04 72.39 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cdd69a01-4350-45a2-9581-6ece1940d125")
-		(property "Reference" "#FLG02"
-			(at 193.04 74.295 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 193.04 77.47 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 193.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 193.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "169d5a30-33ce-407a-a8ca-b7bbce1cba38")
-		)
-		(instances
-			(project "top"
-				(path "/3433afdc-e53a-48bd-a2b1-9fdee73e8b40/2e88eeda-748f-4d75-b88b-5acda3278369"
-					(reference "#FLG02")
 					(unit 1)
 				)
 			)
