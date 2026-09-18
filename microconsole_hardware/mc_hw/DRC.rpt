@@ -1,16 +1,20 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-18T07:54:28 **
+** Created on 2026-09-18T08:11:20 **
 ** Report includes: Errors, Warnings **
 
-** Found 6 DRC violations **
+** Found 7 DRC violations **
 [hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
     Rule: board setup constraints hole; error
     @(145.1800 mm, 64.4450 mm): Pad A1 [GND] of J2 on B.Cu
     @(145.4900 mm, 63.3050 mm): NPTH pad of J2
 [hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
     Rule: board setup constraints hole; error
-    @(145.1800 mm, 64.4450 mm): Pad B12 [GND] of J2 on B.Cu
-    @(145.4900 mm, 63.3050 mm): NPTH pad of J2
+    @(151.5800 mm, 64.4450 mm): Pad A12 [GND] of J2 on B.Cu
+    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
+    Rule: board setup constraints hole; error
+    @(151.5800 mm, 64.4450 mm): Pad B1 [GND] of J2 on B.Cu
+    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
@@ -26,7 +30,15 @@
     Local override; warning
     @(114.1100 mm, 95.1100 mm): Footprint A2
 
-** Found 0 unconnected pads **
+** Found 2 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(190.5500 mm, 66.2500 mm): Track [USB-VBUS] on B.Cu, length 0.8017 mm
+    @(190.5500 mm, 65.7500 mm): Pad 1 [USB-VBUS] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(186.4500 mm, 65.7500 mm): Pad 10 [BAT+] of U1 on B.Cu
+    @(187.2000 mm, 66.2500 mm): Track [BAT+] on B.Cu, length 0.7500 mm
 
 ** Found 0 Footprint errors **
 

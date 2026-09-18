@@ -1,16 +1,10 @@
-ERC report (2026-09-18T07:50:07, Encoding UTF8)
+ERC report (2026-09-18T08:10:36, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
-[footprint_filter]: Assigned footprint () doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
+[footprint_link_issues]: Footprint 'D_SOD-123W' not found in library 'Diode_SMD'
     ; warning
     @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
-[footprint_filter]: Assigned footprint (msop-10_3x3mm_p0.5mm) doesn't match footprint filters (SOT?23*)
-    ; warning
-    @(8350 mils, 2500 mils): Symbol U1 [MCP73833]
-[footprint_filter]: Assigned footprint (pinheader_1x02_p2.54mm_vertical) doesn't match footprint filters (R_* RV_*)
-    ; warning
-    @(9250 mils, 1700 mils): Symbol TH1 [Thermistor_NTC]
 
 ***** Sheet /Audio/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
@@ -187,10 +181,10 @@ Report includes: Errors, Warnings, Exclusions
     @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
 
 ***** Sheet /Battery/
-[multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
-    ; warning
-    @(4000 mils, 3950 mils): Global Label 'USB-VBUS'
-    @(7900 mils, 2850 mils): Global Label 'VDD'
+[pin_to_pin]: Pins of type Power output and Power output are connected
+    ; error
+    @(8750 mils, 2850 mils): Symbol U1 Pin 9 [V_{BAT}, Power output, Line]
+    @(8400 mils, 3000 mils): Symbol U1 Pin 10 [V_{BAT}, Power output, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(9900 mils, 2850 mils): Symbol U2 Pin 1 [1, Unspecified, Line]
@@ -404,7 +398,7 @@ Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 
- ** ERC messages: 99  Errors 0  Warnings 99
+ ** ERC messages: 97  Errors 1  Warnings 96
 
  ** Ignored checks:
     - None

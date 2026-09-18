@@ -5679,7 +5679,7 @@
 				)
 			)
 		)
-		(property ki_fp_filters "R_* RV_*")
+		(property ki_fp_filters "PinHeader_1x02_P2.54mm_*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/fb9ca5cf-5ac2-41c1-af26-ff370e8c88a0")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
@@ -6307,7 +6307,7 @@
 			(uuid "908b0e3f-03f5-4fad-ac89-770a2d0c8ddd")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -17173,7 +17173,7 @@
 			(uuid "86fff7ea-c553-4999-a5de-2247a278a935")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -17718,14 +17718,14 @@
 				(justify mirror)
 			)
 		)
-		(property ki_fp_filters "SOT?23*")
+		(property ki_fp_filters "MSOP-10*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/3b4f23ea-92b0-4ada-8b3d-df046b4eee3c")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
 		(units
 			(unit
 				(name "A")
-				(pins "9" "8" "6" "1" "5" "10" "2" "3" "4" "7")
+				(pins "9" "8" "6" "10" "5" "1" "2" "3" "4" "7")
 			)
 		)
 		(attr smd)
@@ -18156,9 +18156,9 @@
 			(at -2.05 1 270)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "unconnected-(U1-VDD-Pad1)")
+			(net "USB-VBUS")
 			(pinfunction "VDD_1")
-			(pintype "power_in+no_connect")
+			(pintype "power_in")
 			(thermal_bridge_angle 0)
 			(uuid "cb53ce53-6c62-42a2-8ca9-7503efb54423")
 		)
@@ -18246,9 +18246,9 @@
 			(at 2.05 1 90)
 			(size 0.3 1)
 			(layers "B.Cu")
-			(net "unconnected-(U1-V_{BAT}-Pad10)")
+			(net "BAT+")
 			(pinfunction "V_{BAT}_10")
-			(pintype "power_out+no_connect")
+			(pintype "power_out")
 			(thermal_bridge_angle 0)
 			(uuid "2b824e6d-7b18-47d0-a191-9cbb5a17cfbd")
 		)
@@ -25594,7 +25594,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PMEG40T30ER.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -25632,7 +25632,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.26 -0.95)
