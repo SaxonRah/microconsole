@@ -1,113 +1,462 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-18T05:38:40 **
-** Report includes: Errors, Warnings **
+** Created on 2026-09-18T06:05:48 **
+** Report includes: Errors **
 
-** Found 31 DRC violations **
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4899 mm)
-    Rule: board setup constraints edge; warning
-    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(94.4500 mm, 59.6400 mm): Pad 1 [GND] of SW12 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4899 mm)
-    Rule: board setup constraints edge; warning
-    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(98.9500 mm, 59.6400 mm): Pad 4 [MCP GPB5 / L2] of SW12 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(200.1500 mm, 59.6400 mm): Pad 1 [GND] of SW15 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(204.6500 mm, 59.6400 mm): Pad 4 [MCP GPB6 / R2] of SW15 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(213.9500 mm, 59.6400 mm): Pad 1 [GND] of SW8 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4900 mm)
-    Rule: board setup constraints edge; warning
-    @(220.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(218.4500 mm, 59.6400 mm): Pad 4 [MCP GPB4 / R1] of SW8 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4896 mm)
-    Rule: board setup constraints edge; warning
-    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(80.6500 mm, 59.6400 mm): Pad 1 [GND] of SW4 on F.Cu
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.4897 mm)
-    Rule: board setup constraints edge; warning
-    @(102.0000 mm, 58.0000 mm): Segment on Edge.Cuts
-    @(85.1500 mm, 59.6400 mm): Pad 4 [MCP GPB3 / L1] of SW4 on F.Cu
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
-    @(122.0000 mm, 153.4000 mm): Segment of RV1 on B.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts
-    @(116.0000 mm, 160.0000 mm): Segment of RV1 on B.Silkscreen
-[footprint_type_mismatch]: Footprint component type doesn't match footprint pads (expected 'SMD'; actual 'Through hole')
-    Local override; warning
-    @(116.0000 mm, 134.5000 mm): Footprint U4
-[lib_footprint_mismatch]: Footprint 'CONN-TH_S2B-PH-K-S-LF-SN' does not match copy in library 'project_parts'
-    Local override; warning
-    @(189.0000 mm, 77.0000 mm): Footprint U2
-[lib_footprint_mismatch]: Footprint 'TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL' does not match copy in library 'project_parts'
-    Local override; warning
-    @(116.0000 mm, 134.5000 mm): Footprint U4
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.1300 mm, 90.1200 mm): Footprint text of DS1 (RESET)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 82.5000 mm): Footprint text of DS1 (VCC)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 85.0400 mm): Footprint text of DS1 (GND)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 92.5000 mm): Footprint text of DS1 (DC/RS)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 95.2000 mm): Footprint text of DS1 (SDI)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 97.7400 mm): Footprint text of DS1 (SCK)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 102.8200 mm): Footprint text of DS1 (SDO)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 105.3600 mm): Footprint text of DS1 (T_CLK)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 107.9000 mm): Footprint text of DS1 (T_CS)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 112.9800 mm): Footprint text of DS1 (T_DO)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 115.5200 mm): Footprint text of DS1 (T_IRQ)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 87.5800 mm): Footprint text of DS1 (CS)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 100.2800 mm): Footprint text of DS1 (LED)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(99.3800 mm, 110.4400 mm): Footprint text of DS1 (T_DIN)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(196.8800 mm, 96.2500 mm): Footprint text of DS1 (SD_CS)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(196.8800 mm, 98.7500 mm): Footprint text of DS1 (SD_MOSI)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(196.8800 mm, 101.2500 mm): Footprint text of DS1 (SD_MISO)
-[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)
-    Rule: board setup constraints silk text height; warning
-    @(196.8800 mm, 104.0000 mm): Footprint text of DS1 (SD_SCK)
+** Found 93 DRC violations **
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(142.9375 mm, 67.0000 mm): Track [<no net>] on F.Cu, length 0.1414 mm
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(88.0000 mm, 81.4100 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+    @(88.0000 mm, 81.4100 mm): Pad 2 [VSYS_BAT] of C45 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+    @(154.9200 mm, 119.4000 mm): Track [<no net>] on B.Cu, length 3.4610 mm
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(183.5321 mm, 92.7679 mm): Track [<no net>] on B.Cu, length 1.7082 mm
+    @(184.7400 mm, 91.5600 mm): Pad 2 [VSYS_BAT] of C34 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+    @(90.9000 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 0.5657 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+    @(160.0600 mm, 118.6800 mm): Track [<no net>] on B.Cu, length 1.2342 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(129.5000 mm, 73.1000 mm): Pad 2 [VSYS_BAT] of C48 on B.Cu
+    @(129.5000 mm, 73.1000 mm): Track [<no net>] on B.Cu, length 0.9343 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+    @(159.1010 mm, 118.6800 mm): Track [<no net>] on B.Cu, length 0.9590 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+    @(107.3375 mm, 75.6375 mm): Track [<no net>] on F.Cu, length 2.9946 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(185.2400 mm, 95.5200 mm): Pad 1 [VSYS_BAT] of C35 on B.Cu
+    @(185.2400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.0442 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+    @(154.9200 mm, 123.2800 mm): Track [<no net>] on B.Cu, length 3.8800 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(178.4800 mm, 92.4200 mm): Pad 4 [VSYS_BAT] of U7 on B.Cu
+    @(179.9920 mm, 93.0869 mm): Track [<no net>] on B.Cu, length 0.9431 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+    @(102.8299 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 1.5901 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+    @(170.8750 mm, 92.4200 mm): Track [<no net>] on B.Cu, length 2.1250 mm
+[shorting_items]: Items shorting two nets (nets Net-(U7-PVDDR) and )
+    Local override; error
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+    @(165.7600 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 2.9800 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1250 mm)
+    Local override; error
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+    @(183.1900 mm, 93.1100 mm): Track [<no net>] on B.Cu, length 0.4838 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+    @(182.5650 mm, 93.1100 mm): Track [<no net>] on B.Cu, length 0.6250 mm
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(178.4800 mm, 94.9500 mm): Track [<no net>] on B.Cu, length 1.2872 mm
+    @(178.4800 mm, 94.9500 mm): Pad 6 [VSYS_BAT] of U7 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+    @(90.5000 mm, 82.1000 mm): Track [<no net>] on B.Cu, length 0.6443 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+    @(162.9201 mm, 112.6249 mm): Track [<no net>] on B.Cu, length 1.1669 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+    @(168.7400 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 1.7750 mm
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(173.0000 mm, 97.5000 mm): Track [<no net>] on B.Cu, length 0.7818 mm
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(131.9100 mm, 73.4100 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(94.1300 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 3.2300 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+    @(170.7400 mm, 92.2850 mm): Track [<no net>] on B.Cu, length 0.1909 mm
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+    @(181.7400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1093 mm)
+    Local override; error
+    @(129.5000 mm, 73.1000 mm): Pad 2 [VSYS_BAT] of C48 on B.Cu
+    @(130.4343 mm, 73.1000 mm): Track [<no net>] on B.Cu, length 0.4384 mm
+[shorting_items]: Items shorting two nets (nets  and Net-(U7-PVDDR))
+    Local override; error
+    @(168.7400 mm, 93.0869 mm): Track [<no net>] on B.Cu, length 1.0269 mm
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+    @(89.8557 mm, 82.1000 mm): Track [<no net>] on B.Cu, length 0.9758 mm
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(170.5150 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 0.3182 mm
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(94.1300 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 0.2801 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(162.0950 mm, 117.8792 mm): Track [<no net>] on B.Cu, length 4.4292 mm
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(179.3251 mm, 92.4200 mm): Track [<no net>] on B.Cu, length 0.8451 mm
+    @(178.4800 mm, 92.4200 mm): Pad 4 [VSYS_BAT] of U7 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+    @(158.3810 mm, 119.4000 mm): Track [<no net>] on B.Cu, length 1.0182 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1518 mm)
+    Local override; error
+    @(173.5528 mm, 98.0528 mm): Track [<no net>] on B.Cu, length 0.7344 mm
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[shorting_items]: Items shorting two nets (nets VSYS_BAT and )
+    Local override; error
+    @(107.4000 mm, 134.6750 mm): Pad 2 [VSYS_BAT] of R32 on B.Cu
+    @(107.4000 mm, 134.6750 mm): Track [<no net>] on B.Cu, length 4.0750 mm
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(105.2200 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 0.8000 mm
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(94.1300 mm, 82.2199 mm): Track [<no net>] on B.Cu, length 12.3035 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(181.7400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.0442 mm
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(182.5650 mm, 93.6508 mm): Track [<no net>] on B.Cu, length 0.5408 mm
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(181.7400 mm, 94.4758 mm): Track [<no net>] on B.Cu, length 1.1667 mm
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(131.9100 mm, 73.4100 mm): Track [<no net>] on B.Cu, length 1.2576 mm
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+[shorting_items]: Items shorting two nets (nets  and VSYS_BAT)
+    Local override; error
+    @(139.5000 mm, 67.0000 mm): Track [<no net>] on F.Cu, length 3.4375 mm
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
+    Rule: board setup constraints hole; error
+    @(151.5800 mm, 64.4450 mm): Pad A12 [GND] of J2 on B.Cu
+    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
+    Rule: board setup constraints hole; error
+    @(151.5800 mm, 64.4450 mm): Pad B1 [GND] of J2 on B.Cu
+    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
+    Rule: board setup constraints hole; error
+    @(145.1800 mm, 64.4450 mm): Pad B12 [GND] of J2 on B.Cu
+    @(145.4900 mm, 63.3050 mm): NPTH pad of J2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(142.9375 mm, 67.0000 mm): Track [<no net>] on F.Cu, length 0.1414 mm
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(139.5000 mm, 67.0000 mm): Track [<no net>] on F.Cu, length 3.4375 mm
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(107.3375 mm, 75.6375 mm): Track [<no net>] on F.Cu, length 2.9946 mm
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(181.7400 mm, 94.4758 mm): Track [<no net>] on B.Cu, length 1.1667 mm
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(182.5650 mm, 93.6508 mm): Track [<no net>] on B.Cu, length 0.5408 mm
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(183.5321 mm, 92.7679 mm): Track [<no net>] on B.Cu, length 1.7082 mm
+    @(184.7400 mm, 91.5600 mm): Pad 2 [VSYS_BAT] of C34 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(88.0000 mm, 81.4100 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+    @(88.0000 mm, 81.4100 mm): Pad 2 [VSYS_BAT] of C45 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(181.7400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.0442 mm
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(94.1300 mm, 82.2199 mm): Track [<no net>] on B.Cu, length 12.3035 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(94.1300 mm, 82.2199 mm): Track [<no net>] on B.Cu, length 12.3035 mm
+    @(104.4200 mm, 73.5200 mm): Pad 39 [VSYS_BAT] of A2 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(105.2200 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 0.8000 mm
+    @(104.4200 mm, 73.5200 mm): Pad 39 [VSYS_BAT] of A2 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(105.2200 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 0.8000 mm
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(107.4000 mm, 134.6750 mm): Track [<no net>] on B.Cu, length 4.0750 mm
+    @(107.4000 mm, 134.6750 mm): Pad 2 [VSYS_BAT] of R32 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(131.9100 mm, 73.4100 mm): Track [<no net>] on B.Cu, length 1.2576 mm
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.9200 mm, 119.4000 mm): Track [<no net>] on B.Cu, length 3.4610 mm
+    @(157.4200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C39 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.9200 mm, 119.4000 mm): Track [<no net>] on B.Cu, length 3.4610 mm
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(158.3810 mm, 119.4000 mm): Track [<no net>] on B.Cu, length 1.0182 mm
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(162.0950 mm, 117.8792 mm): Track [<no net>] on B.Cu, length 4.4292 mm
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(94.1300 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 0.2801 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.3251 mm, 92.4200 mm): Track [<no net>] on B.Cu, length 0.8451 mm
+    @(178.4800 mm, 92.4200 mm): Pad 4 [VSYS_BAT] of U7 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(170.5150 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 0.3182 mm
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(89.8557 mm, 82.1000 mm): Track [<no net>] on B.Cu, length 0.9758 mm
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(168.7400 mm, 93.0869 mm): Track [<no net>] on B.Cu, length 1.0269 mm
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(170.7400 mm, 92.2850 mm): Track [<no net>] on B.Cu, length 0.1909 mm
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(181.7400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(131.9100 mm, 73.4100 mm): Track [<no net>] on B.Cu, length 1.1657 mm
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(90.9000 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 0.5657 mm
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(94.1300 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 3.2300 mm
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(94.1300 mm, 82.5000 mm): Track [<no net>] on B.Cu, length 3.2300 mm
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(173.0000 mm, 97.5000 mm): Track [<no net>] on B.Cu, length 0.7818 mm
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(129.5000 mm, 73.1000 mm): Track [<no net>] on B.Cu, length 0.9343 mm
+    @(129.5000 mm, 73.1000 mm): Pad 2 [VSYS_BAT] of C48 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(160.0600 mm, 118.6800 mm): Track [<no net>] on B.Cu, length 1.2342 mm
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(168.7400 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 1.7750 mm
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(168.7400 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 1.7750 mm
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(90.5000 mm, 82.1000 mm): Track [<no net>] on B.Cu, length 0.6443 mm
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(162.9201 mm, 112.6249 mm): Track [<no net>] on B.Cu, length 1.1669 mm
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(182.5650 mm, 93.1100 mm): Track [<no net>] on B.Cu, length 0.6250 mm
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(159.1010 mm, 118.6800 mm): Track [<no net>] on B.Cu, length 0.9590 mm
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(178.4800 mm, 94.9500 mm): Track [<no net>] on B.Cu, length 1.2872 mm
+    @(178.4800 mm, 94.9500 mm): Pad 6 [VSYS_BAT] of U7 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(165.7600 mm, 92.0600 mm): Track [<no net>] on B.Cu, length 2.9800 mm
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(102.8299 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 1.5901 mm
+    @(104.4200 mm, 73.5200 mm): Pad 39 [VSYS_BAT] of A2 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(102.8299 mm, 73.5200 mm): Track [<no net>] on B.Cu, length 1.5901 mm
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(170.8750 mm, 92.4200 mm): Track [<no net>] on B.Cu, length 2.1250 mm
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(170.8750 mm, 92.4200 mm): Track [<no net>] on B.Cu, length 2.1250 mm
+    @(173.0000 mm, 92.4200 mm): Pad 13 [Net-(U7-PVDDR)] of U7 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(179.9920 mm, 93.0869 mm): Track [<no net>] on B.Cu, length 0.9431 mm
+    @(178.4800 mm, 92.4200 mm): Pad 4 [VSYS_BAT] of U7 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(154.9200 mm, 123.2800 mm): Track [<no net>] on B.Cu, length 3.8800 mm
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(185.2400 mm, 95.5200 mm): Track [<no net>] on B.Cu, length 1.0442 mm
+    @(185.2400 mm, 95.5200 mm): Pad 1 [VSYS_BAT] of C35 on B.Cu
 
-** Found 0 unconnected pads **
+** Found 20 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+    @(88.0000 mm, 81.4100 mm): Pad 2 [VSYS_BAT] of C45 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.5000 mm, 82.1000 mm): Pad 1 [VSYS_BAT] of C46 on B.Cu
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(104.4200 mm, 73.5200 mm): Pad 39 [VSYS_BAT] of A2 on B.Cu
+    @(94.1300 mm, 82.5000 mm): PTH pad 1 [VSYS_BAT] of DS1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(105.2200 mm, 73.5200 mm): PTH pad 39 [VSYS_BAT] of A2
+    @(129.5000 mm, 73.1000 mm): Pad 2 [VSYS_BAT] of C48 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(129.5000 mm, 73.1000 mm): Pad 2 [VSYS_BAT] of C48 on B.Cu
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(131.9100 mm, 73.4100 mm): Pad 2 [VSYS_BAT] of C47 on B.Cu
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+    @(157.4200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C39 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(154.9200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C38 on B.Cu
+    @(107.4000 mm, 134.6750 mm): Pad 2 [VSYS_BAT] of R32 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.4200 mm, 119.4000 mm): Pad 1 [VSYS_BAT] of C39 on B.Cu
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(160.0600 mm, 118.6800 mm): Pad 6 [VSYS_BAT] of U6 on B.Cu
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(162.0950 mm, 113.4500 mm): Pad 1 [VSYS_BAT] of R24 on B.Cu
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(170.7400 mm, 92.2850 mm): Pad 1 [VSYS_BAT] of R27 on B.Cu
+    @(143.0375 mm, 66.9000 mm): Pad 3 [VSYS_BAT] of Q2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.4800 mm, 92.4200 mm): Pad 4 [VSYS_BAT] of U7 on B.Cu
+    @(178.4800 mm, 94.9500 mm): Pad 6 [VSYS_BAT] of U7 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.4800 mm, 94.9500 mm): Pad 6 [VSYS_BAT] of U7 on B.Cu
+    @(173.0000 mm, 97.5000 mm): Pad 9 [VSYS_BAT] of U7 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+    @(178.4800 mm, 94.9500 mm): Pad 6 [VSYS_BAT] of U7 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.7400 mm, 95.5200 mm): Pad 2 [VSYS_BAT] of C29 on B.Cu
+    @(185.2400 mm, 95.5200 mm): Pad 1 [VSYS_BAT] of C35 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(184.7400 mm, 91.5600 mm): Pad 2 [VSYS_BAT] of C34 on B.Cu
+    @(182.5650 mm, 93.1100 mm): Pad 2 [VSYS_BAT] of R25 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(168.7400 mm, 92.0600 mm): Pad 2 [Net-(U7-PVDDR)] of C43 on B.Cu
+    @(173.0000 mm, 92.4200 mm): Pad 13 [Net-(U7-PVDDR)] of U7 on B.Cu
 
 ** Found 0 Footprint errors **
 

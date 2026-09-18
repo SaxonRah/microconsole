@@ -3278,7 +3278,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 102.87) (xy 185.42 102.87)
+			(xy 177.8 102.87) (xy 207.01 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3658,16 +3658,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 55.88) (xy 246.38 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90d7e1fe-9407-4d1f-8648-5044b0f3698d")
-	)
-	(wire
-		(pts
 			(xy 190.5 116.84) (xy 190.5 118.11)
 		)
 		(stroke
@@ -3908,7 +3898,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 93.98) (xy 195.58 93.98)
+			(xy 185.42 93.98) (xy 205.74 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4392,7 +4382,7 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
 		(at 76.2 105.41 180)
 		(fields_autoplaced yes)
@@ -4404,7 +4394,7 @@
 		)
 		(uuid "164b30b5-b216-46dd-8515-3d8e7e1628aa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 64.8086 105.41 0)
+			(at 64.3248 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4437,6 +4427,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "VSYS_BAT"
+		(shape input)
+		(at 99.06 102.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "20881c6b-ad22-4c61-8fa5-2ad7b2ec70cb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 87.1848 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -4584,7 +4598,7 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
 		(at 166.37 110.49 0)
 		(fields_autoplaced yes)
@@ -4596,7 +4610,7 @@
 		)
 		(uuid "41810495-b865-466f-849a-02a760450c60")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.7614 110.49 0)
+			(at 178.2452 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4632,31 +4646,7 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
-		(shape input)
-		(at 195.58 93.98 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "43bb0412-74fb-4f39-a3dd-76b9d5e8f73c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.9714 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
 		(at 97.79 160.02 180)
 		(fields_autoplaced yes)
@@ -4668,7 +4658,7 @@
 		)
 		(uuid "4a27a745-8df0-4f6e-9d77-f68620e6a9ca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 86.3986 160.02 0)
+			(at 85.9148 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4800,9 +4790,9 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
-		(at 185.42 102.87 0)
+		(at 207.01 102.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4812,7 +4802,7 @@
 		)
 		(uuid "620fbccb-5c31-4fc7-8a07-c3b2363c214d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 196.8114 102.87 0)
+			(at 218.8852 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4848,7 +4838,7 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
 		(at 101.6 92.71 180)
 		(fields_autoplaced yes)
@@ -4860,7 +4850,7 @@
 		)
 		(uuid "74a850d0-89db-4b9d-ad46-1610f57c40ad")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.2086 92.71 0)
+			(at 89.7248 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5101,30 +5091,6 @@
 		(uuid "9baa0be8-87e8-4de9-953d-e8d6fa26c72e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 101.0943 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "AMP_VDD"
-		(shape input)
-		(at 99.06 102.87 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9bce6734-b979-41d0-97ee-8a95d9d7ab64")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 87.6686 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5616,30 +5582,6 @@
 			)
 		)
 	)
-	(global_label "VSYS_BAT"
-		(shape input)
-		(at 246.38 55.88 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ea6754a7-5ead-4d98-8483-6a5342d90b8d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 258.2552 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "VOL_ADC"
 		(shape input)
 		(at 207.01 144.78 180)
@@ -5688,7 +5630,7 @@
 			)
 		)
 	)
-	(global_label "AMP_VDD"
+	(global_label "VSYS_BAT"
 		(shape input)
 		(at 152.4 175.26 0)
 		(fields_autoplaced yes)
@@ -5700,7 +5642,7 @@
 		)
 		(uuid "f6586dab-128d-4be1-8b67-5df2418c6afc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 163.7914 175.26 0)
+			(at 164.2752 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5709,30 +5651,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "AMP_VDD"
-		(shape input)
-		(at 236.22 55.88 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f6959f66-27c0-4279-ae10-440163daaad4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 224.8286 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -10611,7 +10529,7 @@
 			)
 		)
 		(property "Voltage" "25V"
-			(at 90.17 182.88 0)
+			(at 99.06 184.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10621,7 +10539,7 @@
 			)
 		)
 		(property "Tolerance" "20%"
-			(at 87.63 182.88 0)
+			(at 99.06 186.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
