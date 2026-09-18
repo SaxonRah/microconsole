@@ -1143,7 +1143,7 @@
 				)
 			)
 		)
-		(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_* Diode_*"
+		(property "ki_fp_filters" "Nexperia_CFP3_SOD-123W"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)

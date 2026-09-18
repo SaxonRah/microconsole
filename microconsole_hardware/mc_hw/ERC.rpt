@@ -1,10 +1,7 @@
-ERC report (2026-09-18T08:21:08, Encoding UTF8)
+ERC report (2026-09-18T08:24:44, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
-[footprint_filter]: Assigned footprint (nexperia_cfp3_sod-123w) doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_* Diode_*)
-    ; warning
-    @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
 
 ***** Sheet /Audio/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
@@ -394,7 +391,7 @@ Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 
- ** ERC messages: 96  Errors 0  Warnings 96
+ ** ERC messages: 95  Errors 0  Warnings 95
 
  ** Ignored checks:
     - None

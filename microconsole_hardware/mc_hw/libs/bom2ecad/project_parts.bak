@@ -2401,7 +2401,7 @@
 			)
 		)
 		(symbol "MCP73833_1_1"
-			(pin power_in line
+			(pin passive line
 				(at 1.27 12.7 270)
 				(length 2.54)
 				(name "VDD"
@@ -2563,7 +2563,7 @@
 					)
 				)
 			)
-			(pin power_out line
+			(pin passive line
 				(at -1.27 12.7 270)
 				(length 2.54)
 				(name "V_{BAT}"

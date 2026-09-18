@@ -25622,7 +25622,7 @@
 				(justify mirror)
 			)
 		)
-		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_* Diode_*")
+		(property ki_fp_filters "Nexperia_CFP3_SOD-123W")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/371b4043-0f57-47af-92a9-61e9cc0107d3")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
