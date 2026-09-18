@@ -172,6 +172,146 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "GINFULL_HallEffect_Joystick_PTH_1"
 			(pin_numbers
 				(hide yes)
@@ -760,370 +900,6 @@
 				(pin passive line
 					(at 0 -2.54 90)
 					(length 2.032)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "PCM_SparkFun-Resistor:0.47_0603"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "0.47"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-				(at 0 -4.572 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-				(at 0 -8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 -11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "PROD_ID" "RES-20715"
-				(at 0 -6.858 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "SparkFun R res resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "0.47_0603_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "0.47_0603_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.016)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.016)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "PCM_SparkFun-Resistor:R"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "1k"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-				(at 0 -4.572 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-				(at -1.27 -8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 -11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "PROD_ID" "RES-07856"
-				(at 0 -6.858 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "SparkFun R res resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "R_0_1"
-				(polyline
-					(pts
-						(xy -2.286 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy -1.143 -1.016) (xy -1.524 0) (xy -1.905 1.016) (xy -2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0) (xy 0.381 -1.016) (xy 0 0) (xy -0.381 1.016) (xy -0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.905 -1.016) (xy 1.524 0) (xy 1.143 1.016) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 0 0)
-					(length 1.27)
 					(name ""
 						(effects
 							(font
@@ -3786,6 +3562,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 172.72) (xy 146.05 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48e95457-1a10-42c6-bade-9893313720bc")
+	)
+	(wire
+		(pts
 			(xy 240.03 60.96) (xy 240.03 63.5)
 		)
 		(stroke
@@ -3986,7 +3772,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 172.72) (xy 130.81 172.72)
+			(xy 138.43 172.72) (xy 130.81 172.72)
 		)
 		(stroke
 			(width 0)
@@ -4103,16 +3889,6 @@
 			(type default)
 		)
 		(uuid "be612f47-a919-4ae2-8752-11dd8aadfdce")
-	)
-	(wire
-		(pts
-			(xy 137.16 179.07) (xy 137.16 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bf95d60d-adbf-4bdf-8770-e9279ca4805e")
 	)
 	(wire
 		(pts
@@ -5238,17 +5014,17 @@
 	)
 	(global_label "3v3"
 		(shape input)
-		(at 137.16 179.07 270)
+		(at 148.59 172.72 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "5996fda9-a227-4bc8-acc2-3a0da8c1445b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 185.4418 90)
+			(at 154.9618 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5256,7 +5032,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -6437,8 +6213,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:R")
-		(at 135.89 71.12 0)
+		(lib_id "Device:R")
+		(at 135.89 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6448,7 +6224,7 @@
 		(dnp no)
 		(uuid "04b5fea2-3b71-4daa-97e6-8b4afb3a96f4")
 		(property "Reference" "R12"
-			(at 135.89 67.564 0)
+			(at 135.128 69.088 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6458,7 +6234,7 @@
 			)
 		)
 		(property "Value" "1k OHM"
-			(at 135.89 69.342 0)
+			(at 135.128 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6467,8 +6243,8 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 135.89 75.692 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 135.89 72.898 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6479,7 +6255,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 134.62 80.01 0)
+			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6490,7 +6266,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 135.89 82.55 0)
+			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6501,7 +6277,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 135.89 77.978 0)
+			(at 142.748 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6761,8 +6537,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:0.47_0603")
-		(at 137.16 175.26 270)
+		(lib_id "Device:R")
+		(at 142.24 172.72 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6772,7 +6548,7 @@
 		(dnp no)
 		(uuid "23e561fd-6e97-4641-adcd-17c202ca63f8")
 		(property "Reference" "R11"
-			(at 142.24 177.8 90)
+			(at 139.954 168.91 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6783,7 +6559,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 142.24 175.26 90)
+			(at 140.462 170.688 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6793,8 +6569,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 132.588 175.26 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 142.24 174.498 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6805,7 +6581,7 @@
 			)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-			(at 128.27 175.26 0)
+			(at 142.24 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6816,7 +6592,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 125.73 175.26 0)
+			(at 142.24 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6827,7 +6603,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-20715"
-			(at 130.302 175.26 0)
+			(at 149.098 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7718,8 +7494,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:R")
-		(at 232.41 90.17 0)
+		(lib_id "Device:R")
+		(at 232.41 90.17 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7729,7 +7505,7 @@
 		(dnp no)
 		(uuid "7822b7a5-5036-4ee5-9e87-862f88c25cad")
 		(property "Reference" "R15"
-			(at 232.41 86.614 0)
+			(at 231.648 88.138 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7739,7 +7515,7 @@
 			)
 		)
 		(property "Value" "1k OHM"
-			(at 232.41 88.392 0)
+			(at 231.648 86.36 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7748,8 +7524,8 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 232.41 94.742 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 232.41 91.948 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7760,7 +7536,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 231.14 99.06 0)
+			(at 232.41 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7771,7 +7547,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 232.41 101.6 0)
+			(at 232.41 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7782,7 +7558,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 232.41 97.028 0)
+			(at 239.268 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9139,8 +8915,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:R")
-		(at 232.41 71.12 0)
+		(lib_id "Device:R")
+		(at 232.41 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9150,7 +8926,7 @@
 		(dnp no)
 		(uuid "dc1956e1-4013-459a-8d71-74ade2b9476c")
 		(property "Reference" "R14"
-			(at 232.41 67.564 0)
+			(at 231.902 69.088 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9160,7 +8936,7 @@
 			)
 		)
 		(property "Value" "1k OHM"
-			(at 232.41 69.342 0)
+			(at 231.902 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9169,8 +8945,8 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 232.41 75.692 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 232.41 72.898 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9181,7 +8957,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 231.14 80.01 0)
+			(at 232.41 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9192,7 +8968,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 232.41 82.55 0)
+			(at 232.41 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9203,7 +8979,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 232.41 77.978 0)
+			(at 239.268 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9487,8 +9263,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:R")
-		(at 135.89 88.9 0)
+		(lib_id "Device:R")
+		(at 135.89 88.9 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9498,7 +9274,7 @@
 		(dnp no)
 		(uuid "e03660d8-352b-45ec-b9e2-cd5dac9da2a4")
 		(property "Reference" "R13"
-			(at 135.89 85.344 0)
+			(at 135.382 86.614 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9508,7 +9284,7 @@
 			)
 		)
 		(property "Value" "1k OHM"
-			(at 135.89 87.122 0)
+			(at 135.382 84.836 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9517,8 +9293,8 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 135.89 93.472 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 135.89 90.678 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9529,7 +9305,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
-			(at 134.62 97.79 0)
+			(at 135.89 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9540,7 +9316,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 135.89 100.33 0)
+			(at 135.89 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9551,7 +9327,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-07856"
-			(at 135.89 95.758 0)
+			(at 142.748 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

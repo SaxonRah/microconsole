@@ -5,6 +5,146 @@
 	(uuid "a5ee2319-7084-42f3-8115-a198bb762e21")
 	(paper "A3")
 	(lib_symbols
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "MCU_Module:RaspberryPi_Pico"
 			(pin_names
 				(offset 0.762)
@@ -1039,170 +1179,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "PCM_SparkFun-Resistor:0.47_0603"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "0.47"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-				(at 0 -4.572 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-				(at 0 -8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 -11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "PROD_ID" "RES-20715"
-				(at 0 -6.858 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "SparkFun R res resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "0.47_0603_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0) (xy -1.143 1.016) (xy -0.762 0) (xy -0.381 -1.016) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0.381 1.016) (xy 0.762 0) (xy 1.143 -1.016) (xy 1.524 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "0.47_0603_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.016)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.016)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:PWR_FLAG"
 			(power global)
 			(pin_numbers
@@ -2143,6 +2119,18 @@
 		(uuid "28d3434a-1194-42e2-acb6-27463e28c47e")
 	)
 	(junction
+		(at 173.99 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2f478015-58ae-4176-8164-0fd6220e5543")
+	)
+	(junction
+		(at 173.99 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "35e6cb84-feb6-417c-83c2-4257cb104fc6")
+	)
+	(junction
 		(at 179.07 226.06)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2171,18 +2159,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5c44aaf8-e192-471e-9155-9d0d4891e679")
-	)
-	(junction
-		(at 173.99 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5f79c48a-370f-43fb-b284-122e2a6e0c1c")
-	)
-	(junction
-		(at 173.99 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6a7831e8-c1f6-40d4-9624-2b923facf228")
 	)
 	(junction
 		(at 199.39 44.45)
@@ -2422,7 +2398,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 76.2) (xy 173.99 77.47)
+			(xy 173.99 74.93) (xy 173.99 76.2)
 		)
 		(stroke
 			(width 0)
@@ -2512,7 +2488,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 106.68) (xy 177.8 82.55)
+			(xy 177.8 106.68) (xy 177.8 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2599,6 +2575,26 @@
 			(type default)
 		)
 		(uuid "6cc02f3c-cd56-45bf-8b3a-2d774a21e57e")
+	)
+	(wire
+		(pts
+			(xy 173.99 97.79) (xy 173.99 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6cc25eba-023f-4125-832e-aaf034be2db8")
+	)
+	(wire
+		(pts
+			(xy 173.99 106.68) (xy 173.99 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "723f0cba-0376-4048-a9b0-b50012659532")
 	)
 	(wire
 		(pts
@@ -2722,7 +2718,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 82.55) (xy 173.99 82.55)
+			(xy 171.45 83.82) (xy 177.8 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2762,23 +2758,13 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 109.22) (xy 181.61 109.22)
+			(xy 168.91 109.22) (xy 173.99 109.22)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a4e98f8b-acb0-48a3-87e1-58290ccb9eb8")
-	)
-	(wire
-		(pts
-			(xy 177.8 82.55) (xy 173.99 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9c732ce-f500-4fea-aa6a-768526d79140")
 	)
 	(wire
 		(pts
@@ -2902,16 +2888,6 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 102.87) (xy 173.99 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5ad1d78-4f22-477b-b067-012bd58b782e")
-	)
-	(wire
-		(pts
 			(xy 194.31 227.33) (xy 194.31 215.9)
 		)
 		(stroke
@@ -2929,6 +2905,16 @@
 			(type default)
 		)
 		(uuid "fa88f0c2-5b52-4188-821d-de2f5300dfb5")
+	)
+	(wire
+		(pts
+			(xy 173.99 109.22) (xy 181.61 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc00a157-9a42-4b18-8fb3-5f3209dbb55e")
 	)
 	(global_label "GPIO6 {slash} LCD SCK"
 		(shape input)
@@ -3220,7 +3206,7 @@
 	)
 	(global_label "3v3"
 		(shape input)
-		(at 173.99 76.2 90)
+		(at 173.99 74.93 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3230,7 +3216,7 @@
 		)
 		(uuid "5fe74a02-a2fe-410c-86b5-6cea3bf3bf93")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 173.99 50.8991 90)
+			(at 173.99 49.6291 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3268,7 +3254,7 @@
 	)
 	(global_label "GPIO2 {slash} MCP|ADC SDA"
 		(shape input)
-		(at 171.45 82.55 180)
+		(at 171.45 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3278,7 +3264,7 @@
 		)
 		(uuid "7506fa44-1621-4345-b9fb-75092a5f34ae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 171.45 82.55 0)
+			(at 171.45 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3675,7 +3661,7 @@
 	)
 	(global_label "3v3"
 		(shape input)
-		(at 173.99 102.87 90)
+		(at 173.99 97.79 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3685,7 +3671,7 @@
 		)
 		(uuid "e8710a2b-d6aa-4d79-825e-5281c48adba1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 173.99 77.3877 90)
+			(at 173.99 72.3077 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4043,8 +4029,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:0.47_0603")
-		(at 173.99 80.01 270)
+		(lib_id "Device:R")
+		(at 173.99 80.01 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4055,7 +4041,7 @@
 		(fields_autoplaced yes)
 		(uuid "66e040ca-3093-45f3-b00b-203e7468cbcf")
 		(property "Reference" "R30"
-			(at 176.53 78.7399 90)
+			(at 176.53 78.7399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4066,7 +4052,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 176.53 81.2799 90)
+			(at 176.53 81.2799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4076,8 +4062,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 169.418 80.01 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 172.212 80.01 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4088,7 +4074,7 @@
 			)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-			(at 165.1 80.01 0)
+			(at 173.99 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4099,7 +4085,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 162.56 80.01 0)
+			(at 173.99 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4110,7 +4096,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-20715"
-			(at 167.132 80.01 0)
+			(at 173.99 86.868 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4151,10 +4137,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7b1e7e56-9bca-4b58-8daf-94f454e5c0a5")
 		(property "Reference" "C50"
-			(at 220.98 55.88 90)
+			(at 220.98 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4164,7 +4149,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 220.98 58.42 90)
+			(at 220.98 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4359,8 +4344,8 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_SparkFun-Resistor:0.47_0603")
-		(at 173.99 106.68 270)
+		(lib_id "Device:R")
+		(at 173.99 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4370,7 +4355,7 @@
 		(dnp no)
 		(uuid "87533d4a-0412-4700-a662-fbf667282903")
 		(property "Reference" "R45"
-			(at 169.672 106.68 0)
+			(at 170.434 104.902 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4380,7 +4365,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 171.704 106.68 0)
+			(at 170.18 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4389,8 +4374,8 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Resistor:R_0603_1608Metric"
-			(at 169.418 106.68 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 172.212 102.87 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4401,7 +4386,7 @@
 			)
 		)
 		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
-			(at 165.1 106.68 0)
+			(at 173.99 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4412,7 +4397,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 162.56 106.68 0)
+			(at 173.99 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4423,7 +4408,7 @@
 			)
 		)
 		(property "PROD_ID" "RES-20715"
-			(at 167.132 106.68 0)
+			(at 173.99 109.728 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4915,10 +4900,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "ef8052d2-e22c-4caa-97a9-e19ee82397c4")
 		(property "Reference" "C48"
-			(at 190.5 55.88 90)
+			(at 190.5 66.802 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4928,7 +4912,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 190.5 58.42 90)
+			(at 190.5 69.088 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

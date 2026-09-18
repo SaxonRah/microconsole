@@ -1,7 +1,13 @@
-ERC report (2026-09-18T08:37:56, Encoding UTF8)
+ERC report (2026-09-18T09:17:39, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /PicoScreen/
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(5700 mils, 6900 mils): Vertical Wire, length 50 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(8050 mils, 4800 mils): Vertical Wire, length 50 mils
 
 ***** Sheet /Audio/
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
@@ -27,11 +33,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(3600 mils, 1950 mils): Symbol U5 Pin 6 [OUTL, Unspecified, Line]
-    @(2700 mils, 1800 mils): Symbol R18 Pin 1 [Passive, Line]
+    @(2700 mils, 1800 mils): Symbol R18 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(3600 mils, 2050 mils): Symbol U5 Pin 7 [OUTR, Unspecified, Line]
-    @(2700 mils, 2200 mils): Symbol R19 Pin 1 [Passive, Line]
+    @(2700 mils, 2200 mils): Symbol R19 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(3600 mils, 2150 mils): Symbol U5 Pin 8 [AVDD, Unspecified, Line]
@@ -59,7 +65,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(4600 mils, 1450 mils): Symbol U5 Pin 20 [DVDD, Unspecified, Line]
-    @(5750 mils, 1750 mils): Symbol R26 Pin 1 [Passive, Line]
+    @(5750 mils, 1750 mils): Symbol R26 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(4600 mils, 1550 mils): Symbol U5 Pin 19 [DGND, Unspecified, Line]
@@ -71,7 +77,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(4600 mils, 1750 mils): Symbol U5 Pin 17 [XSMT, Unspecified, Line]
-    @(5450 mils, 1750 mils): Symbol R26 Pin 2 [Passive, Line]
+    @(5450 mils, 1750 mils): Symbol R26 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(4600 mils, 1850 mils): Symbol U5 Pin 16 [FMT, Unspecified, Line]
@@ -103,11 +109,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5050 mils, 6800 mils): Symbol U6 Pin 7 [GND, Unspecified, Line]
-    @(5700 mils, 7150 mils): Symbol C38 Pin 2 [Passive, Line]
+    @(5350 mils, 7300 mils): Symbol C38 Pin 1 [1, Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5050 mils, 6900 mils): Symbol U6 Pin 6 [VDD, Unspecified, Line]
-    @(5700 mils, 6950 mils): Symbol C38 Pin 1 [Passive, Line]
+    @(5350 mils, 6900 mils): Symbol C38 Pin 2 [2, Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5050 mils, 7000 mils): Symbol U6 Pin 5 [VO+, Unspecified, Line]
@@ -131,7 +137,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5300 mils, 4050 mils): Symbol U7 Pin 5 [~{MUTE}, Unspecified, Line]
-    @(4400 mils, 4050 mils): Symbol R25 Pin 1 [Passive, Line]
+    @(4400 mils, 4050 mils): Symbol R25 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5300 mils, 4150 mils): Symbol U7 Pin 6 [VDD, Unspecified, Line]
@@ -159,11 +165,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
-    @(7000 mils, 4050 mils): Symbol R27 Pin 1 [Passive, Line]
+    @(7000 mils, 4050 mils): Symbol R27 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6500 mils, 4050 mils): Symbol U7 Pin 12 [~{SHDN}, Unspecified, Line]
-    @(6700 mils, 4050 mils): Symbol R27 Pin 2 [Passive, Line]
+    @(6700 mils, 4050 mils): Symbol R27 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(6500 mils, 4150 mils): Symbol U7 Pin 11 [GND, Unspecified, Line]
@@ -303,7 +309,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(4150 mils, 6600 mils): Symbol U3 Pin 9 [VDD, Unspecified, Line]
-    @(5400 mils, 7000 mils): Symbol R11 Pin 2 [Passive, Line]
+    @(2650 mils, 6400 mils): Symbol C5 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Unspecified are connected
     ; warning
     @(4150 mils, 6700 mils): Symbol U3 Pin 10 [VSS, Unspecified, Line]
@@ -319,7 +325,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5150 mils, 6800 mils): Symbol U3 Pin 18 [~{RESET}, Unspecified, Line]
-    @(5400 mils, 6800 mils): Symbol R11 Pin 1 [Passive, Line]
+    @(5450 mils, 6800 mils): Symbol R11 Pin 1 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(5150 mils, 6900 mils): Symbol U3 Pin 17 [A2, Unspecified, Line]
@@ -343,11 +349,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6200 mils, 1200 mils): Symbol U4 Pin 3 [CH2, Unspecified, Line]
-    @(9300 mils, 2800 mils): Symbol R14 Pin 1 [Passive, Line]
+    @(9300 mils, 2800 mils): Symbol R14 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6200 mils, 1300 mils): Symbol U4 Pin 4 [CH3, Unspecified, Line]
-    @(9300 mils, 3550 mils): Symbol R15 Pin 1 [Passive, Line]
+    @(9300 mils, 3550 mils): Symbol R15 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6200 mils, 1400 mils): Symbol U4 Pin 5 [CH4, Unspecified, Line]
@@ -355,7 +361,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(6200 mils, 1500 mils): Symbol U4 Pin 6 [CH5, Unspecified, Line]
-    @(8050 mils, 4550 mils): Symbol R33 Pin 2 [Passive, Line]
+    @(8050 mils, 4500 mils): Symbol R33 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(7600 mils, 1000 mils): Symbol U4 Pin 16 [+VDD, Unspecified, Line]
@@ -363,11 +369,11 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(7600 mils, 1100 mils): Symbol U4 Pin 15 [SDA, Unspecified, Line]
-    @(6850 mils, 3250 mils): Symbol R30 Pin 2 [Passive, Line]
+    @(6850 mils, 3300 mils): Symbol R30 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(7600 mils, 1200 mils): Symbol U4 Pin 14 [SCL, Unspecified, Line]
-    @(6850 mils, 4300 mils): Symbol R45 Pin 2 [Passive, Line]
+    @(6850 mils, 4200 mils): Symbol R45 Pin 2 [Passive, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
     @(7600 mils, 1300 mils): Symbol U4 Pin 13 [A1, Unspecified, Line]
@@ -391,7 +397,7 @@ Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 
- ** ERC messages: 95  Errors 0  Warnings 95
+ ** ERC messages: 97  Errors 0  Warnings 97
 
  ** Ignored checks:
     - None
