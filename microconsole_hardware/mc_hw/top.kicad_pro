@@ -661,7 +661,7 @@
         "uuid": "3433afdc-e53a-48bd-a2b1-9fdee73e8b40"
       }
     ],
-    "used_designators": "SW18-19,D1,D5-6,Q1-2,#FLG1,R31-33,C2,C51,TH1",
+    "used_designators": "SW18-19,D1,D5-6,Q1-2,J2,#FLG1-2,R31-33,C2,C51,TH1",
     "variants": []
   },
   "sheets": [

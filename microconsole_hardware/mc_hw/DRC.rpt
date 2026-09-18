@@ -1,8 +1,11 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-18T03:07:50 **
+** Created on 2026-09-18T05:12:12 **
 ** Report includes: Errors, Warnings **
 
-** Found 45 DRC violations **
+** Found 47 DRC violations **
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(134.5000 mm, 77.8000 mm): Track [GND] on B.Cu, length 1.1100 mm
 [missing_courtyard]: Footprint has no courtyard defined
     Local override; warning
     @(86.2900 mm, 105.0400 mm): Footprint SW17
@@ -150,16 +153,20 @@
     @(129.7550 mm, 63.7250 mm): Reference field of D5
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
+    @(148.3800 mm, 66.3450 mm): Reference field of J2
+    @(147.2000 mm, 66.3500 mm): Pad 1 [Net-(J2-CC1)] of R3 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(111.0000 mm, 130.4700 mm): Reference field of FB1
+    @(112.5500 mm, 129.5000 mm): Pad 2 [GND] of C9 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
     @(187.6000 mm, 81.0000 mm): Segment of U2 on B.Silkscreen
     @(188.0000 mm, 77.0000 mm): PTH pad 2 [GND] of U2
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(190.4000 mm, 77.2000 mm): Segment of U2 on B.Silkscreen
     @(190.0000 mm, 77.0000 mm): PTH pad 1 [BAT+] of U2
-[silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; warning
-    @(111.0000 mm, 130.4700 mm): Reference field of FB1
-    @(112.5500 mm, 129.5000 mm): Pad 2 [GND] of C9 on B.Cu
 
 ** Found 0 unconnected pads **
 

@@ -1,10 +1,10 @@
-ERC report (2026-09-18T02:53:53, Encoding UTF8)
+ERC report (2026-09-18T05:11:38, Encoding UTF8)
 Report includes: Errors, Warnings
 
 ***** Sheet /PicoScreen/
 [footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
     ; warning
-    @(2850 mils, 1500 mils): Symbol C1 [C]
+    @(2650 mils, 1800 mils): Symbol C1 [C]
 [footprint_filter]: Assigned footprint () doesn't match footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
     ; warning
     @(4750 mils, 1500 mils): Symbol D1 [D_Schottky]
@@ -20,6 +20,9 @@ Report includes: Errors, Warnings
 [footprint_filter]: Assigned footprint (msop-10_3x3mm_p0.5mm) doesn't match footprint filters (SOT?23*)
     ; warning
     @(8350 mils, 2500 mils): Symbol U1 [MCP73833]
+[footprint_filter]: Assigned footprint (pinheader_1x02_p2.54mm_vertical) doesn't match footprint filters (R_* RV_*)
+    ; warning
+    @(9250 mils, 1700 mils): Symbol TH1 [Thermistor_NTC]
 [footprint_filter]: Assigned footprint () doesn't match footprint filters (C_*)
     ; warning
     @(9650 mils, 3000 mils): Symbol C2 [C]
@@ -199,13 +202,13 @@ Report includes: Errors, Warnings
     @(6500 mils, 3950 mils): Symbol U7 Pin 13 [PVDDR, Unspecified, Line]
 [multiple_net_names]: Both AMP_VDD and VSYS_BAT are attached to the same items; AMP_VDD will be used in the netlist
     ; warning
-    @(3900 mils, 4050 mils): Global Label 'AMP_VDD'
+    @(6550 mils, 4350 mils): Global Label 'AMP_VDD'
     @(9700 mils, 2200 mils): Global Label 'VSYS_BAT'
 
 ***** Sheet /Battery/
 [multiple_net_names]: Both USB-VBUS and VDD are attached to the same items; USB-VBUS will be used in the netlist
     ; warning
-    @(4600 mils, 1500 mils): Global Label 'USB-VBUS'
+    @(4000 mils, 3950 mils): Global Label 'USB-VBUS'
     @(7950 mils, 2850 mils): Symbol U1 Hidden pin 1 [VDD, Power input, Line]
 [pin_to_pin]: Pins of type Unspecified and Passive are connected
     ; warning
@@ -420,7 +423,7 @@ Report includes: Errors, Warnings
 
 ***** Sheet /
 
- ** ERC messages: 104  Errors 0  Warnings 104
+ ** ERC messages: 105  Errors 0  Warnings 105
 
  ** Ignored checks:
     - None
