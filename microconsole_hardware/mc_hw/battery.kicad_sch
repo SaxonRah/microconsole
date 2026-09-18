@@ -5071,7 +5071,7 @@
 				)
 			)
 		)
-		(property "Value" "68k 1%"
+		(property "Value" "68k"
 			(at 199.39 106.68 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6314,7 +6314,7 @@
 				)
 			)
 		)
-		(property "Value" "5.1k OHM"
+		(property "Value" "5.1k"
 			(at 52.07 49.784 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6410,7 +6410,7 @@
 				)
 			)
 		)
-		(property "Value" "5.1k OHM"
+		(property "Value" "5.1k"
 			(at 52.324 56.896 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6700,7 +6700,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "82k 1%"
+		(property "Value" "82k"
 			(at 207.01 119.3799 0)
 			(show_name no)
 			(do_not_autoplace no)

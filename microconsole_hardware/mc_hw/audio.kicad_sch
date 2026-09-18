@@ -6058,7 +6058,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 52.07 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -6423,7 +6423,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 196.85 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7002,7 +7002,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 81.28 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -7108,7 +7108,7 @@
 				)
 			)
 		)
-		(property "Value" "2k 1%"
+		(property "Value" "2k"
 			(at 194.818 112.776 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7216,7 +7216,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 87.63 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -7334,7 +7334,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 107.95 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -7440,7 +7440,7 @@
 				)
 			)
 		)
-		(property "Value" "27k 1%"
+		(property "Value" "27k"
 			(at 83.82 119.38 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7644,7 +7644,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 149.86 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -7995,7 +7995,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 52.07 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -8113,7 +8113,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 59.69 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -8978,7 +8978,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 193.04 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -9180,7 +9180,7 @@
 				)
 			)
 		)
-		(property "Value" "2k 1%"
+		(property "Value" "2k"
 			(at 88.392 129.032 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9504,7 +9504,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 105.41 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -10115,7 +10115,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 116.84 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -10317,7 +10317,7 @@
 				)
 			)
 		)
-		(property "Value" "27k 1%"
+		(property "Value" "27k"
 			(at 198.12 105.918 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10598,7 +10598,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 85.09 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -10812,7 +10812,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 55.88 34.29 0)
 			(hide yes)
 			(show_name no)

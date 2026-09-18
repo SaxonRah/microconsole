@@ -1,8 +1,12 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-18T09:17:26 **
+** Created on 2026-09-18T16:22:54 **
 ** Report includes: Errors, Warnings **
 
-** Found 4 DRC violations **
+** Found 5 DRC violations **
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
+    Rule: board setup constraints hole; error
+    @(145.1800 mm, 64.4450 mm): Pad A1 [GND] of J2 on B.Cu
+    @(145.4900 mm, 63.3050 mm): NPTH pad of J2
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(79.0711 mm, 154.0000 mm): Segment on Edge.Cuts

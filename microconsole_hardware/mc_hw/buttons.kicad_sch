@@ -6233,7 +6233,7 @@
 				)
 			)
 		)
-		(property "Value" "1k OHM"
+		(property "Value" "1k"
 			(at 135.128 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6341,7 +6341,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_SparkFun-Capacitor:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 207.01 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -7514,7 +7514,7 @@
 				)
 			)
 		)
-		(property "Value" "1k OHM"
+		(property "Value" "1k"
 			(at 231.648 86.36 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8935,7 +8935,7 @@
 				)
 			)
 		)
-		(property "Value" "1k OHM"
+		(property "Value" "1k"
 			(at 231.902 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9283,7 +9283,7 @@
 				)
 			)
 		)
-		(property "Value" "1k OHM"
+		(property "Value" "1k"
 			(at 135.382 84.836 90)
 			(show_name no)
 			(do_not_autoplace no)
