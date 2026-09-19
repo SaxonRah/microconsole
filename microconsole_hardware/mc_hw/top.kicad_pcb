@@ -474,6 +474,32 @@
 				)
 			)
 		)
+		(property "MPN" "BAT54C-7-F"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ed84dd61-0659-4198-985e-63454e10c56e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d175457-a2e5-4933-8676-5f792cfe0273")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/f2e771c4-2892-4e73-8192-8be0e3f026eb")
 		(sheetname "/Battery/")
@@ -811,7 +837,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "Joystick"
+		(property "Value" "FJH10K-S2"
 			(at 0 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -824,7 +850,7 @@
 				(justify top)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6530/FJH10K-S2.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -836,7 +862,7 @@
 				)
 			)
 		)
-		(property "Description" "Directional Pad"
+		(property "Description" "Dual-axis Hall-effect joystick with push switch"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -848,12 +874,12 @@
 				)
 			)
 		)
-		(property "PROD_ID" "COMP-09744"
+		(property "PROD_ID" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cce28ece-5e9c-493b-80cd-8e7d77f4fe03")
+			(uuid "8f5dac32-fe3c-471f-8c54-4a5968a42f70")
 			(effects
 				(font
 					(size 1 1)
@@ -866,7 +892,33 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "69bcb4cd-af95-4831-bb6b-75eb992f8645")
+			(uuid "9cc4c2de-2226-4497-bbe1-5bcffad23936")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "FJH10K-S2"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e2661e63-6bbf-4407-9a45-299af33e758d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Favor Electronics / Favor Union"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cb17b897-7899-4760-9cec-dba891d24240")
 			(effects
 				(font
 					(size 1 1)
@@ -1084,21 +1136,8 @@
 			(layer "F.Fab")
 			(uuid "b924685d-5d15-4a29-ad1a-2df74ffb42c3")
 		)
-		(fp_text user "L-5C HallEfect"
-			(at -13 -5.25 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(uuid "7ff37c83-d653-424b-8062-6ee01bbdc541")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-				(justify left bottom)
-			)
-		)
-		(fp_text user "GINFULL"
-			(at -10.5 -6.75 0)
+		(fp_text user "GINFULL L-5C"
+			(at -12 -5.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "1abedea4-29fb-4f42-b9b2-ba5785d6cc0d")
@@ -1110,10 +1149,36 @@
 				(justify left bottom)
 			)
 		)
+		(fp_text user "FJH10K-S2"
+			(at -11 -3.5 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "5a0f3768-650d-4fca-8211-2b63e40b39bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "HallEffect"
+			(at -10 -8 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "7ff37c83-d653-424b-8062-6ee01bbdc541")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
 		(pad "" thru_hole circle
 			(at -12.75 -10)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1123,7 +1188,7 @@
 		(pad "" thru_hole circle
 			(at -12.75 0)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1133,7 +1198,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -15.6)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1143,7 +1208,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -11)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1153,7 +1218,7 @@
 		(pad "" thru_hole circle
 			(at 0 -10)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1163,7 +1228,7 @@
 		(pad "" thru_hole circle
 			(at 0 0)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1173,7 +1238,7 @@
 		(pad "GND" thru_hole circle
 			(at -15.25 -2.5)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1186,7 +1251,7 @@
 		(pad "GND" thru_hole circle
 			(at -9.6 -15.6)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1199,7 +1264,7 @@
 		(pad "GND" thru_hole circle
 			(at -3.75 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1212,7 +1277,7 @@
 		(pad "Horizontal" thru_hole circle
 			(at -6.29 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "IO2 {slash} Right Stick X")
@@ -1225,7 +1290,7 @@
 		(pad "Select" thru_hole circle
 			(at -9.6 -11)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GPIO17 {slash} Right Stick")
@@ -1238,7 +1303,7 @@
 		(pad "VCC" thru_hole circle
 			(at -15.25 -7.58)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "3v3")
@@ -1251,7 +1316,7 @@
 		(pad "VCC" thru_hole circle
 			(at -8.83 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "3v3")
@@ -1264,7 +1329,7 @@
 		(pad "Vertical" thru_hole circle
 			(at -15.25 -5.04)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "IO3 {slash} Right Stick Y")
@@ -1296,7 +1361,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Value" "Joystick"
+		(property "Value" "FJH10K-S2"
 			(at 0 -4.75 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1309,7 +1374,7 @@
 				(justify top)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6530/FJH10K-S2.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1321,7 +1386,7 @@
 				)
 			)
 		)
-		(property "Description" "Directional Pad"
+		(property "Description" "Dual-axis Hall-effect joystick with push switch"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1333,12 +1398,12 @@
 				)
 			)
 		)
-		(property "PROD_ID" "COMP-09744"
-			(at 0 0 180)
+		(property "PROD_ID" ""
+			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "93b82608-f45b-436a-8684-4b072b77ed7d")
+			(uuid "295f39cb-9501-4e5b-a907-0d2666298e4c")
 			(effects
 				(font
 					(size 1 1)
@@ -1351,7 +1416,33 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "db2ada4f-22e2-408c-8965-c18723473500")
+			(uuid "f2f300c9-2f19-4873-9f7a-686ed5094c24")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "FJH10K-S2"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "148aea99-30ed-4929-8bbb-8e2aa12bc2bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Favor Electronics / Favor Union"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a2f19607-cb39-4a31-83e4-35bfaf72b051")
 			(effects
 				(font
 					(size 1 1)
@@ -1569,21 +1660,8 @@
 			(layer "F.Fab")
 			(uuid "227aa85f-7d44-41af-8505-76654235270c")
 		)
-		(fp_text user "L-5C HallEfect"
-			(at -13 -5.25 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(uuid "44ceb5c9-5d70-4bf9-bbc9-dbcfe8657c1b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-				(justify left bottom)
-			)
-		)
-		(fp_text user "GINFULL"
-			(at -10.5 -6.75 0)
+		(fp_text user "GINFULL L-5C"
+			(at -12 -5.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "702084e4-acd4-42a5-bdc7-293cdfa6e197")
@@ -1595,10 +1673,36 @@
 				(justify left bottom)
 			)
 		)
+		(fp_text user "FJH10K-S2"
+			(at -11 -3.5 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8477083c-6afc-40e5-b6c1-02585f578fa7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "HallEffect"
+			(at -10 -8 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "44ceb5c9-5d70-4bf9-bbc9-dbcfe8657c1b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
 		(pad "" thru_hole circle
 			(at -12.75 -10)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1608,7 +1712,7 @@
 		(pad "" thru_hole circle
 			(at -12.75 0)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1618,7 +1722,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -15.6)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1628,7 +1732,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -11)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1638,7 +1742,7 @@
 		(pad "" thru_hole circle
 			(at 0 -10)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1648,7 +1752,7 @@
 		(pad "" thru_hole circle
 			(at 0 0)
 			(size 2.286 2.286)
-			(drill 1.397)
+			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1658,7 +1762,7 @@
 		(pad "GND" thru_hole circle
 			(at -15.25 -2.5)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1671,7 +1775,7 @@
 		(pad "GND" thru_hole circle
 			(at -9.6 -15.6)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1684,7 +1788,7 @@
 		(pad "GND" thru_hole circle
 			(at -3.75 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1697,7 +1801,7 @@
 		(pad "Horizontal" thru_hole circle
 			(at -6.29 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "IO0 {slash} Left Stick X")
@@ -1710,7 +1814,7 @@
 		(pad "Select" thru_hole circle
 			(at -9.6 -11)
 			(size 1.778 1.778)
-			(drill 0.9)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GPIO16 {slash} Left Stick")
@@ -1723,7 +1827,7 @@
 		(pad "VCC" thru_hole circle
 			(at -15.25 -7.58)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "3v3")
@@ -1736,7 +1840,7 @@
 		(pad "VCC" thru_hole circle
 			(at -8.83 3.75)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "3v3")
@@ -1749,7 +1853,7 @@
 		(pad "Vertical" thru_hole circle
 			(at -15.25 -5.04)
 			(size 1.778 1.778)
-			(drill 0.889)
+			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "IO1 {slash} Left Stick Y")
@@ -5951,6 +6055,32 @@
 				)
 			)
 		)
+		(property "MPN" "NTCLE201E3103SBA"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9cf6fbdd-b796-4972-91b5-b554f6559210")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Vishay / BCcomponents"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "be11ba6a-b51e-4efc-8e57-e9f311ae94af")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "PinHeader_1x02_P2.54mm_*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/fb9ca5cf-5ac2-41c1-af26-ff370e8c88a0")
 		(sheetname "/Battery/")
@@ -7539,6 +7669,32 @@
 				)
 			)
 		)
+		(property "MPN" "COM-00102"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bc225022-034a-42ef-858c-0e6c66e2ce57")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "SparkFun Electronics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8018a1a4-0d13-4193-87ab-17ffc238363f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/5b05352f-886f-42d6-bbec-1c7cf7fa177e")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
@@ -8096,7 +8252,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8162,6 +8318,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "88315c30-c77c-4ef8-b9f6-4b73b3534ed2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4d0bea73-84ae-4f4c-921a-d34eb1dea1df")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "59c56ffb-35ab-42fe-9710-d209a869d055")
 			(effects
 				(font
 					(size 1 1)
@@ -11237,7 +11419,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -11308,6 +11490,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "d7101824-a5c7-466c-be4c-7b6b24849e06")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6d119daf-59fa-424d-8272-17525a1a6ad0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7c7e9a24-385e-4452-8bac-8048b79df747")
 			(effects
 				(font
 					(size 1 1)
@@ -11612,6 +11822,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c241e9dc-9e80-4178-b8e2-2ec6c4b8d020")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5a99c0a6-b839-4d5a-964f-570db4882ca9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "15473af4-b48a-4f84-870f-f719a16151bf")
 			(effects
 				(font
 					(size 1 1)
@@ -12935,7 +13173,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -13006,6 +13244,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "03156c74-9c33-4aa7-a542-17b6e3a90b4f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ce38ea84-503d-4eca-8cc3-55d68413d7b9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "df064ef3-6c50-41c7-bdc2-05f3a718c591")
 			(effects
 				(font
 					(size 1 1)
@@ -13318,6 +13584,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1346a89b-264d-4f2c-b386-a6ffaec629cb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "cc44ee5f-0589-49ef-916e-a3974e8b84f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/d76f4293-c478-45eb-91c1-2ec762d2c1f7")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
@@ -13502,7 +13796,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -13539,7 +13833,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -13553,7 +13847,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -13567,7 +13861,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -13587,6 +13881,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c45f13a6-ca0c-43bb-9157-8ea509de1e6e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6fecadc9-8109-4fdf-9fd4-eb398810bd17")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "3236c34a-09e5-4a73-af4f-04d5843f1fb6")
 			(effects
 				(font
 					(size 1 1)
@@ -13779,6 +14101,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "5b4214ef-7124-4016-8282-613183ccc000")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1bc5b4fa-cc1b-4554-bff2-40ce81c85e11")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bedb0f68-f8e3-4052-af96-ec9b1ce29ddf")
 			(effects
 				(font
 					(size 1 1)
@@ -15145,7 +15495,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -15182,7 +15532,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -15196,7 +15546,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -15210,7 +15560,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "5%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -15230,6 +15580,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f218834d-fbab-4075-a6b0-66439cde4f23")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C0805C222J5GECTU"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e55ccc8e-d5aa-4cf7-a206-4bc6e0f08102")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "99d93e48-b766-4210-a5dd-42babe18c26a")
 			(effects
 				(font
 					(size 1 1)
@@ -15422,6 +15800,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a8a31054-102b-49d3-b7ab-9cc66650536f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "462c3c0a-e4e1-4f75-86a6-8d855ffbb1d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e145b78c-6120-4e34-9a81-7206903e53fa")
 			(effects
 				(font
 					(size 1 1)
@@ -15671,6 +16077,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "98bff965-093c-4b6f-8e11-e937edf2f774")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "29c25eb2-6c05-42d1-be71-4b76160d774a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "64429c2e-3bf5-4e50-a811-5278dffe44a3")
 			(effects
 				(font
 					(size 1 1)
@@ -16583,7 +17017,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -16654,6 +17088,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "98ccd0f5-9714-4731-8893-a702eec9e5ac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5a72df54-b7a3-4a73-8206-265d07e246bd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d9d4b07d-9002-467b-b16c-d8050fbbe9b5")
 			(effects
 				(font
 					(size 1 1)
@@ -17137,7 +17599,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -17174,7 +17636,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17188,7 +17650,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17202,7 +17664,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17222,6 +17684,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "d36c7847-25f0-4fc9-b4ca-ce477f2d7a0c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C2012X7R1H224K125AA"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "30561a3f-9767-4763-8138-da140ba78fa2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8b7ba9d9-796e-4b0f-b76d-cb43515663d5")
 			(effects
 				(font
 					(size 1 1)
@@ -17422,6 +17912,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0a840607-50db-4af8-8760-fe9f9ef0b630")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "67db9edc-3a84-4f2c-a996-aa2c7580d1ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/d578ab2f-d339-4e60-92b2-316e733e1025")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
@@ -17604,7 +18122,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -17675,6 +18193,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "81d6a0b2-c9f3-49ab-97c2-d0f415d384e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0b70325a-2dc8-40ee-a20a-99e89ee51f9a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4aa914fe-4f24-47e4-8029-68aa55e23bd7")
 			(effects
 				(font
 					(size 1 1)
@@ -17922,7 +18468,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -17959,7 +18505,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17973,7 +18519,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17987,7 +18533,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -18007,6 +18553,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "7127bc72-1745-4645-967e-e5ab9eae12c7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C2012X7R1H474K125AB"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ad0937d2-783a-4191-974c-194a8fe32337")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e3df803c-0550-40b7-90ce-20dd758558f3")
 			(effects
 				(font
 					(size 1 1)
@@ -18426,6 +19000,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a2433c4c-8092-444d-8e55-466d3ddb0006")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "MCP73833-FCI/UN"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5082f74a-7a79-42df-96f6-9941ef087f1b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Microchip Technology"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b0cb4590-3eb1-4937-b9b5-e87ae31ef6b7")
 			(effects
 				(font
 					(size 1 1)
@@ -19062,6 +19664,34 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "MPZ1608S601ATA00"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "48dcb49b-30d1-47c3-ac2c-9103f704ebd2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bf454ffe-0948-490e-9410-cd691babdce8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/b9a63503-913f-42f0-90af-35eb42569eb5")
 		(sheetname "/Buttons/")
@@ -19240,6 +19870,34 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "MPZ1608S601ATA00"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2dc31164-2094-4d06-aae7-929dc36c4904")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "11d64b22-14b5-44e8-8c3e-f93899cc3123")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/148e3f1c-a8d6-44d7-a850-1e79b84846b9")
 		(sheetname "/Audio/")
@@ -19365,7 +20023,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -19436,6 +20094,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "6f68f12b-f379-44d6-baee-14c58bb55c0e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ab2259c8-8fc3-4d2d-ad0e-90c662117280")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "61480ec7-5cf6-4ef1-82f3-dc0356b6cfbe")
 			(effects
 				(font
 					(size 1 1)
@@ -19748,6 +20434,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e1780f6e-d6a7-4236-a018-9de8e02e6cb4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "75e34a9f-37aa-48e5-ac3d-157c6082201a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/ef8052d2-e22c-4caa-97a9-e19ee82397c4")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -19932,7 +20646,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -19969,7 +20683,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19983,7 +20697,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19997,7 +20711,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -20017,6 +20731,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "97cfd928-888e-4e8b-8106-860ccefc26e0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C0805C333K5RECAUTO"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "896e0c39-9d65-493f-83bd-de3c4dd58ba9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "049c9c5d-c619-4d82-a444-db965d7f03e7")
 			(effects
 				(font
 					(size 1 1)
@@ -23720,7 +24462,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
+			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -23800,7 +24542,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
+			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -24476,6 +25218,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d6ec720a-c818-41a9-986c-f0cb1c4fb609")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0eaaa602-4b3b-4905-847a-cd63d3dcafc4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/ec758207-84cf-4438-952a-ff617953134a")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -24953,6 +25723,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "71054cb7-124a-475d-900e-325eba231568")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8bc47aeb-ea6f-41ad-8408-021f77b7bc3d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1e0d4cf8-16aa-472a-bae1-3505fa6bbd0c")
 			(effects
 				(font
 					(size 1 1)
@@ -25909,7 +26707,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -25980,6 +26778,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "5491ec84-cab6-4a59-bf61-889ec579ea22")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9c4a465b-b268-4c2d-a23a-10abbb86734a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c675517f-12f7-4501-81c0-040f9446ba92")
 			(effects
 				(font
 					(size 1 1)
@@ -26503,6 +27329,34 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "PMEG40T30ERX"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f73a1780-ba18-4096-a5e5-99a01ae681d3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "740acef7-d120-4545-a584-7d3eedc3f42a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Nexperia_CFP3_SOD-123W")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/371b4043-0f57-47af-92a9-61e9cc0107d3")
 		(sheetname "/Battery/")
@@ -26758,7 +27612,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -26795,7 +27649,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -26809,7 +27663,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -26823,7 +27677,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -26843,6 +27697,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "6eb5bec0-4110-403d-8479-c77b30a0acba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C2012X7R1H224K125AA"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1d8c6721-a605-4b58-9c02-522dcecd7969")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0a38e8b6-979b-49e6-8aaf-9789b601248d")
 			(effects
 				(font
 					(size 1 1)
@@ -27035,6 +27917,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "9bde40ca-71c9-4b48-bcb5-db0004550085")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "af5d4c70-f7ac-402a-ad3e-aacc515311fe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "937dcf2c-b428-46bb-aa2f-04528b81e98a")
 			(effects
 				(font
 					(size 1 1)
@@ -27978,6 +28888,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2545459d-5585-4a8a-9339-db9713821c59")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5448d760-ec23-47a9-9c05-db8865b24682")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/7b1e7e56-9bca-4b58-8daf-94f454e5c0a5")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -28219,6 +29157,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "97934d77-a2a7-4709-8432-8ddf98e4969a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1c879079-2692-4634-b4f5-35d3e959b4e1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b2f40f4c-477b-4840-836b-dd2e22147de8")
 			(effects
 				(font
 					(size 1 1)
@@ -28710,6 +29676,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8bf6098b-9994-4997-a256-9e21b57a0438")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "badadb00-107d-469f-b7e3-658cfb54d7bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/82d763cd-2b89-4e43-be5c-4b59e7a407c9")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -28894,7 +29888,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -28931,7 +29925,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -28945,7 +29939,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -28959,7 +29953,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "5%"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -28979,6 +29973,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "75659cac-f9bd-4cb4-b80d-3996d23aeb31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C0805C222J5GECTU"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0045b537-a704-4056-bed0-a170276dc537")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9cdb229c-34c9-49d9-b6a4-317c60619bb5")
 			(effects
 				(font
 					(size 1 1)
@@ -29348,7 +30370,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -29419,6 +30441,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "223ea592-f068-48d1-94ed-514b45969400")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f64c21e3-5a54-4833-9996-21fb8194053e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "12e623ea-27ea-4765-bda6-048acc29d0b8")
 			(effects
 				(font
 					(size 1 1)
@@ -29666,7 +30716,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -29703,7 +30753,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -29717,7 +30767,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -29731,7 +30781,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -29751,6 +30801,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "d2ba56a9-060a-4688-bb4b-32b258da6ebc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C225KA12L"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d72ab09a-a7bc-4332-93c9-a40d21e24c84")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7accd75c-62b6-4f7d-bcc3-f57ee7dbc7bf")
 			(effects
 				(font
 					(size 1 1)
@@ -30761,6 +31839,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d95b8423-cf0b-4492-b32e-e7e5239cd0b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "60959de4-a713-47b9-9ec0-574a18ec4266")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/8fd8e01e-2460-4ebb-a31a-966520f7958a")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -30945,7 +32051,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -30982,7 +32088,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30996,7 +32102,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -31010,7 +32116,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -31030,6 +32136,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "40b8ca01-b265-4757-ada2-000da863e671")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "C2012X7R1H474K125AB"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f023a967-01f8-49f3-b902-7c15d7e09311")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d885ce66-7efd-46dd-95a5-24190d5aa63c")
 			(effects
 				(font
 					(size 1 1)
@@ -31401,7 +32535,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -31472,6 +32606,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "134f5316-2967-4d47-8cfb-6dbe6a46e26a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e053cacb-b49b-4d6f-9841-dd461085921f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ffafce26-c321-46bd-93ff-4efebd3c8a16")
 			(effects
 				(font
 					(size 1 1)
@@ -31717,7 +32879,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -31788,6 +32950,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ddce4b40-ebe2-4f17-99d1-c5969f74fb2b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9f01786d-9602-4e42-a34a-15f74681d8a7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b4d42d2d-5605-4450-821e-18672ff78643")
 			(effects
 				(font
 					(size 1 1)
@@ -32507,7 +33697,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -32544,7 +33734,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32558,7 +33748,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32572,7 +33762,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32592,6 +33782,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4833b121-06d0-461b-83c4-d5cebaa157b5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bd538531-a973-40ce-aab4-6d6bf54d47a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8b4d1cf4-64ba-4a4d-a219-9f9d8a5bd5bf")
 			(effects
 				(font
 					(size 1 1)
@@ -32961,7 +34179,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -33032,6 +34250,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c42884b3-cf06-4704-ab97-7887ec684e53")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "30961bdd-c323-4c5c-8e79-df40c6285de7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "90487661-2ffd-4a42-8c01-1000218cfb40")
 			(effects
 				(font
 					(size 1 1)
@@ -33513,7 +34759,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -33550,7 +34796,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33564,7 +34810,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33578,7 +34824,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33598,6 +34844,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "144978e7-029d-401e-8c89-15f9170af090")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d1d8a10e-b330-4563-9a6b-25a333902b1e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "71dec873-b20a-4a2d-8daf-593e68a273e6")
 			(effects
 				(font
 					(size 1 1)
@@ -34147,7 +35421,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -34184,7 +35458,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -34198,7 +35472,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -34212,7 +35486,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -34232,6 +35506,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "adc9a196-7857-40a3-8b46-6b0d6889f9c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c87457a2-b51f-4f76-9421-6759da34da3c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8ad5551a-930b-4597-960f-1654b47fafa4")
 			(effects
 				(font
 					(size 1 1)
@@ -34365,7 +35667,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -34436,6 +35738,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "159a6c2c-d210-4a71-aa7e-d53a2c87af1e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "86c56c97-0b3d-497c-8374-384e8df24021")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ddb3945f-8dfa-4e9d-961a-398d90d175a3")
 			(effects
 				(font
 					(size 1 1)
@@ -35162,6 +36492,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "81c273fb-5c85-4402-858b-437a4d9200ab")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4e62612b-0d72-4eea-b603-0da313338c45")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/1defa43c-9966-47f4-8041-572103ad2713")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -35346,7 +36704,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -35383,7 +36741,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35397,7 +36755,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35411,7 +36769,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35431,6 +36789,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c6cea330-03be-4fd2-9e1b-7cbd9fadfcb2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C225KA12L"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "39b74009-aacc-46b9-a370-fd86544ac95a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "fe9293d3-18a2-49e8-955d-ec3ed496d7a0")
 			(effects
 				(font
 					(size 1 1)
@@ -35800,7 +37186,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -35837,7 +37223,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35851,7 +37237,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35865,7 +37251,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35885,6 +37271,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "262d822a-2d5a-4df0-a0e9-11209fa08abe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1c8a26cb-67f5-471a-808b-433ef44baad4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d3dbfd7b-e3a2-495e-8546-9318aba1edf8")
 			(effects
 				(font
 					(size 1 1)
@@ -36020,7 +37434,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -36091,6 +37505,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a754772c-f492-4a4c-a5d4-110b3acd2145")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5c99377f-3f27-488a-925f-88fd20a4ecc9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6d877b3f-fe65-4303-b00e-735844178963")
 			(effects
 				(font
 					(size 1 1)
@@ -36395,6 +37837,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "b4269c0d-163c-406c-b36d-31625e5274be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c57b4e3d-c18d-42ef-93c4-c8d129bb98ff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c328665f-3b99-4a14-8506-42594145063a")
 			(effects
 				(font
 					(size 1 1)

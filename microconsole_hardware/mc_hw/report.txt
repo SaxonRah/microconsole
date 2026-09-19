@@ -1,4 +1,6 @@
 Info: Processing symbol 'A2:project_parts:RaspberryPi_Pico_Common_Unspecified'.
+Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
+Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
 Info: Processing symbol 'C4:project_parts:C1206'.
 Info: Processing symbol 'C5:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C7:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
@@ -111,10 +113,12 @@ Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
-Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
-Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
-Updated Q2 fields.
-Updated Q1 fields.
+Updated A2 fields.
+Updated A2 unit metadata.
+Changed SW16 value from Joystick to FJH10K-S2.
+Changed SW17 value from Joystick to FJH10K-S2.
+Updated SW17 fields.
+Updated SW16 fields.
 Warning: No net found for component J2 pad B7 (no pin B7 in symbol).
 Warning: No net found for component J2 pad A8 (no pin A8 in symbol).
 Warning: No net found for component J2 pad A7 (no pin A7 in symbol).
