@@ -213,6 +213,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5970d576-399d-4022-84f5-e1189f91a264")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/aa3effd0-0d0e-450e-b868-f2ff50b6a418")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -441,6 +454,19 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "a1e8b90d-21db-4ecd-a109-4e58cce2e765")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f97da5d1-0701-45a0-a09d-76593324f4eb")
 			(effects
 				(font
 					(size 1 1)
@@ -828,6 +854,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "cce28ece-5e9c-493b-80cd-8e7d77f4fe03")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "69bcb4cd-af95-4831-bb6b-75eb992f8645")
 			(effects
 				(font
 					(size 1 1)
@@ -1300,6 +1339,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "93b82608-f45b-436a-8684-4b072b77ed7d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db2ada4f-22e2-408c-8965-c18723473500")
 			(effects
 				(font
 					(size 1 1)
@@ -1798,6 +1850,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "654137e5-0162-44ee-b46f-7d8050165c33")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/3823d101-9d99-4231-a97b-86612f949fb2")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
@@ -2156,6 +2221,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a98335d4-cb50-4bd8-af7e-9be2a0bf6820")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/7ca022f6-2c47-4f6e-bccf-3962bac2368a")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -2409,6 +2487,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "91c3972e-7213-4413-8c34-fe0552131861")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "46ff1816-7a7b-40f6-9b89-95fc625def74")
 			(effects
 				(font
 					(size 1 1)
@@ -2676,6 +2767,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0e692d59-5426-45fe-b505-d81d148c7e2d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/29bf2388-1ec2-4db6-9881-da8aa51d72c5")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -2877,7 +2981,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -2917,6 +3021,58 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "8261d223-e92b-4cde-8592-8d2fd927617b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-07100KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aceb12e4-a77e-4afa-9537-cf120cb8a85f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d8cb7d39-92c7-4751-be81-7ebbc16c44f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2afdca6-92a2-46bf-9a57-e2aaa2cd7fc1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ff45d99f-d9fb-44a6-8238-7392c39816e6")
 			(effects
 				(font
 					(size 1 1)
@@ -3075,6 +3231,19 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "e5a8a8c0-1fbe-4c10-b1fa-98346bee77e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "74981bbf-ef12-462e-9757-026919a15da6")
 			(effects
 				(font
 					(size 1 1)
@@ -3488,6 +3657,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fc3f76f7-c98e-451f-a949-68a87795cd0a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/b6758c6b-5582-4f7a-9421-bf88a91e2559")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -3748,6 +3930,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4aaf84e7-805e-4702-858e-bfe206852b5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/62d16aa9-7f49-40b7-b1db-743919e46ca8")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -3969,6 +4164,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "06b92c2f-6b53-4377-bfbf-ab63d4253454")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4921,6 +5129,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ceeeda99-3a4b-4f08-a665-f35b057336a2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/f7d24a0c-18c9-433d-a815-2b3b9b068575")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -5181,6 +5402,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "357f55cd-17d0-4634-867a-7b7cc174d6fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/68089511-54d2-4bf8-a88e-fc92b4201d3d")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -5429,6 +5663,45 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a0990081-3fba-4e1d-a8d2-951a7f6b6456")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "LTST-C190KFKT"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "830f1333-4534-4618-afc3-8242bf924f25")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Lite-On Inc."
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9bb565a-38b5-4e02-9e4b-6b9e2e71f959")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/a0f5b807-d8f2-444a-a460-3a6ddbc45748")
 		(sheetname "/Battery/")
@@ -5632,6 +5905,19 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "0aeeea9e-831a-4137-b5f3-d10f251da525")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "04034337-4e2b-457d-8b03-052f0f25e8a8")
 			(effects
 				(font
 					(size 1 1)
@@ -5903,6 +6189,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8d6de590-a995-473f-924e-d0109f63e12f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/5ba22fea-77e0-491e-98fc-df144eb1ebec")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -6156,6 +6455,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "5d734a7f-7a03-4959-bdfa-58071219e107")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4f7f06c5-81ff-41db-b3b2-3329cc2fdba3")
 			(effects
 				(font
 					(size 1 1)
@@ -6423,6 +6735,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c7ed7a9c-0fac-46b6-9c0a-6bbc4d7540f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/3caadc2c-dbe7-443c-ad74-14363efd7fb4")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -6671,6 +6996,45 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ea4607f9-2e90-449c-9993-462460342c6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "LTST-C190KRKT"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "75e018a7-99c7-4931-b3a7-444e5a9fc602")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Lite-On Inc."
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "40ce16df-30e2-498c-b664-59dd57f58734")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/be9a6ff8-64e1-4b31-b593-9372bfa21148")
 		(sheetname "/Battery/")
@@ -6887,6 +7251,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "fae83d33-5c9a-484a-aa4e-b5a65fc69d80")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4b1e913a-73a5-4ce7-93c7-8d13b29803bc")
 			(effects
 				(font
 					(size 1 1)
@@ -7123,6 +7500,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e594b28b-3c8e-4ffb-81d5-d79c7c8435d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/5b05352f-886f-42d6-bbec-1c7cf7fa177e")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
@@ -7289,6 +7679,19 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "9f9ff95d-e95c-4f4f-9008-b35b2643119b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "116026b5-c4ac-461f-ba48-7965cf7d8837")
 			(effects
 				(font
 					(size 1 1)
@@ -7701,6 +8104,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "88315c30-c77c-4ef8-b9f6-4b73b3534ed2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/9a6a4a8f-1edb-4212-ac35-f000d219189b")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
@@ -7996,6 +8412,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4663334d-7c38-41ce-9295-9c7b9cf9b4b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/dc6b7bd3-3b78-4bb2-859b-077e377a1530")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -8244,6 +8673,45 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7fbbfba0-0195-43d1-bb63-aa135e40108a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "LTST-C190KGKT"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9bfa3881-92f1-4c01-9f18-e183bc5d3fbe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Lite-On Inc."
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fa48aa3e-850f-407e-92e8-4d50404da4cf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/c837e382-5d86-4f86-a958-25369ae3e5da")
 		(sheetname "/Battery/")
@@ -8471,6 +8939,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "dbff55c5-36ec-4f66-862a-620ec04351fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9dc11eb2-f434-4a33-8d43-33a091431568")
 			(effects
 				(font
 					(size 1 1)
@@ -8738,6 +9219,19 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b01e50fb-1d0a-47ae-8c41-8a15b5cc03f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/a3b9f75d-2968-4f27-965f-ffe24fe90c80")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -8993,6 +9487,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a8950232-1a49-43f9-a76d-1660fb2c7d2c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c4f94df4-fef5-48a9-8822-61ec27fec1ba")
 			(effects
 				(font
 					(size 1 1)
@@ -9301,7 +9808,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -9344,6 +9851,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ddcd327e-6d83-48d0-8e09-beb8d496905f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "409ce91c-652a-4464-a536-f49d79d609c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c7c6f3fd-0995-4869-9444-32311b75b3e1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0270be70-70f4-4e1b-a124-943c9a3d5c0e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "49746654-54b9-4bbb-8d7f-9acba4dd37a7")
 			(effects
 				(font
 					(size 1 1)
@@ -9569,6 +10132,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "9497d04c-4eff-48c9-8b81-1dbf0798e0ac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c44163d1-98c4-48b6-a67f-0349bf67432e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0f225590-bf4a-4cc4-9b24-3dbeab38ad9a")
 			(effects
 				(font
 					(size 1 1)
@@ -9888,7 +10479,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -9931,6 +10522,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f7692634-8f25-408a-8bb9-cd3ad4f0030c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0727KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8f36788f-9cdc-41c6-8534-85024c7830e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "36dbbd47-1043-4f81-a400-6137a3bb3806")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "69cd613d-ec6d-4260-9b45-22cecd735465")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d5857174-012d-4073-887c-aaa60b416f22")
 			(effects
 				(font
 					(size 1 1)
@@ -10068,7 +10715,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -10111,6 +10758,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "442af640-9476-4e7e-a8d8-4edab03082c4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-072KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "373697f4-131d-47d3-9bca-3dfc219c5f6d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b753b4cd-2c38-47f0-91b2-bc5d60e15efe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e27ade51-f17b-4e01-9ff5-5864d8f76337")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9280563b-8921-4a14-ad15-abaf36ca17e4")
 			(effects
 				(font
 					(size 1 1)
@@ -10248,7 +10951,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -10291,6 +10994,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f9407eb4-0971-472e-8850-bdd6f013f353")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f5ca39f7-baac-47ab-a4c8-741125aa2cd1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "337ce29c-6ce6-4b53-98e8-e78734aa62b9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "015aa9bb-ba53-4b2c-8760-cfef225b9a87")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ca73689b-c525-46e1-9d52-2ecf48eabddc")
 			(effects
 				(font
 					(size 1 1)
@@ -10483,6 +11242,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4e06b487-61f2-4d3d-94ad-d233313e6b43")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d7101824-a5c7-466c-be4c-7b6b24849e06")
 			(effects
 				(font
 					(size 1 1)
@@ -10781,6 +11554,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c241e9dc-9e80-4178-b8e2-2ec6c4b8d020")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/24cebe97-47a9-474b-a85e-50212315fc4b")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -10965,7 +11752,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -11008,6 +11795,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "d09b33f2-8d87-4331-91bc-55cb4b9db8e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0733KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "abcdd05b-a50c-4dc4-b6ed-6d80e2503a75")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "857ad041-59f2-4024-bb1e-5639e6ad0f36")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4b841c27-1368-4579-9e17-3287d55b0a33")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e2a8de2c-2bd4-4c2f-9252-da01ffe1dc40")
 			(effects
 				(font
 					(size 1 1)
@@ -11145,7 +11988,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -11188,6 +12031,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c1beb877-1a96-4360-8d76-916558c49eb3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6376634d-8151-4bd3-b13b-291ac73595ad")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ef4571e5-7c30-4450-8d02-fd6b19c6b6c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "aa6c92ec-58c8-4da4-920c-93fc8130f148")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "73bdf983-78dc-42b4-a999-61d511638e5b")
 			(effects
 				(font
 					(size 1 1)
@@ -11323,7 +12222,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -11366,6 +12265,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a31add5f-ab00-45fa-a98b-ada86d686683")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ecacd40a-097a-4d93-8a85-f93f283ec92c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "504a2ad2-3569-49dc-abe6-f21e51265ae7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b9307524-1fbf-46f6-b468-47e90fe027cc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "04749105-1789-47a7-b445-3f46f4de2f99")
 			(effects
 				(font
 					(size 1 1)
@@ -11559,6 +12514,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "6086a315-3ea6-453f-9d58-53c9db07d463")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5d2caad6-8218-4d45-bad3-e2c4f5116b5d")
 			(effects
 				(font
 					(size 1 1)
@@ -11979,6 +12948,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "03156c74-9c33-4aa7-a542-17b6e3a90b4f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/bd50e6d6-ec47-42a1-8e6e-01b4914ececd")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -12269,6 +13252,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "15755191-7898-43d8-a85e-88de69e80b0e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/d76f4293-c478-45eb-91c1-2ec762d2c1f7")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
@@ -12532,6 +13529,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c45f13a6-ca0c-43bb-9157-8ea509de1e6e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/8f563671-ba46-45f3-8a98-61b84412985f")
 		(sheetname "/Buttons/")
@@ -12702,6 +13713,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "234b7cd8-dc9a-451e-b718-ba250d49c0bd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5b4214ef-7124-4016-8282-613183ccc000")
 			(effects
 				(font
 					(size 1 1)
@@ -12894,7 +13919,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -12937,6 +13962,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "bf40c554-6263-44db-8321-42142deaef29")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "37d1caa9-6da2-4150-bbcc-f2ac45b7200e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "407a09d8-0f61-4a5a-9f31-c8d18dbc82a0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "317e22b0-01c4-4b9f-aebd-799f52367491")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6f8b3607-1d9b-4d13-a65b-1a002c7a7ed3")
 			(effects
 				(font
 					(size 1 1)
@@ -13072,7 +14153,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -13115,6 +14196,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "8fbb00aa-a124-48da-a525-d44b5cf366b2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-072KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "83d9afbc-9535-40c7-8fa1-ee9411251fc4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "17ec768b-f013-48e9-9aac-f4758195c4d7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "334e0916-ca02-4ad3-8657-b0aff19c2e68")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e69155cf-1ce0-4f31-b51e-fcfe5efd7f51")
 			(effects
 				(font
 					(size 1 1)
@@ -13252,7 +14389,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -13295,6 +14432,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "05c90caa-9ec8-4ec6-98a9-f8e0db42e0fd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0768KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8a17b287-f963-4c73-b58c-14f97ddcb9d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d6ee3898-6660-4ff8-863c-5db822eecd43")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4413d21f-5933-4fa3-8cc8-3458fe871d6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e2271ff0-9d73-4393-ad09-16d8b49c5f9b")
 			(effects
 				(font
 					(size 1 1)
@@ -13430,7 +14623,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -13473,6 +14666,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "21de5df2-6349-4983-aef6-03b0ae07046b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-074K7L"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1bb2e899-0c38-42d7-85fa-8950d7621323")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a62b17fc-ace0-4227-bbba-f11e55f8800f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f39c6cce-5113-436f-87ab-d8da575fb5e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "042a517c-1316-4733-9341-bd27955bdad3")
 			(effects
 				(font
 					(size 1 1)
@@ -13610,7 +14859,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -13653,6 +14902,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ae341418-e86e-4991-9ecf-4fb93d150c20")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-074K7L"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "79f3aafe-30b9-4751-b29a-072c19faed20")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7f5478a9-c04f-435a-b79b-1ac9bbdd1681")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a5c9f45e-59dd-48c2-8b7a-7dfc52543c64")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "04210830-932e-4471-89e3-d561ca2ef064")
 			(effects
 				(font
 					(size 1 1)
@@ -13867,6 +15172,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f218834d-fbab-4075-a6b0-66439cde4f23")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/880c7d49-3ea2-44b8-a28e-9e1cc474ba6f")
 		(sheetname "/Audio/")
@@ -14037,6 +15356,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "fc30b797-e9e7-4b8e-8c20-98f4a089e3e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a8a31054-102b-49d3-b7ab-9cc66650536f")
 			(effects
 				(font
 					(size 1 1)
@@ -14280,6 +15613,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "98bff965-093c-4b6f-8e11-e937edf2f774")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/ff38f7b7-0382-4938-a31d-b168ce0e51e6")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
@@ -14464,7 +15811,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -14507,6 +15854,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f47035c0-85cb-4299-9ea2-135cc06f0854")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0727KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5b3e0e3a-86f3-4b2a-84b2-625592024322")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1d61e215-6121-4e16-b20b-fe2138c7fc01")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "29306580-31f7-4f3f-9831-733c4c25652d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "03f81530-ec93-4ce0-bb6f-3cace8f43953")
 			(effects
 				(font
 					(size 1 1)
@@ -14669,6 +16072,20 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "07ecc131-dd3f-41a9-b6fc-2645ac3ba482")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -15179,6 +16596,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "98ccd0f5-9714-4731-8893-a702eec9e5ac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/fe702115-521e-42bf-9e5a-5d1046fa2161")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -15418,7 +16849,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -15461,6 +16892,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "82ea3ff9-b718-47cf-a732-08dda505c09d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-07100KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0fea4a2e-acaa-4758-984e-33306a513586")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "fb5afcc7-bcc6-4c72-9370-393b1f2d96f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d1e78c62-105f-4d19-aeb2-3dedb2d148e6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "dade7391-a665-45fe-ac02-77e097910ff6")
 			(effects
 				(font
 					(size 1 1)
@@ -15677,6 +17164,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d36c7847-25f0-4fc9-b4ca-ce477f2d7a0c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/f371369b-fdc3-413c-a1ac-a0cbc9b8eaea")
 		(sheetname "/Audio/")
@@ -15847,6 +17348,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4cae1c0d-4f87-4c69-bcb0-c29a458c9400")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "80911879-9cbc-4ac3-8526-69590e86ce6c")
 			(effects
 				(font
 					(size 1 1)
@@ -16094,6 +17609,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "08545a3b-9c67-4845-adcb-216dc598e2e4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "81d6a0b2-c9f3-49ab-97c2-d0f415d384e2")
 			(effects
 				(font
 					(size 1 1)
@@ -16420,6 +17949,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7127bc72-1745-4645-967e-e5ab9eae12c7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/54f42e52-373d-44e9-83b9-8d358922365f")
 		(sheetname "/Audio/")
@@ -16547,7 +18090,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -16590,6 +18133,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "32298a06-5491-453a-aa48-98e2007627a3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f8bb1cc3-ce5f-47c5-b0e9-7714b69621f0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "01a0500c-5367-4e29-a477-d5d569ed1988")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "42fc1f3f-446a-4d7b-ae0a-49b90f7523da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "20d9b527-10ce-4f20-8235-878b6f394fc6")
 			(effects
 				(font
 					(size 1 1)
@@ -16761,6 +18360,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "5212ce74-a72a-47e9-91b4-dafb61a78e1c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a2433c4c-8092-444d-8e55-466d3ddb0006")
 			(effects
 				(font
 					(size 1 1)
@@ -17383,6 +18996,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "95441dbf-1ba4-4e7e-b487-3e10013ace79")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/b9a63503-913f-42f0-90af-35eb42569eb5")
 		(sheetname "/Buttons/")
@@ -17539,6 +19166,20 @@
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "8251a0a7-a41e-493b-8665-3ac2e208ec9f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7a69aaf4-f588-4288-bdc2-7d54471fd702")
 			(effects
 				(font
 					(size 1 1)
@@ -17729,6 +19370,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "5a5a2934-5f5d-4113-9b2e-571b7e31de89")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6f68f12b-f379-44d6-baee-14c58bb55c0e")
 			(effects
 				(font
 					(size 1 1)
@@ -18027,6 +19682,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "51eae63b-f37b-4e3c-8723-56311bb7a2b0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/ef8052d2-e22c-4caa-97a9-e19ee82397c4")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -18290,6 +19959,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "97cfd928-888e-4e8b-8106-860ccefc26e0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/914b5924-0791-459e-8120-0dc7b2b4e07a")
 		(sheetname "/Audio/")
@@ -18446,10 +20129,33 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8d1aec30-4c57-4e1c-b600-684885549b59")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "RaspberryPi?Pico?Common* RaspberryPi?Pico?SMD*")
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/3e0eea39-3c72-4ef4-ae73-f58c9960b679")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "30" "37" "1" "2" "4" "5" "6" "7" "9" "10" "11" "12" "14" "15"
+					"16" "17" "19" "20" "39" "40" "3" "23" "28" "18" "13" "38" "8" "36"
+					"21" "22" "24" "25" "26" "27" "29" "35" "31" "32" "34" "33"
+				)
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -22440,7 +24146,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -22483,6 +24189,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f51d2d2b-b4ce-4cf7-b169-656f3579fd47")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c462f35c-6fdb-4a24-9380-ae126cb78dfd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7a7c2138-212f-4fa7-9034-83424e255899")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "54956add-1eae-4f5f-82c8-80bdb1194b17")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "96706ebd-1219-4258-bae0-5db7e3db5dec")
 			(effects
 				(font
 					(size 1 1)
@@ -22663,6 +24425,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "9a588575-3d79-42fb-bee1-f9ca08a02d4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5f894904-5bb9-4c1a-9218-fa0a9bf44c54")
 			(effects
 				(font
 					(size 1 1)
@@ -22855,7 +24631,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -22898,6 +24674,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "626a6be2-9b5d-4242-ace9-a91cb153c7e4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d4f0875d-81d2-4348-9e6a-3dff335955bd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b1fc842a-9b22-414c-9709-87ed90733584")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7fa988a2-c758-4535-bfa9-ae9a8c9c5bb6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4149687b-b00d-4cfb-9d59-b7c8cf3ba745")
 			(effects
 				(font
 					(size 1 1)
@@ -23078,6 +24910,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "52c6c6b7-666b-4ade-ba7f-862e4a0238c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "71054cb7-124a-475d-900e-325eba231568")
 			(effects
 				(font
 					(size 1 1)
@@ -23270,7 +25116,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -23313,6 +25159,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "386ee301-91e2-4432-bad9-0a40870b9ab8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b0073f8b-2587-4d16-8d07-fe18b576e4f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "568ce60d-850e-4aed-890c-0baa4c91b0a3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "554dd193-f0ba-4814-ae50-d4916f4ff423")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a830e36f-0c2b-40e0-80d8-71f1ca8a2a27")
 			(effects
 				(font
 					(size 1 1)
@@ -23504,6 +25406,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "577bdcc8-a101-413d-9af7-a80364231aa6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2c7bed92-4a6b-47cc-90f3-4793100e7240")
 			(effects
 				(font
 					(size 1 1)
@@ -24029,6 +25945,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5491ec84-cab6-4a59-bf61-889ec579ea22")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/8b0ff07b-48d8-4e20-b96b-3dd8a8afc786")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -24268,7 +26198,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -24311,6 +26241,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "6bb77484-a1e4-4249-8118-11ac124363d4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-07100KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "942b0d8c-b72b-46d2-8d4e-198edd370b0f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a9674bb7-81d2-497e-bb5b-cdfd0a63e4e7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "246591ef-da5b-420c-af11-9b27de35bda0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c186e60e-510b-4df8-b5ea-a22a9692322c")
 			(effects
 				(font
 					(size 1 1)
@@ -24469,6 +26455,20 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ef1454e4-cfaa-4fce-bf5f-5c8f728db881")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -24808,6 +26808,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6eb5bec0-4110-403d-8479-c77b30a0acba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/d361e944-8062-4a89-af1c-6a52bb020aad")
 		(sheetname "/Audio/")
@@ -24978,6 +26992,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "0b02c685-ca0c-43a6-ae0a-15d87b628d95")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9bde40ca-71c9-4b48-bcb5-db0004550085")
 			(effects
 				(font
 					(size 1 1)
@@ -25170,7 +27198,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -25213,6 +27241,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "bd14f6bb-021d-4b6f-aafe-7f94843349f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-075K1L"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "dbf43a81-3488-4f6a-9228-1e039fbb3544")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "70eeee8f-c4fd-42f5-914a-602f403e4f82")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4df9c657-3de2-4bbe-b5cf-c5c86edb3891")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f31a985d-054d-469d-8b64-3a643d1ff642")
 			(effects
 				(font
 					(size 1 1)
@@ -25406,6 +27490,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "673a88c5-4f72-40ba-918f-1e543205290e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e310d679-18e8-4d39-8e87-d38a208fa0e4")
 			(effects
 				(font
 					(size 1 1)
@@ -25837,6 +27935,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "74b04ef7-5d1c-4a44-af9a-0d836a26192c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/7b1e7e56-9bca-4b58-8daf-94f454e5c0a5")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -26072,6 +28184,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "97934d77-a2a7-4709-8432-8ddf98e4969a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/f7c5da98-0497-43a0-84e7-51e05cbac2ab")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -26256,7 +28382,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -26299,6 +28425,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "d8a19b15-5bc8-4399-984a-4db88bdb38e6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-074K7L"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f7abd674-7f6d-4417-bd3a-febafaac2ee6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "08b8343a-929f-4f4f-97be-acb4e5ae439b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8e7d5778-8f9a-4f66-bf97-792ee5eb333a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "443c16a6-9441-4b34-ac1a-bc133c3302a2")
 			(effects
 				(font
 					(size 1 1)
@@ -26477,6 +28659,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "aa6e649e-3a09-4182-97d1-40bdc43dc262")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "201054ce-1d18-4d60-9c26-a2b5ab1c2e02")
 			(effects
 				(font
 					(size 1 1)
@@ -26748,6 +28944,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "75659cac-f9bd-4cb4-b80d-3996d23aeb31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/148236f2-3864-45b3-b35f-4047cfd643db")
 		(sheetname "/Audio/")
@@ -26875,7 +29085,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -26918,6 +29128,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "70c9ea5e-1a20-40b7-8668-3a5b039d7646")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "806d053d-3e56-4385-b36a-5d834241e8f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a1bcc1fe-d9f4-48de-b556-6dfaf4270194")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5ec5517e-110c-4ad8-803f-2be51f0a190c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "70a1f5a6-b2bd-4cce-80df-cff31e581e16")
 			(effects
 				(font
 					(size 1 1)
@@ -27110,6 +29376,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "136349e9-1ec0-48ae-93c2-09c51728f956")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "223ea592-f068-48d1-94ed-514b45969400")
 			(effects
 				(font
 					(size 1 1)
@@ -27436,6 +29716,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d2ba56a9-060a-4688-bb4b-32b258da6ebc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/4b3f1043-27ca-4e5e-bb40-06679f9be4d9")
 		(sheetname "/Audio/")
@@ -27563,7 +29857,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -27606,6 +29900,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "fe1874c3-f2c3-4c3b-b1a1-4f4fb78ce66b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1bf2f11a-0d1e-4617-a57e-ecaeab51fd35")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9e3cf69c-95e7-4a49-beb0-4d210a585eec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a7703e78-4b3a-48a6-aeb6-fa823902518d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "dc350273-d64d-4e74-8854-5f639f2dca75")
 			(effects
 				(font
 					(size 1 1)
@@ -27799,6 +30149,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "2fd50a0e-14cf-4aba-b705-9662dff1c783")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0719ed95-5224-435e-8300-e8a3e9835e63")
 			(effects
 				(font
 					(size 1 1)
@@ -28069,7 +30433,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -28112,6 +30476,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "5d49c997-3eb3-4348-b994-53622fc5f6ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-073K32L"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e14c6644-90c6-44ba-8917-91a009d28915")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "244d8d07-f88f-480d-839c-e2606c789317")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c8662b84-7f09-4373-b817-a3e8c7326c83")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0d0c8213-f8d5-4225-8276-e07d7ed88902")
 			(effects
 				(font
 					(size 1 1)
@@ -28290,6 +30710,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "e19b5582-2fcf-4574-b0cf-79c8b3845c21")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "41829246-7621-495c-84b4-6e4bfca6b5d8")
 			(effects
 				(font
 					(size 1 1)
@@ -28561,6 +30995,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "40b8ca01-b265-4757-ada2-000da863e671")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/aee6fbc5-a7c9-43b9-9634-b8a344091cfb")
 		(sheetname "/Audio/")
@@ -28690,7 +31138,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -28733,6 +31181,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "929e07a2-4d8a-4338-a6d7-db5a44f086f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-07470RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "68939c11-5286-40a5-907b-a1c75cf706e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "90ae6a91-5c4a-4329-98df-3f3970f41441")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "25a36524-1c35-4877-ac68-6dcc0faa7dbc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "3df3802c-ecc4-42cd-b255-d0076941ecf3")
 			(effects
 				(font
 					(size 1 1)
@@ -28925,6 +31429,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4e01e69b-58a5-4249-b08d-3ef06c148a9d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "134f5316-2967-4d47-8cfb-6dbe6a46e26a")
 			(effects
 				(font
 					(size 1 1)
@@ -29235,6 +31753,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ddce4b40-ebe2-4f17-99d1-c5969f74fb2b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/ca5303ee-d04c-41a3-8130-0bf1372c6f7a")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -29474,7 +32006,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -29517,6 +32049,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "1e15ca53-75ba-4041-ac1e-80366f6522e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-07470RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c298110a-d94b-49f7-b188-36de1a7e59db")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0a74b927-f138-4b26-a051-cabb15013e52")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "783da5a3-9136-496a-9d19-b5282187a187")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b3326e14-cb29-411b-9a63-9f4659fd0b1f")
 			(effects
 				(font
 					(size 1 1)
@@ -29654,7 +32242,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -29697,6 +32285,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c06282dc-f168-4948-98e5-815905424229")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d724fd04-c059-4cc7-befb-1946ba2d685c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bdd77b01-fe3e-4b86-a4ae-7fd290befcd5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "54dee5b8-caca-43e1-9f0f-d8a79ebc8c85")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "27d3f4ae-d53b-4543-a119-47a671f567bc")
 			(effects
 				(font
 					(size 1 1)
@@ -29913,6 +32557,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4833b121-06d0-461b-83c4-d5cebaa157b5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/dfe906c4-85d1-47ba-8bd9-3684fb787e91")
 		(sheetname "/Audio/")
@@ -30040,7 +32698,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -30083,6 +32741,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "9b25a17e-e584-4fb5-a742-a194b92f9f7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-075K1L"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d4891c5c-7d66-4127-ae3e-6bd532fb937c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "08f4b2e3-2261-4841-baf8-fb7cf2d3d515")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b2bd7d89-db1d-4563-b239-d79688cbc9f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e8413c73-dc31-4830-9ba6-6bbd1c143783")
 			(effects
 				(font
 					(size 1 1)
@@ -30275,6 +32989,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4b7c6b9e-b156-4458-b1c8-9b10f4c67224")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c42884b3-cf06-4704-ab97-7887ec684e53")
 			(effects
 				(font
 					(size 1 1)
@@ -30522,7 +33250,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
@@ -30565,6 +33293,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "0112f72a-7086-4dc8-9bd7-7670f7fb485e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b51a3b85-9d22-44ce-ab2e-c4c8019d4a4e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "54170d7b-3d00-4c11-ab9b-d0683d4f9767")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ecd51414-6b88-4321-a89d-0da5c9073ead")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "69f3eb5f-1c69-469e-a6b1-eae18dbbfe8f")
 			(effects
 				(font
 					(size 1 1)
@@ -30779,6 +33563,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "144978e7-029d-401e-8c89-15f9170af090")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/d712fa53-6081-40ce-91c4-b9b480bae287")
 		(sheetname "/Audio/")
@@ -30962,6 +33760,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "426714a7-eeb5-49ae-af69-2ed9c2383c4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b014e113-6f7c-4c07-a3f5-af1e84054d9e")
 			(effects
 				(font
 					(size 1 1)
@@ -31385,6 +34197,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "adc9a196-7857-40a3-8b46-6b0d6889f9c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/6a9f7ab6-4f44-4a97-8097-5ba9f7bdecc3")
 		(sheetname "/Audio/")
@@ -31567,6 +34393,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "986e305d-7106-4b5d-bb75-e5d1b79d43d3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "159a6c2c-d210-4a71-aa7e-d53a2c87af1e")
 			(effects
 				(font
 					(size 1 1)
@@ -31870,6 +34710,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "816dc3c9-d625-472c-8fb8-e78a79078114")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b6c2fe4e-072c-4fa8-97e4-40c29180d7c2")
 			(effects
 				(font
 					(size 1 1)
@@ -32265,6 +35119,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a3d361c6-f052-44c7-9890-84f3f92f3b8b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/1defa43c-9966-47f4-8041-572103ad2713")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
@@ -32528,6 +35396,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c6cea330-03be-4fd2-9e1b-7cbd9fadfcb2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/fe580c89-6881-4de2-87d4-11f16df2f46e")
 		(sheetname "/Audio/")
@@ -32655,7 +35537,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 0 0 270)
 			(layer "B.Fab")
 			(hide yes)
@@ -32698,6 +35580,62 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ada8716a-c0b2-4f43-83ee-3e2fb2f00d31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "RC0603FR-0782KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5fa6327c-217a-4479-b5ec-80f979c6eb5f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9924df1b-7f0b-4a41-b04a-fcf7b3ecbf62")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4dd3ded3-b86b-435f-8642-5c8927ec44b1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e5ac7233-6a03-4e6e-bf5b-6e3d3990cb9a")
 			(effects
 				(font
 					(size 1 1)
@@ -32912,6 +35850,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Power" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "262d822a-2d5a-4df0-a0e9-11209fa08abe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/89c434e5-95f2-481a-943e-f6e9847f536a")
 		(sheetname "/Audio/")
@@ -33096,6 +36048,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "7d96f26c-257c-4d34-bf1e-69b872142190")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a754772c-f492-4a4c-a5d4-110b3acd2145")
 			(effects
 				(font
 					(size 1 1)
@@ -33386,6 +36352,20 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a41c16b7-847b-45a4-b5b9-974bf7aa14a6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Power" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b4269c0d-163c-406c-b36d-31625e5274be")
 			(effects
 				(font
 					(size 1 1)
