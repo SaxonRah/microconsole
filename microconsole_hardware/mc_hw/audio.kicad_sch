@@ -6278,7 +6278,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 52.07 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -6332,6 +6332,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 52.07 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0805C222J5GECTU"
+			(at 52.07 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
 			(at 52.07 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7203,7 +7225,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7257,6 +7279,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 78.74 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C225KA12L"
+			(at 78.74 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7472,7 +7516,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 101.6 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -7526,6 +7570,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 101.6 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C2012X7R1H474K125AB"
+			(at 101.6 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
 			(at 101.6 123.19 90)
 			(hide yes)
 			(show_name no)
@@ -7881,7 +7947,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 149.86 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -7935,6 +8001,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 149.86 179.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 149.86 179.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 149.86 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -8298,7 +8386,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 52.07 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -8352,6 +8440,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 52.07 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0805C222J5GECTU"
+			(at 52.07 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
 			(at 52.07 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -8427,7 +8537,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 191.77 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -8481,6 +8591,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 191.77 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 191.77 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 191.77 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -8550,7 +8682,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 69.85 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -8604,6 +8736,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 69.85 185.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0805C333K5RECAUTO"
+			(at 69.85 185.42 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
 			(at 69.85 185.42 90)
 			(hide yes)
 			(show_name no)
@@ -9471,7 +9625,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 184.15 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9525,6 +9679,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 184.15 107.95 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C2012X7R1H474K125AB"
+			(at 184.15 107.95 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
 			(at 184.15 107.95 90)
 			(hide yes)
 			(show_name no)
@@ -10125,7 +10301,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 96.52 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -10179,6 +10355,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 96.52 175.26 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C2012X7R1H224K125AA"
+			(at 96.52 175.26 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
 			(at 96.52 175.26 90)
 			(hide yes)
 			(show_name no)
@@ -10366,7 +10564,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 105.41 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -10420,6 +10618,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 105.41 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 105.41 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 105.41 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -11043,7 +11263,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 127 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -11097,6 +11317,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 127 128.27 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C105KA01L"
+			(at 127 128.27 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 127 128.27 90)
 			(hide yes)
 			(show_name no)
@@ -11714,7 +11956,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 95.25 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -11768,6 +12010,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 95.25 182.88 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C2012X7R1H224K125AA"
+			(at 95.25 182.88 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
 			(at 95.25 182.88 90)
 			(hide yes)
 			(show_name no)
@@ -11983,7 +12247,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn.sparkfun.com/assets/8/a/4/a/5/Kemet_Capacitor_Datasheet.pdf"
+		(property "Datasheet" ""
 			(at 67.31 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -12037,6 +12301,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 67.31 34.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C225KA12L"
+			(at 67.31 34.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
 			(at 67.31 34.29 90)
 			(hide yes)
 			(show_name no)
