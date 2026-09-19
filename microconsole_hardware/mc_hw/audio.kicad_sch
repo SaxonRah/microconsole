@@ -6439,6 +6439,28 @@
 				)
 			)
 		)
+		(property "MPN" "MPZ1608S601ATA00"
+			(at 241.3 44.45 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 241.3 44.45 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f2c729d3-8189-456e-abb0-6e3a2f6c97b4")
 		)

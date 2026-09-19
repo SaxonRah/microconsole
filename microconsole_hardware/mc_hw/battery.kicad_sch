@@ -5200,6 +5200,28 @@
 				)
 			)
 		)
+		(property "MPN" "PMEG40T30ERX"
+			(at 120.65 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 120.65 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "91469ea7-57bb-4409-a6b7-959ae5ed8468")
 		)
@@ -5429,6 +5451,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 212.09 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MCP73833-FCI/UN"
+			(at 212.09 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Microchip Technology"
 			(at 212.09 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -5814,6 +5858,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 104.14 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "COM-00102"
+			(at 104.14 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "SparkFun Electronics"
 			(at 104.14 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7508,6 +7574,28 @@
 				)
 			)
 		)
+		(property "MPN" "BAT54C-7-F"
+			(at 109.22 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 109.22 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "fa6ded86-15c5-48e4-9cb0-cf57e885e08d")
 		)
@@ -7730,6 +7818,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 234.95 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "NTCLE201E3103SBA"
+			(at 234.95 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Vishay / BCcomponents"
 			(at 234.95 43.18 0)
 			(hide yes)
 			(show_name no)
