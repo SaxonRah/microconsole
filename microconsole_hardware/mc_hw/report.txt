@@ -1,6 +1,7 @@
 Info: Processing symbol 'A2:project_parts:RaspberryPi_Pico_Common_Unspecified'.
-Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
-Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
+Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
+Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
 Info: Processing symbol 'C4:project_parts:C1206'.
 Info: Processing symbol 'C5:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
 Info: Processing symbol 'C7:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
@@ -49,16 +50,20 @@ Info: Processing symbol 'D2:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolde
 Info: Processing symbol 'D3:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'D4:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'D5:Package_TO_SOT_SMD:SOT-23'.
+Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
+Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
 Info: Processing symbol 'DS1:project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm'.
 Info: Processing symbol 'FB1:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'FB4:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
 Info: Processing symbol 'J2:Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A'.
+Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
 Info: Processing symbol 'U2:project_parts:CONN-TH_S2B-PH-K-S-LF-SN'.
 Info: Processing symbol 'U3:project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL'.
 Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'U5:project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
 Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
+Info: Processing symbol 'R12:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'LS1:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
 Info: Processing symbol 'LS2:project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm'.
 Info: Processing symbol 'LS3:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
@@ -72,7 +77,6 @@ Info: Processing symbol 'R7:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R8:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R9:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R11:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R12:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R13:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R14:Resistor_SMD:R_0603_1608Metric'.
 Info: Processing symbol 'R15:Resistor_SMD:R_0603_1608Metric'.
@@ -109,16 +113,15 @@ Info: Processing symbol 'SW11:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW12:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW13:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
 Info: Processing symbol 'SW14:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
-Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
-Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
 Updated A2 fields.
+Added A2 'Do not place' fabrication attribute.
 Updated A2 unit metadata.
-Changed SW16 value from Joystick to FJH10K-S2.
-Changed SW17 value from Joystick to FJH10K-S2.
-Updated SW17 fields.
-Updated SW16 fields.
+Updated D5 fields.
+Updated D5 unit metadata.
+Updated J2 fields.
+Updated Q2 fields.
+Updated Q2 unit metadata.
+Updated J2 unit metadata.
 Warning: No net found for component J2 pad B7 (no pin B7 in symbol).
 Warning: No net found for component J2 pad A8 (no pin A8 in symbol).
 Warning: No net found for component J2 pad A7 (no pin A7 in symbol).

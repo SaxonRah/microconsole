@@ -1,46 +1,219 @@
 # MicroConsole Hardware Design Specification
 
-**Revision:** Pre-routing architecture / BOM freeze draft  
-**Date:** 2026-09-16  
-**Goal:** one production-oriented hardware plan for the 4", 2.8", and 2.4" MicroConsole variants, optimized for hand assembly.
+**Revision:** Current PCB / manufacturing-prep specification  
+**Date:** 2026-09-19  
+**Repository:** `SaxonRah/microconsole`  
+**Hardware source state:** commit `58de74ed0c2ec7d6a54e9369b385123422352d09` (`dnp`)  
+**Primary BOM:** `microconsole_hardware/MICROCONSOLE_BOM.csv`
 
-## 1. Design rules
+---
 
-- Keep the **Pimoroni Pico Plus 2** as a module.
-- Keep each **ILI9341/ST7796S display as a complete module**.
-- Use a common electrical display interface but a **separate verified footprint for each physical 4", 2.8", and 2.4" module**.
-- Remove the Serial Wombat/PCB0029 from the final design.
-- Prefer 0805/1206 passives, SOIC/SOP ICs, and TSSOP down to 0.65 mm pitch.
-- Avoid QFN/DFN/BGA/WLCSP and difficult exposed-pad packages where a reasonable hand-solderable alternative exists.
-- Speakers and joysticks are mechanical assemblies; verify final footprints from real samples before fabrication.
-- Battery/charging changes are **PARKED** until the control/audio redesign is settled.
+## 1. Purpose and source of truth
 
-Status terms: **FROZEN** = good next-PCB choice; **PROTOTYPE** = architecture chosen but must be measured/tested; **TBD** = part not selected; **PARKED** = intentionally deferred.
+This document describes the **current MicroConsole PCB that actually exists in KiCad**, not an earlier architecture proposal.
 
-## 2. System block diagram
+The current production target is the **4.0-inch MicroConsole** built around:
+
+- Pimoroni Pico Plus 2 / RP2350;
+- LCDWIKI MSP4021 4.0-inch ST7796S SPI display module;
+- MCP23017 digital-button expansion;
+- ADS7828 analog acquisition for the two joysticks and volume control;
+- PCM5102A audio DAC;
+- PAM8406 stereo L/R amplifier;
+- PAM8302A center-channel amplifier;
+- MCP73833 Li-Ion/Li-Po charger and discrete battery/system power path.
+
+The KiCad design, PCB, and authoritative BOM take precedence over older notes.
+
+### Current project files
 
 ```text
-Pimoroni Pico Plus 2
- |
- +-- SPI0 --> ILI9341 / ST7796S display module
- |
- +-- SPI1 --> microSD
- |
- +-- I2C1 --> MCP23017 --> buttons
- |           |           --> ADS7828 --> left X/Y, right X/Y, volume, spare analog
- |
- +-- GP16 --> left stick click
- +-- GP17 --> right stick click
- |
- +-- I2S --> PCM5102A stereo DAC
-              |
-              +--> PAM8406 --> L 1W/8R + R 1W/8R
-              |
-              +--> L+R resistor sum + low-pass
-                    --> PAM8302A --> center 3W-rated/8R
+microconsole_hardware/
+├── MICROCONSOLE_BOM.csv
+├── MICROCONSOLE_BOM.xlsx
+├── MICROCONSOLE_HARDWARE_DESIGN.md
+└── mc_hw/
+    ├── top.kicad_sch
+    ├── top.kicad_pcb
+    ├── top.kicad_pro
+    ├── mc_hw.kicad_sch      # Pico + display
+    ├── buttons.kicad_sch
+    ├── audio.kicad_sch
+    ├── battery.kicad_sch
+    ├── ERC.rpt
+    ├── DRC.rpt
+    └── libs/
 ```
 
-## 3. GPIO / bus map
+Root hierarchical sheets:
+
+- `PicoScreen` → `mc_hw.kicad_sch`
+- `Audio` → `audio.kicad_sch`
+- `Battery` → `battery.kicad_sch`
+- `Buttons` → `buttons.kicad_sch`
+
+---
+
+## 2. Current validation state
+
+At source commit `58de74e`:
+
+```text
+ERC:
+0 errors
+0 warnings
+no ignored checks
+
+DRC:
+0 violations
+0 unconnected pads
+0 footprint errors
+no ignored checks
+```
+
+A clean DRC does **not** mean the current USB-C connector selection is approved. `J2` remains intentionally deferred until the exact connector, matching symbol, and verified footprint are frozen.
+
+### One manufacturing-flag check still required
+
+As of `58de74e`:
+
+- `A2` is marked **DNP in the schematic**;
+- the `A2` PCB footprint instance does not yet carry the PCB `dnp` attribute.
+
+Before generating the final pick-and-place file, verify `A2` is also DNP on the PCB.
+
+---
+
+## 3. Manufacturing strategy
+
+The board is deliberately split between:
+
+1. **factory-assembled SMT / normal PCB-assembly parts**, and
+2. **manual-install / DNP mechanical or difficult-to-source parts**.
+
+The Chinese PCB assembler should source and place the normal passives, semiconductors, ICs, ferrites, LEDs, MOSFETs, and—after it is frozen—the USB-C receptacle.
+
+The user will install the mechanical modules, controls, joysticks, speakers/connectors, and other through-hole specialty parts.
+
+### 3.1 Factory-populated parts
+
+Factory assembly should include:
+
+- all resistors `R3–R45`;
+- all capacitors used by the current design;
+- `D1–D5`;
+- `FB1`, `FB4`;
+- `Q1`, `Q2`;
+- `U1`, `U3`, `U4`, `U5`, `U6`, `U7`;
+- `J2` **only after the exact USB-C part is frozen**.
+
+### 3.2 DNP / manually installed parts
+
+These remain in the engineering BOM and remain physically present on the PCB, but are marked **Do Not Populate** for factory assembly:
+
+```text
+A2
+DS1
+LS1
+LS2
+LS3
+RV1
+SW2-SW15
+SW16
+SW17
+SW19
+TH1
+U2
+```
+
+Meaning:
+
+| References | Manual-install item |
+|---|---|
+| A2 | Pimoroni Pico Plus 2 |
+| DS1 | LCDWIKI MSP4021 display module |
+| SW2-SW15 | E-Switch tactile buttons |
+| SW16, SW17 | Hall-effect joysticks |
+| RV1 | volume potentiometer |
+| SW19 | power slide switch |
+| U2 | JST-PH battery header |
+| TH1 | thermistor / thermistor interface |
+| LS1, LS3 | L/R speaker connector positions |
+| LS2 | center-speaker solder connection |
+
+DNP means:
+
+```text
+Do not populate = YES
+In BOM          = YES
+On board        = YES
+```
+
+Do **not** exclude these parts from the engineering BOM or PCB.
+
+---
+
+## 4. System architecture
+
+```text
+                         +---------------------------+
+                         | Pimoroni Pico Plus 2 A2  |
+                         | RP2350B module            |
+                         +-------------+-------------+
+                                       |
+            +--------------------------+-------------------------+
+            |                          |                         |
+            | SPI display              | I2C1                    | I2S
+            v                          v                         v
+ +---------------------+     +--------------------+    +------------------+
+ | LCDWIKI MSP4021 DS1 |     | MCP23017 U3       |    | PCM5102A U5     |
+ | ST7796S 480x320     |     | digital buttons   |    | stereo DAC       |
+ | XPT2046 touch       |     +--------------------+    +---------+--------+
+ | microSD             |                                      |
+ +---------------------+                            +----------+----------+
+                                                    |                     |
+                                                    v                     v
+                                           +----------------+    +----------------+
+                                           | PAM8406 U7     |    | PAM8302A U6   |
+                                           | stereo Class-D |    | mono Class-D   |
+                                           +-------+--------+    +-------+--------+
+                                                   |                     |
+                                              Left / Right          Center speaker
+
+                         I2C1
+                           |
+                           v
+                    +-------------+
+                    | ADS7828 U4  |
+                    | 8ch 12-bit  |
+                    +------+------+ 
+                           |
+              +------------+-------------+
+              |            |             |
+          Left stick   Right stick    Volume pot
+          SW16         SW17           RV1
+
+
+ USB-C J2
+    |
+ USB-VBUS
+    |
+ MCP73833 U1 charger
+    |
+   BAT+
+    |
+ battery / MOSFET power path
+    |
+ VSYS_BAT
+    |
+ system + audio power
+```
+
+---
+
+## 5. Pico and bus allocation
+
+The design uses the following Pico-side functional allocation.
 
 | Function | Pico GPIO |
 |---|---:|
@@ -53,7 +226,7 @@ Pimoroni Pico Plus 2
 | LCD RESET | GP8 |
 | LCD DC | GP9 |
 | I2S BCLK | GP10 |
-| I2S LRCLK/LRC | GP11 |
+| I2S LRCLK / LRC | GP11 |
 | SD MISO | GP12 |
 | SD CS | GP13 |
 | SD SCK | GP14 |
@@ -62,52 +235,90 @@ Pimoroni Pico Plus 2
 | Right stick click | GP17 |
 | I2S DATA | GP20 |
 | Spare / possible MCP interrupt | GP22 |
-| Spare if volume moves to ADS7828 | GP28 |
 
-I2C addresses: MCP23017 = **0x20** with A2:A0 grounded; ADS7828 = **0x48** with A1:A0 grounded.
+Volume is routed as the analog net `VOL_ADC` into the ADS7828 rather than consuming a dedicated Pico ADC input.
 
----
+### I2C
 
-## 4. Display subsystem
+Current I2C devices:
 
-Use one generic schematic symbol for the common electrical interface:
+| Device | Function | Address configuration |
+|---|---|---|
+| U3 MCP23017 | button GPIO | A2:A0 grounded → `0x20` |
+| U4 ADS7828 | analog inputs | A1:A0 grounded → `0x48` |
 
-`LCD_MISO, LCD_CS, LCD_SCK, LCD_MOSI, LCD_RESET, LCD_DC, VCC, GND`, plus `SD_MISO, SD_CS, SD_SCK, SD_MOSI`, and optional touch `T_CLK, T_CS, T_DIN, T_DO, T_IRQ`.
-
-Touch-controller directions at the module are: T_CLK input, T_CS input, T_DIN input, T_DO output, T_IRQ output.
-
-Create three physical footprints rather than one universal footprint with alternate headers:
-
-| Console | Controller | Resolution | Proposed custom footprint |
-|---|---|---:|---|
-| 4" | ST7796S | 480x320 | `MicroConsole:LCD_ST7796S_4in_<SKU>` |
-| 2.8" | ILI9341 | 320x240 | `MicroConsole:LCD_ILI9341_2p8_<SKU>` |
-| 2.4" | ILI9341 | 320x240 | `MicroConsole:LCD_ILI9341_2p4_<SKU>` |
-
-**Status: PROTOTYPE.** Exact module SKU and mechanics must be frozen from physical samples.
+I2C pull-ups use 4.7 kΩ resistors.
 
 ---
 
-## 5. Digital buttons
+## 6. Main computer module
 
-### MCP23017
+### A2 — Pimoroni Pico Plus 2
 
-**Part:** Microchip `MCP23017-E/SO` — **FROZEN**
+**Manufacturer:** Pimoroni  
+**MPN:** `PIM724`  
+**Value:** `Pimoroni Pico Plus 2`  
+**Footprint:** `project_parts:RaspberryPi_Pico_Common_Unspecified`  
+**Assembly:** **DNP / manual install**
 
-- 3.3 V I2C GPIO expander.
-- RESET: 10k pull-up to 3.3 V.
-- INTA/INTB can remain unused while polling.
-- SOIC-28W, 1.27 mm pitch: excellent for hand soldering.
+The PCB intentionally uses the Pico module as a removable/hand-installed module rather than asking the PCB assembler to source and mount it.
 
-DigiKey: https://www.digikey.com/en/products/detail/microchip-technology/MCP23017-E-SO/894271  
-Mouser: https://www.mouser.com/c/?q=MCP23017-E%2FSO
+The project-local footprint was created from the common Pico footprint used by the board. Its geometry should not be casually regenerated because KiCad has previously churned internal UUID/group metadata even when visible geometry did not change.
 
-KiCad symbol: `Interface_Expansion:MCP23017_SO` (verify exact installed-library name).  
-KiCad footprint: `Package_SO:SOIC-28W_7.5x17.9mm_P1.27mm`
+### A2 KiCad handling rule
 
-Button map:
+When updating the PCB from the schematic:
 
-| MCP | Function |
+```text
+Replace footprints with those specified in schematic = OFF
+```
+
+unless a footprint change is actually intended.
+
+Before final CPL generation, verify the PCB instance itself is marked DNP.
+
+---
+
+## 7. Display subsystem
+
+### DS1 — LCDWIKI MSP4021
+
+**Manufacturer:** LCDWIKI  
+**MPN:** `MSP4021`  
+**Display:** 4.0-inch 480×320 TFT  
+**LCD controller:** ST7796S  
+**Touch:** XPT2046 resistive touch  
+**Storage:** onboard microSD interface  
+**Supply:** module supports 3.3–5 V  
+**Footprint:** `project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm`  
+**Assembly:** **DNP / manual install**
+
+The current board is specifically laid out around this 4-inch module.
+
+The custom footprint includes the physical module envelope, mounting holes, display geometry, and connection points.
+
+### Current scope
+
+The 2.8-inch and 2.4-inch ILI9341 concepts are **future variants**. They are not part of the current PCB manufacturing freeze and should not be described as interchangeable with DS1 without a separate mechanically verified board/footprint.
+
+---
+
+## 8. Digital buttons
+
+### U3 — MCP23017
+
+**Manufacturer:** Microchip Technology  
+**MPN:** `MCP23017-E/SO`  
+**Footprint:** `project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL`  
+**Assembly:** factory SMT
+
+The MCP23017 provides the console's digital button expansion over I2C.
+
+Button inputs are active-low and use the expander's pull-up capability.
+
+### Button allocation
+
+| MCP pin | Function |
 |---|---|
 | GPA0 | Up |
 | GPA1 | Down |
@@ -116,7 +327,7 @@ Button map:
 | GPA4 | A |
 | GPA5 | B |
 | GPA6 | X |
-| GPA7 | unused |
+| GPA7 | intentionally unused |
 | GPB0 | Y |
 | GPB1 | Select |
 | GPB2 | Start |
@@ -124,411 +335,666 @@ Button map:
 | GPB4 | R1 |
 | GPB5 | L2 |
 | GPB6 | R2 |
-| GPB7 | unused |
+| GPB7 | intentionally unused |
 
-Buttons are active-low to GND using MCP pull-ups.
+GPA7 and GPB7 remain unused.
 
-### Main tactile switch
+### SW2-SW15 — tactile buttons
 
-**Candidate:** E-Switch `TL3301NF160QG` — **FROZEN candidate**
+**Manufacturer:** E-Switch  
+**MPN:** `TL3301NF160QG`  
+**Footprint:** `project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0`  
+**Quantity:** 14  
+**Assembly:** **DNP / manual install**
 
-DigiKey: https://www.digikey.com/en/products?keywords=TL3301NF160QG  
-Mouser: https://www.mouser.com/en/ProductDetail/E-Switch/TL3301NF160QG
-
-KiCad symbol: `Switch:SW_Push`  
-KiCad footprint: `Button_Switch_SMD:SW_Push_1P1T_NO_E-Switch_TL3301NxxxxxG`
-
-Shoulder mechanics can change later without changing the MCP mapping.
+Although these switches are SMD, they are intentionally DNP because they are mechanical controls that will be sourced and installed manually.
 
 ---
 
-## 6. Sticks and analog subsystem
+## 9. Joystick and analog subsystem
 
-### Hall/TMR joystick
+### Approved joystick families
 
-**Selected joystick family:** PS5-style Hall-effect replacement mechanism.  
-**Primary accepted production candidates:**
+Only these two joystick options are approved:
 
-1. **Ginfull PS5 Hall-effect replacement joystick** — the user's existing, physically measured part.
-2. **Favor Union FJH10K-S2** — the specific Favor Union PS5-style Hall part the user found.
-3. **Favor Union FJH10K-S3D** — mechanically very similar alternate in the same FJH10K Hall family.
+1. **Favor Union / Favor Electronics `FJH10K-S2`**
+2. **GINFULL `L-5C`**
 
-**Status:** FROZEN FAMILY / PROTOTYPE SKU
+`FJH10K-S3D` is **not an approved part** and must not appear in the design or BOM as an alternate.
 
-The user's Ginfull PS5 replacement joystick measures approximately **12.75 mm x 10.00 mm** between the relevant mounting-hole centers.
+### SW16 / SW17
 
-The official Favor Union drawings for both **FJH10K-S2** and **FJH10K-S3D** show the same principal PCB drilling geometry, including the approximately **12.65 mm x 10.00 mm** mounting pattern. DigiKey also lists both as active FJH10K-series, 2-axis Hall-effect joysticks with center switch, 26-degree travel, through-hole mounting, 1.7-5.5 V supply, and the same nominal 19.50 x 17.60 x 19.30 mm body envelope.
+Current schematic identity:
 
-#### FJH10K-S2
+**Primary manufacturer:** Favor Electronics / Favor Union  
+**Primary MPN:** `FJH10K-S2`  
+**Approved alternate:** GINFULL `L-5C`  
+**Footprint:** `project_parts:GINFULL HallEffect Joystick PTH`  
+**Assembly:** **DNP / manual install**
 
-DigiKey part: `4434-FJH10K-S2-ND`
+The shared footprint is intended for the physically compatible approved joystick family.
 
-DigiKey:  
-https://www.digikey.com/en/products/detail/favor-electronics/FJH10K-S2/25879530
+### Current custom-footprint drilling
 
-Manufacturer drawing:  
-https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6530/FJH10K-S2.pdf
+The current footprint uses the corrected hole classes:
 
-#### FJH10K-S3D
+- Hall/signal pins: 1.0 mm drills;
+- center-switch pins: 1.2 mm drills;
+- large mechanical/mounting posts: 1.5 mm drills.
 
-DigiKey part: `4434-FJH10K-S3D-ND`
+Pad centers must not be moved without re-verifying both approved joystick samples.
 
-DigiKey:  
-https://www.digikey.com/en/products/detail/favor-electronics/FJH10K-S3D/25879529
+### Stick signal mapping
 
-Manufacturer drawing:  
-https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6530/FJH10K-S3D.pdf
+The four analog axes are routed to ADS7828 inputs:
 
-#### Important S2 vs S3D electrical difference
-
-Although the mechanical drilling drawings are effectively the same, **S2 and S3D are not automatically electrically interchangeable on one fixed net assignment**.
-
-The manufacturer drawings show the Hall-sensor pin order reversed:
-
-```text
-FJH10K-S2:
-  pin 1 = VDD
-  pin 2 = VOUT
-  pin 3 = GND
-
-FJH10K-S3D:
-  pin 1 = GND
-  pin 2 = VOUT
-  pin 3 = VDD
-```
-
-This applies to the two Hall sensor blocks shown as VR1/VR2 in the drawings. Therefore:
-
-- one **mechanical footprint geometry** can be shared;
-- the schematic/net assignment must match the chosen electrical variant;
-- do not assume an S3D can replace an S2 on a PCB wired specifically for S2 without swapping VDD/GND;
-- the Ginfull sample must be continuity/voltage-mapped to determine whether it follows the S2 or S3D convention.
-
-For the first MicroConsole PCB, use **FJH10K-S2 pinout as the reference** unless measurement of the Ginfull unit indicates otherwise.
-
-Use a family-specific custom footprint:
-
-```text
-MicroConsole:Joystick_PS5_Hall_FJH10K
-```
-
-Preserve physical manufacturer pad numbers in the footprint. If both Favor Union electrical variants need direct support, use separate schematic symbols:
-
-```text
-MicroConsole:FJH10K_S2
-MicroConsole:FJH10K_S3D
-```
-
-Before fabrication, verify the Ginfull, FJH10K-S2 and FJH10K-S3D for:
-
-- mounting-hole centers;
-- electrical-pin positions;
-- exact VDD/GND/VOUT mapping;
-- shaft center and height;
-- body height above and below PCB;
-- X/Y center and full-travel output voltages;
-- center-switch pinout;
-- travel, spring feel and thumb-cap compatibility.
-
-### Conventional potentiometer joystick
-
-Compatibility/fallback mechanism. User-measured mounting-hole spacing is approximately **15.25 mm x 13.00 mm**.
-
-Proposed custom footprint: `MicroConsole:Joystick_Pot_15p25x13`
-
-Do **not** combine these into one footprint. The exact magnetic joystick SKU is still **TBD**. Maintain a common logical symbol with `VCC, GND, X, Y, SW`, then number pads from the selected physical part. Stick clicks remain GP16/GP17.
-
-### ADS7828 ADC replacing PCB0029
-
-**Part:** Texas Instruments `ADS7828E/2K5` — **FROZEN architecture**
-
-- 12-bit SAR ADC.
-- 8 inputs.
-- I2C.
-- up to 50 kSPS.
-- TSSOP-16, 0.65 mm.
-- internal/external reference.
-
-DigiKey: https://www.digikey.com/en/products/detail/texas-instruments/ADS7828E-2K5/1689481  
-Mouser: https://www.mouser.com/c/?q=ADS7828E%2F2K5
-
-KiCad symbol: `Analog_ADC:ADS7828` if available; otherwise make a project-local symbol from the TI datasheet.  
-KiCad footprint: `Package_SO:TSSOP-16_4.4x5mm_P0.65mm`
-
-Proposed channels:
-
-| ADC channel | Function |
+| ADS7828 channel | Function |
 |---|---|
-| CH0 | Left X |
-| CH1 | Left Y |
-| CH2 | Right X |
-| CH3 | Right Y |
-| CH4 | Volume |
-| CH5 | Battery sense / spare |
-| CH6 | Future analog trigger / spare |
-| CH7 | Future analog trigger / spare |
+| CH0 | Left stick X |
+| CH1 | Left stick Y |
+| CH2 | Right stick X |
+| CH3 | Right stick Y |
+| CH4 | Volume potentiometer |
+| CH5 | spare / future analog |
+| CH6 | spare / future analog |
+| CH7 | spare / future analog |
 
-**Prototype requirement:** measure the selected Hall/TMR stick supply and X/Y output range before freezing ADS7828 VREF. Do not assume 0-3.3 V until measured.
+Stick-click switches are read directly by the Pico:
+
+- left click → GP16;
+- right click → GP17.
+
+### U4 — ADS7828
+
+**Manufacturer:** Texas Instruments  
+**MPN:** `ADS7828E/2K5`  
+**Footprint:** `project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL`  
+**Assembly:** factory SMT
+
+The analog rail is identified separately as `3v3_ADC` where used.
 
 ---
 
-## 7. Volume control
+## 10. Volume control
 
-**Part:** Bourns `PTV09A-2015F-B103` — **FROZEN candidate**
+### RV1 — Bourns PTV09A
 
-10k linear through-hole/snap-in pot, 15 mm shaft on this variant.
+**Manufacturer:** Bourns  
+**MPN:** `PTV09A-2015F-B103`  
+**Value:** 10 kΩ linear  
+**Footprint:** `project_parts:PTV09A2015FB103`  
+**Assembly:** **DNP / manual install**
 
-DigiKey: https://www.digikey.com/en/products/detail/bourns-inc/PTV09A-2015F-B103/3534257  
-Mouser: https://www.mouser.com/c/?q=PTV09A-2015F-B103
+The volume control produces the `VOL_ADC` net and is read through ADS7828 channel 4.
 
-KiCad symbol: `Device:R_Potentiometer`  
-KiCad footprint: start from `Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical`, then verify the exact shaft/orientation variant.
+The potentiometer remains in the engineering BOM even though it is excluded from factory placement.
 
-Proposed connection:
+---
+
+## 11. Audio subsystem
+
+### Audio architecture
 
 ```text
-3V3 --- 10k pot --- GND
-          |
-          +--- ADS7828 CH4
+Pico I2S
+   |
+   v
+PCM5102A U5
+   |
+   +----------------------+
+   |                      |
+   v                      v
+PAM8406 U7           L/R analog sum/filter
+   |                      |
+L speaker              PAM8302A U6
+R speaker                  |
+                        center speaker
 ```
 
-This frees GP28. Add ADC filtering only after knob-noise testing.
+This is a stereo-plus-center architecture. It is not a discrete three-channel digital DAC system; the center channel is derived from L/R analog audio.
+
+### U5 — PCM5102A stereo DAC
+
+**Manufacturer:** Texas Instruments  
+**MPN:** `PCM5102APWR`  
+**Footprint:** `project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL`  
+**Assembly:** factory SMT
+
+I2S:
+
+- BCLK → GP10;
+- LRCLK → GP11;
+- DATA → GP20.
+
+### U7 — stereo L/R amplifier
+
+**Manufacturer:** Diodes Incorporated  
+**MPN:** `PAM8406DR`  
+**Footprint:** `project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL`  
+**Assembly:** factory SMT
+
+The output is BTL. Speaker negative outputs are **not ground**.
+
+### U6 — center amplifier
+
+**Manufacturer:** Diodes Incorporated  
+**MPN:** `PAM8302AADCR`  
+**Footprint:** `project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL`  
+**Assembly:** factory SMT
+
+### LS1 / LS3 — left and right speakers
+
+**Speaker:** PUI Audio `AS02008MR-2-LWC30`  
+**Rating used by design:** 8 Ω, 1 W  
+**Assembly:** **DNP / manual/off-board**
+
+The PCB positions use:
+
+**Board header:** Molex `53047-0210`  
+**Pitch:** 1.25 mm PicoBlade  
+**Footprint:** `Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical`
+
+Both the speakers and the board headers are intended to be hand-installed rather than sourced by the SMT assembler.
+
+### LS2 — center speaker
+
+**Speaker:** PUI Audio `AS03208AS-HT`  
+**Rating used by design:** 8 Ω, 3 W  
+**PCB interface:** direct wire-pad footprint  
+**Footprint:** `project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm`  
+**Assembly:** **DNP / manual/off-board**
+
+### Audio layout rules
+
+- keep PCM5102A analog outputs short;
+- keep analog audio away from Class-D switching outputs;
+- route BTL speaker pairs together;
+- never connect a BTL `-` output to GND;
+- keep local decoupling physically close to each IC;
+- keep amplifier bulk capacitance local to the amplifier supply path.
 
 ---
 
-## 8. Audio subsystem
+## 12. Battery, charging, and system power
 
-### Architecture
+The current power design is no longer merely a parked architecture. It is implemented in the current schematic and PCB.
 
-The 4" console uses **2.1 / spatial stereo**, not discrete surround:
+### Important canonical nets
 
 ```text
-PCM5102A
- | L/R
- +----> PAM8406 ----> Left 1W/8R
- |              \---> Right 1W/8R
- |
- +----> Rsum(L,R) --> low-pass --> PAM8302A --> Center 3W-rated/8R
+USB-VBUS
+BAT+
+SYS_RAW
+VSYS_BAT
+PWR_SW_GATE
 ```
 
-MicroWave can perform stereo widening/crossfeed digitally. The center channel is an analog low-passed L+R sum, so no third DAC channel is needed.
+`VSYS_BAT` is the canonical system/battery rail name.
 
-### Stereo DAC
+There is no separate `AMP_VDD` rail in the current design.
 
-**Part:** Texas Instruments `PCM5102APWR` — **FROZEN**
+### J2 — USB-C receptacle
 
-DigiKey: https://www.digikey.com/en/products/detail/texas-instruments/PCM5102APWR/4341334  
-Mouser: https://www.mouser.com/en/ProductDetail/Texas-Instruments/PCM5102APWR
+**Assembly intent:** factory-installed  
+**Status:** **DEFERRED exact component selection**
 
-KiCad symbol: `Audio:PCM5102A` if installed, otherwise project-local.  
-KiCad footprint: `Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm`
-
-I2S remains GP10 BCLK, GP11 LRCLK, GP20 DATA.
-
-### Stereo L/R amplifier
-
-**Part:** Diodes Incorporated `PAM8406DR` — **FROZEN architecture**
-
-DigiKey: https://www.digikey.com/en/products/detail/diodes-incorporated/PAM8406DR/4033289  
-Mouser: https://www.mouser.com/c/?q=PAM8406DR
-
-KiCad symbol: `Amplifier_Audio:PAM8406D`  
-KiCad footprint: `Package_SO:SOP-16_3.9x9.9mm_P1.27mm`
-
-The amplifier can exceed the proposed 1 W speaker rating, so final gain / maximum digital volume must be limited during prototype testing.
-
-### Center amplifier
-
-**Part:** Diodes Incorporated `PAM8302AADCR` — **FROZEN architecture**
-
-DigiKey: https://www.digikey.com/en/products/detail/diodes-incorporated/PAM8302AADCR/4033280  
-Mouser: https://www.mouser.com/c/?q=PAM8302AADCR
-
-KiCad symbol: `Amplifier_Audio:PAM8302AAD`  
-KiCad footprint: `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm`
-
-The L/R summing resistors and low-pass filter values are **PROTOTYPE/TBD**. Never short the PCM5102A L and R outputs directly together.
-
-### L/R speaker candidate
-
-**Part:** PUI Audio `AS02008MR-2-LWC30` — **PROTOTYPE**
-
-20 mm x 5 mm, 8 ohm, 1 W nominal, wired/case-mounted.
-
-DigiKey: https://www.digikey.com/en/products/detail/pui-audio-inc/AS02008MR-2-LWC30/29263745  
-Mouser: https://www.mouser.com/c/?q=AS02008MR-2-LWC30
-
-KiCad symbol: `Device:Speaker`; no speaker PCB footprint, only a connector.
-
-### Center speaker candidate
-
-**Part:** PUI Audio `AS03208AS-HT` — **PROTOTYPE**
-
-About 31.7 mm square, 8 ohm, 3 W rated, case-mounted.
-
-DigiKey: https://www.digikey.com/en/products?keywords=AS03208AS-HT  
-Mouser: https://www.mouser.com/en/ProductDetail/PUI-Audio/AS03208AS-HT
-
-KiCad symbol: `Device:Speaker`; connector only.
-
-The center can be DNP on 2.8" / 2.4" variants if enclosure volume is insufficient.
-
----
-
-## 9. Two-pin JST-PH speaker/peripheral connectors
-
-### Vertical header
-
-JST `B2B-PH-K-S`
-
-DigiKey: https://www.digikey.com/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611  
-Mouser: https://www.mouser.com/c/?q=B2B-PH-K-S
-
-Symbol: `Connector_Generic:Conn_01x02`  
-Footprint: `Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical`
-
-### Right-angle header
-
-JST `S2B-PH-K-S`
-
-DigiKey: https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-PH-K-S/926626  
-Mouser: https://www.mouser.com/c/?q=S2B-PH-K-S
-
-Symbol: `Connector_Generic:Conn_01x02`  
-Footprint: `Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal`
-
-Cable housing: JST `PHR-2`  
-https://www.digikey.com/en/products/detail/jst-sales-america-inc/PHR-2/608607
-
-Crimp contact: JST `SPH-002T-P0.5S`  
-https://www.digikey.com/en/products/detail/jst-sales-america-inc/SPH-002T-P0-5S/527358
-
-Do not use an identical PH2.0 connector for battery and speaker unless the enclosure makes accidental cross-connection impossible.
-
----
-
-## 10. Passive-component standard
-
-Standardize the board around:
-
-- resistors: **0805, 1%, 1/8 W**
-- local bypass capacitors: **0805 X7R**
-- bulk capacitors: **1206 X5R/X7R**
-- LEDs: **0805**
-- diodes: prefer **SOD-123** where electrically appropriate
-
-| Function | Candidate | DigiKey | KiCad |
-|---|---|---|---|
-| 10k resistor | Yageo `RC0805FR-0710KL` | https://www.digikey.com/en/products/detail/yageo/RC0805FR-0710KL/727535 | `Device:R` + `R_0805_2012Metric` |
-| 4.7k resistor | Yageo `RC0805FR-074K7L` | https://www.digikey.com/en/products?keywords=RC0805FR-074K7L | `Device:R` + `R_0805_2012Metric` |
-| 100nF bypass | KEMET `C0805C104K5RAC7210` | https://www.digikey.com/en/products/detail/kemet/C0805C104K5RAC7210/3317003 | `Device:C` + `C_0805_2012Metric` |
-| 10uF bulk | KYOCERA AVX `1206ZD106KAT2A` | https://www.digikey.com/en/products/detail/kyocera-avx/1206ZD106KAT2A/564607 | `Device:C` + `C_1206_3216Metric` |
-| red LED | Lite-On `LTST-C170KRKT` | https://www.digikey.com/en/products/detail/liteon/LTST-C170KRKT/386779 | `Device:LED` + `LED_0805_2012Metric` |
-
-Default rail decoupling should be **100 nF local + appropriate 10 uF bulk**. Do not add 10 nF everywhere by default; reserve it for datasheet-required or deliberately designed filters.
-
----
-
-## 11. Power / layout rules before routing
-
-- Prefer a solid GND plane rather than splitting analog and digital grounds without a specific reason.
-- Keep ADS7828 analog input traces away from Class-D speaker outputs.
-- Keep PCM5102A analog L/R traces short and away from high-current speaker traces.
-- Route Class-D BTL speaker outputs as short paired runs to the speaker connectors.
-- BTL speaker negative terminals are **not GND**.
-- Put every 100 nF bypass capacitor physically close to the associated IC supply pin(s).
-- Put amplifier bulk capacitance near the amplifier, not merely somewhere on the same rail.
-
----
-
-## 12. Variant matrix
-
-| Subsystem | 4" | 2.8" | 2.4" |
-|---|---|---|---|
-| Pico Plus 2 | same | same | same |
-| MCP23017 | same | same | same |
-| ADS7828 | same | same | same |
-| Hall/TMR sticks | preferred | preferred | preferred |
-| Display | ST7796S | ILI9341 | ILI9341 |
-| Display footprint | unique | unique | unique |
-| L/R speakers | yes | yes if space permits | yes if space permits |
-| Center speaker | preferred | optional/DNP | likely DNP |
-| PCM5102A/PAM8406 | same | same | same |
-| PAM8302A center path | fitted | optional | optional/DNP |
-| Battery/power path | PARKED | PARKED | PARKED |
-
----
-
-## 13. Production BOM freeze summary
-
-| Subsystem | MPN | Status | Hand solderability |
-|---|---|---|---|
-| Main computer | Pimoroni Pico Plus 2 | FROZEN module | module |
-| GPIO expander | MCP23017-E/SO | FROZEN | excellent |
-| Buttons | TL3301NF160QG | FROZEN candidate | good |
-| Stick ADC | ADS7828E/2K5 | FROZEN architecture | good with flux |
-| Hall/TMR stick | Ginfull PS5 Hall variant / Favor Union FJH10K-S2; FJH10K-S3D alternate | FROZEN FAMILY / PROTOTYPE SKU | through-hole mechanism |
-| Pot-stick fallback | TBD | PROTOTYPE | TBD |
-| Volume pot | PTV09A-2015F-B103 | FROZEN candidate | excellent |
-| Stereo DAC | PCM5102APWR | FROZEN | good with flux |
-| Stereo amp | PAM8406DR | FROZEN architecture | excellent |
-| Center amp | PAM8302AADCR | FROZEN architecture | excellent |
-| L/R speaker | AS02008MR-2-LWC30 | PROTOTYPE | wires only |
-| Center speaker | AS03208AS-HT | PROTOTYPE | wires only |
-| Speaker connector | JST PH 2-pin | FROZEN | excellent |
-| Battery charger / power path | TBD | PARKED | TBD |
-
----
-
-## 14. Custom KiCad library work
-
-Create/verify:
+The current KiCad symbol/footprint pair is:
 
 ```text
-MicroConsole:Pico_Plus_2
-MicroConsole:LCD_ST7796S_4in_<exact-SKU>
-MicroConsole:LCD_ILI9341_2p8_<exact-SKU>
-MicroConsole:LCD_ILI9341_2p4_<exact-SKU>
-MicroConsole:Joystick_PS5_Hall_FJH10K
-MicroConsole:Joystick_Pot_15p25x13
+Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A
 ```
 
-Rules for every custom footprint:
+This is a placeholder/current-board implementation, not the final approved connector.
 
-- symbol pin numbers must exactly match PCB pad numbers;
-- soldered but electrically unused mounting tabs should be unnumbered plated pads;
-- plastic locating posts should be NPTH;
-- body geometry goes on Fab/Courtyard/User layers, not `Margin`;
-- never use netless F.Cu graphics as electrical bridges;
-- verify against a physical sample before fabrication.
+The exact factory-sourced USB-C receptacle must be selected with:
+
+- a matching KiCad symbol;
+- a mechanically verified footprint;
+- verified locating-post dimensions;
+- verified shell-tab geometry;
+- verified signal-pad numbering;
+- verified board-edge position.
+
+The design has previously exposed symbol/footprint and hole-clearance concerns around J2. A currently clean DRC must not be treated as proof that the part is mechanically qualified.
+
+**Do not release the final manufacturing package until J2 is frozen.**
+
+### U1 — battery charger
+
+**Manufacturer:** Microchip Technology  
+**MPN:** `MCP73833-FCI/UN`  
+**Package:** MSOP-10  
+**Assembly:** factory SMT
+
+`USB-VBUS` feeds the charger input. `BAT+` is the charger/battery-side net.
+
+### U2 — battery connector
+
+**Manufacturer:** JST  
+**MPN:** `S2B-PH-K-S(LF)(SN)`  
+**Value:** `S2B-PH-K-S`  
+**Footprint:** `project_parts:CONN-TH_S2B-PH-K-S-LF-SN`  
+**Assembly:** **DNP / manual install**
+
+### Q1 / Q2 — P-channel MOSFETs
+
+**Manufacturer:** Diodes Incorporated  
+**MPN:** `DMP2035U-7`  
+**Package:** SOT-23  
+**Assembly:** factory SMT
+
+Current intended package mapping:
+
+```text
+pin 1 = Gate
+pin 2 = Source
+pin 3 = Drain
+```
+
+### D1
+
+**Manufacturer:** Nexperia  
+**MPN:** `PMEG40T30ERX`  
+**Device:** PMEG40T30ER Schottky  
+**Footprint:** Nexperia CFP3 / SOD-123W  
+**Assembly:** factory SMT
+
+### D5
+
+**Manufacturer:** Diodes Incorporated  
+**MPN:** `BAT54C-7-F`  
+**Package:** SOT-23  
+**Assembly:** factory SMT
+
+### TH1 — battery thermistor
+
+**Manufacturer:** Vishay / BCcomponents  
+**MPN:** `NTCLE201E3103SBA`  
+**Type:** 10 kΩ NTC  
+**Assembly:** **DNP / manual/off-board**
+
+The current PCB interface is represented by a 1×02 2.54 mm vertical-header footprint.
+
+The exact board-header MPN is not frozen. It may be omitted entirely if the thermistor is soldered directly into the two plated holes.
+
+### SW19 — power switch
+
+**Supplier identity:** SparkFun Electronics  
+**Supplier SKU used as MPN field:** `COM-00102`  
+**Type:** SPDT slide switch  
+**Footprint:** `PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm`  
+**Assembly:** **DNP / manual install**
 
 ---
 
-## 15. PARKED battery / charger work
+## 13. Passive-component standard
 
-Do not finalize or route this subsystem yet. Preserve these return-to items:
+The current PCB has been standardized around the actual values and footprints below.
 
-- separate MCP73833 VBAT from VBUS;
-- fix/remove JP1 so it cannot short VBUS to GND;
-- revisit JP2 / STAT1 / STAT2;
-- choose a proper two-pin battery connector;
-- decide simultaneous play+charge behavior;
-- choose load-sharing / power-path topology;
-- verify USB-C CC implementation;
-- decide battery-to-system conversion/regulation;
-- then add battery-voltage sensing.
+### 13.1 Resistors
+
+All fixed resistors are:
+
+```text
+Package: 0603 / 1608 metric
+Manufacturer: YAGEO
+Tolerance: 1%
+Power: 0.1 W
+Footprint: Resistor_SMD:R_0603_1608Metric
+Assembly: factory SMT
+```
+
+Exact frozen MPNs:
+
+| Value | References | YAGEO MPN |
+|---:|---|---|
+| 470 Ω | R18, R19 | `RC0603FR-07470RL` |
+| 1 kΩ | R6, R7, R8, R12, R13, R14, R15 | `RC0603FR-071KL` |
+| 2 kΩ | R23, R28 | `RC0603FR-072KL` |
+| 3.32 kΩ | R9 | `RC0603FR-073K32L` |
+| 4.7 kΩ | R21, R30, R45 | `RC0603FR-074K7L` |
+| 5.1 kΩ | R3, R4 | `RC0603FR-075K1L` |
+| 10 kΩ | R11, R16, R17, R25, R26, R27 | `RC0603FR-0710KL` |
+| 27 kΩ | R22, R29 | `RC0603FR-0727KL` |
+| 33 kΩ | R20 | `RC0603FR-0733KL` |
+| 68 kΩ | R32 | `RC0603FR-0768KL` |
+| 82 kΩ | R33 | `RC0603FR-0782KL` |
+| 100 kΩ | R5, R24, R31 | `RC0603FR-07100KL` |
+
+Do not revert these to the older 0805 resistor plan.
+
+### 13.2 100 nF capacitors
+
+References:
+
+```text
+C5 C7 C8 C10 C11 C12 C14 C16
+C33 C36 C40 C44 C46 C48 C50 C51
+```
+
+Frozen part:
+
+```text
+Manufacturer: KEMET
+MPN: C0805C104K5RAC7210
+Capacitance: 100 nF
+Voltage: 50 V
+Tolerance: 10%
+Dielectric: X7R
+Package: 0805
+Footprint: project_parts:C_0805_2012Metric_KEMET_IPC-B
+Assembly: factory SMT
+```
+
+### 13.3 10 µF bulk capacitors
+
+References:
+
+```text
+C4 C13 C15 C17 C26 C27 C29
+C35 C38 C41 C45 C47 C49
+```
+
+Frozen part:
+
+```text
+Manufacturer: KYOCERA AVX
+MPN: 1206ZD106KAT2A
+Capacitance: 10 µF
+Voltage: 10 V
+Tolerance: 10%
+Dielectric: X5R
+Package: 1206
+Footprint: project_parts:C1206
+Assembly: factory SMT
+```
+
+### 13.4 Miscellaneous 0805 capacitors
+
+| Refs | Value | Manufacturer | MPN | Rating |
+|---|---:|---|---|---|
+| C18, C19 | 2.2 nF | KEMET | `C0805C222J5GECTU` | 50 V, 5%, C0G/NP0 |
+| C23 | 33 nF | KEMET | `C0805C333K5RECAUTO` | 50 V, 10%, X7R |
+| C31, C59 | 0.22 µF | TDK | `C2012X7R1H224K125AA` | 50 V, 10%, X7R |
+| C32, C72 | 0.47 µF | TDK | `C2012X7R1H474K125AB` | 50 V, 10%, X7R |
+| C9, C34, C37, C39, C73 | 1 µF | Murata | `GRM21BR71C105KA01L` | 16 V, 10%, X7R |
+| C22, C28 | 2.2 µF | Murata | `GRM21BR71C225KA12L` | 16 V, 10%, X7R |
+
+All use `Capacitor_SMD:C_0805_2012Metric`.
+
+### 13.5 Ferrite beads
+
+References:
+
+```text
+FB1
+FB4
+```
+
+Frozen part:
+
+```text
+Manufacturer: TDK
+MPN: MPZ1608S601ATA00
+Package: 0603
+Assembly: factory SMT
+```
+
+### 13.6 Status LEDs
+
+| Ref | Color | Manufacturer | MPN | Package |
+|---|---|---|---|---|
+| D2 | red | Lite-On | `LTST-C190KRKT` | 0603 |
+| D3 | green | Lite-On | `LTST-C190KGKT` | 0603 |
+| D4 | orange | Lite-On | `LTST-C190KFKT` | 0603 |
+
+Assembly: factory SMT.
 
 ---
 
-## 16. Prototype tests required before final routing
+## 14. Major IC / semiconductor freeze
 
-1. Compare the user-owned Ginfull PS5 Hall joystick with Favor Union FJH10K-S2/FJH10K-S3D drawings or samples; verify mechanical fit and determine whether Ginfull follows the S2 or S3D VDD/GND convention.
-2. Record stick VCC, center voltage, min/max X/Y and direction.
-3. Freeze ADS7828 VREF after those measurements.
-4. Prototype PTV09 volume through ADS7828.
-5. Prototype PCM5102A -> PAM8406 -> selected L/R speakers.
-6. Prototype L+R resistor sum / low-pass -> PAM8302A -> center speaker.
-7. Establish a safe maximum audio gain for the 1 W side speakers.
-8. Test speaker cavities in the actual enclosure.
-9. Verify all three LCD module footprints against physical modules.
-10. Then freeze placement, return to battery/power-path design, and route.
+| Ref | Function | Manufacturer | MPN | Factory |
+|---|---|---|---|---|
+| U1 | Li-Ion/Li-Po charger | Microchip | `MCP73833-FCI/UN` | yes |
+| U3 | GPIO expander | Microchip | `MCP23017-E/SO` | yes |
+| U4 | 8-channel ADC | Texas Instruments | `ADS7828E/2K5` | yes |
+| U5 | stereo DAC | Texas Instruments | `PCM5102APWR` | yes |
+| U6 | center amp | Diodes Inc. | `PAM8302AADCR` | yes |
+| U7 | stereo amp | Diodes Inc. | `PAM8406DR` | yes |
+| Q1, Q2 | P-channel MOSFET | Diodes Inc. | `DMP2035U-7` | yes |
+| D1 | Schottky | Nexperia | `PMEG40T30ERX` | yes |
+| D5 | dual Schottky | Diodes Inc. | `BAT54C-7-F` | yes |
+
+---
+
+## 15. Grounding and layout rules
+
+The current design should continue to follow these rules:
+
+- use a solid ground strategy unless a specific datasheet requirement demands otherwise;
+- keep analog stick/volume traces away from Class-D switching outputs;
+- keep PCM5102A L/R analog traces short;
+- route BTL speaker outputs as paired runs;
+- never treat a Class-D negative speaker output as GND;
+- keep bypass capacitors close to IC power pins;
+- keep bulk capacitance local to the relevant amplifier/power load;
+- avoid unnecessary rerouting now that ERC/DRC are clean;
+- do not change custom mechanical footprints without checking the real part.
+
+---
+
+## 16. KiCad library policy
+
+Project-local libraries:
+
+```text
+libs/bom2ecad/project_parts.kicad_sym
+libs/bom2ecad/project_parts.pretty
+```
+
+Use project-local footprints where the exact current board geometry has been qualified.
+
+Important project-local parts include:
+
+```text
+RaspberryPi_Pico_Common_Unspecified
+LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm
+GINFULL HallEffect Joystick PTH
+PTV09A2015FB103
+CONN-TH_S2B-PH-K-S-LF-SN
+KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0
+C1206
+C_0805_2012Metric_KEMET_IPC-B
+```
+
+### Footprint rules
+
+- preserve pad centers unless a verified mechanical correction requires movement;
+- electrical pad numbering must agree with the schematic;
+- locating posts belong in NPTH where appropriate;
+- soldered mechanical tabs may be unnumbered plated pads;
+- body outlines belong on Fab/Courtyard/User layers;
+- no electrical connectivity through copper graphics;
+- verify mechanical assemblies against real parts before fabrication.
+
+---
+
+## 17. BOM and assembly-output policy
+
+`MICROCONSOLE_BOM.csv` is the authoritative engineering BOM.
+
+Do not revive the old draft BOM.
+
+The manufacturing release should produce separate views:
+
+### Factory assembly BOM
+
+Contains only parts the assembler should source/place:
+
+```text
+resistors
+capacitors
+ferrite beads
+LEDs
+diodes
+MOSFETs
+U1
+U3-U7
+J2 after final USB-C freeze
+```
+
+### Factory CPL / pick-and-place
+
+Must exclude every DNP part.
+
+Before export, explicitly verify:
+
+```text
+A2 is DNP on PCB
+DS1 is DNP
+SW2-SW17 are DNP
+RV1 is DNP
+SW19 is DNP
+U2 is DNP
+TH1 is DNP
+LS1-LS3 are DNP
+```
+
+### Manual-assembly BOM
+
+Contains the hand-installed parts:
+
+```text
+A2   Pimoroni Pico Plus 2
+DS1  LCDWIKI MSP4021
+SW2-SW15 tactile switches
+SW16/SW17 Hall joysticks
+RV1  volume potentiometer
+SW19 power switch
+U2   battery connector
+TH1  thermistor/interface
+LS1/LS3 L/R speaker connectors + speakers
+LS2 center speaker
+```
+
+### Engineering BOM
+
+Contains **everything**, including DNP parts and J2 while it is deferred.
+
+---
+
+## 18. Remaining open items
+
+The electrical PCB is currently ERC/DRC clean, but the project is not yet ready for blind manufacturing release.
+
+### 18.1 USB-C J2 — required before fabrication
+
+Freeze one exact USB-C receptacle that the selected Chinese assembler can source.
+
+Then:
+
+1. create/use the exact matching KiCad symbol;
+2. create/use the exact matching footprint;
+3. verify all signal-pad numbers;
+4. verify shield tabs and locating posts;
+5. verify board-edge location;
+6. update PCB from schematic;
+7. rerun ERC and DRC;
+8. visually inspect the final footprint against the manufacturer drawing.
+
+J2 remains **factory-populated**, not DNP.
+
+### 18.2 A2 DNP propagation
+
+Ensure the Pico footprint itself carries the PCB DNP attribute before final CPL export.
+
+### 18.3 Mechanical prototype checks
+
+Before a larger PCB order:
+
+- test both approved joystick families for mechanical fit;
+- verify stick center and full-travel analog values;
+- verify joystick direction/orientation in firmware;
+- verify MSP4021 mounting and enclosure clearance;
+- verify volume-shaft alignment;
+- verify power-switch alignment;
+- verify battery-connector access;
+- verify speaker connector/cavity arrangement;
+- verify center-speaker fit;
+- verify thermistor lead/interface arrangement.
+
+### 18.4 Audio prototype checks
+
+- establish safe maximum level for the 1 W L/R speakers;
+- confirm center-channel summing balance;
+- listen for noise from Class-D output routing;
+- verify volume-control range and ADC stability.
+
+---
+
+## 19. Pre-manufacturing release checklist
+
+Before generating the board-house package:
+
+- [ ] exact J2 MPN selected;
+- [ ] exact J2 footprint/symbol installed;
+- [ ] J2 mechanically checked;
+- [ ] A2 PCB footprint marked DNP;
+- [ ] all intended manual parts still DNP;
+- [ ] all intended SMT parts still populated;
+- [ ] ERC = 0 errors / 0 warnings;
+- [ ] DRC = 0 violations;
+- [ ] unconnected pads = 0;
+- [ ] footprint errors = 0;
+- [ ] authoritative BOM regenerated/checked;
+- [ ] factory BOM excludes DNP;
+- [ ] CPL excludes DNP;
+- [ ] Gerbers reviewed;
+- [ ] drill files reviewed;
+- [ ] board outline reviewed;
+- [ ] polarity/orientation checked for diodes, LEDs, ICs, USB-C, and battery connector;
+- [ ] manual-assembly BOM retained separately;
+- [ ] fabrication archive tagged with the exact Git commit.
+
+Expected manufacturing package:
+
+```text
+Gerbers
+Excellon drill files
+factory BOM
+CPL / pick-and-place
+manual-assembly BOM
+full engineering BOM
+assembly drawing / DNP reference
+source commit identifier
+```
+
+---
+
+## 20. Current project status summary
+
+The MicroConsole hardware has moved beyond architecture selection into **manufacturing preparation**.
+
+Current state:
+
+- schematic complete enough to pass ERC with no errors or warnings;
+- PCB currently passes DRC with no violations;
+- fixed resistors standardized to 0603;
+- capacitor families frozen;
+- major ICs and semiconductors frozen;
+- joystick choice narrowed to exactly two approved families;
+- screen and Pico modules frozen;
+- manual-install / DNP population strategy established;
+- authoritative BOM created;
+- USB-C connector is the remaining significant component/footprint freeze before a final assembler package.
+
+The next hardware milestone is:
+
+```text
+freeze J2
+→ verify DNP/CPL behavior
+→ generate factory BOM + CPL + Gerbers/drills
+→ review manufacturing package
+→ prototype order
+```
