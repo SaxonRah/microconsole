@@ -3849,7 +3849,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "RaspberryPi_Pico"
+		(property "Value" "Pimoroni Pico Plus 2"
 			(at 206.6133 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3860,7 +3860,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Module:RaspberryPi_Pico_Common_Unspecified"
+		(property "Footprint" "project_parts:RaspberryPi_Pico_Common_Unspecified"
 			(at 204.47 163.83 0)
 			(hide yes)
 			(show_name no)

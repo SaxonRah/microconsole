@@ -5577,6 +5577,7 @@
 		)
 	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "a52c3b5c-a1e9-4e13-8cbf-e61882752d58")
 		(at 178.9 79.2 180)
@@ -9579,12 +9580,6 @@
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/df45b9ce-4aac-4622-a92f-1cfad569d5a6")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9598,7 +9593,7 @@
 			(uuid "6690413f-1f16-403d-a403-cb34e907a7f0")
 		)
 		(fp_line
-			(start 5.5 -11.3)
+			(start 5.5 -5)
 			(end 5.5 -4.7)
 			(stroke
 				(width 0.2)
@@ -9606,56 +9601,6 @@
 			)
 			(layer "B.SilkS")
 			(uuid "b063c020-454c-49a4-8344-567f2187b97c")
-		)
-		(fp_line
-			(start 5 -11.7)
-			(end 5.5 -11.3)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "e950e3dd-1cdf-4d0e-9dd9-fdef5a8ad865")
-		)
-		(fp_line
-			(start 1.5 -11.7)
-			(end 5 -11.7)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "40bd10af-4e66-48ce-b175-a49286ee80bd")
-		)
-		(fp_line
-			(start 1 -5.7)
-			(end 1 -11.3)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "ee07d1de-b88a-4180-a549-b235f34edaf2")
-		)
-		(fp_line
-			(start 1 -11.3)
-			(end 5.5 -11.3)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "2dc18807-3a11-495b-8f03-310a26381d2d")
-		)
-		(fp_line
-			(start 1 -11.3)
-			(end 1.5 -11.7)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "7b9a33de-56e4-4905-834f-6b46b486779f")
 		)
 		(fp_line
 			(start -0.5 5.7)
@@ -9669,23 +9614,13 @@
 		)
 		(fp_line
 			(start -0.5 -4.7)
-			(end -0.5 -5.7)
+			(end -0.5 -5)
 			(stroke
 				(width 0.2)
 				(type solid)
 			)
 			(layer "B.SilkS")
 			(uuid "d8092d5b-8e3a-49af-a352-58e3622e35ac")
-		)
-		(fp_line
-			(start -0.5 -5.7)
-			(end 1 -5.7)
-			(stroke
-				(width 0.2)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "63c286a9-edfa-41bd-8177-411021c196cc")
 		)
 		(fp_line
 			(start -2.5 0.3)
@@ -9706,48 +9641,6 @@
 			)
 			(layer "B.SilkS")
 			(uuid "afeafb26-fccd-4b10-bb06-450aa4b7edd3")
-		)
-		(fp_line
-			(start -3.8 0)
-			(end -3.8 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "0f3871f6-7852-487e-84fe-f67b5bcc5414")
-		)
-		(fp_line
-			(start -3.9 0)
-			(end -3.9 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "fd42fade-aa36-49ab-b540-057b09ee13a9")
-		)
-		(fp_arc
-			(start -3.8 0)
-			(mid -3.85 0.05)
-			(end -3.9 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "dbe6e931-c032-47bf-9695-bf401bdf676f")
-		)
-		(fp_arc
-			(start -3.9 0)
-			(mid -3.85 -0.05)
-			(end -3.8 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.SilkS")
-			(uuid "079c52a4-cbc1-420e-9c0a-9192637b24be")
 		)
 		(fp_line
 			(start 10.63 6.7)
@@ -9811,7 +9704,7 @@
 		)
 		(fp_line
 			(start 5.5 -4.7)
-			(end 5.5 -11.3)
+			(end 5.5 -11.5)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -9820,34 +9713,14 @@
 			(uuid "965b1fab-80af-4573-a0b2-88dcf5b58d8a")
 		)
 		(fp_line
-			(start 5.5 -11.3)
-			(end 5 -11.7)
+			(start 5.5 -11.5)
+			(end 1 -11.5)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "B.Fab")
 			(uuid "6b69c40f-3422-4eac-b64a-ff98d2e63c4c")
-		)
-		(fp_line
-			(start 5 -11.7)
-			(end 1.5 -11.7)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "c4a9cc86-d60a-431a-9129-8759ce427f81")
-		)
-		(fp_line
-			(start 1.5 -11.7)
-			(end 1 -11.3)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "421f78bd-8ca6-4986-a186-859bc6c492f4")
 		)
 		(fp_line
 			(start 1 -5.7)
@@ -9860,17 +9733,7 @@
 			(uuid "a1d6e011-2b27-4e8c-9bca-80a405b71360")
 		)
 		(fp_line
-			(start 1 -11.3)
-			(end 5.5 -11.3)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "B.Fab")
-			(uuid "8dac06ed-ece6-4b44-8c3b-3bea0bc517db")
-		)
-		(fp_line
-			(start 1 -11.3)
+			(start 1 -11.5)
 			(end 1 -5.7)
 			(stroke
 				(width 0.1)
@@ -11605,6 +11468,7 @@
 		)
 	)
 	(footprint "project_parts:CONN-TH_S2B-PH-K-S-LF-SN"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "23b51bd9-be98-4804-b47c-a768796c9dc7")
 		(at 189 77)
@@ -16828,6 +16692,7 @@
 		)
 	)
 	(footprint "PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "6b99ef39-f3f8-433f-9838-e093312ab3eb")
 		(at 188.5 66.75 180)
@@ -18516,7 +18381,7 @@
 			)
 		)
 	)
-	(footprint "Module:RaspberryPi_Pico_Common_Unspecified"
+	(footprint "project_parts:RaspberryPi_Pico_Common_Unspecified"
 		(locked yes)
 		(layer "B.Cu")
 		(uuid "76286b80-37bd-4d95-ad94-90d25bbc9538")
@@ -18536,7 +18401,7 @@
 				(justify left mirror)
 			)
 		)
-		(property "Value" "RaspberryPi_Pico"
+		(property "Value" "Pimoroni Pico Plus 2"
 			(at 0 -27.94 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19673,7 +19538,7 @@
 		)
 		(fp_arc
 			(start 10 -25.61)
-			(mid 10.357917 -25.493935)
+			(mid 10.357931 -25.493934)
 			(end 10.579676 -25.189937)
 			(stroke
 				(width 0.12)
@@ -22083,7 +21948,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
+			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -22123,7 +21988,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
+			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -22163,7 +22028,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
+			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -22203,7 +22068,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
+			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -22365,7 +22230,7 @@
 			)
 		)
 		(group ""
-			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
+			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
 			(members "007b7bea-975b-4116-b1ce-eefcef40a2d3" "00b4a254-0f23-4b4b-82f7-3722775ba35a"
 				"0272e062-948a-4c2d-9da6-3cd3c1baf6b2" "055db90f-d389-4c75-b723-214f273d9514"
 				"0607c010-9585-4fb6-8ddb-71bcb3335aa8" "09d03c09-2151-4709-ad86-aa3826e2c9c7"
@@ -22410,7 +22275,7 @@
 			)
 		)
 		(group ""
-			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
+			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
 			(members "01156259-06e3-4c28-9964-24187b67e9a3" "70f3c871-ee22-42f9-870d-4f5af36cff16")
 		)
 		(group ""
@@ -23557,6 +23422,7 @@
 		)
 	)
 	(footprint "project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "83f94ceb-7ccd-40a0-90c0-dad2cf0bda0c")
 		(at 185 139.5 -90)
@@ -25458,6 +25324,7 @@
 		)
 	)
 	(footprint "project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "9440d7fb-227b-4e01-9f07-8ac3134311d7")
 		(at 150.74 98.05 -90)
@@ -27850,6 +27717,7 @@
 		)
 	)
 	(footprint "project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "af54445b-cb6b-4eda-9dda-e7f87219e903")
 		(at 162.74 118.05 -90)
@@ -31012,6 +30880,7 @@
 		)
 	)
 	(footprint "project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "d5c9d8ac-53ac-4f30-b9c4-11bb0d4e9a09")
 		(at 116 134.5 180)
@@ -31919,6 +31788,7 @@
 		)
 	)
 	(footprint "project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL"
+		(locked yes)
 		(layer "B.Cu")
 		(uuid "db697cce-47b1-4602-8c03-06a1920554a5")
 		(at 175.74 93.05 -90)
