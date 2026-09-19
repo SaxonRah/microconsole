@@ -3835,7 +3835,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "3e0eea39-3c72-4ef4-ae73-f58c9960b679")
 		(property "Reference" "A2"
@@ -4635,7 +4635,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ac296d41-d9f1-48b7-91b7-a7f4925de5e5")
 		(property "Reference" "DS1"

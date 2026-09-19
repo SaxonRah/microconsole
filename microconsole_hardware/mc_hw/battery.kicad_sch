@@ -5824,7 +5824,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5b05352f-886f-42d6-bbec-1c7cf7fa177e")
 		(property "Reference" "SW19"
 			(at 102.362 50.292 0)
@@ -5961,7 +5961,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "6351a9f3-5545-442b-9c37-6a6a3c1d768b")
 		(property "Reference" "U2"
@@ -7825,7 +7825,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "fb9ca5cf-5ac2-41c1-af26-ff370e8c88a0")
 		(property "Reference" "TH1"

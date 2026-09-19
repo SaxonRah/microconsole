@@ -6854,7 +6854,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3823d101-9d99-4231-a97b-86612f949fb2")
 		(property "Reference" "LS1"
 			(at 121.666 93.218 90)
@@ -9179,7 +9179,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a0c2c47f-7de3-4c94-b26c-052d0157dd02")
 		(property "Reference" "LS2"
@@ -10300,7 +10300,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c5968d88-08e0-4b20-b31a-bd713abd88d3")
 		(property "Reference" "LS3"
 			(at 176.53 93.98 0)
@@ -11291,7 +11291,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "df45b9ce-4aac-4622-a92f-1cfad569d5a6")
 		(property "Reference" "RV1"

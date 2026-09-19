@@ -6763,7 +6763,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "29bf2388-1ec2-4db6-9881-da8aa51d72c5")
 		(property "Reference" "SW8"
 			(at 36.83 108.712 90)
@@ -7053,7 +7053,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3caadc2c-dbe7-443c-ad74-14363efd7fb4")
 		(property "Reference" "SW2"
 			(at 22.86 21.082 90)
@@ -7190,7 +7190,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5ba22fea-77e0-491e-98fc-df144eb1ebec")
 		(property "Reference" "SW14"
 			(at 64.77 69.342 90)
@@ -7327,7 +7327,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "62d16aa9-7f49-40b7-b1db-743919e46ca8")
 		(property "Reference" "SW11"
 			(at 50.8 69.342 90)
@@ -7464,7 +7464,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "68089511-54d2-4bf8-a88e-fc92b4201d3d")
 		(property "Reference" "SW3"
 			(at 22.86 69.342 90)
@@ -7741,7 +7741,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7ca022f6-2c47-4f6e-bccf-3962bac2368a")
 		(property "Reference" "SW15"
 			(at 64.77 108.458 90)
@@ -8319,7 +8319,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a3b9f75d-2968-4f27-965f-ffe24fe90c80")
 		(property "Reference" "SW9"
 			(at 36.83 148.082 90)
@@ -8456,7 +8456,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "aa3effd0-0d0e-450e-b868-f2ff50b6a418")
 		(property "Reference" "SW12"
 			(at 53.34 108.712 90)
@@ -8591,7 +8591,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "b6758c6b-5582-4f7a-9421-bf88a91e2559")
 		(property "Reference" "SW7"
 			(at 36.83 69.342 90)
@@ -8848,7 +8848,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c4f336fd-0d88-410b-a1b0-f37b7b67af7d")
 		(property "Reference" "SW16"
@@ -8990,7 +8990,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d38db386-8595-4810-a1e5-f42b16bb533c")
 		(property "Reference" "SW6"
 			(at 36.83 21.082 90)
@@ -9582,7 +9582,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dc6b7bd3-3b78-4bb2-859b-077e377a1530")
 		(property "Reference" "SW13"
 			(at 64.77 21.082 90)
@@ -9719,7 +9719,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dd281dfc-2a01-4047-8e8b-39c10edde455")
 		(property "Reference" "SW5"
 			(at 22.86 148.082 90)
@@ -10204,7 +10204,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e851b8b4-6cd8-41c4-9738-4d0064bd821e")
 		(property "Reference" "SW17"
@@ -10489,7 +10489,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "f568d8ed-2e5e-422c-9ff4-57aebe7671c3")
 		(property "Reference" "SW4"
 			(at 22.86 108.712 90)
@@ -10769,7 +10769,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "f7d24a0c-18c9-433d-a815-2b3b9b068575")
 		(property "Reference" "SW10"
 			(at 50.8 21.082 90)

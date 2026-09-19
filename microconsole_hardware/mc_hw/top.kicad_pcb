@@ -235,7 +235,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -929,6 +929,13 @@
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/e851b8b4-6cd8-41c4-9738-4d0064bd821e")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "VCC" "Horizontal" "GND" "Vertical" "Select")
+			)
+		)
+		(attr dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -16.5 -1)
@@ -1447,6 +1454,13 @@
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/c4f336fd-0d88-410b-a1b0-f37b7b67af7d")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "VCC" "Horizontal" "GND" "Vertical" "Select")
+			)
+		)
+		(attr dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -16.5 -1)
@@ -1964,7 +1978,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.55 0)
@@ -2335,7 +2349,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -2608,7 +2622,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -2881,7 +2895,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -3797,7 +3811,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -4070,7 +4084,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -4298,6 +4312,32 @@
 				)
 			)
 		)
+		(property "MPN" "MSP4021"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e0002378-d95d-4a34-b4b6-b7243db332ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "LCDWIKI"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c54c467e-e91e-4468-ba1a-23cb99853172")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/ac296d41-d9f1-48b7-91b7-a7f4925de5e5")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
@@ -4309,7 +4349,7 @@
 				)
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.17 -48.83)
@@ -5269,7 +5309,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -5542,7 +5582,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -6079,7 +6119,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 1.38 1.27)
@@ -6355,7 +6395,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -6628,7 +6668,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -6901,7 +6941,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -7424,7 +7464,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.5 -1.5)
@@ -7692,7 +7732,7 @@
 				(pins "2" "1" "3")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.175 5.815)
@@ -8656,7 +8696,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -9190,7 +9230,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -9463,7 +9503,7 @@
 				(pins "4" "1" "3" "2")
 			)
 		)
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3.13 -2.6)
@@ -9738,7 +9778,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.55 0)
@@ -10399,7 +10439,7 @@
 				(pins "1" "2" "3" "4" "5")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 7.5 -4.7)
@@ -12823,7 +12863,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -3 -1.4)
@@ -24450,7 +24490,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
+			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -24530,7 +24570,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
+			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -24692,7 +24732,7 @@
 			)
 		)
 		(group ""
-			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
+			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
 			(members "007b7bea-975b-4116-b1ce-eefcef40a2d3" "00b4a254-0f23-4b4b-82f7-3722775ba35a"
 				"0272e062-948a-4c2d-9da6-3cd3c1baf6b2" "055db90f-d389-4c75-b723-214f273d9514"
 				"0607c010-9585-4fb6-8ddb-71bcb3335aa8" "09d03c09-2151-4709-ad86-aa3826e2c9c7"
@@ -24737,7 +24777,7 @@
 			)
 		)
 		(group ""
-			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
+			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
 			(members "01156259-06e3-4c28-9964-24187b67e9a3" "70f3c871-ee22-42f9-870d-4f5af36cff16")
 		)
 		(group ""
