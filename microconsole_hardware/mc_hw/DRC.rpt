@@ -1,23 +1,8 @@
 ** Drc report for top.kicad_pcb **
-** Created on 2026-09-19T01:33:57 **
+** Created on 2026-09-19T01:43:25 **
 ** Report includes: Errors, Warnings **
 
-** Found 4 DRC violations **
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
-    Rule: board setup constraints hole; error
-    @(151.5800 mm, 64.4450 mm): Pad A12 [GND] of J2 on B.Cu
-    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
-    Rule: board setup constraints hole; error
-    @(151.5800 mm, 64.4450 mm): Pad B1 [GND] of J2 on B.Cu
-    @(151.2700 mm, 63.3050 mm): NPTH pad of J2
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1847 mm)
-    Rule: board setup constraints hole; error
-    @(145.1800 mm, 64.4450 mm): Pad B12 [GND] of J2 on B.Cu
-    @(145.4900 mm, 63.3050 mm): NPTH pad of J2
-[lib_footprint_mismatch]: Footprint 'RaspberryPi_Pico_Common_Unspecified' does not match copy in library 'project_parts'
-    Local override; warning
-    @(114.1100 mm, 95.1100 mm): Footprint A2
+** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 

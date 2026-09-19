@@ -3251,6 +3251,32 @@
 				)
 			)
 		)
+		(property "MPN" "DMP2035U-7"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c17a2001-1d38-4783-99a4-4c53a3de9696")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c19fd055-be9c-41d6-9684-cbd36db509c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/2e88eeda-748f-4d75-b88b-5acda3278369/4d9ef0d0-aa79-45d9-8fba-52410cabe201")
 		(sheetname "/Battery/")
 		(sheetfile "battery.kicad_sch")
@@ -7692,6 +7718,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "116026b5-c4ac-461f-ba48-7965cf7d8837")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "DMP2035U-7"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0ee96586-7d60-45bb-b94b-d37079eed826")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a00029af-fef0-40e5-98fe-6da60f97445a")
 			(effects
 				(font
 					(size 1 1)
@@ -20129,33 +20181,10 @@
 				(justify mirror)
 			)
 		)
-		(property "Power" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8d1aec30-4c57-4e1c-b600-684885549b59")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "RaspberryPi?Pico?Common* RaspberryPi?Pico?SMD*")
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/3e0eea39-3c72-4ef4-ae73-f58c9960b679")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "30" "37" "1" "2" "4" "5" "6" "7" "9" "10" "11" "12" "14" "15"
-					"16" "17" "19" "20" "39" "40" "3" "23" "28" "18" "13" "38" "8" "36"
-					"21" "22" "24" "25" "26" "27" "29" "35" "31" "32" "34" "33"
-				)
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -23933,7 +23962,7 @@
 			)
 		)
 		(group ""
-			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
+			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
 			(members "007b7bea-975b-4116-b1ce-eefcef40a2d3" "00b4a254-0f23-4b4b-82f7-3722775ba35a"
 				"0272e062-948a-4c2d-9da6-3cd3c1baf6b2" "055db90f-d389-4c75-b723-214f273d9514"
 				"0607c010-9585-4fb6-8ddb-71bcb3335aa8" "09d03c09-2151-4709-ad86-aa3826e2c9c7"
@@ -23978,7 +24007,7 @@
 			)
 		)
 		(group ""
-			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
+			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
 			(members "01156259-06e3-4c28-9964-24187b67e9a3" "70f3c871-ee22-42f9-870d-4f5af36cff16")
 		)
 		(group ""
