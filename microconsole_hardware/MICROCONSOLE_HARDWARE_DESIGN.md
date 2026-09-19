@@ -3,7 +3,7 @@
 **Revision:** Current PCB / manufacturing-prep specification  
 **Date:** 2026-09-19  
 **Repository:** `SaxonRah/microconsole`  
-**Hardware source state:** commit `58de74ed0c2ec7d6a54e9369b385123422352d09` (`dnp`)  
+**Hardware source state:** commit `5e1d86993b6aafed07f73e202cb8c0c2db9bfc3b` (`no part on top, dnp`)  
 **Primary BOM:** `microconsole_hardware/MICROCONSOLE_BOM.csv`
 
 ---
@@ -56,7 +56,7 @@ Root hierarchical sheets:
 
 ## 2. Current validation state
 
-At source commit `58de74e`:
+At source commit `5e1d869`:
 
 ```text
 ERC:
@@ -65,22 +65,22 @@ ERC:
 no ignored checks
 
 DRC:
-0 violations
+1 violation
 0 unconnected pads
 0 footprint errors
 no ignored checks
 ```
 
-A clean DRC does **not** mean the current USB-C connector selection is approved. `J2` remains intentionally deferred until the exact connector, matching symbol, and verified footprint are frozen.
+The one DRC violation is the known/deferred `J2` USB-C hole-clearance issue:
 
-### One manufacturing-flag check still required
+```text
+required hole clearance: 0.2500 mm
+actual clearance:        0.1847 mm
+```
 
-As of `58de74e`:
+`J2` remains intentionally deferred until the exact connector, matching symbol, and verified footprint are frozen.
 
-- `A2` is marked **DNP in the schematic**;
-- the `A2` PCB footprint instance does not yet carry the PCB `dnp` attribute.
-
-Before generating the final pick-and-place file, verify `A2` is also DNP on the PCB.
+All intended DNP flags are now present on both the schematic and PCB, including `A2`.
 
 ---
 
@@ -93,7 +93,27 @@ The board is deliberately split between:
 
 The Chinese PCB assembler should source and place the normal passives, semiconductors, ICs, ferrites, LEDs, MOSFETs, and—after it is frozen—the USB-C receptacle.
 
-The user will install the mechanical modules, controls, joysticks, speakers/connectors, and other through-hole specialty parts.
+The user will install the mechanical modules, controls, joysticks, speakers/connectors, and other specialty parts.
+
+### 3.0 Single-side factory assembly
+
+The current PCB is intentionally arranged for **single-side factory assembly on the bottom side**.
+
+At commit `5e1d869`:
+
+```text
+total PCB footprints:       115
+factory-populated:           90
+factory parts on B.Cu:       90
+factory parts on F.Cu:        0
+DNP/manual-install parts:    25
+```
+
+Therefore the PCB assembler only needs to stencil, place, and reflow the **bottom side**.
+
+The front side still contains DNP/manual-install footprints for the screen, controls, joysticks, speakers, power switch, and thermistor. These do not require factory placement and do not make this a two-sided assembly job.
+
+This single-side population strategy should be preserved unless a future revision has a strong electrical or mechanical reason to move a factory-populated part to F.Cu.
 
 ### 3.1 Factory-populated parts
 
@@ -851,7 +871,7 @@ Must exclude every DNP part.
 Before export, explicitly verify:
 
 ```text
-A2 is DNP on PCB
+A2 is DNP
 DS1 is DNP
 SW2-SW17 are DNP
 RV1 is DNP
@@ -859,6 +879,9 @@ SW19 is DNP
 U2 is DNP
 TH1 is DNP
 LS1-LS3 are DNP
+
+all non-DNP/factory footprints are on B.Cu
+no non-DNP/factory footprint exists on F.Cu
 ```
 
 ### Manual-assembly BOM
@@ -905,9 +928,16 @@ Then:
 
 J2 remains **factory-populated**, not DNP.
 
-### 18.2 A2 DNP propagation
+### 18.2 Single-side assembly preservation
 
-Ensure the Pico footprint itself carries the PCB DNP attribute before final CPL export.
+The current board has all factory-populated components on `B.Cu`.
+
+Before every manufacturing release:
+
+1. confirm the CPL contains only bottom-side placements;
+2. confirm no non-DNP footprint has migrated to `F.Cu`;
+3. confirm DNP/manual footprints remain excluded from factory placement;
+4. do not move factory parts to the front merely for cosmetic layout cleanup.
 
 ### 18.3 Mechanical prototype checks
 
@@ -940,8 +970,10 @@ Before generating the board-house package:
 - [ ] exact J2 MPN selected;
 - [ ] exact J2 footprint/symbol installed;
 - [ ] J2 mechanically checked;
-- [ ] A2 PCB footprint marked DNP;
+- [x] A2 PCB footprint marked DNP;
 - [ ] all intended manual parts still DNP;
+- [ ] all factory-populated parts are on B.Cu only;
+- [ ] factory CPL contains no F.Cu placements;
 - [ ] all intended SMT parts still populated;
 - [ ] ERC = 0 errors / 0 warnings;
 - [ ] DRC = 0 violations;
@@ -978,8 +1010,9 @@ The MicroConsole hardware has moved beyond architecture selection into **manufac
 
 Current state:
 
-- schematic complete enough to pass ERC with no errors or warnings;
-- PCB currently passes DRC with no violations;
+- schematic passes ERC with no errors or warnings;
+- PCB has one known/deferred J2 hole-clearance DRC violation and otherwise has no unconnected pads or footprint errors;
+- all factory-populated components are on B.Cu, enabling single-side PCB assembly;
 - fixed resistors standardized to 0603;
 - capacitor families frozen;
 - major ICs and semiconductors frozen;
@@ -993,7 +1026,7 @@ The next hardware milestone is:
 
 ```text
 freeze J2
-→ verify DNP/CPL behavior
+→ verify bottom-side-only factory CPL
 → generate factory BOM + CPL + Gerbers/drills
 → review manufacturing package
 → prototype order
