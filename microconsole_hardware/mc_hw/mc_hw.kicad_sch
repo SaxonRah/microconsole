@@ -3871,7 +3871,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf"
+		(property "Datasheet" "https://shop.pimoroni.com/products/pimoroni-pico-plus-2"
 			(at 204.47 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -3894,6 +3894,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 204.47 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "PIM724"
+			(at 204.47 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Pimoroni"
 			(at 204.47 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -4670,6 +4692,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 215.9 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MSP4021"
+			(at 215.9 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "LCDWIKI"
 			(at 215.9 243.84 0)
 			(hide yes)
 			(show_name no)

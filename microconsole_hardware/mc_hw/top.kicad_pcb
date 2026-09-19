@@ -929,12 +929,6 @@
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/e851b8b4-6cd8-41c4-9738-4d0064bd821e")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "VCC" "Horizontal" "GND" "Vertical" "Select")
-			)
-		)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -16.5 -1)
@@ -1198,7 +1192,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -15.6)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1208,7 +1202,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -11)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1251,7 +1245,7 @@
 		(pad "GND" thru_hole circle
 			(at -9.6 -15.6)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1290,7 +1284,7 @@
 		(pad "Select" thru_hole circle
 			(at -9.6 -11)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GPIO17 {slash} Right Stick")
@@ -1453,12 +1447,6 @@
 		(path "/adf9b4c7-5a8e-47d3-8a4f-7ca4793a2375/c4f336fd-0d88-410b-a1b0-f37b7b67af7d")
 		(sheetname "/Buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "VCC" "Horizontal" "GND" "Vertical" "Select")
-			)
-		)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -16.5 -1)
@@ -1722,7 +1710,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -15.6)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1732,7 +1720,7 @@
 		(pad "" thru_hole circle
 			(at -3.25 -11)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(solder_mask_margin 0.1016)
@@ -1775,7 +1763,7 @@
 		(pad "GND" thru_hole circle
 			(at -9.6 -15.6)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
@@ -1814,7 +1802,7 @@
 		(pad "Select" thru_hole circle
 			(at -9.6 -11)
 			(size 1.778 1.778)
-			(drill 1)
+			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GPIO16 {slash} Left Stick")
@@ -24422,7 +24410,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
+			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -24502,7 +24490,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
+			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -24704,7 +24692,7 @@
 			)
 		)
 		(group ""
-			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
+			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
 			(members "007b7bea-975b-4116-b1ce-eefcef40a2d3" "00b4a254-0f23-4b4b-82f7-3722775ba35a"
 				"0272e062-948a-4c2d-9da6-3cd3c1baf6b2" "055db90f-d389-4c75-b723-214f273d9514"
 				"0607c010-9585-4fb6-8ddb-71bcb3335aa8" "09d03c09-2151-4709-ad86-aa3826e2c9c7"
@@ -24749,7 +24737,7 @@
 			)
 		)
 		(group ""
-			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
+			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
 			(members "01156259-06e3-4c28-9964-24187b67e9a3" "70f3c871-ee22-42f9-870d-4f5af36cff16")
 		)
 		(group ""
