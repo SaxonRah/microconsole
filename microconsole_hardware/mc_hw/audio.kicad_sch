@@ -6073,6 +6073,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 29.21 36.83 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 29.21 36.83 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a93a406d-7c46-44c9-bfb9-5a1f1d8b8221")
 		)
@@ -6300,7 +6322,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 50.8 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -6311,7 +6333,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 56.642 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6321,7 +6343,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "5%"
 			(at 56.642 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6720,7 +6742,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 146.05 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -6776,6 +6798,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 135.89 180.34 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 135.89 180.34 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 135.89 180.34 90)
 			(hide yes)
 			(show_name no)
@@ -6963,7 +7007,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 104.14 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -7019,6 +7063,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 93.98 110.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 93.98 110.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 93.98 110.49 90)
 			(hide yes)
 			(show_name no)
@@ -7094,7 +7160,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 59.69 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -7150,6 +7216,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 49.53 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 49.53 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 49.53 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -7247,7 +7335,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 77.47 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -7258,7 +7346,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 78.74 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7268,7 +7356,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 78.74 50.8 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7538,7 +7626,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 87.63 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -7549,7 +7637,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 104.394 126.238 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7559,7 +7647,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 104.394 128.778 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7969,7 +8057,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 148.59 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -7980,7 +8068,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 153.67 183.134 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7990,7 +8078,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 153.67 184.912 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8408,7 +8496,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 50.8 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -8419,7 +8507,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 56.388 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8429,7 +8517,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "5%"
 			(at 56.388 66.04 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8559,7 +8647,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 190.5 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8570,7 +8658,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 191.77 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8580,7 +8668,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 191.77 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8704,7 +8792,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 55.88 184.15 0)
 			(hide yes)
 			(show_name no)
@@ -8715,7 +8803,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 66.294 188.722 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8725,7 +8813,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 66.548 186.944 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8973,7 +9061,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 97.79 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -9029,6 +9117,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 107.95 110.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 107.95 110.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 107.95 110.49 90)
 			(hide yes)
 			(show_name no)
@@ -9560,6 +9670,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 104.14 166.37 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 104.14 166.37 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c07d12f3-3f96-4417-98f3-5febaaaf3dfb")
 		)
@@ -9647,7 +9779,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 198.12 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -9658,7 +9790,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 180.086 115.062 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9668,7 +9800,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 180.086 112.522 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9770,7 +9902,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 55.88 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -9826,6 +9958,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 45.72 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 45.72 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 45.72 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -10323,7 +10477,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 110.49 176.53 0)
 			(hide yes)
 			(show_name no)
@@ -10334,7 +10488,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 99.314 174.244 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10344,7 +10498,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 103.632 174.244 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10499,6 +10653,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 121.92 41.91 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 121.92 41.91 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "14b638be-4a1c-4479-99cf-2a7350e17d79")
 		)
@@ -10586,7 +10762,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 104.14 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -10597,7 +10773,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 105.664 81.28 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10607,7 +10783,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 105.664 83.82 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10768,6 +10944,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 184.15 43.18 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 184.15 43.18 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f8f98e93-4e4a-4cc3-b8e3-290fca9cdb42")
 		)
@@ -10888,6 +11086,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 210.82 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 210.82 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fe3a78da-c1f7-446b-8ad0-85f6a74b5d1a")
 		)
@@ -10953,7 +11173,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 179.07 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -11009,6 +11229,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 168.91 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 168.91 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 168.91 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -11285,7 +11527,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 113.03 127 0)
 			(hide yes)
 			(show_name no)
@@ -11296,7 +11538,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 123.444 131.318 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11306,7 +11548,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 123.698 129.54 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11978,7 +12220,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11989,7 +12231,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "50V"
 			(at 97.79 184.15 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11999,7 +12241,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 97.79 186.69 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12269,7 +12511,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 53.34 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -12280,7 +12522,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 70.104 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12290,7 +12532,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 70.104 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12441,6 +12683,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 34.29 73.66 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 34.29 73.66 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
 			(at 34.29 73.66 90)
 			(hide yes)
 			(show_name no)

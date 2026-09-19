@@ -4279,6 +4279,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 220.98 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 220.98 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b95b208e-cae4-47c5-80cf-7e96ce30838a")
 		)
@@ -4389,6 +4411,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 179.07 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 179.07 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
 			(at 179.07 222.25 0)
 			(hide yes)
 			(show_name no)
@@ -4826,7 +4870,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 220.98 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -4882,6 +4926,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 220.98 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 220.98 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 220.98 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -4957,7 +5023,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 184.15 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -5013,6 +5079,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 173.99 220.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 173.99 220.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 173.99 220.98 90)
 			(hide yes)
 			(show_name no)
@@ -5141,6 +5229,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 190.5 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 190.5 63.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "52500180-5280-44f2-a52c-0aad36c88ede")
 		)
@@ -5205,7 +5315,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 190.5 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -5261,6 +5371,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 190.5 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 190.5 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 190.5 54.61 0)
 			(hide yes)
 			(show_name no)

@@ -6427,6 +6427,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 143.51 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 143.51 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b074127f-2f31-4445-b51b-a778c1c5cdb4")
 		)
@@ -6689,6 +6711,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 229.87 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 229.87 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cf42bd26-98d1-4a1e-9686-d61ef7f6ca7e")
 		)
@@ -6891,7 +6935,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 259.08 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -6947,6 +6991,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 248.92 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 248.92 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 248.92 31.75 90)
 			(hide yes)
 			(show_name no)
@@ -7847,7 +7913,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/presales_AVX-1206ZD106KAT2A_C597553.html"
+		(property "Datasheet" ""
 			(at 72.39 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -7903,6 +7969,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 62.23 165.1 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 62.23 165.1 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "10V"
 			(at 62.23 165.1 90)
 			(hide yes)
 			(show_name no)
@@ -8000,7 +8088,7 @@
 				)
 			)
 		)
-		(property "PROD_ID" "CAP-11624"
+		(property "PROD_ID" ""
 			(at 205.74 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -8011,7 +8099,7 @@
 				)
 			)
 		)
-		(property "Voltage" "25V"
+		(property "Voltage" "16V"
 			(at 215.138 46.482 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8021,7 +8109,7 @@
 				)
 			)
 		)
-		(property "Tolerance" "20%"
+		(property "Tolerance" "10%"
 			(at 215.138 49.022 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8169,6 +8257,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 143.51 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 143.51 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
 			(at 143.51 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -9076,6 +9186,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 240.03 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 240.03 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
 			(at 240.03 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -10261,6 +10393,28 @@
 				)
 			)
 		)
+		(property "Tolerance" "10%"
+			(at 67.31 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
+			(at 67.31 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f4685582-1067-44aa-9a57-16fd49432f19")
 		)
@@ -10509,6 +10663,28 @@
 			)
 		)
 		(property "Power" ""
+			(at 240.03 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "10%"
+			(at 240.03 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50V"
 			(at 240.03 67.31 0)
 			(hide yes)
 			(show_name no)
