@@ -2773,7 +2773,9 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+			)
+			(symbol "S2B-PH-K-S_1_1"
+				(pin passive line
 					(at -5.08 1.27 0)
 					(length 2.54)
 					(name "1"
@@ -2791,7 +2793,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -5.08 -1.27 0)
 					(length 2.54)
 					(name "2"
@@ -3113,6 +3115,12 @@
 		(uuid "56d63ff2-63fc-4966-8aa6-2c7888894735")
 	)
 	(junction
+		(at 204.47 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5abdbee6-7440-4174-a095-d76e463ddfd3")
+	)
+	(junction
 		(at 67.31 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3153,12 +3161,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d6114511-2c6e-4daf-beed-2554a96d0f46")
-	)
-	(junction
-		(at 204.47 113.03)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e062402f-2644-4d32-a869-67c42453ed02")
 	)
 	(no_connect
 		(at 109.22 50.8)
@@ -3326,16 +3328,6 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 121.92) (xy 204.47 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a672be5-b860-4615-ba8d-ed082ed66369")
-	)
-	(wire
-		(pts
 			(xy 173.99 49.53) (xy 173.99 48.26)
 		)
 		(stroke
@@ -3426,6 +3418,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 113.03) (xy 218.44 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6aa56b33-5a40-4374-8a5e-66b1bfbbafd1")
+	)
+	(wire
+		(pts
 			(xy 191.77 60.96) (xy 201.93 60.96)
 		)
 		(stroke
@@ -3433,16 +3435,6 @@
 			(type default)
 		)
 		(uuid "73b40262-807f-45c0-b177-bb428aef5414")
-	)
-	(wire
-		(pts
-			(xy 204.47 113.03) (xy 218.44 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75cd7aa4-9382-457e-a5bb-a49468942196")
 	)
 	(wire
 		(pts
@@ -3513,6 +3505,16 @@
 			(type default)
 		)
 		(uuid "a4a006c3-09d4-4b99-a004-9d39c69ad203")
+	)
+	(wire
+		(pts
+			(xy 204.47 113.03) (xy 204.47 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5655481-3ff3-47fd-ac3d-389deb482fbf")
 	)
 	(wire
 		(pts
@@ -3626,6 +3628,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 124.46) (xy 204.47 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb47a3d8-2d60-433c-afbf-c06fa2862026")
+	)
+	(wire
+		(pts
 			(xy 173.99 38.1) (xy 173.99 40.64)
 		)
 		(stroke
@@ -3696,7 +3708,7 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 110.49) (xy 204.47 114.3)
+			(xy 204.47 110.49) (xy 204.47 113.03)
 		)
 		(stroke
 			(width 0)
@@ -4448,7 +4460,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 204.47 121.92 270)
+		(at 204.47 124.46 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4458,7 +4470,7 @@
 		)
 		(uuid "fa92748b-cd0c-44df-830a-0454287e2f8a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 204.47 128.7757 90)
+			(at 204.47 131.3157 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
