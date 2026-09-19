@@ -1,122 +1,234 @@
 Info: Processing symbol 'A2:project_parts:RaspberryPi_Pico_Common_Unspecified'.
+Info: Processing symbol 'LS2:project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm'.
+Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
+Info: Processing symbol 'C4:project_parts:C1206'.
+Info: Processing symbol 'LS3:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
+Info: Processing symbol 'C5:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R16:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C7:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'Q1:Package_TO_SOT_SMD:SOT-23'.
+Info: Processing symbol 'C8:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'Q2:Package_TO_SOT_SMD:SOT-23'.
+Info: Processing symbol 'C9:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R3:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C10:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R4:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C11:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R5:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C12:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R6:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C13:project_parts:C1206'.
+Info: Processing symbol 'R7:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C14:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R8:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C15:project_parts:C1206'.
+Info: Processing symbol 'R9:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C16:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R11:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C17:project_parts:C1206'.
+Info: Processing symbol 'R12:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C18:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R13:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C19:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R14:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C22:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R15:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C23:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R17:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C26:project_parts:C1206'.
+Info: Processing symbol 'R18:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C27:project_parts:C1206'.
+Info: Processing symbol 'R19:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C28:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R20:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C29:project_parts:C1206'.
+Info: Processing symbol 'R21:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C31:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R22:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C32:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R23:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C33:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R24:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C34:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R25:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C35:project_parts:C1206'.
+Info: Processing symbol 'R26:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C36:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R27:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C37:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R28:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C38:project_parts:C1206'.
+Info: Processing symbol 'R29:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C39:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'R30:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C40:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R31:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C41:project_parts:C1206'.
+Info: Processing symbol 'SW12:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C44:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R32:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C45:project_parts:C1206'.
+Info: Processing symbol 'R33:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C46:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'R45:Resistor_SMD:R_0603_1608Metric'.
+Info: Processing symbol 'C47:project_parts:C1206'.
+Info: Processing symbol 'RV1:project_parts:PTV09A2015FB103'.
+Info: Processing symbol 'C48:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'SW2:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C49:project_parts:C1206'.
+Info: Processing symbol 'SW3:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C50:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'SW4:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C51:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
+Info: Processing symbol 'SW5:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C59:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'SW6:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C72:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'SW7:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'C73:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'SW8:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'D1:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW9:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'D2:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'SW10:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'D3:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'SW11:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'D4:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'SW13:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'D5:Package_TO_SOT_SMD:SOT-23'.
+Info: Processing symbol 'SW14:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'DS1:project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm'.
+Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
+Info: Processing symbol 'FB1:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
+Info: Processing symbol 'FB4:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
+Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
+Info: Processing symbol 'J2:Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A'.
 Info: Processing symbol 'SW19:PCM_SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm'.
 Info: Processing symbol 'TH1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical'.
 Info: Processing symbol 'U1:PCM_SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm'.
-Info: Processing symbol 'C4:project_parts:C1206'.
-Info: Processing symbol 'C5:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C7:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C8:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C9:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C10:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C11:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C12:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C13:project_parts:C1206'.
-Info: Processing symbol 'C14:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C15:project_parts:C1206'.
-Info: Processing symbol 'C16:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C17:project_parts:C1206'.
-Info: Processing symbol 'C18:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C19:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C22:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C23:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C26:project_parts:C1206'.
-Info: Processing symbol 'C27:project_parts:C1206'.
-Info: Processing symbol 'C28:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C29:project_parts:C1206'.
-Info: Processing symbol 'C31:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C32:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C33:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C34:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C35:project_parts:C1206'.
-Info: Processing symbol 'C36:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C37:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C38:project_parts:C1206'.
-Info: Processing symbol 'C39:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C40:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C41:project_parts:C1206'.
-Info: Processing symbol 'C44:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C45:project_parts:C1206'.
-Info: Processing symbol 'C46:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C47:project_parts:C1206'.
-Info: Processing symbol 'C48:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C49:project_parts:C1206'.
-Info: Processing symbol 'C50:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C51:project_parts:C_0805_2012Metric_KEMET_IPC-B'.
-Info: Processing symbol 'C59:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C72:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'C73:Capacitor_SMD:C_0805_2012Metric'.
-Info: Processing symbol 'D1:Diode_SMD:Nexperia_CFP3_SOD-123W'.
-Info: Processing symbol 'D2:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
-Info: Processing symbol 'D3:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
-Info: Processing symbol 'D4:LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
-Info: Processing symbol 'D5:Package_TO_SOT_SMD:SOT-23'.
-Info: Processing symbol 'DS1:project_parts:LCD_MSP4021_4.0in_SPI_ST7796_1x14_P2.54mm'.
-Info: Processing symbol 'FB1:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
-Info: Processing symbol 'FB4:Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder'.
-Info: Processing symbol 'J2:Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A'.
 Info: Processing symbol 'U2:project_parts:CONN-TH_S2B-PH-K-S-LF-SN'.
 Info: Processing symbol 'U3:project_parts:SOIC-28_L18.0-W7.5-P1.27-LS10.3-BL'.
 Info: Processing symbol 'U4:project_parts:TSSOP-16_L5.0-W4.4-P0.65-LS6.4-BL'.
 Info: Processing symbol 'U5:project_parts:TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL'.
-Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
-Info: Processing symbol 'U7:project_parts:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL'.
 Info: Processing symbol 'LS1:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
-Info: Processing symbol 'LS2:project_parts:Speaker_WirePads_1x02_P3.50mm_D1.0mm'.
-Info: Processing symbol 'LS3:Connector_Molex:Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical'.
-Info: Processing symbol 'Q1:'.
-Info: Processing symbol 'Q2:'.
-Info: Processing symbol 'R3:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R4:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R5:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R6:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R7:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R8:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R9:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R11:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R12:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R13:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R14:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R15:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R16:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R17:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R18:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R19:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R20:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R21:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R22:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R23:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R24:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R25:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R26:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R27:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R28:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R29:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R30:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R31:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R32:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R33:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'R45:Resistor_SMD:R_0603_1608Metric'.
-Info: Processing symbol 'RV1:project_parts:PTV09A2015FB103'.
-Info: Processing symbol 'SW2:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW3:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW4:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW5:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW6:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW7:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW8:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW9:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW10:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW11:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW12:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW13:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW14:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW15:project_parts:KEY-SMD_4P-L6.0-W6.0-P4.50-LS10.0'.
-Info: Processing symbol 'SW16:project_parts:GINFULL HallEffect Joystick PTH'.
-Info: Processing symbol 'SW17:project_parts:GINFULL HallEffect Joystick PTH'.
-Changed A2 footprint from 'Module:RaspberryPi_Pico_Common_Unspecified' to 'project_parts:RaspberryPi_Pico_Common_Unspecified'.
-Changed A2 value from RaspberryPi_Pico to Pimoroni Pico Plus 2.
+Info: Processing symbol 'U6:project_parts:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL'.
+Updated A2 fields.
 Updated A2 unit metadata.
-Updated U2 unit metadata.
+Updated C4 fields.
+Updated C5 fields.
+Updated C7 fields.
+Updated C8 fields.
+Updated C9 fields.
+Updated C10 fields.
+Updated C11 fields.
+Updated C12 fields.
+Updated C13 fields.
+Updated C14 fields.
+Updated C15 fields.
+Updated C16 fields.
+Updated C17 fields.
+Updated C18 fields.
+Updated C19 fields.
+Updated C22 fields.
+Updated C23 fields.
+Updated C26 fields.
+Updated C27 fields.
+Updated C28 fields.
+Updated C29 fields.
+Updated C31 fields.
+Updated C32 fields.
+Updated C33 fields.
+Updated C34 fields.
+Updated C35 fields.
+Updated C36 fields.
+Updated C37 fields.
+Updated C38 fields.
+Updated C39 fields.
+Updated C40 fields.
+Updated C41 fields.
+Updated C44 fields.
+Updated C45 fields.
+Updated C46 fields.
+Updated C47 fields.
+Updated C48 fields.
+Updated C49 fields.
+Updated C50 fields.
+Updated C51 fields.
+Updated C59 fields.
+Updated C72 fields.
+Updated C73 fields.
+Updated D1 fields.
+Updated D2 fields.
+Updated D3 fields.
+Updated D4 fields.
+Updated D5 fields.
+Updated DS1 fields.
+Updated FB1 fields.
+Updated FB4 fields.
+Updated J2 fields.
+Updated R29 fields.
+Updated U5 fields.
+Updated R15 fields.
+Updated U6 fields.
+Updated R30 fields.
+Updated U7 fields.
+Updated LS1 fields.
+Updated LS2 fields.
+Updated LS3 fields.
+Updated R16 fields.
+Updated R4 fields.
+Updated R32 fields.
+Updated R17 fields.
+Updated R33 fields.
+Updated R8 fields.
+Updated R45 fields.
+Updated R18 fields.
+Updated RV1 fields.
+Updated Q1 fields.
+Updated SW2 fields.
+Updated R19 fields.
+Updated SW3 fields.
+Updated R9 fields.
+Updated SW4 fields.
+Updated R20 fields.
+Updated SW5 fields.
+Updated R5 fields.
+Updated SW6 fields.
+Updated R21 fields.
+Updated SW7 fields.
+Updated R11 fields.
+Updated SW8 fields.
+Updated R22 fields.
+Updated SW9 fields.
+Updated R3 fields.
+Updated SW10 fields.
+Updated R23 fields.
+Updated SW11 fields.
+Updated R31 fields.
+Updated SW12 fields.
+Updated R12 fields.
+Updated SW13 fields.
+Updated R24 fields.
+Updated SW14 fields.
+Updated R6 fields.
+Updated SW15 fields.
+Updated R25 fields.
+Updated SW16 fields.
+Updated R13 fields.
+Updated SW17 fields.
+Updated R26 fields.
+Updated SW19 fields.
+Updated Q2 fields.
+Updated TH1 fields.
+Updated R27 fields.
+Updated U1 fields.
+Updated R14 fields.
+Updated U2 fields.
+Updated R28 fields.
+Updated U3 fields.
+Updated R7 fields.
+Updated U4 fields.
 Warning: No net found for component J2 pad B7 (no pin B7 in symbol).
 Warning: No net found for component J2 pad A8 (no pin A8 in symbol).
 Warning: No net found for component J2 pad A7 (no pin A7 in symbol).

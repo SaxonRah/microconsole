@@ -3048,7 +3048,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.diodes.com/datasheet/download/DMP2035U.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7262,7 +7262,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.diodes.com/datasheet/download/DMP2035U.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -9580,6 +9580,12 @@
 		(path "/1a1f5339-d8f7-4e0d-9eaf-95ca89a6e02d/df45b9ce-4aac-4622-a92f-1cfad569d5a6")
 		(sheetname "/Audio/")
 		(sheetfile "audio.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2" "3" "4" "5")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -18444,15 +18450,6 @@
 		(path "/522fdc1a-5064-4a45-ac3e-a627e0eb3774/3e0eea39-3c72-4ef4-ae73-f58c9960b679")
 		(sheetname "/PicoScreen/")
 		(sheetfile "mc_hw.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "30" "37" "1" "2" "4" "5" "6" "7" "9" "10" "11" "12" "14" "15"
-					"16" "17" "19" "20" "39" "40" "3" "23" "28" "18" "13" "38" "8" "36"
-					"21" "22" "24" "25" "26" "27" "29" "35" "31" "32" "34" "33"
-				)
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -21948,7 +21945,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
+			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -21988,7 +21985,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
+			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
 			(name "Pad Keep Out D3")
 			(hatch full 0.5)
 			(connect_pads
@@ -22028,7 +22025,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "65388a8b-970f-43b1-a58d-4a654c83ae11")
+			(uuid "208993f6-6cdf-42a1-b8b9-cb194d3e6f5a")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -22068,7 +22065,7 @@
 		)
 		(zone
 			(layers "B.Cu" "B.Paste")
-			(uuid "331d04ee-4f5e-4a81-b978-d43049d63285")
+			(uuid "4a25c7cf-ac24-4c41-a2e4-1a102389f82b")
 			(name "Pad Keep Out D1")
 			(hatch full 0.5)
 			(connect_pads
@@ -22230,7 +22227,7 @@
 			)
 		)
 		(group ""
-			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
+			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
 			(members "007b7bea-975b-4116-b1ce-eefcef40a2d3" "00b4a254-0f23-4b4b-82f7-3722775ba35a"
 				"0272e062-948a-4c2d-9da6-3cd3c1baf6b2" "055db90f-d389-4c75-b723-214f273d9514"
 				"0607c010-9585-4fb6-8ddb-71bcb3335aa8" "09d03c09-2151-4709-ad86-aa3826e2c9c7"
@@ -22275,7 +22272,7 @@
 			)
 		)
 		(group ""
-			(uuid "390debd0-30f3-4fe9-b88f-fa1cafd2795a")
+			(uuid "ac59525c-b166-4be5-8f8e-a3619685e67a")
 			(members "01156259-06e3-4c28-9964-24187b67e9a3" "70f3c871-ee22-42f9-870d-4f5af36cff16")
 		)
 		(group ""

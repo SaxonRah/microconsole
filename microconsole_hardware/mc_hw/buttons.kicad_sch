@@ -6229,7 +6229,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6253,6 +6253,50 @@
 		)
 		(property "PROD_ID" "RES-07856"
 			(at 142.748 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 135.89 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 135.89 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 135.89 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 135.89 71.12 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6372,6 +6416,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 143.51 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b074127f-2f31-4445-b51b-a778c1c5cdb4")
 		)
@@ -6437,7 +6492,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDN0000/AOA0000C313.pdf"
+		(property "Datasheet" ""
 			(at 142.24 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -6461,6 +6516,50 @@
 		)
 		(property "PROD_ID" "RES-20715"
 			(at 149.098 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 142.24 172.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 142.24 172.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 142.24 172.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 142.24 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6569,6 +6668,17 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
+			(at 229.87 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
 			(at 229.87 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -6690,6 +6800,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 59.69 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 38.1 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6825,6 +6946,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 248.92 31.75 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "692fb776-ac45-4668-894d-0a729d00da19")
 		)
@@ -6936,6 +7068,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 45.72 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 24.13 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7071,6 +7214,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 66.04 76.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "48bbcf4e-8b6f-4c46-afa0-999113ee0c4d")
 		)
@@ -7188,6 +7342,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 73.66 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 52.07 76.2 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7323,6 +7488,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 24.13 76.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "4c92bde5-dbb6-4667-96cf-98c21e073ee5")
 		)
@@ -7392,7 +7568,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 232.41 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -7416,6 +7592,50 @@
 		)
 		(property "PROD_ID" "RES-07856"
 			(at 239.268 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 232.41 90.17 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 232.41 90.17 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 232.41 90.17 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 232.41 90.17 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7536,6 +7756,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 87.63 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 66.04 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7671,6 +7902,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 62.23 165.1 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ec419193-9973-4b48-9ead-1ae73f2be3e3")
 		)
@@ -7789,6 +8031,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 207.01 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "62e68631-c67c-43bb-96b6-eb6ad97cc485")
 		)
@@ -7883,6 +8136,17 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
+			(at 143.51 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
 			(at 143.51 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -8013,6 +8277,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 38.1 154.94 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "a84c804d-74c0-417c-905d-3903dca4da4f")
 		)
@@ -8128,6 +8403,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 73.66 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 52.07 115.57 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8263,6 +8549,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 38.1 76.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "a15c7934-ce48-4f56-ad63-0015511c0ff5")
 		)
@@ -8346,6 +8643,17 @@
 		)
 		(property "Description" "Ferrite bead, small symbol"
 			(at 264.16 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 264.16 52.07 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8444,6 +8752,17 @@
 		)
 		(property "PROD_ID" "COMP-09744"
 			(at 143.51 127.508 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 143.51 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8585,6 +8904,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 38.1 27.94 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "0bd0687f-f5cd-4034-8fde-ab5703cb1213")
 		)
@@ -8691,6 +9021,17 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
+			(at 240.03 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
 			(at 240.03 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -8820,6 +9161,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 175.26 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "13"
 			(uuid "911d3ee4-1b46-461f-b0bc-647ea86987fd")
 		)
@@ -8925,7 +9277,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 232.41 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -8949,6 +9301,50 @@
 		)
 		(property "PROD_ID" "RES-07856"
 			(at 239.268 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 232.41 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 232.41 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 232.41 71.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 232.41 71.12 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9069,6 +9465,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 87.63 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 66.04 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9204,6 +9611,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 24.13 154.94 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "e7d29f90-3399-40a4-a74c-e89077a74b60")
 		)
@@ -9273,7 +9691,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+		(property "Datasheet" ""
 			(at 135.89 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -9297,6 +9715,50 @@
 		)
 		(property "PROD_ID" "RES-07856"
 			(at 142.748 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-071KL"
+			(at 135.89 88.9 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 135.89 88.9 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" "0.1W"
+			(at 135.89 88.9 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "1%"
+			(at 135.89 88.9 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9416,6 +9878,17 @@
 		)
 		(property "LCSC Part" "C47023"
 			(at 118.11 198.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 118.11 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9600,6 +10073,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 240.03 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "GND"
 			(uuid "2b7a32f4-815c-40b8-affb-10b1c03c4e66")
 		)
@@ -9712,6 +10196,17 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
+			(at 67.31 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
 			(at 67.31 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -9842,6 +10337,17 @@
 				)
 			)
 		)
+		(property "Power" ""
+			(at 24.13 115.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "9c5f61ea-9f16-44ab-b638-43187ce02c17")
 		)
@@ -9948,6 +10454,17 @@
 			)
 		)
 		(property "Manufacturer" "KEMET"
+			(at 240.03 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
 			(at 240.03 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -10069,6 +10586,17 @@
 		)
 		(property "LCSC Part" "C273526"
 			(at 73.66 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Power" ""
+			(at 52.07 27.94 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
