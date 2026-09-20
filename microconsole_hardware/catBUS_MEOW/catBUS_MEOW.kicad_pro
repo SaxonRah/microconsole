@@ -539,7 +539,7 @@
       "netlist": "",
       "plot": "export/",
       "specctra_dsn": "",
-      "step": "top_board.step",
+      "step": "catBUS_MEOW.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

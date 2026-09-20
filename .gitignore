@@ -26,3 +26,4 @@ microconsole_hardware/mc_hw/mc_hw.kicad_prl
 *.kicad_prl
 /build
 /games/ballet_demo
+catBUS_Book_Writing_Guide.md
