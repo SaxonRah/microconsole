@@ -37,7 +37,8 @@ int mc_fd_pico_fs_ready(void);
 int mc_fd_pico_fs_probe_wad(void);
 
 #define MC_FD_WAD_CFG_PATH "MCWAD.CFG"
-#define MC_FD_WAD_DEFAULT  "doom.wad"
+#define MC_FD_WAD_DIR      "WADS"
+#define MC_FD_WAD_DEFAULT  "WADS/doom.wad"
 
 typedef struct mc_fd_wad_config_s
 {
@@ -95,6 +96,14 @@ static int mc_fd_wad_ends_with_ci(const char *text, const char *suffix)
  * Known official expansions have a required base IWAD. Do not inherit
  * whichever base happened to be selected previously.
  */
+static const char *mc_fd_wad_basename(const char *path)
+{
+    const char *slash;
+    if (!path) return "";
+    slash = strrchr(path, '/');
+    return slash ? slash + 1 : path;
+}
+
 static int mc_fd_wad_string_equal_ci(const char *a, const char *b)
 {
     if (!a || !b)
@@ -113,13 +122,14 @@ static int mc_fd_wad_string_equal_ci(const char *a, const char *b)
 
 static const char *mc_fd_wad_profile_base(const char *filename)
 {
+    filename = mc_fd_wad_basename(filename);
     if (mc_fd_wad_string_equal_ci(filename, "sigil.wad") ||
         mc_fd_wad_string_equal_ci(filename, "sigil2.wad"))
-        return "doomu.wad";
+        return "WADS/doomu.wad";
 
     if (mc_fd_wad_string_equal_ci(filename, "nerve.wad") ||
         mc_fd_wad_string_equal_ci(filename, "masterlevels.wad"))
-        return "doom2.wad";
+        return "WADS/doom2.wad";
 
     return NULL;
 }
@@ -141,51 +151,45 @@ static int mc_fd_wad_ensure_fs(void)
     return mc_fd_pico_fs_ready();
 }
 
+/* Store WAD selections as WADS/filename.wad paths, and accept either
+ * bare filenames or WADS/filename in serial commands / legacy MCWAD.CFG.
+ * This prevents arbitrary directory paths and parent traversal. */
 static int mc_fd_wad_make_filename(const char *request,
                                    char out[MC_FD_WAD_NAME_MAX])
 {
-    const char *begin;
-    const char *end;
-    size_t n;
-    size_t i;
-
-    if (!request)
-        return 0;
-
+    const char *begin, *end;
+    const size_t prefix_len = sizeof(MC_FD_WAD_DIR) - 1u;
+    size_t n, i;
+    if (!request) return 0;
     begin = request;
-    while (*begin == ' ' || *begin == '\t')
-        ++begin;
-
+    while (*begin == ' ' || *begin == '\t') ++begin;
     end = begin + strlen(begin);
-    while (end > begin &&
-           (end[-1] == ' ' || end[-1] == '\t' ||
-            end[-1] == '\r' || end[-1] == '\n'))
-        --end;
-
+    while (end > begin && (end[-1] == ' ' || end[-1] == '\t' ||
+                           end[-1] == '\r' || end[-1] == '\n')) --end;
     n = (size_t)(end - begin);
-    if (n == 0u || n >= MC_FD_WAD_NAME_MAX - 4u)
+    if (n > prefix_len + 1u &&
+        (begin[prefix_len] == '/' || begin[prefix_len] == '\\')) {
+        size_t j;
+        for (j = 0; j < prefix_len; ++j)
+            if (!mc_fd_wad_equal_ci(begin[j], MC_FD_WAD_DIR[j])) break;
+        if (j == prefix_len) {
+            begin += prefix_len + 1u;
+            n -= prefix_len + 1u;
+        }
+    }
+    if (n == 0u || n + prefix_len + 1u + 4u >= MC_FD_WAD_NAME_MAX)
         return 0;
-
-    for (i = 0u; i < n; ++i)
-    {
+    memcpy(out, MC_FD_WAD_DIR "/", prefix_len + 1u);
+    for (i = 0u; i < n; ++i) {
         unsigned char c = (unsigned char)begin[i];
-
-        /*
-         * The shell selects files from the SD root only. Spaces are rejected
-         * because MCWAD.CFG intentionally uses whitespace-separated tokens.
-         */
-        if (c <= ' ' || c == '/' || c == '\\' || c == ':')
+        if (c <= ' ' || c == '/' || c == '\\' || c == ':' ||
+            c == '*' || c == '?' || c == '"' || c == '<' ||
+            c == '>' || c == '|')
             return 0;
-
-        out[i] = (char)c;
+        out[prefix_len + 1u + i] = (char)c;
     }
-    out[n] = '\0';
-
-    if (!mc_fd_wad_ends_with_ci(out, ".wad"))
-    {
-        strcat(out, ".wad");
-    }
-
+    out[prefix_len + 1u + n] = '\0';
+    if (!mc_fd_wad_ends_with_ci(out, ".wad")) strcat(out, ".wad");
     return 1;
 }
 
@@ -303,8 +307,8 @@ static int mc_fd_wad_read_config(mc_fd_wad_config_t *cfg)
     memset(cfg, 0, sizeof(*cfg));
     cfg->state = state;
     cfg->mode = mode;
-    strcpy(cfg->selected, selected);
-    strcpy(cfg->base, base);
+    if (!mc_fd_wad_make_filename(selected, cfg->selected) ||
+        !mc_fd_wad_make_filename(base, cfg->base)) return 0;
     return 1;
 }
 
@@ -517,7 +521,7 @@ int mc_fd_pico_wad_list(void)
     if (!mc_fd_wad_ensure_fs())
         return -1;
 
-    fr = f_opendir(&dir, "");
+    fr = f_opendir(&dir, MC_FD_WAD_DIR);
     if (fr != FR_OK)
         return -1;
 
@@ -536,17 +540,19 @@ int mc_fd_pico_wad_list(void)
         if (!mc_fd_wad_ends_with_ci(info.fname, ".wad"))
             continue;
 
-        if (mc_fd_wad_probe(info.fname, &mode, &size))
+        char wadpath[MC_FD_WAD_NAME_MAX];
+        if (!mc_fd_wad_make_filename(info.fname, wadpath)) continue;
+        if (mc_fd_wad_probe(wadpath, &mode, &size))
         {
             printf("MCFDOOM1 wad_entry=%s type=%s size=%lu\n",
-                   info.fname,
+                   wadpath,
                    mode == 'I' ? "IWAD" : "PWAD",
                    (unsigned long)size);
         }
         else
         {
             printf("MCFDOOM1 wad_entry=%s type=UNKNOWN size=%lu\n",
-                   info.fname,
+                   wadpath,
                    (unsigned long)info.fsize);
         }
 
